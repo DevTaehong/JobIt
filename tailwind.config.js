@@ -9,6 +9,8 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+      darkMode: 'class',
+
     extend: {},
   },
   plugins: [],
