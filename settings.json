@@ -1,5 +1,5 @@
 "eslint.workingDirectories": [
-    "./layout.tsx",
-    "./page.tsx",
-    { "mode": "auto" }
+  "./layout.tsx",
+  "./page.tsx",
+  { "mode": "auto" }
   ];
