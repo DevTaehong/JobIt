@@ -17,8 +17,11 @@ export default function StateSwitch() {
             dispatch(setLight())
         }
     }
+
     useEffect(() => {
-        console.log(theme)
+        document.body.classList.toggle('light')
+        document.body.classList.toggle('dark')
+        document.body.classList.add(theme)
     }, [theme])
 
     return (
@@ -29,3 +32,7 @@ export default function StateSwitch() {
         </>
     );
 }
+
+{/* <div className="bg-zinc-950 dark:bg-white">
+    <StateSwitch />
+</div> */}
