@@ -1,8 +1,8 @@
 //
 export default function Home() {
   return (
-    <>
-      <h1>Jobit</h1>
-    </>
+    <div className="mt-6 pb-1 flex justify-center">
+      <h1 >Jobit</h1>
+    </div>
   );
 }
