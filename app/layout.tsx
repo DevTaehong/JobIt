@@ -1,7 +1,7 @@
 import React from "react";
 import "./globals.css";
 import type { Metadata } from "next";
-import ReduxProvider from "./context/ReduxProvider";
+import ReduxProvider from "../redux/ReduxProvider";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
@@ -15,7 +15,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-
     <html lang="en">
       <body>
         <ReduxProvider>
