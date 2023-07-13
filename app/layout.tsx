@@ -1,9 +1,8 @@
+import React from "react";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import ReduxProvider from "./context/ReduxProvider";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Jobit",
@@ -18,9 +17,10 @@ export default function RootLayout({
   return (
 
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <ReduxProvider>
           {children}
+          <Toaster />
         </ReduxProvider>
       </body>
     </html>
