@@ -1,41 +1,23 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import InputValidationExample from "@/components/InputValidationExample";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function Home() {
   const { toast } = useToast();
 
   return (
-    <>
-      <h1>Jobit</h1>
+    <div className="m-auto flex w-60 flex-col justify-items-center gap-4">
       {/* Just test for components */}
-      <Input type="email" placeholder="Email" />
-      <Button
-        type="submit"
-        className=" flex bg-green-700 px-4 py-2 text-white sm:px-8"
-        onClick={() => {
-          toast({
-            variant: "destructive",
-            title: "Uh oh! Something went wrong.",
-            description: "Thank You for subscribing to our Newsletter",
-          });
-        }}
-      >
-        Subscribe
-      </Button>
-      <Button
-        className=" flex bg-teal-500 px-4 py-2 text-white sm:px-8"
-        variant="outline"
-        onClick={() => {
-          toast({
-            description: "Your message has been sent.",
-          });
-        }}
-      >
-        Show Toast
-      </Button>
-    </>
+      <div className="flex items-center space-x-4">
+        <Skeleton className="h-12 w-12 rounded-full" />
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-[250px]" />
+          <Skeleton className="h-4 w-[200px]" />
+        </div>
+      </div>
+      <InputValidationExample />
+    </div>
   );
 }
