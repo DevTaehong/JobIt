@@ -1,4 +1,3 @@
-"use client";
 
 // import InputValidationExample from "@/components/InputValidationExample";
 // import { Skeleton } from "@/components/ui/skeleton";
