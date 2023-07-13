@@ -20,9 +20,12 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Invalid email address",
   }),
-  location: z.string().regex(/^[A-Za-z]+$/, {
-    message: "Invalid location. Only letters are allowed",
-  }),
+  location: z
+    .string()
+    .trim()
+    .regex(/^[A-Za-z ]+$/, {
+      message: "Invalid location. Only letters are allowed",
+    }),
 });
 
 const InputValidationExample = () => {
