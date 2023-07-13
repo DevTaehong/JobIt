@@ -19,14 +19,17 @@ export default function StateSwitch() {
     }
 
     useEffect(() => {
-        document.body.classList.toggle('light')
-        document.body.classList.toggle('dark')
+        document.body.classList.remove('light')
+        document.body.classList.remove('dark')
         document.body.classList.add(theme)
     }, [theme])
 
+
+
+    
     return (
         <>
-            <div className="flex items-center justify-center h-screen">
+            <div className="flex h-screen items-center justify-center">
                 <Switch onCheckedChange={swap}>test</Switch>
             </div>
         </>
