@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-//
-import StateSwitch from "@/components/ui/StateSwitch";
-
-export default function Home() {
-  return (
-    <>
-      <div className="bg-white dark:bg-zinc-950">
-        <StateSwitch />
-      </div>
-    </>
-=======
 import InputValidationExample from "@/components/InputValidationExample";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -26,6 +14,5 @@ export default function Home() {
       </div>
       <InputValidationExample />
     </div>
->>>>>>> main
   );
 }
