@@ -1,7 +1,3 @@
-
-// import InputValidationExample from "@/components/InputValidationExample";
-// import { Skeleton } from "@/components/ui/skeleton";
-
 import StateSwitch from "@/components/ui/StateSwitch";
 
 export default function Home() {
