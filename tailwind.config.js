@@ -9,12 +9,23 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+      colors: {
+        Black: "#000700",
+        Black1: "#171725",
+        Natural:"#92929D",
+        Natural2:"#f1f1f5",
+        Natural3:"#696974",
+        Natural4:"#fafafb",
+        Natural5:"#f5f5f8",
+        Natural6:"#e2e2ea",
+        PrimaryColor:"#0bab7c",
+        White:"#FFFFF",
+
+      },
+      fontFamily: {
+        Manrope: ["Manrope", "sans-sarif"]
+      },
     extend: {},
   },
   plugins: [],
-
-
-
-
-  
 };
