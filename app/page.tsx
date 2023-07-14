@@ -1,15 +1,10 @@
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-
+import StateSwitch from "@/components/ui/StateSwitch";
 
 export default function Home() {
   return (
-    <>
-      <h1 className="text-PrimaryColor">Jobit</h1>
-      {/* Just test for components */}
-      <Input type="email" placeholder="Email" />
-      <Button type="submit" className="flex pt-[12px] pb-[12px] pl-[14px] pr-[14px] bg-[#0BAB7C]">Subscribe</Button>
-    </>
+    <div className="m-auto flex w-60 flex-col justify-items-center gap-4">
+      <h1>Jobit</h1>
+      <StateSwitch />
+    </div>
   );
 }
