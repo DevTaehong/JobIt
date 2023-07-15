@@ -1,4 +1,4 @@
-import StateSwitch from "@/components/ui/StateSwitch";
+import StateSwitch from "@/components/StateSwitch";
 
 export default function Home() {
   return (
