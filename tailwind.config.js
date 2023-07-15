@@ -7,9 +7,6 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    
-      fontFamily: {
-        Manrope: ["Manrope", "sans-sarif"]
       },
     extend: {
       colors: {
@@ -32,6 +29,9 @@ module.exports = {
         White:"#FFFFFF",
         Black:"#171725"
          },
+
+         fontFamily: {
+          Manrope: ["Manrope", "sans-sarif"]
     },
   },
   plugins: [],
