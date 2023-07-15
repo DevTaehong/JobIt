@@ -7,10 +7,9 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-      },
     extend: {
       colors: {
-        Primary:"0BAB7C",
+        Primary:"#0BAB7C",
         Secondary1:"#C7F4C2",
         Secondary2:"#D7D0FF",
         Secondary3:"FDDD8C",
@@ -29,7 +28,8 @@ module.exports = {
         White:"#FFFFFF",
         Black:"#171725"
          },
-
+      },
+    
          fontFamily: {
           Manrope: ["Manrope", "sans-sarif"]
     },
