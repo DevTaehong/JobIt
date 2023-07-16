@@ -13,7 +13,7 @@ export default function Error({
 
     return(
         <div>
-            <h2 className="color:red text-align:center "  > Alert!!!!! You pressed the wrong button!!! </h2>
+            <h2 className="color:red text-align:center "> Alert!!!!! You pressed the wrong button!!! </h2>
             <button className ="color:red rounded bg-color:blue"> Press the right one</button>
         </div>
     )
