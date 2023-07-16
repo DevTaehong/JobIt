@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+"use client"
 
 export default function Error({
     error,
@@ -13,8 +14,8 @@ export default function Error({
 
     return(
         <div>
-            <h2 className="color:red text-align:center "> Alert!!!!! You pressed the wrong button!!! </h2>
-            <button className ="color:red rounded bg-color:blue"> Press the right one</button>
+            <h2 className="text-red content-center "> Alert!!!!! You pressed the wrong button!!! </h2>
+            <button className ="text:red rounded bg-color:blue" onClick ={() => reset()}> Press the right one</button>
         </div>
     )
 }
