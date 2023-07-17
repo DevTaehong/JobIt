@@ -5,7 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -26,11 +26,12 @@ module.exports = {
         DarkBG2: "#1C1C24",
         DarkBG3: "#21212B",
         White: "#FFFFFF",
-        Black: "#171725"
+        Black: "#171725",
       },
     },
     fontFamily: {
-      manrope: ['var(--font-manrope)'],
+      manrope: ["var(--font-manrope)"],
+      DMSans: ["var(--font-DM Sans)"],
     },
   },
   plugins: [],

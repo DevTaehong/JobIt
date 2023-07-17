@@ -1,31 +1,34 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <>
       <div>
         <nav>{/* <Navbar /> */}</nav>
-        <main className="w-auto">
+        <main className="w-auto font-manrope">
           {/* Heading */}
           <section>
-            <h1 className="pl-[5rem] pt-[7.5rem] font-[Manrope] text-2xl font-bold leading-10">
+            <h1 className="pl-[5rem] pt-[7.5rem] text-2xl font-bold leading-10 dark:leading-6 dark:text-Natural4 sm:text-[1.375rem] sm:leading-8">
               Welcome to the Job Search Platform for Developers
             </h1>
             {/* Date */}
-            <h2 className="pl-[5rem] pt-[.88rem] font-[Manrope] text-sm font-medium leading-8">
+            <h2 className="pl-[5rem] pt-[.88rem] text-sm font-medium leading-8">
               Date
             </h2>
           </section>
-          <div className="flex">
+          <div className="mx-[5.5rem] flex flex-row flex-wrap">
             {/* Latest Job Posts */}
-            <section className="mt-[2.19rem] w-2/3 pl-[5.25rem]">
+
+            <section className="mt-[2.19rem] w-full sm:w-2/3">
               <span className="flex items-center justify-between">
-                <h3 className="font-[Manrope] text-[1.375rem] font-bold leading-8">
+                <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
                   Latest Job Posts
                 </h3>
-                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] text-xs font-medium	 leading-6">
+                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] text-xs font-medium	 leading-6 text-Natural7 dark:border-DarkBG3 ">
                   See All
                 </button>
               </span>
-              <div className="mr-10 mt-[1.88rem] flex-row">
+              <div className="mr-10 mt-[1.88rem] flex-row ">
                 <div className="flex">
                   {/* Card One */}
                   <div className="mr-10"> Card One</div>
@@ -41,34 +44,45 @@ export default function Home() {
               </div>
             </section>
             {/* Recomended For You */}
-            <section className="mt-[2.19rem] w-1/3 pl-[2.5rem] pr-[4.75rem]">
+            <section className="order-last mt-[2.19rem] w-full sm:order-none sm:w-1/3">
               <span className="flex justify-between">
-                <h3 className="font-[Manrope] text-[1.375rem] font-bold leading-8">
+                <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
                   Recomended For You
                 </h3>
-                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] text-xs font-medium	 leading-6">
+                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] text-xs font-medium	 leading-6 text-Natural7 dark:border-DarkBG3 ">
                   See All
                 </button>
               </span>
               {/* Inline Job Cards */}
               <div></div>
             </section>
+            {/* Featured Compaines */}
+            <section className=" mt-10 w-full lg:w-1/3">
+              <span>
+                <h3 className=" text-2xl font-bold leading-10 dark:text-White">
+                  Featured Compaines
+                </h3>
+              </span>
+              <div className="mt-[1.25rem] flex gap-[2.25rem]">
+                <div>Feature</div>
+                <div>Feature</div>
+                <div>Feature</div>
+              </div>
+            </section>
           </div>
-          {/* Featured Compaines */}
-          <section className="ml-[5.25rem] mt-10">
-            <span>
-              <h3 className="font-[Manrope] text-2xl font-bold leading-10">
-                Featured Compaines
-              </h3>
-            </span>
-            <div className="mt-[1.25rem] flex gap-[2.25rem]">
-              <div>Feature</div>
-              <div>Feature</div>
-              <div>Feature</div>
-            </div>
-          </section>
         </main>
       </div>
     </>
   );
+}
+
+{
+  /* <div className="sm:hidden">
+                    <Image
+                      src="/iconography/cheveron.svg"
+                      alt=""
+                      width={16}
+                      height={16}
+                    />
+                  </div> */
 }
