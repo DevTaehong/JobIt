@@ -10,6 +10,7 @@ type Props = {
   jobDescription: string;
   salary: number | null;
   companyLogo: string;
+  jobSkills: string[] | null;
 };
 
 const JobCard = (props: Props) => {
@@ -26,18 +27,25 @@ const JobCard = (props: Props) => {
             />
           </div>
           <div className="flex flex-col pl-5">
-            <h1 className="text-lg font-semibold text-gray-900">
+            <h1 className=" text-lg font-semibold text-gray-900">
               {props.jobTitle}
             </h1>
-            <div className="inline-flex">
-              <p className="rounded bg-Natural3 px-2 py-1 text-Natural6">PHP</p>
+            <div className="flex gap-1">
+              {props.jobSkills &&
+                props.jobSkills.map((skill, index) => (
+                  <div className="flex" key={index}>
+                    <p className="justify-start rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
+                      {skill}
+                    </p>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
         <Image className="items-start" src={icMore} alt="More Icon" />
       </div>
       <div>
-        <p className="text-Natural7">{props.jobDescription}</p>
+        <p className="line-clamp-6 text-Natural7">{props.jobDescription}</p>
       </div>
       <div className="flex justify-between">
         <div className="flex justify-center rounded bg-Natural3 px-2 py-1 text-Natural6">
