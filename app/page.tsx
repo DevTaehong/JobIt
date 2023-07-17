@@ -1,10 +1,53 @@
-import StateSwitch from "@/components/StateSwitch";
 
 export default function Home() {
   return (
-    <div className="m-auto flex w-60 flex-col justify-items-center gap-4">
-      <h1>Jobit</h1>
-      <StateSwitch />
-    </div>
+    <>
+      <div>
+        {/* <Navbar /> */}
+        {/* Heading */}
+        <div>
+          <h1>Welcome to the Job Search Platform for Developers</h1>
+          {/* Date */}
+          <h2>Date</h2>
+        </div>
+        {/* Latest Job Posts */}
+        <div>
+          <span>
+            <h3>Latest Job Posts</h3>
+            <button>See All</button>
+          </span>
+          <div>
+            {/* Card One */}
+            <div></div>
+            {/* Card Two */}
+            <div></div>
+            {/* Card Three */}
+            <div></div>
+            {/* Card Four */}
+            <div></div>
+          </div>
+        </div>
+        {/* Recomended For You */}
+        <div>
+          <span>
+            <h3>Recomended For You</h3>
+            <button>See All</button>
+          </span>
+          {/* Inline Job Cards */}
+          <div>
+
+          </div>
+        </div>
+        {/* Featured Compaines */}
+        <div>
+          <span>
+            <h3>Featured Compaines</h3>
+          </span>
+          <div>
+
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
