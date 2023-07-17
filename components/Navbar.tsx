@@ -3,13 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import StateSwitch from "./StateSwitch";
 import { usePathname } from "next/navigation";
+import React from "react";
 
 const Navbar = () => {
-  const pathName = usePathname();
-
   return (
     <header>
-      <nav className="flex h-[4.375rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid border-Natural5 bg-White px-20 py-0 dark:border-DarkBG3 dark:bg-DarkBG1">
+      <nav className="flex h-[4.375rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid border-Natural5 bg-White px-20 py-0 font-manrope dark:border-DarkBG3 dark:bg-DarkBG1">
         <Link
           href="/"
           className="inline-flex items-center gap-[0.375rem] pb-0 pl-[0.125rem] pr-[0.0625rem] pt-[0.125rem]"
@@ -26,37 +25,15 @@ const Navbar = () => {
         <div className="flex w-auto">
           <ul className="flex gap-[1.875rem]">
             <li>
-              <Link
-                href="/"
-                className={`${
-                  pathName === "/" &&
-                  "border-b border-solid border-Primary text-Primary"
-                } px-0 py-[1.4375rem] font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary`}
-              >
-                Overview
-              </Link>
+              <NavBarLink href="/">Overview</NavBarLink>
             </li>
             <li>
-              <Link
-                href="/jobsearch"
-                className={`${
-                  pathName === "/jobsearch" &&
-                  "border-b border-solid border-Primary text-Primary"
-                } px-0 py-[1.4375rem] font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary`}
-              >
-                Job Search
-              </Link>
+              <NavBarLink href="/jobsearch">Job Search</NavBarLink>
             </li>
             <li>
-              <Link
-                href="/estimatedsalaries"
-                className={`${
-                  pathName === "/estimatedsalaries" &&
-                  "border-b border-solid border-Primary text-Primary"
-                } px-0 py-[1.4375rem] font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary`}
-              >
+              <NavBarLink href="/estimatedsalaries">
                 Estimated Salaries
-              </Link>
+              </NavBarLink>
             </li>
           </ul>
         </div>
@@ -80,5 +57,29 @@ const Navbar = () => {
     </header>
   );
 };
+
+function NavBarLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  const pathName = usePathname();
+
+  const selectedClass =
+    pathName === href
+      ? "border-b border-solid border-Primary text-Primary font-bold"
+      : "";
+
+  return (
+    <Link
+      href={href}
+      className={`${selectedClass} px-0 py-[1.4375rem] font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary`}
+    >
+      {children}
+    </Link>
+  );
+}
 
 export default Navbar;

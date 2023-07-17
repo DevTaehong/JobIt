@@ -21,8 +21,6 @@ export default function StateSwitch() {
 
   useEffect(() => {
     document.body.className = theme;
-    if (theme === "dark") document.body.style.backgroundColor = "#13131A";
-    else document.body.style.backgroundColor = "#FAFAFB";
   }, [theme]);
 
   return (
