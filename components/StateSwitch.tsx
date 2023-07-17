@@ -20,16 +20,13 @@ export default function StateSwitch() {
 
   useEffect(() => {
     document.body.className = theme;
-    // document.documentElement.style.colorScheme = theme;
     if (theme === "dark") document.body.style.backgroundColor = "#13131A";
     else document.body.style.backgroundColor = "#FAFAFB";
   }, [theme]);
 
   return (
-    <>
-      <div className="flex items-center justify-center">
-        <Switch onCheckedChange={swap} checked={theme === "dark"} />
-      </div>
-    </>
+    <div className="flex items-center justify-center">
+      <Switch onCheckedChange={swap} checked={theme === "dark"} />
+    </div>
   );
 }

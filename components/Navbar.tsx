@@ -1,11 +1,15 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import StateSwitch from "./StateSwitch";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathName = usePathname();
+
   return (
     <header>
-      <nav className="flex h-[4.375rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid border-Natural5 px-20 py-0">
+      <nav className="flex h-[4.375rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid border-Natural5 bg-White px-20 py-0 dark:border-DarkBG3 dark:bg-DarkBG1">
         <Link
           href="/"
           className="inline-flex items-center gap-[0.375rem] pb-0 pl-[0.125rem] pr-[0.0625rem] pt-[0.125rem]"
@@ -24,7 +28,10 @@ const Navbar = () => {
             <li>
               <Link
                 href="/"
-                className="font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary"
+                className={`${
+                  pathName === "/" &&
+                  "border-b border-solid border-Primary text-Primary"
+                } px-0 py-[1.4375rem] font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary`}
               >
                 Overview
               </Link>
@@ -32,7 +39,10 @@ const Navbar = () => {
             <li>
               <Link
                 href="/jobsearch"
-                className="font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary"
+                className={`${
+                  pathName === "/jobsearch" &&
+                  "border-b border-solid border-Primary text-Primary"
+                } px-0 py-[1.4375rem] font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary`}
               >
                 Job Search
               </Link>
@@ -40,7 +50,10 @@ const Navbar = () => {
             <li>
               <Link
                 href="/estimatedsalaries"
-                className="font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary"
+                className={`${
+                  pathName === "/estimatedsalaries" &&
+                  "border-b border-solid border-Primary text-Primary"
+                } px-0 py-[1.4375rem] font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary`}
               >
                 Estimated Salaries
               </Link>

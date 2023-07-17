@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import themeSlice from "./feature/theme/themeSlice";
-import storage from "redux-persist/lib/storage";
+import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 import {
   persistReducer,
   persistStore,
@@ -12,6 +12,28 @@ import {
   REGISTER,
 } from "redux-persist";
 
+// NOTE - Source: https://mightycoders.xyz/redux-persist-failed-to-create-sync-storage-falling-back-to-noop-storage
+// Regarding an error that occurs when using redux-persist with Next.js
+// The error was 'redux-persist failed to create sync storage. falling back to noop storage.'
+const createNoopStorage = () => {
+  return {
+    getItem(_key: any) {
+      return Promise.resolve(null);
+    },
+    setItem(_key: any, value: any) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key: any) {
+      return Promise.resolve();
+    },
+  };
+};
+
+const storage =
+  typeof window !== "undefined"
+    ? createWebStorage("local")
+    : createNoopStorage();
+
 const persistConfig = {
   key: "root",
   storage,
@@ -20,12 +42,15 @@ const persistConfig = {
 
 const reducer = combineReducers({
   theme: themeSlice,
+  // NOTE Add more reducers here if needed
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  // NOTE - Source: https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk (See "Use with Redux-Persist" section)
+  // NOTE - Source: https://www.youtube.com/watch?v=b88Z5POQBwI
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
