@@ -34,7 +34,9 @@ const JobCard = (props: Props) => {
       </div>
       <div className="flex items-center justify-between">
         <h3>$15k-20k/month</h3>
-        <Button>Visit Now</Button>
+        <Button className="h-12 w-24 items-center justify-center rounded-lg bg-Primary p-3">
+          Visit Now
+        </Button>
       </div>
     </div>
   );
