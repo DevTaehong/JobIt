@@ -6,12 +6,13 @@ export default function Home() {
         <nav>
           {/* <Navbar /> */}
         </nav>
-        <main>
+        <main className="flex w-full">
           {/* Heading */}
-          <div>
-            <h1>Welcome to the Job Search Platform for Developers</h1>
+          <div className="flex w-full flex-col">
+            <h1 className="pl-[5rem] pt-[7.5rem] font-[Manrope] text-2xl font-bold leading-10">Welcome to the Job Search Platform for Developers</h1>
             {/* Date */}
-            <h2>Date</h2>
+            <h2 className="pl-[5rem] pt-[.88rem] font-[Manrope] text-sm font-medium leading-8">Date</h2>
+
           </div>
           {/* Latest Job Posts */}
           <div>
