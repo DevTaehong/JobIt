@@ -6,7 +6,7 @@ export default function Home() {
         <nav>
           {/* <Navbar /> */}
         </nav>
-        <main className="flex w-full">
+        <main className="w-full flex-col">
           {/* Heading */}
           <div className="flex w-full flex-col">
             <h1 className="pl-[5rem] pt-[7.5rem] font-[Manrope] text-2xl font-bold leading-10">Welcome to the Job Search Platform for Developers</h1>
@@ -15,10 +15,10 @@ export default function Home() {
 
           </div>
           {/* Latest Job Posts */}
-          <div>
-            <span>
-              <h3>Latest Job Posts</h3>
-              <button>See All</button>
+          <div className="mt-[2.19rem] flex flex-col pl-[5.25rem]">
+            <span className="flex items-center justify-between lg:w-2/3">
+              <h3 className="gap-2 px-[.62rem] py-[.44rem] font-[Manrope] text-[1.375rem] font-bold leading-8">Latest Job Posts</h3>
+              <button className="flex ">See All</button>
             </span>
             <div>
               {/* Card One */}
