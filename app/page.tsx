@@ -3,50 +3,54 @@ export default function Home() {
   return (
     <>
       <div>
-        {/* <Navbar /> */}
-        {/* Heading */}
-        <div>
-          <h1>Welcome to the Job Search Platform for Developers</h1>
-          {/* Date */}
-          <h2>Date</h2>
-        </div>
-        {/* Latest Job Posts */}
-        <div>
-          <span>
-            <h3>Latest Job Posts</h3>
-            <button>See All</button>
-          </span>
+        <nav>
+          {/* <Navbar /> */}
+        </nav>
+        <main>
+          {/* Heading */}
           <div>
-            {/* Card One */}
-            <div></div>
-            {/* Card Two */}
-            <div></div>
-            {/* Card Three */}
-            <div></div>
-            {/* Card Four */}
-            <div></div>
+            <h1>Welcome to the Job Search Platform for Developers</h1>
+            {/* Date */}
+            <h2>Date</h2>
           </div>
-        </div>
-        {/* Recomended For You */}
-        <div>
-          <span>
-            <h3>Recomended For You</h3>
-            <button>See All</button>
-          </span>
-          {/* Inline Job Cards */}
+          {/* Latest Job Posts */}
           <div>
+            <span>
+              <h3>Latest Job Posts</h3>
+              <button>See All</button>
+            </span>
+            <div>
+              {/* Card One */}
+              <div> Card One</div>
+              {/* Card Two */}
+              <div>Card Two</div>
+              {/* Card Three */}
+              <div>Card Three</div>
+              {/* Card Four */}
+              <div>Card Four</div>
+            </div>
+          </div>
+          {/* Recomended For You */}
+          <div>
+            <span>
+              <h3>Recomended For You</h3>
+              <button>See All</button>
+            </span>
+            {/* Inline Job Cards */}
+            <div>
 
+            </div>
           </div>
-        </div>
-        {/* Featured Compaines */}
-        <div>
-          <span>
-            <h3>Featured Compaines</h3>
-          </span>
+          {/* Featured Compaines */}
           <div>
+            <span>
+              <h3>Featured Compaines</h3>
+            </span>
+            <div>
 
+            </div>
           </div>
-        </div>
+        </main>
       </div>
     </>
   );
