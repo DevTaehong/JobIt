@@ -70,12 +70,12 @@ function NavBarLink({
   const selectedClass =
     pathName === href
       ? "border-b border-solid border-Primary text-Primary font-bold"
-      : "";
+      : "font-medium";
 
   return (
     <Link
       href={href}
-      className={`${selectedClass} px-0 py-[1.4375rem] font-manrope text-base font-medium not-italic text-Natural6 hover:text-Primary`}
+      className={`${selectedClass} px-0 py-[1.4375rem] font-manrope text-base not-italic text-Natural6 hover:text-Primary`}
     >
       {children}
     </Link>
