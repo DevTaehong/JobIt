@@ -11,6 +11,7 @@ type ReduxProviderType = {
 function ReduxProvider({ children }: ReduxProviderType) {
   return (
     <Provider store={store}>
+      {/* // NOTE - Source: https://www.youtube.com/watch?v=b88Z5POQBwI */}
       <PersistGate loading={null} persistor={persistor}>
         {children}
       </PersistGate>
