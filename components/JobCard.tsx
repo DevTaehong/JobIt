@@ -56,7 +56,9 @@ const JobCard = (props: Props) => {
             </div>
           </div>
         </div>
-        <Image className="items-start" src={icMore} alt="More Icon" />
+        <div>
+          <Image className="" src={icMore} alt="More Icon" />
+        </div>
       </div>
       <div>
         <p className="line-clamp-6 text-Natural7">{props.jobDescription}</p>
