@@ -13,11 +13,13 @@ function NavBarLink({
   open: boolean;
 }) {
   const pathName = usePathname();
+
   const mobileNoBorderBottom = open ? "" : "border-b ";
   const mobileFontWeight400 = open ? "font-normal" : "";
 
   // when a user is on the current page, we want to highlight the link
   // on mobile, font is font-weight = 400, on desktop, font is font-weight = 500
+  // on mobile, green border-bottom is not shown, on desktop, green border-bottom is shown
   const selectedClass =
     pathName === href
       ? mobileNoBorderBottom +

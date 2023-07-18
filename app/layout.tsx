@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import ReduxProvider from "../redux/ReduxProvider";
 import { Toaster } from "@/components/ui/toaster";
-import Navbar from "@/components/Navbar";
+import NavBar from "@/components/Navbar";
 import { Manrope } from "next/font/google";
 
 const manrope = Manrope({
@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className={manrope.variable}>
       <body>
         <ReduxProvider>
-          <Navbar />
+          <NavBar />
           {children}
           <Toaster />
         </ReduxProvider>
