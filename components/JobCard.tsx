@@ -1,7 +1,6 @@
 import React from "react";
-import icMore from "@/public/static/iconography/ic_More.svg";
-import briefcase from "@/public/static/iconography/outline-briefcase.svg";
-// import companyLogo from "@/public/static/iconography/companyLogo-outline-property.svg";
+import icMore from "@/public/iconography/ic_More.svg";
+import briefcase from "@/public/iconography/outline-briefcase.svg";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
@@ -31,7 +30,7 @@ const JobCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.expirationDate);
 
   return (
-    <div className="font-manrope flex w-full flex-col gap-7 bg-white p-5">
+    <div className="flex w-full flex-col gap-7 bg-white p-5 font-manrope">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">
