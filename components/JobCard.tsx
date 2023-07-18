@@ -9,6 +9,7 @@ type Props = {
   jobTitle: string;
   jobDescription: string;
   salary: number | null;
+  salaryPeriod: string | null;
   companyLogo: string;
   jobSkills: string[] | null;
   employmentType: string;
@@ -16,6 +17,7 @@ type Props = {
 };
 
 const JobCard = (props: Props) => {
+  /* {Calculate Days left for job posting} */
   function calculateDaysLeft(expTime: number): number {
     const expDate = new Date(expTime * 1000); // Convert to milliseconds
     const currentDate = new Date();
@@ -29,6 +31,7 @@ const JobCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.expirationDate);
 
   return (
+    // Job logo & Title
     <div className="flex w-full flex-col gap-7 bg-white p-5 font-Manrope">
       <div className="flex justify-between">
         <div className="flex rounded">
@@ -44,6 +47,8 @@ const JobCard = (props: Props) => {
             <h1 className=" text-lg font-semibold text-gray-900">
               {props.jobTitle}
             </h1>
+
+            {/* Conditionally render skills */}
             <div className="flex gap-1">
               {props.jobSkills &&
                 props.jobSkills.map((skill, index) => (
@@ -58,9 +63,11 @@ const JobCard = (props: Props) => {
         </div>
         <Image className="items-start" src={icMore} alt="More Icon" />
       </div>
+
       <div>
         <p className="line-clamp-6 text-Natural7">{props.jobDescription}</p>
       </div>
+
       <div className="flex justify-between">
         <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
           <Image className="mr-2" src={briefcase} alt="logo" />
@@ -75,11 +82,13 @@ const JobCard = (props: Props) => {
           <p>{`${daysLeft} days left`}</p>
         </div>
       </div>
+
+      {/* Conditionally render salaries */}
       <div className="flex items-center justify-between">
         {props.salary && (
           <h3 className="text-black">
-            {props.salary}
-            <span className="text-Natural7">/month</span>
+            {`$${props.salary}/`}
+            <span className="text-Natural7">{props.salaryPeriod}</span>
           </h3>
         )}
         <Button className="h-12 w-24 items-center justify-center rounded-lg bg-Primary p-3">
