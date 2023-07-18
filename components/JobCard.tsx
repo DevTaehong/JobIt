@@ -22,7 +22,7 @@ const JobCard = (props: Props) => {
     const expDate = new Date(expTime * 1000); // Convert to milliseconds
     const currentDate = new Date();
 
-    const timeDiff = currentDate.getTime() - expDate.getTime();
+    const timeDiff =  expDate.getTime()-currentDate.getTime(;
     const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
     return daysLeft;
@@ -31,8 +31,7 @@ const JobCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.expirationDate);
 
   return (
-    // Job logo & Title
-    <div className="flex w-full flex-col gap-7 bg-white p-5 font-Manrope">
+    <div className="flex w-full flex-col gap-7 bg-white p-5 font-manrope">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">
@@ -61,7 +60,9 @@ const JobCard = (props: Props) => {
             </div>
           </div>
         </div>
-        <Image className="items-start" src={icMore} alt="More Icon" />
+        <div>
+          <Image className="" src={icMore} alt="More Icon" />
+        </div>
       </div>
 
       <div>
