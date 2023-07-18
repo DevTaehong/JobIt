@@ -14,9 +14,12 @@ export default function Error({
     }, [error])
 
     return(
-        <div className="content-center bg-Natural5 mx-auto w-[500px]">
-            <h1 className="text-black content-center text-xl bg-Primary"> Something Went Wrong </h1>
-            <button className ="text-red-600 rounded bg-blue-400" onClick ={() => reset()}> Reload Page</button>
+        <div className="outline content-center rounded bg-Natural5 my-32 mx-10 w-[500px] margin margin">
+            <div className="text-center">
+             <h1 className="text-black content-center text-xl bg-Natural5"> Something Went Wrong </h1>
+            <p>Please click below to refresh the page.</p>
+            <button className ="text-white rounded bg-Primary" onClick ={() => reset()}> Reload Page</button>
+        </div>
         </div>
     )
 }
