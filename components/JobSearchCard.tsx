@@ -31,7 +31,7 @@ const JobSearchCard = (props: Props) => {
   const postDate = calculatePostDate(props.postDate);
 
   return (
-    <div className="flex w-full flex-col gap-5 bg-white p-5 font-manrope">
+    <div className="flex w-auto flex-col gap-5 bg-white p-5 font-manrope">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">
@@ -74,14 +74,16 @@ const JobSearchCard = (props: Props) => {
       </div>
 
       {/* Conditionally render salaries */}
-      <div className="flex flex-col items-center justify-between sm:flex-row">
+      <div className="flex flex-col justify-between gap-7 sm:flex-row sm:items-center">
         {props.salary && (
-          <h3 className="text-black">
-            <span className="font-manrope text-lg font-semibold">{`$${props.salary}/`}</span>
-            <span className="font-sans text-lg text-Natural7">
-              {props.salaryPeriod?.toLowerCase()}
-            </span>
-          </h3>
+          <div className="flex justify-start">
+            <h3 className="text-black">
+              <span className="font-manrope text-lg font-semibold">{`$${props.salary}/`}</span>
+              <span className="font-sans text-lg text-Natural7">
+                {props.salaryPeriod?.toLowerCase()}
+              </span>
+            </h3>
+          </div>
         )}
         <div className="flex gap-5">
           <Button className="h-12 w-32 items-center justify-center rounded-lg bg-Natural4 p-3 text-Natural7">
