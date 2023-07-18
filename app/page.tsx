@@ -10,16 +10,16 @@ export default function Home() {
         <nav>{/* <Navbar /> */}</nav>
         <main className="w-auto font-manrope">
           {/* Heading */}
-          <section>
-            <h1 className="pl-[5rem] pt-[7.5rem] text-2xl font-bold leading-10 dark:leading-6 dark:text-Natural4 sm:text-[1.375rem] sm:leading-8">
+          <section className="mx-[1.5rem] sm:mx-[5.5rem]">
+            <h1 className="mt-[1.5rem] text-2xl font-bold leading-10 dark:leading-6 dark:text-Natural4 sm:mt-[3.13] sm:text-[1.375rem] sm:leading-8">
               Welcome to the Job Search Platform for Developers
             </h1>
             {/* Date */}
-            <h2 className="pl-[5rem] pt-[.88rem] text-sm font-medium leading-8">
+            <h2 className=" pt-[.88rem] text-sm font-medium leading-8 text-Natural6">
               {currentDate}
             </h2>
           </section>
-          <div className="mx-[5.5rem] flex flex-row flex-wrap">
+          <div className="mx-[1.5rem] flex flex-row flex-wrap sm:mx-[5.5rem]">
             {/* Latest Job Posts */}
 
             <section className="mt-[2.19rem] w-full sm:w-2/3">
@@ -56,7 +56,7 @@ export default function Home() {
             </section>
             {/* Recomended For You */}
             <section className="order-last mt-[2.19rem] w-full sm:order-none sm:w-1/3">
-              <span className="flex justify-between">
+              <span className="ml-0 flex justify-between sm:ml-10">
                 <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
                   Recomended For You
                 </h3>
@@ -73,7 +73,12 @@ export default function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div></div>
+              <div className="ml-0 flex-row gap-3 px-5 py-[1.31] sm:ml-10">
+                <div>Inline Job Card</div>
+                <div>Inline Job Card</div>
+                <div>Inline Job Card</div>
+                <div>Inline Job Card</div>
+              </div>
             </section>
             {/* Featured Compaines */}
             <section className=" mt-10 w-full lg:w-1/3">
