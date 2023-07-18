@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import ReduxProvider from "../redux/ReduxProvider";
 import { Toaster } from "@/components/ui/toaster";
-import Navbar from "@/components/Navbar";
+import NavBar from "@/components/NavBar";
 import { Manrope, DM_Sans } from "next/font/google"; // eslint-disable-line
 
 const manrope = Manrope({
@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en" className={(manrope.variable, dmSans.variable)}>
       <body>
         <ReduxProvider>
-          <Navbar />
+          <NavBar />
           {children}
           <Toaster />
         </ReduxProvider>
