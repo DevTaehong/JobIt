@@ -11,9 +11,23 @@ type Props = {
   salary: number | null;
   companyLogo: string;
   jobSkills: string[] | null;
+  employmentType: string;
+  expirationDate: number;
 };
 
 const JobCard = (props: Props) => {
+  function calculateDaysLeft(expTime: number): number {
+    const expDate = new Date(expTime * 1000); // Convert to milliseconds
+    const currentDate = new Date();
+
+    const timeDiff = currentDate.getTime() - expDate.getTime();
+    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+    return daysLeft;
+  }
+
+  const daysLeft = calculateDaysLeft(props.expirationDate);
+
   return (
     <div className="flex w-full flex-col gap-7 bg-white p-5 font-Manrope">
       <div className="flex justify-between">
@@ -48,17 +62,17 @@ const JobCard = (props: Props) => {
         <p className="line-clamp-6 text-Natural7">{props.jobDescription}</p>
       </div>
       <div className="flex justify-between">
-        <div className="flex justify-center rounded bg-Natural3 px-2 py-1 text-Natural6">
+        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
+          <Image className="mr-2" src={briefcase} alt="logo" />
+          <p>{props.employmentType}</p>
+        </div>
+        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
           <Image className="mr-2" src={briefcase} alt="logo" />
           <p>Full Time</p>
         </div>
-        <div className="flex justify-center rounded bg-Natural3 px-2 py-1 text-Natural6">
+        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
           <Image className="mr-2" src={briefcase} alt="logo" />
-          <p>Full Time</p>
-        </div>
-        <div className="flex justify-center rounded bg-Natural3 px-2 py-1 text-Natural6">
-          <Image className="mr-2" src={briefcase} alt="logo" />
-          <p>Full Time</p>
+          <p>{`${daysLeft} days left`}</p>
         </div>
       </div>
       <div className="flex items-center justify-between">
