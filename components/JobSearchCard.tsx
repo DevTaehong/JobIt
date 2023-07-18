@@ -15,7 +15,7 @@ type Props = {
   postDate: number;
 };
 
-const JobCard = (props: Props) => {
+const JobSearchCard = (props: Props) => {
   /* {Calculate Days left for job posting} */
   function calculatePostDate(expTime: number): number {
     const postDate = new Date(expTime * 1000); // Convert to milliseconds
@@ -97,4 +97,4 @@ const JobCard = (props: Props) => {
   );
 };
 
-export default JobCard;
+export default JobSearchCard;
