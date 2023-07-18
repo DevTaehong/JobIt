@@ -74,7 +74,7 @@ export default function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="ml-0 flex-row gap-3 px-5 py-[1.31] sm:ml-10">
+              <div className="ml-0 flex-row gap-3 sm:ml-10">
                 <div>Inline Job Card</div>
                 <div>Inline Job Card</div>
                 <div>Inline Job Card</div>
@@ -95,6 +95,33 @@ export default function Home() {
               </div>
             </section>
           </div>
+          {/* Schedule */}
+          <section className="mb-[2.62rem] ml-[1.69rem] mr-[1.31rem] mt-[4rem] flex-row sm:hidden">
+            <span className="flex items-center justify-between">
+              <h1 className="text-2xl font-bold leading-10 dark:text-White">
+                Schedule
+              </h1>
+              <div className="inline-flex items-center pr-[.62rem] font-sans text-xs font-medium	leading-5">
+                <p className="text-Natural6">Sort by:</p>
+                {/* Due Date */}
+                <p className="font-sans text-[#0BAB7C]">This Week</p>
+                <Image
+                  src="/iconography/cheveron.svg"
+                  alt="cheveron"
+                  width={16}
+                  height={16}
+                />
+              </div>
+            </span>
+            <div className="gap-14">
+              <div>Inline Card</div>
+              <div>Inline Card</div>
+              <div>Inline Card</div>
+            </div>
+            <button className="flex w-[18.5rem] items-center justify-center gap-[.625rem] px-3 py-3.5 dark:text-Natural6">
+              See All Schedule
+            </button>
+          </section>
         </main>
       </div>
     </>
