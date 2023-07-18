@@ -26,6 +26,14 @@ export default function Home() {
                 </h3>
                 <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] text-xs font-medium	 leading-6 text-Natural7 dark:border-DarkBG3 ">
                   See All
+                  <div className="sm:hidden">
+                    <Image
+                      src="/iconography/cheveron.svg"
+                      alt="cheveron"
+                      width={16}
+                      height={16}
+                    />
+                  </div>
                 </button>
               </span>
               <div className="mr-10 mt-[1.88rem] flex-row ">
@@ -51,6 +59,14 @@ export default function Home() {
                 </h3>
                 <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] text-xs font-medium	 leading-6 text-Natural7 dark:border-DarkBG3 ">
                   See All
+                  <div className="sm:hidden">
+                    <Image
+                      src="/iconography/cheveron.svg"
+                      alt="cheveron"
+                      width={16}
+                      height={16}
+                    />
+                  </div>
                 </button>
               </span>
               {/* Inline Job Cards */}
@@ -74,15 +90,4 @@ export default function Home() {
       </div>
     </>
   );
-}
-
-{
-  /* <div className="sm:hidden">
-                    <Image
-                      src="/iconography/cheveron.svg"
-                      alt=""
-                      width={16}
-                      height={16}
-                    />
-                  </div> */
 }
