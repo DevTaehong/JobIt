@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import bookmark from "@/public/iconography/archive.svg";
 
 type Props = {
   employerName: string;
@@ -49,10 +50,9 @@ const JobSearchCard = (props: Props) => {
             </p>
           </div>
         </div>
-        <div>
-          <p className="justify-start rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
-            Save job
-          </p>
+        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
+          <p className="line-clamp-1">Save job</p>
+          <Image src={bookmark} alt="bookmark" />
         </div>
       </div>
 
@@ -74,10 +74,10 @@ const JobSearchCard = (props: Props) => {
       </div>
 
       {/* Conditionally render salaries */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col items-center justify-between sm:flex-row">
         {props.salary && (
           <h3 className="text-black">
-            <span className="text-lg font-semibold">{`$${props.salary}/`}</span>
+            <span className="font-manrope text-lg font-semibold">{`$${props.salary}/`}</span>
             <span className="font-sans text-lg text-Natural7">
               {props.salaryPeriod?.toLowerCase()}
             </span>
