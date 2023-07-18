@@ -20,7 +20,7 @@ const JobCard = (props: Props) => {
     const expDate = new Date(expTime * 1000); // Convert to milliseconds
     const currentDate = new Date();
 
-    const timeDiff = currentDate.getTime() - expDate.getTime();
+    const timeDiff =  expDate.getTime()-currentDate.getTime(;
     const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
     return daysLeft;
