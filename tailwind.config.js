@@ -31,7 +31,7 @@ module.exports = {
     },
     fontFamily: {
       manrope: ["var(--font-manrope)"],
-      DMSans: ["var(--font-DM Sans)"],
+      sans: ["var(--font-DM Sans)"],
     },
   },
   plugins: [],

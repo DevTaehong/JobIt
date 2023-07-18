@@ -1,5 +1,6 @@
 import Image from "next/image";
 import moment from "moment";
+
 export default function Home() {
   // const currentDate = new Date().toDateString();
   const currentDate = moment().format("dddd,  D MMM YYYY");
@@ -27,7 +28,7 @@ export default function Home() {
                 <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
                   Latest Job Posts
                 </h3>
-                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] text-xs font-medium	 leading-6 text-Natural7 dark:border-DarkBG3 ">
+                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
@@ -60,7 +61,7 @@ export default function Home() {
                 <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
                   Recomended For You
                 </h3>
-                <button className="flex items-center gap-2 whitespace-nowrap border px-[.62rem] py-[.44rem] text-xs font-medium	 leading-6 text-Natural7 dark:border-DarkBG3 ">
+                <button className="flex items-center gap-2 whitespace-nowrap border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
