@@ -22,7 +22,7 @@ const JobCard = (props: Props) => {
     const expDate = new Date(expTime * 1000); // Convert to milliseconds
     const currentDate = new Date();
 
-    const timeDiff =  expDate.getTime()-currentDate.getTime(;
+    const timeDiff = expDate.getTime() - currentDate.getTime();
     const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
     return daysLeft;
@@ -31,7 +31,7 @@ const JobCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.expirationDate);
 
   return (
-    <div className="flex w-full flex-col gap-7 bg-white p-5 font-manrope">
+    <div className="font-manrope flex w-full flex-col gap-7 bg-white p-5">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">
@@ -89,7 +89,9 @@ const JobCard = (props: Props) => {
         {props.salary && (
           <h3 className="text-black">
             {`$${props.salary}/`}
-            <span className="text-Natural7">{props.salaryPeriod}</span>
+            <span className="font-sans text-Natural7">
+              {props.salaryPeriod}
+            </span>
           </h3>
         )}
         <Button className="h-12 w-24 items-center justify-center rounded-lg bg-Primary p-3">
