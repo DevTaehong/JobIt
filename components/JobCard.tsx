@@ -35,8 +35,7 @@ const JobCard = (props: Props) => {
         <div className="flex rounded">
           <div className="rounded p-2">
             <img
-              width={48}
-              className="h-12 w-12"
+              className="h-12 min-w-[48px]"
               src={props.companyLogo}
               alt="logo"
             />
