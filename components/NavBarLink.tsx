@@ -14,24 +14,19 @@ function NavBarLink({
 }) {
   const pathName = usePathname();
 
-  const mobileNoBorderBottom = open ? "" : "border-b ";
-  const mobileFontWeight400 = open ? "font-normal" : "";
+  // on mobile, green border-bottom is not shown, on desktop, green border-bottom is shown
+  const mobileNoBorderBottom = !open && "border-b ";
 
   // when a user is on the current page, we want to highlight the link
-  // on mobile, font is font-weight = 400, on desktop, font is font-weight = 500
-  // on mobile, green border-bottom is not shown, on desktop, green border-bottom is shown
   const selectedClass =
     pathName === href
-      ? mobileNoBorderBottom +
-        "border-solid border-Primary text-Primary font-bold"
-      : open
-      ? mobileFontWeight400
+      ? "border-solid border-Primary text-Primary font-bold"
       : "font-medium";
 
   return (
     <Link
       href={href}
-      className={`${selectedClass} px-0 py-[1.4375rem] text-base not-italic text-Natural6 hover:text-Primary`}
+      className={`${selectedClass} ${mobileNoBorderBottom} px-0 py-[1.4375rem] text-base not-italic text-Natural6 hover:text-Primary`}
     >
       {children}
     </Link>
