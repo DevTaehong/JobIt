@@ -1,6 +1,9 @@
 import Image from "next/image";
-
+import moment from "moment";
 export default function Home() {
+  // const currentDate = new Date().toDateString();
+  const currentDate = moment().format("dddd,  D MMM YYYY");
+
   return (
     <>
       <div>
@@ -13,7 +16,7 @@ export default function Home() {
             </h1>
             {/* Date */}
             <h2 className="pl-[5rem] pt-[.88rem] text-sm font-medium leading-8">
-              Date
+              {currentDate}
             </h2>
           </section>
           <div className="mx-[5.5rem] flex flex-row flex-wrap">
