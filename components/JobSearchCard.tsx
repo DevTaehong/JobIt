@@ -45,7 +45,7 @@ const JobSearchCard = (props: Props) => {
               {props.jobTitle}
             </h1>
             <p className="text-center text-sm font-medium leading-tight text-Natural7">
-              {`${props.employerName} ･ ${props.jobCity},${props.jobState} ･ ${postDate} days ago`}
+              {`${props.employerName} ･ ${props.jobCity}, ${props.jobState} ･ ${postDate} days ago`}
             </p>
           </div>
         </div>
@@ -77,9 +77,9 @@ const JobSearchCard = (props: Props) => {
       <div className="flex items-center justify-between">
         {props.salary && (
           <h3 className="text-black">
-            {`$${props.salary}/`}
-            <span className="font-sans text-Natural7">
-              {props.salaryPeriod}
+            <span className="text-lg font-semibold">{`$${props.salary}/`}</span>
+            <span className="font-sans text-lg text-Natural7">
+              {props.salaryPeriod?.toLowerCase()}
             </span>
           </h3>
         )}
