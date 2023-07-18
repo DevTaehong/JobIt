@@ -27,7 +27,7 @@ function NavBarLink({
   return (
     <Link
       href={href}
-      className={`${selectedClass} px-0 py-[1.5rem] text-base not-italic text-Natural6 hover:text-Primary`}
+      className={`${selectedClass} px-0 py-[1.4375rem] text-base not-italic text-Natural6 hover:text-Primary`}
     >
       {children}
     </Link>
