@@ -29,7 +29,7 @@ const JobCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.expirationDate);
 
   return (
-    <div className="flex w-full flex-col gap-7 bg-white p-5 font-Manrope">
+    <div className="flex w-full flex-col gap-7 bg-white p-5 font-manrope">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">
