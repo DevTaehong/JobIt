@@ -105,12 +105,12 @@ export default function Home() {
               </div>
             </section>
             {/* Recomended For You */}
-            <section className="order-last mt-[2.19rem] w-full sm:order-none sm:w-1/3">
+            <section className="order-last mt-[2.19rem] w-full sm:w-1/3 xl:order-none">
               <span className="ml-0 flex justify-between sm:ml-10">
                 <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
                   Recommended For You
                 </h3>
-                <button className="flex items-center gap-2  border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                <button className="flex items-center gap-2  border px-[.62rem] py-[.44rem] font-sans text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
@@ -178,7 +178,7 @@ export default function Home() {
               </div>
             </section>
             {/* Featured Compaines */}
-            <section className=" mt-10 w-full lg:w-1/3">
+            <section className=" mt-10 w-full">
               <span>
                 <h3 className=" text-2xl font-bold leading-10 dark:text-White">
                   Featured Companies
