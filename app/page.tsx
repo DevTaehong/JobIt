@@ -43,7 +43,7 @@ export default function Home() {
                 </button>
               </span>
               <div className="mr-10 mt-[1.88rem] flex-row ">
-                <div className="sm:flex ">
+                <div className="sm:flex">
                   {/* Card One */}
                   <div className=" sm:pr-10">
                     <JobCard
