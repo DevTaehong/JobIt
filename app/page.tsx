@@ -14,7 +14,7 @@ export default function Home() {
         <main className="w-auto font-manrope">
           {/* Heading */}
           <section className=" mx-[1.5rem] mt-[1.5rem] sm:mx-[5.5rem] sm:mt-[3.13]">
-            <h1 className=" text-2xl font-bold leading-10 dark:leading-6 dark:text-Natural4 sm:text-[1.375rem] sm:leading-8">
+            <h1 className="text-2xl font-bold leading-10 dark:text-Natural4 sm:text-[1.375rem] sm:leading-8">
               Welcome to the Job Search Platform for Developers
             </h1>
             {/* Date */}
@@ -27,7 +27,7 @@ export default function Home() {
 
             <section className="mt-[2.19rem] w-full sm:w-2/3">
               <span className="flex items-center justify-between">
-                <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
+                <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
                   Latest Job Posts
                 </h3>
                 <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
@@ -42,8 +42,8 @@ export default function Home() {
                   </div>
                 </button>
               </span>
-              <div className="mr-10 mt-[1.88rem] flex-row ">
-                <div className="sm:flex ">
+              <div className=" mt-[2.06rem] flex-row ">
+                <div className="sm:flex">
                   {/* Card One */}
                   <div className=" sm:pr-10">
                     <JobCard
@@ -107,10 +107,10 @@ export default function Home() {
             {/* Recomended For You */}
             <section className="order-last mt-[2.19rem] w-full sm:order-none sm:w-1/3">
               <span className="ml-0 flex justify-between sm:ml-10">
-                <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
-                  Recomended For You
+                <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
+                  Recommended For You
                 </h3>
-                <button className="flex items-center gap-2 whitespace-nowrap border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                <button className="flex items-center gap-2  border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
@@ -123,7 +123,7 @@ export default function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="ml-0 flex-row gap-3  sm:ml-10">
+              <div className="mt-[2.06rem] flex-row  gap-3 sm:ml-10">
                 <div>
                   <InlineJobCard
                     employerName={""}
