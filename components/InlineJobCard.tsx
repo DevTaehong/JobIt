@@ -14,7 +14,7 @@ type Props = {
 
 const InlineJobCard = (props: Props) => {
   return (
-    <div className="hidden w-full flex-col gap-5 bg-Natural3 p-5 font-manrope sm:block">
+    <div className="hidden w-full flex-col gap-5 bg-Natural3 p-5 font-manrope dark:bg-DarkBG2 sm:block">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">

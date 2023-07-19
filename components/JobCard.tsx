@@ -30,7 +30,7 @@ const JobCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.expirationDate);
 
   return (
-    <div className="flex w-full flex-col gap-7 bg-white p-5 font-manrope">
+    <div className="flex w-full flex-col gap-7 bg-white p-5 font-manrope dark:bg-DarkBG2">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">
@@ -67,16 +67,16 @@ const JobCard = (props: Props) => {
         <p className="line-clamp-6 text-Natural7">{props.jobDescription}</p>
       </div>
 
-      <div className="flex justify-between">
-        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
+      <div className="flex justify-between ">
+        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6 dark:bg-DarkBG3">
           <Image className="mr-2" src={briefcase} alt="logo" />
           <p>{props.employmentType}</p>
         </div>
-        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
+        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6 dark:bg-DarkBG3">
           <Image className="mr-2" src={briefcase} alt="logo" />
           <p>Full Time</p>
         </div>
-        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
+        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6 dark:bg-DarkBG3">
           <Image className="mr-2" src={briefcase} alt="logo" />
           <p>{`${daysLeft} days left`}</p>
         </div>
@@ -92,7 +92,7 @@ const JobCard = (props: Props) => {
             </span>
           </h3>
         )}
-        <Button className="h-12 w-24 items-center justify-center rounded-lg bg-Primary p-3">
+        <Button className="h-12 w-24 items-center justify-center rounded-lg bg-Primary p-3 dark:bg-Primary">
           Visit Now
         </Button>
       </div>

@@ -123,7 +123,7 @@ export default function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="ml-0 flex-row gap-3 sm:ml-10">
+              <div className="ml-0 flex-row gap-3  sm:ml-10">
                 <div>
                   <InlineJobCard
                     employerName={""}
