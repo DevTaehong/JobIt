@@ -2,12 +2,8 @@ import Image from "next/image";
 import moment from "moment";
 
 export default function Home() {
-<<<<<<< HEAD
-throw new Error;
-=======
   // const currentDate = new Date().toDateString();
   const currentDate = moment().format("dddd,  D MMM YYYY");
->>>>>>> main
 
   return (
     <>
