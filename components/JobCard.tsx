@@ -34,7 +34,7 @@ const JobCard = (props: Props) => {
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">
-            <img
+            <Image
               className="h-12 min-w-[48px]"
               src={props.companyLogo}
               alt="logo"

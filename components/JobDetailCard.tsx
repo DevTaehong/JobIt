@@ -3,11 +3,11 @@ import React from "react";
 
 type Props = {};
 
-const JobCard = (props: Props) => {
+const JobDetailCard = (props: Props) => {
   return (
     <>
       {/* Box */}
-      <main className="h-[96.8125rem] w-[53.75rem] shrink-0 border">
+      <main className="h-[96.8125rem] w-[53.75rem] shrink-0 border sm:ml-20">
         {/* Contents */}
         <div>
           {/* Top Images */}
@@ -19,8 +19,8 @@ const JobCard = (props: Props) => {
             {/* Company Logo */}
             <div className="h-[4rem] w-[4rem] shrink-0 pl-10 pt-[10.56rem]">
               <Image
-                src="/Company Logo.svg"
-                alt="test"
+                src="/images/Logo.svg"
+                alt="company logo"
                 width={64}
                 height={64}
               />
@@ -75,7 +75,7 @@ const JobCard = (props: Props) => {
             {/* Qualifications and Skill Sets */}
             <div>
               Qualifications and Skill Sets 3+ years of professional experience
-              working on this field Bachelor's degree in computer science,
+              working on this field Bachelors degree in computer science,
               software engineering, or related field Proficiency in at least one
               programming language (e.g., Java, C#, C++) Back-end development
               expertise Strong problem-solving and communication skills
@@ -92,10 +92,10 @@ const JobCard = (props: Props) => {
             {/* About */}
             <div>
               UIHUT is a design and coding resources platform for designers,
-              developers and entrepreneurs. We're building a digital marketplace
+              developers and entrepreneurs. Were building a digital marketplace
               to simplify the creation of websites, apps and software on any
               device. UIHUT is based in New York City and is privately funded by
-              some of the industry's leading investors.
+              some of the industrys leading investors.
             </div>
           </section>
         </div>
@@ -104,4 +104,4 @@ const JobCard = (props: Props) => {
   );
 };
 
-export default JobCard;
+export default JobDetailCard;

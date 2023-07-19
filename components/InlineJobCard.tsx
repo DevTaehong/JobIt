@@ -18,7 +18,7 @@ const InlineJobCard = (props: Props) => {
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="rounded p-2">
-            <img
+            <Image
               width={36}
               className="h-9 w-9"
               src={props.companyLogo}
