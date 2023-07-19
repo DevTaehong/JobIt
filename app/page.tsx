@@ -43,9 +43,9 @@ export default function Home() {
                 </button>
               </span>
               <div className="mr-10 mt-[1.88rem] flex-row ">
-                <div className="sm:flex">
+                <div className="sm:flex ">
                   {/* Card One */}
-                  <div className="sm:pr-10">
+                  <div className=" sm:pr-10">
                     <JobCard
                       jobTitle={""}
                       jobDescription={""}
@@ -58,7 +58,7 @@ export default function Home() {
                     />
                   </div>
                   {/* Card Two */}
-                  <div className="">
+                  <div className="mt-10 sm:mt-0">
                     {" "}
                     <JobCard
                       jobTitle={""}
@@ -72,7 +72,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="sm:flex sm:pt-10">
+                <div className="mt-10 sm:mt-0 sm:flex sm:pt-10">
                   {/* Card Three */}
                   <div className="sm:pr-10">
                     {" "}
@@ -88,7 +88,7 @@ export default function Home() {
                     />
                   </div>
                   {/* Card Four */}
-                  <div className="">
+                  <div className="mt-10 sm:mt-0">
                     {" "}
                     <JobCard
                       jobTitle={""}
