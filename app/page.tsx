@@ -1,13 +1,11 @@
 import Image from "next/image";
 import moment from "moment";
+import JobCard from "@/components/JobCard";
+import InlineJobCard from "@/components/InlineJobCard";
 
 export default function Home() {
-<<<<<<< HEAD
-throw new Error;
-=======
   // const currentDate = new Date().toDateString();
   const currentDate = moment().format("dddd,  D MMM YYYY");
->>>>>>> main
 
   return (
     <>
@@ -47,15 +45,62 @@ throw new Error;
               <div className="mr-10 mt-[1.88rem] flex-row ">
                 <div className="sm:flex">
                   {/* Card One */}
-                  <div className="sm:pr-10"> Card One</div>
+                  <div className="sm:pr-10">
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={""}
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
                   {/* Card Two */}
-                  <div className="">Card Two</div>
+                  <div className="">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={""}
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
                 </div>
                 <div className="sm:flex sm:pt-10">
                   {/* Card Three */}
-                  <div className="sm:pr-10">Card Three</div>
+                  <div className="sm:pr-10">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={""}
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
                   {/* Card Four */}
-                  <div className="">Card Four</div>
+                  <div className="">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={""}
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
                 </div>
               </div>
             </section>
@@ -79,10 +124,57 @@ throw new Error;
               </span>
               {/* Inline Job Cards */}
               <div className="ml-0 flex-row gap-3 sm:ml-10">
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
+                <div>
+                  <InlineJobCard
+                    employerName={""}
+                    jobTitle={""}
+                    salary={null}
+                    salaryPeriod={null}
+                    companyLogo={""}
+                    jobState={""}
+                    jobCity={""}
+                    employmentType={""}
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <InlineJobCard
+                    employerName={""}
+                    jobTitle={""}
+                    salary={null}
+                    salaryPeriod={null}
+                    companyLogo={""}
+                    jobState={""}
+                    jobCity={""}
+                    employmentType={""}
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <InlineJobCard
+                    employerName={""}
+                    jobTitle={""}
+                    salary={null}
+                    salaryPeriod={null}
+                    companyLogo={""}
+                    jobState={""}
+                    jobCity={""}
+                    employmentType={""}
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <InlineJobCard
+                    employerName={""}
+                    jobTitle={""}
+                    salary={null}
+                    salaryPeriod={null}
+                    companyLogo={""}
+                    jobState={""}
+                    jobCity={""}
+                    employmentType={""}
+                  />
+                </div>
               </div>
             </section>
             {/* Featured Compaines */}
