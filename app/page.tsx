@@ -45,7 +45,7 @@ export default function Home() {
               <div className=" mt-[2.06rem] flex-row ">
                 <div className="sm:flex">
                   {/* Card One */}
-                  <div className=" sm:pr-10">
+                  <div className="sm:pr-10">
                     <JobCard
                       jobTitle={""}
                       jobDescription={""}
