@@ -34,7 +34,7 @@ const JobSearchCard = (props: Props) => {
     <div className="flex w-auto flex-col gap-5 bg-white p-5 font-manrope">
       <div className="flex justify-between">
         <div className="flex rounded">
-          <div className="rounded p-2">
+          <div className="rounded-lg bg-Natural2 p-2">
             <img
               className="h-12 min-w-[48px]"
               src={props.companyLogo}
@@ -50,8 +50,8 @@ const JobSearchCard = (props: Props) => {
             </p>
           </div>
         </div>
-        <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
-          <p className="line-clamp-1">Save job</p>
+        <div className="flex max-h-[34px] w-fit items-center justify-center rounded-lg bg-Natural3 px-2 py-1 text-sm text-Natural6">
+          <p className="line-clamp-1 hidden sm:block">Save job</p>
           <Image src={bookmark} alt="bookmark" />
         </div>
       </div>
@@ -89,7 +89,7 @@ const JobSearchCard = (props: Props) => {
           <Button className="h-12 w-32 items-center justify-center rounded-lg bg-Natural4 p-3 text-Natural7">
             Message
           </Button>
-          <Button className="h-12 w-44 items-center justify-center rounded-lg bg-Primary p-3">
+          <Button className="h-12 w-44 items-center justify-center rounded-xl bg-Primary p-3">
             Apply Now
           </Button>
         </div>
