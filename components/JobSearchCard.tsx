@@ -56,7 +56,7 @@ const JobSearchCard = (props: Props) => {
           </div>
         </div>
         <div className="flex max-h-[34px] w-fit items-center justify-center rounded-lg bg-Natural3 px-2 py-1 text-sm text-Natural6">
-          <p className="line-clamp-1 hidden sm:block">Save job</p>
+          <p className="mr-[6px] line-clamp-1 hidden sm:block">Save job</p>
           <Image src={bookmark} alt="bookmark" />
         </div>
       </div>
