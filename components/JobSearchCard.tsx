@@ -34,22 +34,22 @@ const JobSearchCard = (props: Props) => {
     <div className="flex w-auto flex-col gap-5 bg-white p-5 font-manrope">
       <div className="flex justify-between">
         <div className="flex rounded">
-          <div className="h-16 max-w-[64px] rounded-[10px] bg-Natural2 p-2">
+          <div className="h-[45px] w-[45px] rounded-[10px] bg-Natural2 p-2 sm:h-[64px] sm:w-[64px]">
             <img
-              className="h-12 min-w-[48px]"
+              className="min-h-[34px] max-w-[34px] sm:h-[48px] sm:max-w-[48px]"
               src={props.companyLogo}
               alt="logo"
             />
           </div>
           <div className="flex flex-col pl-5">
-            <h1 className=" text-lg font-semibold text-gray-900">
+            <h1 className="font-semibold text-gray-900 sm:text-lg">
               {props.jobTitle}
             </h1>
             <div className="flex flex-col sm:flex-row">
-              <p className=" text-sm font-medium leading-tight text-Natural7">
+              <p className="text-[13px] font-medium leading-tight text-Natural7 sm:text-sm">
                 {`${props.employerName} ･ `}
               </p>
-              <p className=" text-sm font-medium leading-tight text-Natural7">
+              <p className="text-[13px] font-medium leading-tight text-Natural7 sm:text-sm">
                 {`${props.jobCity}, ${props.jobState} ･ ${postDate} days ago`}
               </p>
             </div>
@@ -62,7 +62,7 @@ const JobSearchCard = (props: Props) => {
       </div>
 
       <div>
-        <p className="line-clamp-6 text-Natural7 sm:line-clamp-2">
+        <p className="line-clamp-6 text-[13px] leading-snug text-Natural7 sm:line-clamp-2 sm:text-sm">
           {props.jobDescription}
         </p>
       </div>
@@ -70,8 +70,8 @@ const JobSearchCard = (props: Props) => {
       <div className="flex gap-1">
         {props.jobSkills &&
           props.jobSkills.map((skill, index) => (
-            <div className="flex" key={index}>
-              <p className="justify-start rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
+            <div className="flex gap-[5px]" key={index}>
+              <p className="justify-start rounded bg-Natural3 px-2.5 py-[5px] text-[13px] text-Natural6">
                 {skill}
               </p>
             </div>
@@ -79,22 +79,22 @@ const JobSearchCard = (props: Props) => {
       </div>
 
       {/* Conditionally render salaries */}
-      <div className="flex flex-col justify-between gap-7 sm:flex-row sm:items-center">
+      <div className="flex flex-col justify-between gap-[30px] sm:flex-row sm:items-center">
         {props.salary && (
           <div className="flex justify-start">
             <h3 className="text-black">
-              <span className="font-manrope text-lg font-semibold">{`$${props.salary}/`}</span>
-              <span className="font-sans text-lg text-Natural7">
+              <span className="font-manrope text-base font-semibold sm:text-lg">{`$${props.salary}/`}</span>
+              <span className="font-sans text-base text-Natural7 sm:text-lg">
                 {props.salaryPeriod?.toLowerCase()}
               </span>
             </h3>
           </div>
         )}
         <div className="flex justify-between gap-5">
-          <Button className="h-[38px] w-[141px] items-center justify-center rounded-lg bg-Natural4 p-3 text-Natural7 sm:h-12 sm:w-32">
+          <Button className="h-[38px] w-[134px] items-center justify-center rounded-[10px] bg-Natural4 px-3.5  py-[9px] text-[13px] text-Natural7 sm:h-12 sm:w-[125px] sm:py-3 sm:text-[15px]">
             Message
           </Button>
-          <Button className="h-[38px] w-[141px] items-center justify-center rounded-xl bg-Primary p-3 sm:h-12 sm:w-[180px]">
+          <Button className="h-[38px] w-[141px] items-center justify-center rounded-[10px] bg-Primary px-3 py-[9px] sm:h-12 sm:w-[180px] sm:px-3.5 sm:py-3">
             Apply Now
           </Button>
         </div>
