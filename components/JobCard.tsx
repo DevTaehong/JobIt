@@ -34,15 +34,15 @@ const JobCard = (props: Props) => {
       <div className="flex flex-col gap-7 bg-white p-5 font-manrope">
         <div className="flex justify-between">
           <div className="flex rounded">
-            <div className="items-center rounded-[10px] border border-neutral-50 bg-Natural3 p-2">
+            <div className="h-[46px] w-[46px] justify-center rounded-[10px] border border-neutral-50 bg-Natural3 p-2 sm:h-[64px] sm:w-[64px]">
               <img
-                className="min-h-[48px] min-w-[48px]"
+                className="min-h-[34.5px] min-w-[34.5px] sm:h-[48px] sm:w-[48px]"
                 src={props.companyLogo}
                 alt="logo"
               />
             </div>
-            <div className="flex flex-col justify-between pl-5">
-              <h1 className=" line-clamp-1 text-lg font-semibold text-gray-900">
+            <div className="flex flex-col justify-between pl-[18px] sm:pl-5">
+              <h1 className=" line-clamp-1 font-semibold text-gray-900 sm:text-lg">
                 {props.jobTitle}
               </h1>
 
@@ -51,7 +51,7 @@ const JobCard = (props: Props) => {
                 {props.jobSkills &&
                   props.jobSkills.map((skill, index) => (
                     <div className="flex" key={index}>
-                      <p className="justify-start rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
+                      <p className="justify-start rounded bg-Natural3 px-[6px] py-[3px] text-[13px] text-Natural6 sm:px-[10px] sm:py-[5px] sm:text-sm">
                         {skill}
                       </p>
                     </div>
@@ -60,7 +60,11 @@ const JobCard = (props: Props) => {
             </div>
           </div>
           <div>
-            <Image className="" src={icMore} alt="More Icon" />
+            <Image
+              className="min-h-[16px] min-w-[16px]"
+              src={icMore}
+              alt="More Icon"
+            />
           </div>
         </div>
 
