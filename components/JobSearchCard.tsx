@@ -34,7 +34,7 @@ const JobSearchCard = (props: Props) => {
     <div className="flex w-auto flex-col gap-5 bg-white p-5 font-manrope">
       <div className="flex justify-between">
         <div className="flex rounded">
-          <div className="rounded-lg bg-Natural2 p-2">
+          <div className="h-16 max-w-[64px] rounded-[10px] bg-Natural2 p-2">
             <img
               className="h-12 min-w-[48px]"
               src={props.companyLogo}
