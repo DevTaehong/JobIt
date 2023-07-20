@@ -106,14 +106,18 @@ const JobCard = (props: Props) => {
         {/* Conditionally render salaries */}
         <div className="flex items-center justify-between">
           {props.salary && (
-            <h3 className="text-black">
+            <h3 className="text-[18px] text-black">
               {`$${props.salary}/`}
-              <span className="font-sans text-Natural7">
+              <span className="font-sans text-base text-Natural7 sm:text-[16px]">
                 {props.salaryPeriod?.toLowerCase()}
               </span>
             </h3>
           )}
-          <Button className="h-12 w-24 items-center justify-center rounded-lg bg-Primary p-3">
+          {/* Button based on screen size */}
+          <Button className="h-10 w-[103px] items-center justify-center rounded-[10px] bg-Primary px-3.5 py-2 text-[15px] sm:hidden">
+            Apply Now
+          </Button>
+          <Button className="hidden items-center justify-center rounded-[10px] bg-Primary px-3.5 py-3 text-[15px] sm:flex sm:h-12 sm:w-[94px]">
             Visit Now
           </Button>
         </div>
