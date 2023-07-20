@@ -26,11 +26,11 @@ export default function Home() {
             {/* Latest Job Posts */}
             <section className="mt-8 w-full xl:w-2/3">
               <div className="flex-row ">
-                <span className="flex max-w-[46rem] items-center justify-between sm:mb-[2.06rem] ">
+                <span className="flex items-center justify-between sm:mb-[2.06rem] ">
                   <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
                     Latest Job Posts
                   </h3>
-                  <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                  <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] font-sans	text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                     See All
                     <div className="sm:hidden">
                       <Image
@@ -44,6 +44,18 @@ export default function Home() {
                 </span>
                 <div className="sm:flex">
                   {/* Card One */}
+                  <div className="sm:pr-10">
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={""}
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
                   <div className="sm:pr-10">
                     <JobCard
                       jobTitle={""}
@@ -86,6 +98,19 @@ export default function Home() {
                       expirationDate={0}
                     />
                   </div>
+                  <div className="sm:pr-10">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={""}
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
                   {/* Card Four */}
                   <div className="mt-10 sm:mt-0">
                     {" "}
@@ -109,7 +134,7 @@ export default function Home() {
                 <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White lg:ml-10">
                   Recommended For You
                 </h3>
-                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] font-sans	text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
