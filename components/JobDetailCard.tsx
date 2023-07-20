@@ -7,17 +7,13 @@ const JobDetailCard = (props: Props) => {
   return (
     <>
       {/* Box */}
-      <main className="h-[96.8125rem] w-[53.75rem] shrink-0 border sm:ml-20">
+      <main className="h-[151.6rem] w-[20.44rem] shrink-0 border font-manrope lg:ml-20 lg:h-[96.8125rem] lg:w-[53.75rem]">
         {/* Contents */}
-        <div>
+        <div className="px-5 pt-5">
           {/* Top Images */}
           <section>
-            {/* Cover Photo */}
-            <div className=" px-5 pt-5">
-              <Image src="/test.jpg" alt="test" width={777.6} height={192} />
-            </div>
             {/* Company Logo */}
-            <div className="h-[4rem] w-[4rem] shrink-0 pl-10 pt-[10.56rem]">
+            <div className="absolute h-[4rem] w-[4rem] shrink-0 pl-[1.87] pt-[8.62rem]">
               <Image
                 src="/images/Logo.svg"
                 alt="company logo"
@@ -25,12 +21,44 @@ const JobDetailCard = (props: Props) => {
                 height={64}
               />
             </div>
+            {/* Cover Photo */}
+            <div>
+              <Image src="/test.jpg" alt="test" width={295} height={150} />
+            </div>
           </section>
           {/* Heading */}
-          <section className="pt-[1.84rem]">
+          <section className="pt-[1.88rem]">
             {/* Job Title */}
-            <div className="px-[2.34rem] ">
-              <h1>Passionate Programmer</h1>
+            <div className="flex items-center pt-[1.88rem]">
+              <h1 className="pr-[1.25rem] text-xs font-semibold leading-6">
+                Passionate Programmer
+              </h1>
+              <div className="pr-[2.06rem]">
+                <Image
+                  src="/iconography/uiHut-icon-ic_Saved.svg"
+                  alt="uiHunt"
+                  width={20}
+                  height={20}
+                />
+              </div>
+              <Image
+                src="/iconography/more-vertical.svg"
+                alt="more-vertical"
+                width={24}
+                height={24}
+              />
+            </div>
+            {/* Sub Title */}
+            <div className="mt-[.037rem]">
+              <h2>UIHUT Technologies LLC</h2>
+              <h3>Sylhet, BD</h3>
+              <Image
+                src="/iconography/more-vertical.svg"
+                alt="more-vertical"
+                width={24}
+                height={24}
+              />
+              <h3>3 days ago</h3>
             </div>
             {/* Buttons */}
             <div></div>
