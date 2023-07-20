@@ -1,5 +1,6 @@
 import Image from "next/image";
 import moment from "moment";
+import InlineJobCard from "@/components/InlineJobCard";
 
 export default function Home() {
   const currentDate = moment().format("dddd,  D MMM YYYY");
@@ -74,10 +75,10 @@ export default function Home() {
               </span>
               {/* Inline Job Cards */}
               <div className="ml-0 flex-row gap-3 sm:ml-10">
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
+                <InlineJobCard />
+                <InlineJobCard />
+                <InlineJobCard />
+                <InlineJobCard />
               </div>
             </section>
             {/* Featured Companies */}

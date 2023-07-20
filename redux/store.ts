@@ -11,6 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { jsearchApi } from "./services/jsearch";
 
 // NOTE - Source: https://mightycoders.xyz/redux-persist-failed-to-create-sync-storage-falling-back-to-noop-storage
 // Regarding an error that occurs when using redux-persist with Next.js
@@ -38,14 +39,18 @@ const persistConfig = {
   key: "root",
   storage,
   version: 1,
+  // NOTE source 1: https://github.com/rt2zz/redux-persist#blacklist--whitelist
+  // NOTE source 2: Yilmaz's answer https://stackoverflow.com/questions/63761763/how-to-configure-redux-persist-with-redux-toolkit
+  whitelist: ["theme"],
 };
 
-const reducer = combineReducers({
+const reducers = combineReducers({
   theme: themeSlice,
+  jsearchApi: jsearchApi.reducer,
   // NOTE Add more reducers here if needed
 });
 
-const persistedReducer = persistReducer(persistConfig, reducer);
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -56,7 +61,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(jsearchApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
