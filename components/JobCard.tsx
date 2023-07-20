@@ -1,6 +1,8 @@
 import React from "react";
 import icMore from "@/public/iconography/ic_More.svg";
 import briefcase from "@/public/iconography/outline-briefcase.svg";
+import clock from "@/public/iconography/outline-clock.svg";
+import people from "@/public/iconography/outline-people.svg";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
@@ -69,21 +71,35 @@ const JobCard = (props: Props) => {
         </div>
 
         <div>
-          <p className="line-clamp-6 text-Natural7">{props.jobDescription}</p>
+          <p className="line-clamp-6 text-[15px] text-Natural7 sm:text-base">
+            {props.jobDescription}
+          </p>
         </div>
 
-        <div className="flex justify-between">
-          <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
-            <Image className="mr-2" src={briefcase} alt="logo" />
-            <p>{props.employmentType}</p>
+        <div className="flex justify-between gap-[5px] sm:gap-3">
+          <div className="flex items-center justify-center rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 sm:px-[10px] sm:text-sm">
+            <Image
+              className="mr-2 h-[18px] w-[18px]"
+              src={briefcase}
+              alt="logo"
+            />
+            <p>{props.employmentType?.toLowerCase()}</p>
           </div>
-          <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
-            <Image className="mr-2" src={briefcase} alt="logo" />
-            <p>Full Time</p>
+          <div className="flex items-center justify-center rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 sm:px-[10px] sm:text-sm">
+            <Image
+              className="mr-2 h-[18px] w-[18px]"
+              src={people}
+              alt="peopleIcon"
+            />
+            <p className="line-clamp-1">45 Applied</p>
           </div>
-          <div className="flex items-center justify-center rounded bg-Natural3 px-2 py-1 text-sm text-Natural6">
-            <Image className="mr-2" src={briefcase} alt="logo" />
-            <p>{`${daysLeft} days left`}</p>
+          <div className="flex items-center justify-center rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 sm:px-[10px] sm:text-sm">
+            <Image
+              className="mr-2 h-[18px] w-[18px]"
+              src={clock}
+              alt="clock_icon"
+            />
+            <p className="line-clamp-1">{`${daysLeft}days left`}</p>
           </div>
         </div>
 
