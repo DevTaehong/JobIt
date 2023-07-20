@@ -89,7 +89,7 @@ const JobCard = (props: Props) => {
             <h3 className="text-black">
               {`$${props.salary}/`}
               <span className="font-sans text-Natural7">
-                {props.salaryPeriod}
+                {props.salaryPeriod?.toLowerCase()}
               </span>
             </h3>
           )}
