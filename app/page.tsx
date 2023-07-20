@@ -24,25 +24,24 @@ export default function Home() {
           </section>
           <div className="flex flex-row flex-wrap">
             {/* Latest Job Posts */}
-
-            <section className="mt-[2.19rem] w-full sm:w-2/3">
-              <span className="flex items-center justify-between">
-                <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
-                  Latest Job Posts
-                </h3>
-                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
-                  See All
-                  <div className="sm:hidden">
-                    <Image
-                      src="/iconography/cheveron.svg"
-                      alt="cheveron"
-                      width={16}
-                      height={16}
-                    />
-                  </div>
-                </button>
-              </span>
-              <div className=" mt-[2.06rem] flex-row ">
+            <section className="mt-8 w-full xl:w-2/3">
+              <div className="flex-row ">
+                <span className="flex max-w-[46rem] items-center justify-between sm:mb-[2.06rem] ">
+                  <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
+                    Latest Job Posts
+                  </h3>
+                  <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                    See All
+                    <div className="sm:hidden">
+                      <Image
+                        src="/iconography/cheveron.svg"
+                        alt="cheveron"
+                        width={16}
+                        height={16}
+                      />
+                    </div>
+                  </button>
+                </span>
                 <div className="sm:flex">
                   {/* Card One */}
                   <div className="sm:pr-10">
@@ -105,12 +104,12 @@ export default function Home() {
               </div>
             </section>
             {/* Recomended For You */}
-            <section className="order-last mt-[2.19rem] w-full sm:w-1/3 xl:order-none">
+            <section className="order-last mt-[2.19rem] w-full xl:order-none xl:w-1/3">
               <span className="flex justify-between">
-                <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
+                <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White lg:ml-10">
                   Recommended For You
                 </h3>
-                <button className="flex items-center gap-2  border px-[.62rem] py-[.44rem] font-sans text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
