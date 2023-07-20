@@ -90,11 +90,11 @@ const JobSearchCard = (props: Props) => {
             </h3>
           </div>
         )}
-        <div className="flex gap-5">
-          <Button className="h-12 w-32 items-center justify-center rounded-lg bg-Natural4 p-3 text-Natural7">
+        <div className="flex justify-between gap-5">
+          <Button className="h-[38px] w-[141px] items-center justify-center rounded-lg bg-Natural4 p-3 text-Natural7 sm:h-12 sm:w-32">
             Message
           </Button>
-          <Button className="h-12 w-44 items-center justify-center rounded-xl bg-Primary p-3">
+          <Button className="h-[38px] w-[141px] items-center justify-center rounded-xl bg-Primary p-3 sm:h-12 sm:w-[180px]">
             Apply Now
           </Button>
         </div>
