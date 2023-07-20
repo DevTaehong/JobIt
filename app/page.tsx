@@ -11,18 +11,18 @@ export default function Home() {
     <>
       <div>
         <nav>{/* <Navbar /> */}</nav>
-        <main className="w-auto font-manrope">
+        <main className="mx-6 w-auto font-manrope sm:mx-20">
           {/* Heading */}
-          <section className=" mx-[1.5rem] mt-[1.5rem] sm:mx-[5.5rem] sm:mt-[3.13]">
-            <h1 className="text-2xl font-bold leading-10 dark:text-Natural4 sm:text-[1.375rem] sm:leading-8">
+          <section className=" ml-[-.25] mt-[3.13] sm:mt-[1.5rem]">
+            <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-2xl sm:leading-10">
               Welcome to the Job Search Platform for Developers
             </h1>
             {/* Date */}
-            <h2 className="hidden pt-[.88rem] text-sm font-medium leading-8 text-Natural6 sm:flex">
+            <h2 className="hidden text-Natural6 sm:flex sm:text-xl sm:font-medium sm:leading-8 xl:pt-[.88rem]">
               {currentDate}
             </h2>
           </section>
-          <div className="mx-[1.5rem] flex flex-row flex-wrap sm:mx-[5.5rem]">
+          <div className="flex flex-row flex-wrap">
             {/* Latest Job Posts */}
 
             <section className="mt-[2.19rem] w-full sm:w-2/3">
@@ -106,7 +106,7 @@ export default function Home() {
             </section>
             {/* Recomended For You */}
             <section className="order-last mt-[2.19rem] w-full sm:w-1/3 xl:order-none">
-              <span className="ml-0 flex justify-between sm:ml-10">
+              <span className="flex justify-between">
                 <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
                   Recommended For You
                 </h3>
@@ -123,7 +123,7 @@ export default function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="mt-[2.06rem] flex-row  gap-3 sm:ml-10">
+              <div className="mt-[2.06rem] flex-row gap-3 sm:ml-10">
                 <div>
                   <InlineJobCard
                     employerName={""}
@@ -178,9 +178,9 @@ export default function Home() {
               </div>
             </section>
             {/* Featured Compaines */}
-            <section className=" mt-10 w-full">
+            <section className="mt-10 w-full">
               <span>
-                <h3 className=" text-2xl font-bold leading-10 dark:text-White">
+                <h3 className="text-2xl font-bold leading-10 dark:text-White">
                   Featured Companies
                 </h3>
               </span>
@@ -192,12 +192,12 @@ export default function Home() {
             </section>
           </div>
           {/* Schedule */}
-          <section className="mb-[2.62rem] ml-[1.69rem] mr-[1.31rem] mt-[4rem] flex-row sm:hidden">
+          <section className="mb-[2.62rem] mt-[4rem] flex-row sm:hidden">
             <span className="flex items-center justify-between">
               <h1 className="text-2xl font-bold leading-10 dark:text-White">
                 Schedule
               </h1>
-              <div className="inline-flex items-center pr-[.62rem] font-sans text-xs font-medium	leading-5">
+              <div className="inline-flex items-center pr-[.62rem] font-sans text-xs font-medium leading-5">
                 <p className="text-Natural6">Sort by:</p>
                 {/* Due Date */}
                 <p className="font-sans text-[#0BAB7C]">This Week</p>
