@@ -45,9 +45,14 @@ const JobSearchCard = (props: Props) => {
             <h1 className=" text-lg font-semibold text-gray-900">
               {props.jobTitle}
             </h1>
-            <p className="text-center text-sm font-medium leading-tight text-Natural7">
-              {`${props.employerName} ･ ${props.jobCity}, ${props.jobState} ･ ${postDate} days ago`}
-            </p>
+            <div className="flex flex-col sm:flex-row">
+              <p className=" text-sm font-medium leading-tight text-Natural7">
+                {`${props.employerName} ･ `}
+              </p>
+              <p className=" text-sm font-medium leading-tight text-Natural7">
+                {`${props.jobCity}, ${props.jobState} ･ ${postDate} days ago`}
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex max-h-[34px] w-fit items-center justify-center rounded-lg bg-Natural3 px-2 py-1 text-sm text-Natural6">
