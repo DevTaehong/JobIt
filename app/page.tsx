@@ -145,7 +145,7 @@ export default function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="mt-[2.06rem] flex-row gap-3">
+              <div className="mt-[2.06rem] flex-row gap-3 pl-10">
                 <div>
                   <InlineJobCard
                     employerName={""}
