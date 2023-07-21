@@ -49,7 +49,7 @@ const JobDetailCard = (props: Props) => {
               />
             </div>
             {/* Sub Title */}
-            <div className="mt-[.037rem]">
+            <div className="mt-[.037rem] flex">
               <h2>UIHUT Technologies LLC</h2>
               <h3>Sylhet, BD</h3>
               <Image
