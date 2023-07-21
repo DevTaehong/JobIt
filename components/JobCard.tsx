@@ -32,19 +32,19 @@ const JobCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.expirationDate);
 
   return (
-    <div>
-      <div className="flex w-full flex-col gap-7 bg-white p-5 font-manrope">
+    <div className="">
+      <div className="flex flex-col gap-7 rounded-[10px] bg-white p-5 font-manrope dark:bg-DarkBG2">
         <div className="flex justify-between">
           <div className="flex rounded">
-            <div className="rounded p-2">
+            <div className="h-[46px] w-[46px] justify-center rounded-[10px] border border-neutral-50 bg-Natural3 p-2 dark:border-none dark:bg-DarkBG3 sm:h-[64px] sm:w-[64px]">
               <img
-                className="h-12 min-w-[48px]"
+                className="min-h-[34.5px] min-w-[34.5px]  sm:h-[48px] sm:w-[48px]"
                 src={props.companyLogo}
                 alt="logo"
               />
             </div>
-            <div className="flex flex-col pl-5">
-              <h1 className=" text-lg font-semibold text-gray-900">
+            <div className="flex flex-col justify-between pl-[18px] sm:pl-5">
+              <h1 className="line-clamp-1 font-semibold text-gray-900 dark:text-white sm:text-lg">
                 {props.jobTitle}
               </h1>
 
