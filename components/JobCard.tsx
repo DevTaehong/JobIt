@@ -33,7 +33,7 @@ const JobCard = (props: Props) => {
 
   return (
     <div className="">
-      <div className="flex flex-col gap-7 rounded-[10px] bg-white p-5 font-manrope dark:bg-DarkBG2">
+      <div className="flex flex-col gap-7 rounded-[10px] bg-white p-5 dark:bg-DarkBG2">
         <div className="flex justify-between">
           <div className="flex rounded">
             <div className="h-[46px] w-[46px] justify-center rounded-[10px] border border-neutral-50 bg-Natural3 p-2 dark:border-none dark:bg-DarkBG3 sm:h-[64px] sm:w-[64px]">
@@ -108,7 +108,7 @@ const JobCard = (props: Props) => {
           {props.salary && (
             <h3 className="text-[18px] text-black dark:text-white">
               {`$${props.salary}/`}
-              <span className="font-sans text-base text-Natural7 sm:text-[16px]">
+              <span className="text-base text-Natural7 sm:text-[16px]">
                 {props.salaryPeriod?.toLowerCase()}
               </span>
             </h3>
