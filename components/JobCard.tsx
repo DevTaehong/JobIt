@@ -114,7 +114,7 @@ const JobCard = (props: Props) => {
             </h3>
           )}
           {/* Button based on screen size */}
-          <Button className="h-10 w-[103px] items-center justify-center rounded-[10px] bg-Primary px-3.5 py-2 text-[15px] dark:bg-Primary sm:hidden">
+          <Button className="h-10 w-[103px] items-center justify-center rounded-[10px] bg-Primary px-3.5 py-2 text-[15px] dark:bg-Primary dark:text-white sm:hidden">
             Apply Now
           </Button>
           <Button className="hidden items-center justify-center rounded-[10px] bg-Primary px-3.5 py-3 text-[15px] dark:bg-Primary dark:text-white sm:flex sm:h-12 sm:w-[94px]">
