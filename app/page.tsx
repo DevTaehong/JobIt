@@ -42,12 +42,14 @@ export default function Home() {
                     </div>
                   </button>
                 </span>
-                <div className="flex flex-col flex-wrap gap-[5.5%] sm:flex-row [&>div]:mb-[5.5%] [&>div]:w-full  [&>div]:md:w-[47.25%]  [&>div]:lg:w-[29.75%] [&>div]:xl:w-[47.25%]">
+                <div className="flex flex-col flex-wrap gap-[4.76%] sm:flex-row [&>div]:mb-[4.76%] [&>div]:w-full  [&>div]:md:w-[47.25%]  [&>div]:lg:w-[29.75%] [&>div]:xl:w-[47.62%]">
                   {/* Card One */}
                   <div className="">
                     <JobCard
-                      jobTitle={""}
-                      jobDescription={""}
+                      jobTitle={"nfgkaslnglr"}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -59,7 +61,9 @@ export default function Home() {
                   <div className="">
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -73,7 +77,9 @@ export default function Home() {
                     {" "}
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -87,7 +93,9 @@ export default function Home() {
                     {" "}
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -100,7 +108,9 @@ export default function Home() {
                     {" "}
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -114,7 +124,9 @@ export default function Home() {
                     {" "}
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
