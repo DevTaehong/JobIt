@@ -1,7 +1,7 @@
 import Image from "next/image";
 import moment from "moment";
-import InlineJobCard from "@/components/InlineJobCard";
 import JobCard from "@/components/JobCard";
+import InlineJobCard from "@/components/InlineJobCard";
 
 async function getJobs() {
   const jSearchApiKey = process.env.NEXT_PUBLIC_X_RAPID_API_KEY;
@@ -32,70 +32,145 @@ export default async function Home() {
   const jobData: Promise<Job> = getJobs();
 
   const [jobs] = await Promise.all([jobData]);
-  const test = 1;
-
+  console.log(jobs);
   return (
     <>
       <div>
-        <main className="w-auto font-manrope">
+        <nav>{/* <Navbar /> */}</nav>
+        <main className="mx-6 w-auto font-manrope sm:mx-20">
           {/* Heading */}
-          <section className=" mx-[1.5rem] mt-[1.5rem] sm:mx-[5.5rem] sm:mt-[3.13]">
-            <h1 className=" text-2xl font-bold leading-10 dark:leading-6 dark:text-Natural4 sm:text-[1.375rem] sm:leading-8">
+          <section className=" ml-[-.25] mt-[3.13] sm:mt-[3rem]">
+            <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
               Welcome to the Job Search Platform for Developers
             </h1>
             {/* Date */}
-            <h2 className="hidden pt-[.88rem] text-sm font-medium leading-8 text-Natural6 sm:flex">
+            <h2 className="hidden text-Natural6 sm:flex sm:text-xl sm:font-medium sm:leading-8 xl:pt-[.88rem]">
               {currentDate}
             </h2>
           </section>
-          <div className="mx-[1.5rem] flex flex-row flex-wrap sm:mx-[5.5rem]">
+          <div className="flex flex-row flex-wrap">
             {/* Latest Job Posts */}
-
-            <section className="mt-[2.19rem] w-full sm:w-2/3">
-              <span className="flex items-center justify-between">
-                <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
-                  Latest Job Posts
-                </h3>
-                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
-                  See All
-                  <div className="sm:hidden">
-                    <Image
-                      src="/iconography/cheveron.svg"
-                      alt="cheveron"
-                      width={16}
-                      height={16}
+            <section className="mt-8 w-full xl:w-2/3">
+              <div className="flex-row ">
+                <span className="flex items-center justify-between sm:mb-[2.06rem] ">
+                  <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
+                    Latest Job Posts
+                  </h3>
+                  <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] font-sans	text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                    See All
+                    <div className="sm:hidden">
+                      <Image
+                        src="/iconography/cheveron.svg"
+                        alt="cheveron"
+                        width={16}
+                        height={16}
+                      />
+                    </div>
+                  </button>
+                </span>
+                <div className="flex flex-col flex-wrap gap-[4.76%] sm:flex-row [&>div]:mb-[4.76%] [&>div]:w-full  [&>div]:md:w-[47.25%]  [&>div]:lg:w-[29.75%] [&>div]:xl:w-[47.62%]">
+                  {/* Card One */}
+                  <div className="">
+                    <JobCard
+                      jobTitle={"nfgkaslnglr"}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
                     />
                   </div>
-                </button>
-              </span>
-              <div className="mr-10 mt-[1.88rem] flex-row ">
-                <div className="flex-wrap gap-[2.5rem] md:flex">
-                  {/* Card One */}
-                  {jobs?.data
-                    .slice(0, 4)
-                    .map((data, i) => (
-                      <JobCard
-                        key={i}
-                        jobTitle={data.job_title}
-                        salary={data.job_min_salary}
-                        jobDescription={data.job_description}
-                        salaryPeriod={data.job_salary_period}
-                        companyLogo={data.employer_logo}
-                        jobSkills={data.job_required_skills}
-                        employmentType={data.job_employment_type}
-                        expirationDate={data.job_offer_expiration_timestamp}
-                      />
-                    ))}
+                  <div className="">
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
+                  {/* Card Two */}
+                  <div className="">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
+                  {/* Card Three */}
+                  <div className="">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
+                  <div className="">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
+                  {/* Card Four */}
+                  <div className="">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
                 </div>
               </div>
             </section>
             {/* Recomended For You */}
-            <section className="order-last mt-[2.19rem] w-full sm:order-none sm:w-1/3">
-              <span className="ml-0 flex justify-between sm:ml-10">
-                <h3 className=" text-[1.375rem] font-bold leading-8 dark:text-White">
-                  Recomended For You
+            <section className="order-last mt-[2.19rem] w-full xl:order-none xl:w-1/3">
+              <span className="flex justify-between">
+                <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White lg:ml-10">
+                  Recommended For You
                 </h3>
-                <button className="flex items-center gap-2 whitespace-nowrap border px-[.62rem] py-[.44rem] font-sans text-xs	 font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] font-sans	text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
@@ -108,26 +183,64 @@ export default async function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="ml-0 flex-row gap-3 sm:ml-10">
-                {jobs.data.map((data, i) => (
+              <div className="mt-[2.06rem] flex-row gap-3 pl-10">
+                <div>
                   <InlineJobCard
-                    key={i}
-                    employerName={data.employer_name}
-                    jobTitle={data.job_title}
-                    salary={data.job_min_salary}
-                    salaryPeriod={data.job_salary_period}
-                    companyLogo={data.employer_logo}
-                    jobState={data.job_state}
-                    jobCity={data.job_city}
-                    employmentType={data.job_employment_type}
+                    employerName={""}
+                    jobTitle={""}
+                    salary={null}
+                    salaryPeriod={null}
+                    companyLogo={""}
+                    jobState={""}
+                    jobCity={""}
+                    employmentType={""}
                   />
-                ))}
+                </div>
+                <div>
+                  {" "}
+                  <InlineJobCard
+                    employerName={""}
+                    jobTitle={""}
+                    salary={null}
+                    salaryPeriod={null}
+                    companyLogo={""}
+                    jobState={""}
+                    jobCity={""}
+                    employmentType={""}
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <InlineJobCard
+                    employerName={""}
+                    jobTitle={""}
+                    salary={null}
+                    salaryPeriod={null}
+                    companyLogo={""}
+                    jobState={""}
+                    jobCity={""}
+                    employmentType={""}
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <InlineJobCard
+                    employerName={""}
+                    jobTitle={""}
+                    salary={null}
+                    salaryPeriod={null}
+                    companyLogo={""}
+                    jobState={""}
+                    jobCity={""}
+                    employmentType={""}
+                  />
+                </div>
               </div>
             </section>
             {/* Featured Compaines */}
-            <section className=" mt-10 w-full lg:w-1/3">
+            <section className="mt-10 w-full">
               <span>
-                <h3 className=" text-2xl font-bold leading-10 dark:text-White">
+                <h3 className="text-2xl font-bold leading-10 dark:text-White">
                   Featured Companies
                 </h3>
               </span>
@@ -139,12 +252,12 @@ export default async function Home() {
             </section>
           </div>
           {/* Schedule */}
-          <section className="mb-[2.62rem] ml-[1.69rem] mr-[1.31rem] mt-[4rem] flex-row sm:hidden">
+          <section className="mb-[2.62rem] mt-[4rem] flex-row sm:hidden">
             <span className="flex items-center justify-between">
               <h1 className="text-2xl font-bold leading-10 dark:text-White">
                 Schedule
               </h1>
-              <div className="inline-flex items-center pr-[.62rem] font-sans text-xs font-medium	leading-5">
+              <div className="inline-flex items-center pr-[.62rem] font-sans text-xs font-medium leading-5">
                 <p className="text-Natural6">Sort by:</p>
                 {/* Due Date */}
                 <p className="font-sans text-[#0BAB7C]">This Week</p>
