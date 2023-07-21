@@ -17,9 +17,9 @@ const InlineJobCard = (props: Props) => {
     <div className="w-full gap-5 rounded-[10px] bg-Natural3 px-3 py-3.5 font-manrope dark:bg-DarkBG2">
       <div className="flex justify-between">
         <div className="flex rounded">
-          <div className="rounded py-1.5 pr-2">
+          <div className="h-9 w-9 rounded py-1.5 pr-2">
             <img
-              className="min-h-[30px] min-w-[30px] sm:max-h-[36px] sm:max-w-[36px]"
+              className="min-h-[30px] min-w-[30px]  sm:max-h-[36px] sm:max-w-[36px]"
               src={props.companyLogo}
               alt="logo"
             />
