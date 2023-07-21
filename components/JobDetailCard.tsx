@@ -7,6 +7,7 @@ const JobDetailCard = (props: Props) => {
   return (
     <>
       {/* Box */}
+      {/* Change width to full after when done */}
       <main className="h-[151.6rem] w-[20.44rem] shrink-0 border font-manrope lg:ml-20 lg:h-[96.8125rem] lg:w-[53.75rem]">
         {/* Contents */}
         <div className="px-5 pt-5">
@@ -49,38 +50,69 @@ const JobDetailCard = (props: Props) => {
               />
             </div>
             {/* Sub Title */}
-            <div className="mt-[.037rem] flex">
-              <h2>UIHUT Technologies LLC</h2>
+            <h2 className="text-[.812rem]	font-medium leading-[1.125rem] text-Natural7">
+              UIHUT Technologies LLC
+            </h2>
+            <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7">
               <h3>Sylhet, BD</h3>
               <Image
-                src="/iconography/more-vertical.svg"
-                alt="more-vertical"
-                width={24}
-                height={24}
+                src="/iconography/Oval .svg"
+                alt="oval"
+                width={3}
+                height={3}
               />
               <h3>3 days ago</h3>
             </div>
-            {/* Buttons */}
-            <div></div>
           </section>
-          {/* Requirements */}
-          <section>
-            {/* Experience */}
-            <div></div>
 
-            {/* Work Level */}
-            <div></div>
-
-            {/* Employee Type */}
-            <div></div>
-
-            {/* Offer Salary */}
-            <div></div>
+          {/* Four specs */}
+          <section className="mt-[1.75rem]">
+            <span className="flex gap-[1.88rem] p-[.62rem]">
+              <div>
+                <h3 className="text-[.812rem] font-medium leading-5	text-Natural6">
+                  Experience
+                </h3>
+                <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
+                  Minimum 1 Year
+                </p>
+              </div>
+              <div>
+                <h3 className="text-[.812rem] font-medium leading-5	text-Natural6">
+                  Work Level
+                </h3>
+                <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
+                  Senior Level
+                </p>
+              </div>
+            </span>
+            <span className="flex gap-[2.44rem] p-[.62rem]">
+              <div>
+                <h3 className="text-[.812rem] font-medium leading-5	text-Natural6">
+                  Employee Type
+                </h3>
+                <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
+                  Full Time Jobs
+                </p>
+              </div>
+              <div>
+                <h3 className="text-[.812rem] font-medium leading-5	text-Natural6">
+                  Offer Salary
+                </h3>
+                <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
+                  $2150,0 / M
+                </p>
+              </div>
+            </span>
           </section>
-          {/* Main Text */}
-          <section>
-            {/* About */}
-            <div>
+          {/* Buttons */}
+          <section className="mt-[.88rem]">
+            <button className="pr-[.96rem]">Apply Now</button>
+            <button>Message</button>
+          </section>
+          {/* About the job */}
+          <section className="pt-[1.88rem]">
+            <h2>About The Job</h2>
+            <p className="pt-[.62rem]">
               Here at UIHUT, we are a passionate, fun-loving, growing team. We
               are looking for passionate programmers who want to solve technical
               challenges and learn and incorporate new technologies into their
@@ -90,18 +122,24 @@ const JobDetailCard = (props: Props) => {
               You will be engaged across the software development life cycle to
               create and modify platforms and capabilities in a collaborative
               and agile environment.
-            </div>
-            {/* Responsibilities */}
-            <div>
+            </p>
+          </section>
+          {/* Responsibilities */}
+          <section>
+            <h2>Responsibilities</h2>
+            <p>
               Responsibilities Design, build, test, and deploy software
               applications and features Carry software products through the
               software development life cycle (SDLC) Write clean, concise, and
               efficient code Manage code documentation and version control
               Troubleshoot and debug software Participate in on-call rotation to
               respond to production issues
-            </div>
-            {/* Qualifications and Skill Sets */}
-            <div>
+            </p>
+          </section>
+          {/* Qualifications and Skill Sets */}
+          <section>
+            <h2>Qualifications and Skill Sets</h2>
+            <p>
               Qualifications and Skill Sets 3+ years of professional experience
               working on this field Bachelors degree in computer science,
               software engineering, or related field Proficiency in at least one
@@ -109,22 +147,20 @@ const JobDetailCard = (props: Props) => {
               expertise Strong problem-solving and communication skills
               Experience with build tools such as Gradle and Maven Good working
               knowledge of the Linux operating system
-            </div>
+            </p>
           </section>
-          {/* Company Info */}
+          {/* About The Company */}
           <section>
-            {/* Title */}
-            <div>About The Company</div>
-            {/* Image */}
-            <div>Full width bar</div>
-            {/* About */}
-            <div>
+            <h2>About The Company</h2>
+            <span></span>
+            <button></button>
+            <p>
               UIHUT is a design and coding resources platform for designers,
               developers and entrepreneurs. Were building a digital marketplace
               to simplify the creation of websites, apps and software on any
               device. UIHUT is based in New York City and is privately funded by
               some of the industrys leading investors.
-            </div>
+            </p>
           </section>
         </div>
       </main>
