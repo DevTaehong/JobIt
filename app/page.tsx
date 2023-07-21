@@ -13,7 +13,7 @@ export default function Home() {
         <nav>{/* <Navbar /> */}</nav>
         <main className="mx-6 w-auto font-manrope sm:mx-20">
           {/* Heading */}
-          <section className=" ml-[-.25] mt-[3.13] sm:mt-[1.5rem]">
+          <section className=" ml-[-.25] mt-[3.13] sm:mt-[3rem]">
             <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
               Welcome to the Job Search Platform for Developers
             </h1>
