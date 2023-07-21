@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="flex h-[3.875rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid border-Natural5 bg-White px-[1.5rem] py-[1.125rem] font-manrope dark:border-DarkBG3 dark:bg-DarkBG1 md:h-[4.375rem] md:px-20 md:py-0">
+      <nav className="flex h-[3.875rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid border-Natural5 bg-White px-[1.5rem] py-[1.125rem] dark:border-DarkBG3 dark:bg-DarkBG1 md:h-[4.375rem] md:px-20 md:py-0">
         {/* Mobile navigation */}
         <Sheet
           open={open}

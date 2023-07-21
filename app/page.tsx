@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <div>
         <nav>{/* <Navbar /> */}</nav>
-        <main className="mx-6 w-auto font-manrope sm:mx-20">
+        <main className="mx-6 w-auto sm:mx-20">
           {/* Heading */}
           <section className=" ml-[-.25] mt-[3.13] sm:mt-[3rem]">
             <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
@@ -30,7 +30,7 @@ export default function Home() {
                   <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
                     Latest Job Posts
                   </h3>
-                  <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] font-sans	text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                  <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                     See All
                     <div className="sm:hidden">
                       <Image
@@ -144,7 +144,7 @@ export default function Home() {
                 <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White lg:ml-10">
                   Recommended For You
                 </h3>
-                <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] font-sans	text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
@@ -231,10 +231,10 @@ export default function Home() {
               <h1 className="text-2xl font-bold leading-10 dark:text-White">
                 Schedule
               </h1>
-              <div className="inline-flex items-center pr-[.62rem] font-sans text-xs font-medium leading-5">
+              <div className="inline-flex items-center pr-[.62rem] text-xs font-medium leading-5">
                 <p className="text-Natural6">Sort by:</p>
                 {/* Due Date */}
-                <p className="font-sans text-[#0BAB7C]">This Week</p>
+                <p className="text-[#0BAB7C]">This Week</p>
                 <Image
                   src="/iconography/cheveron.svg"
                   alt="cheveron"

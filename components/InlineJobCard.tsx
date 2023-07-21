@@ -13,7 +13,7 @@ type Props = {
 
 const InlineJobCard = (props: Props) => {
   return (
-    <div className="w-full gap-5 rounded-[10px] bg-Natural3 px-3 py-3.5 font-manrope dark:bg-DarkBG2">
+    <div className="w-full gap-5 rounded-[10px] bg-Natural3 px-3 py-3.5 dark:bg-DarkBG2">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="h-9 w-9 rounded py-1.5 pr-2">
@@ -36,7 +36,7 @@ const InlineJobCard = (props: Props) => {
           {props.salary && (
             <h3 className="text-black dark:text-white ">
               {`$${props.salary}/`}
-              <span className="font-sans text-Natural7">
+              <span className="text-Natural7">
                 {props.salaryPeriod?.toLowerCase()}
               </span>
             </h3>
