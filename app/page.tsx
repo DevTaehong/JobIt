@@ -1,13 +1,42 @@
 import Image from "next/image";
 import moment from "moment";
+import InlineJobCard from "@/components/InlineJobCard";
+import JobCard from "@/components/JobCard";
 
-export default function Home() {
+async function getJobs() {
+  const jSearchApiKey = process.env.NEXT_PUBLIC_X_RAPID_API_KEY;
+
+  const requestHeaders = new Headers();
+
+  requestHeaders.set("X-RapidAPI-Key", jSearchApiKey || "");
+  requestHeaders.set("X-RapidAPI-Host", "jsearch.p.rapidapi.com");
+
+  const res = await fetch(
+    "https://jsearch.p.rapidapi.com/search?query=Developer&page=1&num_pages=1&date_posted=today",
+    { headers: requestHeaders },
+  );
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function Home() {
   const currentDate = moment().format("dddd,  D MMM YYYY");
+  const jobData: Promise<Job> = getJobs();
+
+  const [jobs] = await Promise.all([jobData]);
+  const test = 1;
 
   return (
     <>
       <div>
-        <nav>{/* <Navbar /> */}</nav>
         <main className="w-auto font-manrope">
           {/* Heading */}
           <section className=" mx-[1.5rem] mt-[1.5rem] sm:mx-[5.5rem] sm:mt-[3.13]">
@@ -40,17 +69,23 @@ export default function Home() {
                 </button>
               </span>
               <div className="mr-10 mt-[1.88rem] flex-row ">
-                <div className="sm:flex">
+                <div className="flex-wrap gap-[2.5rem] md:flex">
                   {/* Card One */}
-                  <div className="sm:pr-10"> Card One</div>
-                  {/* Card Two */}
-                  <div className="">Card Two</div>
-                </div>
-                <div className="sm:flex sm:pt-10">
-                  {/* Card Three */}
-                  <div className="sm:pr-10">Card Three</div>
-                  {/* Card Four */}
-                  <div className="">Card Four</div>
+                  {jobs?.data
+                    .slice(0, 4)
+                    .map((data, i) => (
+                      <JobCard
+                        key={i}
+                        jobTitle={data.job_title}
+                        salary={data.job_min_salary}
+                        jobDescription={data.job_description}
+                        salaryPeriod={data.job_salary_period}
+                        companyLogo={data.employer_logo}
+                        jobSkills={data.job_required_skills}
+                        employmentType={data.job_employment_type}
+                        expirationDate={data.job_offer_expiration_timestamp}
+                      />
+                    ))}
                 </div>
               </div>
             </section>
@@ -74,10 +109,19 @@ export default function Home() {
               </span>
               {/* Inline Job Cards */}
               <div className="ml-0 flex-row gap-3 sm:ml-10">
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
-                <div>Inline Job Card</div>
+                {jobs.data.map((data, i) => (
+                  <InlineJobCard
+                    key={i}
+                    employerName={data.employer_name}
+                    jobTitle={data.job_title}
+                    salary={data.job_min_salary}
+                    salaryPeriod={data.job_salary_period}
+                    companyLogo={data.employer_logo}
+                    jobState={data.job_state}
+                    jobCity={data.job_city}
+                    employmentType={data.job_employment_type}
+                  />
+                ))}
               </div>
             </section>
             {/* Featured Compaines */}
