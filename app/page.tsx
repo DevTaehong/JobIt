@@ -42,7 +42,7 @@ export default function Home() {
                     </div>
                   </button>
                 </span>
-                <div className="flex flex-col flex-wrap gap-[5%] sm:flex-row [&>div]:mb-[5%] [&>div]:w-full  [&>div]:md:w-[47.5%]  [&>div]:lg:w-[30%] [&>div]:xl:w-[47.5%]">
+                <div className="flex flex-col flex-wrap gap-[5.5%] sm:flex-row [&>div]:mb-[5.5%] [&>div]:w-full  [&>div]:md:w-[47.25%]  [&>div]:lg:w-[29.75%] [&>div]:xl:w-[47.25%]">
                   {/* Card One */}
                   <div className="">
                     <JobCard
