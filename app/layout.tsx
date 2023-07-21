@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={(manrope.variable, dmSans.variable)}>
+    <html lang="en" className={`${manrope.variable} ${dmSans.variable}`}>
       <body>
         <ReduxProvider>
           <NavBar />
