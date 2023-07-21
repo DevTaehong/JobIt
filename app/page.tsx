@@ -42,9 +42,9 @@ export default function Home() {
                     </div>
                   </button>
                 </span>
-                <div className="sm:flex">
+                <div className="flex flex-col flex-wrap gap-[5%] sm:flex-row [&>div]:mb-[5%] [&>div]:w-full  [&>div]:md:w-[47.5%]  [&>div]:lg:w-[30%] [&>div]:xl:w-[47.5%]">
                   {/* Card One */}
-                  <div className="sm:pr-10">
+                  <div className="">
                     <JobCard
                       jobTitle={""}
                       jobDescription={""}
@@ -56,7 +56,7 @@ export default function Home() {
                       expirationDate={0}
                     />
                   </div>
-                  <div className="sm:pr-10">
+                  <div className="">
                     <JobCard
                       jobTitle={""}
                       jobDescription={""}
@@ -69,7 +69,7 @@ export default function Home() {
                     />
                   </div>
                   {/* Card Two */}
-                  <div className="mt-10 sm:mt-0">
+                  <div className="">
                     {" "}
                     <JobCard
                       jobTitle={""}
@@ -82,10 +82,8 @@ export default function Home() {
                       expirationDate={0}
                     />
                   </div>
-                </div>
-                <div className="mt-10 sm:mt-0 sm:flex sm:pt-10">
                   {/* Card Three */}
-                  <div className="sm:pr-10">
+                  <div className="">
                     {" "}
                     <JobCard
                       jobTitle={""}
@@ -98,7 +96,7 @@ export default function Home() {
                       expirationDate={0}
                     />
                   </div>
-                  <div className="sm:pr-10">
+                  <div className="">
                     {" "}
                     <JobCard
                       jobTitle={""}
@@ -112,7 +110,7 @@ export default function Home() {
                     />
                   </div>
                   {/* Card Four */}
-                  <div className="mt-10 sm:mt-0">
+                  <div className="">
                     {" "}
                     <JobCard
                       jobTitle={""}
