@@ -1,5 +1,7 @@
 import JobDetailCard from "@/components/JobDetailCard";
+import chevron from "@/public/iconography/CheveronLeft.svg";
 import moment from "moment";
+import Image from "next/image";
 
 const JobDetails = ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
@@ -22,11 +24,14 @@ const JobDetails = ({ params }: { params: { id: string } }) => {
         <div className="flex flex-row flex-wrap sm:flex-nowrap sm:gap-10">
           <section className="mt-8 w-full xl:w-2/3">
             <span className="flex items-center sm:mb-[23px] ">
-              <button className="hidden items-center gap-2 rounded-[0.625rem] bg-Natural4 px-[.62rem] py-[.44rem] text-xs font-medium leading-[18px] text-Natural7 dark:border-DarkBG3 sm:flex">
+              <button className="hidden items-center gap-2 rounded-[0.625rem] bg-Natural4 px-[.62rem] py-[.44rem] text-xs font-medium leading-[18px] text-Natural7 dark:border-DarkBG3 dark:bg-DarkBG2 sm:flex">
+                <div className="">
+                  <Image src={chevron} alt="back logo" width={18} height={18} />
+                </div>
                 Back
               </button>
             </span>
-            <div className="rounded-[10px] bg-white">
+            <div className="rounded-[10px] bg-white dark:bg-DarkBG2">
               <JobDetailCard qualifications={["2, ", "1"]} />
             </div>
           </section>
