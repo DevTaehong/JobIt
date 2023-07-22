@@ -308,7 +308,7 @@ const JobDetailCard = (props: Props) => {
             <h2 className="text-base font-bold	leading-6">About The Company</h2>
             <span className="mt-[1.25rem] flex">
               <Image
-                className="shrink-0"
+                className="object-contain"
                 src="/iconography/Company Logo.png"
                 alt="oval"
                 width={34}
