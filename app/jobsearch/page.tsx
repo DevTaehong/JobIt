@@ -1,5 +1,11 @@
+import JobDetailCard from "@/components/JobDetailCard";
+
 const JobSearch = () => {
-  return <div>JobSearch</div>;
+  return (
+    <div>
+      <JobDetailCard />
+    </div>
+  );
 };
 
 export default JobSearch;
