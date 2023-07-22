@@ -28,7 +28,7 @@ const daysLeft = calculateDaysLeft(props.daysLeft)
 
 return(
   <>
-<div className="p-[1.25rem] inline-flex flex-col justify-center items-start gap-5 bg-Natural4">
+<div className="p-[1.25rem] flex flex-col justify-center items-start gap-5 bg-white">
   <div className="flex items-start gap-[1.875rem] bg-white">
 <div className="w-12 h-12"><img src= {props.icon}/></div>
 
