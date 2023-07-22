@@ -10,7 +10,7 @@ const JobDetails = ({ params }: { params: { id: string } }) => {
     <>
       <main className="mx-6 w-auto sm:mx-20">
         {/* Heading */}
-        <section className=" ml-[-.25] mt-[3.13] sm:mt-[3rem]">
+        <section className=" mb-[30px] ml-[-.25] mt-[3.13] sm:mt-[3rem]">
           <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             Let's find your dream job
@@ -20,6 +20,19 @@ const JobDetails = ({ params }: { params: { id: string } }) => {
             {currentDate}
           </h2>
         </section>
+
+        {/* Search  */}
+        <div className="w-full rounded-[10px] bg-white px-2.5 py-4 shadow dark:bg-DarkBG2">
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:justify-between">
+            <div className="border-b px-5 py-3 sm:border-none">Job title</div>
+            <div className="border-b px-5 py-3 sm:border-none">Location</div>
+            <div className="border-b px-5 py-3 sm:border-none">Job Type</div>
+            <button className="w-full justify-end rounded-[10px] bg-Primary px-[19px] py-3 text-center text-[15px] font-semibold leading-normal text-white sm:w-fit">
+              Find Jobs
+            </button>
+          </div>
+        </div>
+
         {/* Job Details */}
         <div className="flex flex-row flex-wrap sm:flex-nowrap sm:gap-10">
           <section className="mt-8 w-full xl:w-2/3">
