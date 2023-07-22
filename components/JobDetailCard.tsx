@@ -151,7 +151,7 @@ const JobDetailCard = ({
             <section className="mt-[.88rem] flex justify-center gap-[.625rem]">
               <a
                 className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
-                jobApplyLink={jobApplyLink}
+                href={jobApplyLink}
               >
                 Apply Now
               </a>
