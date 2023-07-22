@@ -40,7 +40,7 @@ const InlineJobCard = (props: Props) => {
           {props?.salary && (
             <h3 className="text-black dark:text-white ">
               {`$${props?.salary}/`}
-              <span className="font-sans text-Natural7">
+              <span className="text-Natural7">
                 {props?.salaryPeriod?.toLowerCase()}
               </span>
             </h3>
