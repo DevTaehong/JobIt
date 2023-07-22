@@ -1,5 +1,5 @@
 export async function getLatestJobs() {
-  const jSearchApiKey = process.env.NEXT_PUBLIC_X_RAPID_API_KEY;
+  const jSearchApiKey = process.env.X_RAPID_API_KEY;
 
   const requestHeaders = new Headers();
 
@@ -23,7 +23,7 @@ export async function getLatestJobs() {
 }
 
 export async function getRecommendedJobs() {
-  const jSearchApiKey = process.env.NEXT_PUBLIC_X_RAPID_API_KEY;
+  const jSearchApiKey = process.env.X_RAPID_API_KEY;
 
   const requestHeaders = new Headers();
 
