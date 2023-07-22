@@ -57,6 +57,5 @@ const specificWords = [
 export const extractRequiredSkills = (jobDescription: string): string[] => {
   const pattern = new RegExp(`\\b(${specificWords.join(`\\b|`)})\\b`, "gi"); // "gi" makes the search case-insensitive
   const matchingWords = new Set(jobDescription.match(pattern) || []);
-  console.log(matchingWords);
   return Array.from(matchingWords);
 };
