@@ -30,7 +30,9 @@ return(
   <>
 <div className="p-[1.25rem] flex flex-col justify-center items-start gap-5 bg-white">
   <div className="flex items-start w-full gap-[.95rem] bg-white">
-<div className="w-12 h-12"><img src= {props.icon}/></div>
+<div className="w-[3rem] min-w-[3rem] border">
+            <img className="object-fill" src={props.icon} />
+          </div>
 
 <div className="flex w-[12.25rem] pr-0 flex-col items-start gap-[0.375rem]">
   
