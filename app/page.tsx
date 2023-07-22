@@ -98,8 +98,8 @@ export default async function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="mt-[2.06rem] flex-row gap-3 pl-10">
-                {RecommendedJobs.data.slice(0, 18).map((RecommendedJob, i) => (
+              <div className="mt-[2.06rem] flex flex-col gap-3 pl-10">
+                {RecommendedJobs.data.slice(0, 15).map((RecommendedJob, i) => (
                   <div key={i}>
                     <InlineJobCard
                       employerName={RecommendedJob?.employer_name}
