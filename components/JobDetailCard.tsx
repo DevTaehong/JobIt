@@ -140,7 +140,7 @@ const JobDetailCard = (props: Props) => {
               <h2 className="text-base font-bold	leading-6">Responsibilities</h2>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -153,7 +153,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -166,7 +166,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -178,7 +178,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -190,7 +190,7 @@ const JobDetailCard = (props: Props) => {
               </div>{" "}
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -202,7 +202,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -221,7 +221,7 @@ const JobDetailCard = (props: Props) => {
               </h2>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -233,7 +233,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -246,7 +246,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -259,7 +259,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -271,7 +271,7 @@ const JobDetailCard = (props: Props) => {
               </div>{" "}
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -283,7 +283,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -295,7 +295,7 @@ const JobDetailCard = (props: Props) => {
               </div>
               <div className="flex flex-row pt-[.75rem]">
                 <Image
-                  className="stroke-2 align-text-top	"
+                  className="mt-2 h-[.5rem] stroke-2"
                   src="/iconography/Oval (2).svg"
                   alt="oval"
                   width={8}
@@ -313,7 +313,7 @@ const JobDetailCard = (props: Props) => {
               </h2>
               <span className="mt-[1.25rem] flex">
                 <Image
-                  className="shrink-0"
+                  className="object-contain"
                   src="/iconography/Company Logo.png"
                   alt="oval"
                   width={34}
