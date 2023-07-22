@@ -6,15 +6,14 @@ type Props = {
   employerLogo?: String;
   qualifications?: string[];
   jobRequiredSkills: string[];
-  jobPublisher?: string;
   jobEmploymentType?: string;
   jobTitle?: string;
   jobApplyLink?: string;
   jobDescription?: string;
-  jobCity: string;
-  jobState: string;
-  estimatedSalaries: string;
-  jobRequiredExperience: string;
+  jobCity?: string;
+  jobState?: string;
+  estimatedSalaries?: string;
+  jobRequiredExperience?: string;
 };
 
 const JobDetailCard = ({
@@ -22,7 +21,6 @@ const JobDetailCard = ({
   employerLogo,
   qualifications,
   jobRequiredSkills,
-  jobPublisher,
   jobEmploymentType,
   jobTitle,
   jobApplyLink,
@@ -86,10 +84,13 @@ const JobDetailCard = ({
               </div>
               {/* Sub Title */}
               <h2 className="text-[.812rem]	font-medium leading-[1.125rem] text-Natural7">
-                UIHUT Technologies LLC
+                {employerName}
               </h2>
               <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7">
-                <h3>Sylhet, BD</h3>
+                <h3>
+                  {jobCity}
+                  {jobState}
+                </h3>
                 <Image
                   src="/iconography/Oval.svg"
                   alt="oval"
@@ -107,7 +108,7 @@ const JobDetailCard = ({
                     Experience
                   </h3>
                   <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
-                    Minimum 1 Year
+                    {jobRequiredExperience}
                   </p>
                 </div>
                 <div>
@@ -125,7 +126,7 @@ const JobDetailCard = ({
                     Employee Type
                   </h3>
                   <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
-                    Full Time Jobs
+                    {jobEmploymentType}
                   </p>
                 </div>
                 <div>
@@ -133,7 +134,7 @@ const JobDetailCard = ({
                     Offer Salary
                   </h3>
                   <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
-                    $2150,0 / M
+                    {estimatedSalaries}
                   </p>
                 </div>
               </span>
@@ -151,15 +152,7 @@ const JobDetailCard = ({
             <section className="mt-[1.88rem]">
               <h2 className="text-base font-bold	leading-6">About The Job</h2>
               <p className="pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7">
-                Here at UIHUT, we are a passionate, fun-loving, growing team. We
-                are looking for passionate programmers who want to solve
-                technical challenges and learn and incorporate new technologies
-                into their skillset to join our team and grow with us. In this
-                role, you would use various tech stacks, including Laravel, Node
-                JS (Adonis JS), Vue JS, React JS, Nuxt JS, Redis, MySQL,
-                MongoDB, and CSS. You will be engaged across the software
-                development life cycle to create and modify platforms and
-                capabilities in a collaborative and agile environment.
+                {jobDescription}
               </p>
             </section>
             {/* Responsibilities */}
@@ -209,7 +202,7 @@ const JobDetailCard = ({
               <span className="mt-[1.25rem] flex">
                 <Image
                   className="object-contain"
-                  src="/iconography/Company Logo.png"
+                  src={employerLogo}
                   alt="oval"
                   width={34}
                   height={34}
