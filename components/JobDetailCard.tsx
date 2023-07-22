@@ -141,7 +141,10 @@ const JobDetailCard = ({
             </section>
             {/* Buttons */}
             <section className="mt-[.88rem] flex justify-center gap-[.625rem]">
-              <button className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 ">
+              <button
+                className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
+                jobApplyLink={jobApplyLink}
+              >
                 Apply Now
               </button>
               <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
@@ -208,7 +211,9 @@ const JobDetailCard = ({
                   height={34}
                 />
                 <div className="flex flex-col items-start gap-[.125rem] pl-[1.25rem]">
-                  <h3 className="text-base font-semibold leading-6">UI HUT</h3>
+                  <h3 className="text-base font-semibold leading-6">
+                    {employerName}
+                  </h3>
                   <p className="text-[.9375rem] font-medium	leading-6 text-Natural7">
                     203,765 Followers
                   </p>
@@ -234,7 +239,6 @@ const JobDetailCard = ({
                 privately funded by some of the industrys leading investors.
               </p>
             </section>
-            cl{" "}
           </section>
         </div>
       </main>
