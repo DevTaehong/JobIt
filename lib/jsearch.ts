@@ -31,7 +31,7 @@ export async function getRecommendedJobs() {
   requestHeaders.set("X-RapidAPI-Host", "jsearch.p.rapidapi.com");
 
   const res = await fetch(
-    "https://jsearch.p.rapidapi.com/search?query=Developer&page=1&num_pages=1&date_posted=today&remote_jobs_only=true",
+    "https://jsearch.p.rapidapi.com/search?query=Developer&page=1&num_pages=2&date_posted=today&remote_jobs_only=true",
     { headers: requestHeaders },
   );
   // The return value is *not* serialized
