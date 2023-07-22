@@ -140,8 +140,8 @@ export default async function Home() {
                 {/* Due Date */}
                 <p className="text-[#0BAB7C]">This Week</p>
                 <Image
-                  src="/iconography/cheveron.svg"
-                  alt="cheveron"
+                  src="/iconography/chevron.svg"
+                  alt="chevron"
                   width={16}
                   height={16}
                 />
