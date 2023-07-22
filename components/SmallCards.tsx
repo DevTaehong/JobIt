@@ -52,7 +52,7 @@ return(
 
 <div className="flex items-center gap-[9.375rem] bg-Natural4">
   <div className="w-[5.3125rem] font-manrope text-[0.875rem] font-medium leading-5 not-italic text-Natural6">
-    {daysLeft}
+    {daysLeft} days left
     </div>
   <div className="flex items-center gap-[0.6875rem]">
     <button className="flex p-2 justify-center items-center gap-[0.4375rem] rounded-md border-solid border-[0.06rem]"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
