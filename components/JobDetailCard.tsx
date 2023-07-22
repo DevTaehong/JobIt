@@ -50,7 +50,7 @@ const JobDetailCard = ({
             {/* Company Logo */}
             <div className="absolute ml-[1.87] shrink-0 border pl-[.62rem] pt-[7.37rem]">
               <img
-                src={props.employerLogo}
+                src={employerLogo}
                 alt="company logo"
                 width={46}
                 height={46}
