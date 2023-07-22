@@ -2,23 +2,16 @@ import Image from "next/image";
 import React from "react";
 
 type Props = {
-  status: string;
-  request_id: string;
-  job_id: string;
-  extended_publisher_details: boolean;
+  employerName?: string;
+  qualifications?: string[];
 };
 
-const JobDetailCard = ({
-  status,
-  request_id,
-  job_id,
-  extended_publisher_details,
-}) => {
+const JobDetailCard = ({ employerName, qualifications }: Props) => {
   return (
     <>
       {/* Box */}
       {/* Change width to full after when done */}
-      <main className="h-[151.6rem] w-[20.44rem] shrink-0 border font-manrope lg:ml-20 lg:h-[96.8125rem] lg:w-[53.75rem]">
+      <main className="h-[151.6rem] shrink-0 border font-manrope lg:ml-20 lg:h-[96.8125rem]">
         {/* Contents */}
         <div className="pt-5">
           {/* Top Images */}
@@ -229,92 +222,20 @@ const JobDetailCard = ({
               <h2 className="text-base font-bold	leading-6">
                 Qualifications and Skill Sets
               </h2>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  3+ years of professional experience working on this field
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Bachelors degree in computer science, software engineering, or
-                  related field
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Proficiency in at least one programming language (e.g., Java,
-                  C#, C++)
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Back-end development expertise
-                </p>
-              </div>{" "}
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Strong problem-solving and communication skills
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Experience with build tools such as Gradle and Maven
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Good working knowledge of the Linux operating system
-                </p>
-              </div>
+              {qualifications.map((qualificationDescription, idx) => (
+                <div className="flex flex-row pt-[.75rem]" key={idx}>
+                  <Image
+                    className="mt-2 h-[.5rem] stroke-2"
+                    src="/iconography/Oval (2).svg"
+                    alt="oval"
+                    width={8}
+                    height={8}
+                  />
+                  <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                    {qualificationDescription}
+                  </p>
+                </div>
+              ))}
             </section>
             {/* About The Company */}
             <section className="mt-[1.87rem]">
