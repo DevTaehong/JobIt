@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -14,6 +15,10 @@ type Props = {
   jobState?: string;
   estimatedSalaries?: string;
   jobRequiredExperience?: string;
+  postDate: number;
+  workLevel: string;
+  aboutTheCompany: number;
+  followers: number;
 };
 
 const JobDetailCard = ({
@@ -29,6 +34,10 @@ const JobDetailCard = ({
   jobState,
   estimatedSalaries,
   jobRequiredExperience,
+  postDate,
+  workLevel,
+  aboutTheCompany,
+  followers,
 }: Props) => {
   return (
     <>
@@ -41,8 +50,8 @@ const JobDetailCard = ({
           <section className="ml-[1.25rem]">
             {/* Company Logo */}
             <div className="absolute ml-[1.87] shrink-0 border pl-[.62rem] pt-[7.37rem]">
-              <Image
-                src={employerLogo}
+              <img
+                src={props.employerLogo}
                 alt="company logo"
                 width={46}
                 height={46}
@@ -97,7 +106,7 @@ const JobDetailCard = ({
                   width={3}
                   height={3}
                 />
-                <h3>3 days ago</h3>
+                <h3>{postDate}</h3>
               </div>
             </section>
             {/* Four specs */}
@@ -116,7 +125,7 @@ const JobDetailCard = ({
                     Work Level
                   </h3>
                   <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
-                    Senior Level
+                    {workLevel}
                   </p>
                 </div>
               </span>
@@ -141,12 +150,12 @@ const JobDetailCard = ({
             </section>
             {/* Buttons */}
             <section className="mt-[.88rem] flex justify-center gap-[.625rem]">
-              <button
+              <a
                 className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
                 jobApplyLink={jobApplyLink}
               >
                 Apply Now
-              </button>
+              </a>
               <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
                 Message
               </button>
@@ -203,9 +212,9 @@ const JobDetailCard = ({
                 About The Company
               </h2>
               <span className="mt-[1.25rem] flex">
-                <Image
+                <img
                   className="object-contain"
-                  src={employerLogo}
+                  src={props.employerLogo}
                   alt="oval"
                   width={34}
                   height={34}
@@ -215,7 +224,7 @@ const JobDetailCard = ({
                     {employerName}
                   </h3>
                   <p className="text-[.9375rem] font-medium	leading-6 text-Natural7">
-                    203,765 Followers
+                    {followers}
                   </p>
                 </div>
               </span>
@@ -232,11 +241,7 @@ const JobDetailCard = ({
                 </p>
               </button>
               <p className="mb-[1.87rem] mt-[1.25rem] text-base	font-normal	leading-6 text-Natural7">
-                UIHUT is a design and coding resources platform for designers,
-                developers and entrepreneurs. Were building a digital
-                marketplace to simplify the creation of websites, apps and
-                software on any device. UIHUT is based in New York City and is
-                privately funded by some of the industrys leading investors.
+                {aboutTheCompany}
               </p>
             </section>
           </section>
