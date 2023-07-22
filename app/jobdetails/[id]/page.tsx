@@ -10,13 +10,13 @@ const JobDetails = ({ params }: { params: { id: string } }) => {
     <>
       <main className="mx-6 w-auto sm:mx-20">
         {/* Heading */}
-        <section className=" mb-[30px] ml-[-.25] mt-[3.13] sm:mt-[3rem]">
+        <section className="mb-[30px] ml-[-.25] mt-10 sm:mt-[3rem]">
           <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             Let's find your dream job
           </h1>
           {/* Date */}
-          <h2 className=" flex text-Natural6 sm:text-xl sm:font-medium sm:leading-8 xl:pt-[.88rem]">
+          <h2 className=" flex text-Natural6 sm:font-medium sm:leading-8 xl:pt-[.88rem]">
             {currentDate}
           </h2>
         </section>
