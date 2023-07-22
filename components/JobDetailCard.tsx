@@ -1,9 +1,19 @@
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
+type Props = {
+  status: string;
+  request_id: string;
+  job_id: string;
+  extended_publisher_details: boolean;
+};
 
-const JobDetailCard = (props: Props) => {
+const JobDetailCard = ({
+  status,
+  request_id,
+  job_id,
+  extended_publisher_details,
+}) => {
   return (
     <>
       {/* Box */}
