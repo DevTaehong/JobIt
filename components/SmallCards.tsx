@@ -40,7 +40,7 @@ return(
   </div>
 
 <div className="flex items-start gap-[0.1875rem]">
-  <div className="font-manrope text-[0.875] font-semibold leading-6 not-italic text-black text-right">{props.salary}</div>
+  <div className="font-manrope text-[0.875rem] font-semibold leading-6 not-italic text-black text-right">${props.salary}</div>
   <div className="font-manrope text-[0.875rem] font-normal leading-[1.375rem] not-italic text-Natural6 text-right"></div>
   </div>
 </div>
