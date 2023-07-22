@@ -213,7 +213,7 @@ const JobDetailCard = ({
               <span className="mt-[1.25rem] flex">
                 <img
                   className="object-contain"
-                  src={props.employerLogo}
+                  src={employerLogo}
                   alt="oval"
                   width={34}
                   height={34}
