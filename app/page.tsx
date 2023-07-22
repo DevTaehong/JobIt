@@ -11,10 +11,10 @@ export default function Home() {
     <>
       <div>
         <nav>{/* <Navbar /> */}</nav>
-        <main className="mx-6 w-auto font-manrope sm:mx-20">
+        <main className="mx-6 w-auto sm:mx-20">
           {/* Heading */}
-          <section className=" ml-[-.25] mt-[3.13] sm:mt-[1.5rem]">
-            <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-2xl sm:leading-10">
+          <section className=" ml-[-.25] mt-[3.13] sm:mt-[3rem]">
+            <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
               Welcome to the Job Search Platform for Developers
             </h1>
             {/* Date */}
@@ -26,11 +26,11 @@ export default function Home() {
             {/* Latest Job Posts */}
             <section className="mt-8 w-full xl:w-2/3">
               <div className="flex-row ">
-                <span className="flex max-w-[46rem] items-center justify-between sm:mb-[2.06rem] ">
+                <span className="flex items-center justify-between sm:mb-[2.06rem] ">
                   <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
                     Latest Job Posts
                   </h3>
-                  <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                  <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                     See All
                     <div className="sm:hidden">
                       <Image
@@ -42,12 +42,28 @@ export default function Home() {
                     </div>
                   </button>
                 </span>
-                <div className="sm:flex">
+                <div className="flex flex-col flex-wrap gap-[4.76%] sm:flex-row [&>div]:mb-[4.76%] [&>div]:w-full  [&>div]:md:w-[47.25%]  [&>div]:lg:w-[29.75%] [&>div]:xl:w-[47.62%]">
                   {/* Card One */}
-                  <div className="sm:pr-10">
+                  <div className="">
+                    <JobCard
+                      jobTitle={"nfgkaslnglr"}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
+                  <div className="">
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -57,11 +73,13 @@ export default function Home() {
                     />
                   </div>
                   {/* Card Two */}
-                  <div className="mt-10 sm:mt-0">
+                  <div className="">
                     {" "}
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -70,14 +88,29 @@ export default function Home() {
                       expirationDate={0}
                     />
                   </div>
-                </div>
-                <div className="mt-10 sm:mt-0 sm:flex sm:pt-10">
                   {/* Card Three */}
-                  <div className="sm:pr-10">
+                  <div className="">
                     {" "}
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
+                      salary={null}
+                      salaryPeriod={null}
+                      companyLogo={""}
+                      jobSkills={null}
+                      employmentType={""}
+                      expirationDate={0}
+                    />
+                  </div>
+                  <div className="">
+                    {" "}
+                    <JobCard
+                      jobTitle={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -87,11 +120,13 @@ export default function Home() {
                     />
                   </div>
                   {/* Card Four */}
-                  <div className="mt-10 sm:mt-0">
+                  <div className="">
                     {" "}
                     <JobCard
                       jobTitle={""}
-                      jobDescription={""}
+                      jobDescription={
+                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
+                      }
                       salary={null}
                       salaryPeriod={null}
                       companyLogo={""}
@@ -109,7 +144,7 @@ export default function Home() {
                 <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White lg:ml-10">
                   Recommended For You
                 </h3>
-                <button className="flex items-center gap-2 border px-[.62rem] py-[.44rem] font-sans text-xs	font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+                <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
                   See All
                   <div className="sm:hidden">
                     <Image
@@ -122,7 +157,7 @@ export default function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="mt-[2.06rem] flex-row gap-3 sm:ml-10">
+              <div className="mt-[2.06rem] flex-row gap-3 pl-10">
                 <div>
                   <InlineJobCard
                     employerName={""}
@@ -196,10 +231,10 @@ export default function Home() {
               <h1 className="text-2xl font-bold leading-10 dark:text-White">
                 Schedule
               </h1>
-              <div className="inline-flex items-center pr-[.62rem] font-sans text-xs font-medium leading-5">
+              <div className="inline-flex items-center pr-[.62rem] text-xs font-medium leading-5">
                 <p className="text-Natural6">Sort by:</p>
                 {/* Due Date */}
-                <p className="font-sans text-[#0BAB7C]">This Week</p>
+                <p className="text-[#0BAB7C]">This Week</p>
                 <Image
                   src="/iconography/cheveron.svg"
                   alt="cheveron"

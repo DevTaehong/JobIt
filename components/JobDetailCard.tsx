@@ -16,7 +16,7 @@ const JobDetailCard = (props: Props) => {
             {/* Company Logo */}
             <div className="absolute h-[4rem] w-[4rem] shrink-0 pl-[1.87] pt-[8.62rem]">
               <Image
-                src="/images/Logo.svg"
+                src="/iconography/Company Logo.png"
                 alt="company logo"
                 width={64}
                 height={64}
@@ -24,7 +24,12 @@ const JobDetailCard = (props: Props) => {
             </div>
             {/* Cover Photo */}
             <div>
-              <Image src="/test.jpg" alt="test" width={295} height={150} />
+              <Image
+                src="/iconography/Rectangle.svg"
+                alt="test"
+                width={295}
+                height={150}
+              />
             </div>
           </section>
           {/* Heading */}
@@ -56,7 +61,7 @@ const JobDetailCard = (props: Props) => {
             <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7">
               <h3>Sylhet, BD</h3>
               <Image
-                src="/iconography/Oval .svg"
+                src="/iconography/Oval.svg"
                 alt="oval"
                 width={3}
                 height={3}
@@ -105,14 +110,18 @@ const JobDetailCard = (props: Props) => {
             </span>
           </section>
           {/* Buttons */}
-          <section className="mt-[.88rem]">
-            <button className="pr-[.96rem]">Apply Now</button>
-            <button>Message</button>
+          <section className="mt-[.88rem] flex justify-center gap-[.625rem]">
+            <button className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6">
+              Apply Now
+            </button>
+            <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
+              Message
+            </button>
           </section>
           {/* About the job */}
-          <section className="pt-[1.88rem]">
-            <h2>About The Job</h2>
-            <p className="pt-[.62rem]">
+          <section className="mt-[1.88rem]">
+            <h2 className="text-base font-bold	leading-6">About The Job</h2>
+            <p className="pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7">
               Here at UIHUT, we are a passionate, fun-loving, growing team. We
               are looking for passionate programmers who want to solve technical
               challenges and learn and incorporate new technologies into their
@@ -125,36 +134,204 @@ const JobDetailCard = (props: Props) => {
             </p>
           </section>
           {/* Responsibilities */}
-          <section>
-            <h2>Responsibilities</h2>
-            <p>
-              Responsibilities Design, build, test, and deploy software
-              applications and features Carry software products through the
-              software development life cycle (SDLC) Write clean, concise, and
-              efficient code Manage code documentation and version control
-              Troubleshoot and debug software Participate in on-call rotation to
-              respond to production issues
-            </p>
+          <section className="mb-[1.87rem] mt-[3.62rem]">
+            <h2 className="text-base font-bold	leading-6">Responsibilities</h2>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Design, build, test, and deploy software applications and
+                features
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Carry software products through the software development life
+                cycle (SDLC)
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Write clean, concise, and efficient code
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Manage code documentation and version control
+              </p>
+            </div>{" "}
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Troubleshoot and debug software
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Participate in on-call rotation to respond to production issues
+              </p>
+            </div>
           </section>
           {/* Qualifications and Skill Sets */}
-          <section>
-            <h2>Qualifications and Skill Sets</h2>
-            <p>
-              Qualifications and Skill Sets 3+ years of professional experience
-              working on this field Bachelors degree in computer science,
-              software engineering, or related field Proficiency in at least one
-              programming language (e.g., Java, C#, C++) Back-end development
-              expertise Strong problem-solving and communication skills
-              Experience with build tools such as Gradle and Maven Good working
-              knowledge of the Linux operating system
-            </p>
+          <section className="mt-[1.87rem]">
+            <h2 className="text-base font-bold	leading-6">
+              Qualifications and Skill Sets
+            </h2>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                3+ years of professional experience working on this field
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Bachelors degree in computer science, software engineering, or
+                related field
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Proficiency in at least one programming language (e.g., Java,
+                C#, C++)
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Back-end development expertise
+              </p>
+            </div>{" "}
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Strong problem-solving and communication skills
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Experience with build tools such as Gradle and Maven
+              </p>
+            </div>
+            <div className="flex flex-row pt-[.75rem]">
+              <Image
+                className="stroke-2 align-text-top	"
+                src="/iconography/Oval (2).svg"
+                alt="oval"
+                width={8}
+                height={8}
+              />
+              <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                Good working knowledge of the Linux operating system
+              </p>
+            </div>
           </section>
           {/* About The Company */}
-          <section>
-            <h2>About The Company</h2>
-            <span></span>
-            <button></button>
-            <p>
+          <section className="mt-[1.87rem]">
+            <h2 className="text-base font-bold	leading-6">About The Company</h2>
+            <span className="mt-[1.25rem] flex">
+              <Image
+                className="shrink-0"
+                src="/iconography/Company Logo.png"
+                alt="oval"
+                width={34}
+                height={34}
+              />
+              <div className="pl-[1.25rem]">
+                <h3>UI HUT</h3>
+                <p>203,765 Followers</p>
+              </div>
+            </span>
+            <button className="mt-[.88rem] flex w-[11.1875rem] items-center justify-center gap-[.375rem] rounded-[.625rem] border border-Primary px-[.4375rem]	py-[.625rem]">
+              <Image
+                className="shrink-0"
+                src="/iconography/plus.svg"
+                alt="oval"
+                width={18}
+                height={18}
+              />
+              <p className="text-[.8125rem] font-medium	leading-[1.125rem] text-Primary">
+                Follow
+              </p>
+            </button>
+            <p className="mb-[1.87rem] mt-[1.25rem] text-base	font-normal	leading-6 text-Natural7">
               UIHUT is a design and coding resources platform for designers,
               developers and entrepreneurs. Were building a digital marketplace
               to simplify the creation of websites, apps and software on any
