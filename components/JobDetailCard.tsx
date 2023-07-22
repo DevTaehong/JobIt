@@ -3,10 +3,35 @@ import React from "react";
 
 type Props = {
   employerName?: string;
+  employerLogo?: String;
   qualifications?: string[];
+  jobRequiredSkills: string[];
+  jobPublisher?: string;
+  jobEmploymentType?: string;
+  jobTitle?: string;
+  jobApplyLink?: string;
+  jobDescription?: string;
+  jobCity: string;
+  jobState: string;
+  estimatedSalaries: string;
+  jobRequiredExperience: string;
 };
 
-const JobDetailCard = ({ employerName, qualifications }: Props) => {
+const JobDetailCard = ({
+  employerName,
+  employerLogo,
+  qualifications,
+  jobRequiredSkills,
+  jobPublisher,
+  jobEmploymentType,
+  jobTitle,
+  jobApplyLink,
+  jobDescription,
+  jobCity,
+  jobState,
+  estimatedSalaries,
+  jobRequiredExperience,
+}: Props) => {
   return (
     <>
       {/* Box */}
@@ -19,7 +44,7 @@ const JobDetailCard = ({ employerName, qualifications }: Props) => {
             {/* Company Logo */}
             <div className="absolute ml-[1.87] shrink-0 border pl-[.62rem] pt-[7.37rem]">
               <Image
-                src="/iconography/Company Logo.png"
+                src={employerLogo}
                 alt="company logo"
                 width={46}
                 height={46}
@@ -42,7 +67,7 @@ const JobDetailCard = ({ employerName, qualifications }: Props) => {
               {/* Job Title */}
               <div className="flex items-center">
                 <h1 className="pr-[1.25rem] text-xs font-semibold leading-6">
-                  Passionate Programmer
+                  {jobTitle}
                 </h1>
                 <div className="pr-[2.06rem]">
                   <Image
@@ -74,7 +99,6 @@ const JobDetailCard = ({ employerName, qualifications }: Props) => {
                 <h3>3 days ago</h3>
               </div>
             </section>
-
             {/* Four specs */}
             <section className="mt-[1.75rem]">
               <span className="flex gap-[1.88rem] p-[.62rem]">
@@ -116,7 +140,7 @@ const JobDetailCard = ({ employerName, qualifications }: Props) => {
             </section>
             {/* Buttons */}
             <section className="mt-[.88rem] flex justify-center gap-[.625rem]">
-              <button className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6">
+              <button className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 ">
                 Apply Now
               </button>
               <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
@@ -141,81 +165,21 @@ const JobDetailCard = ({ employerName, qualifications }: Props) => {
             {/* Responsibilities */}
             <section className="mb-[1.87rem] mt-[3.62rem]">
               <h2 className="text-base font-bold	leading-6">Responsibilities</h2>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Design, build, test, and deploy software applications and
-                  features
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Carry software products through the software development life
-                  cycle (SDLC)
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Write clean, concise, and efficient code
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Manage code documentation and version control
-                </p>
-              </div>{" "}
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Troubleshoot and debug software
-                </p>
-              </div>
-              <div className="flex flex-row pt-[.75rem]">
-                <Image
-                  className="mt-2 h-[.5rem] stroke-2"
-                  src="/iconography/Oval (2).svg"
-                  alt="oval"
-                  width={8}
-                  height={8}
-                />
-                <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                  Participate in on-call rotation to respond to production
-                  issues
-                </p>
-              </div>
+              {jobRequiredSkills.map((jobRequiredSkills, idx) => (
+                <div className="flex flex-row pt-[.75rem]" key={idx}>
+                  <Image
+                    className="mt-2 h-[.5rem] stroke-2"
+                    src="/iconography/Oval (2).svg"
+                    alt="oval"
+                    width={8}
+                    height={8}
+                  />
+                  <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                    Design, build, test, and deploy software applications and
+                    features
+                  </p>
+                </div>
+              ))}
             </section>
             {/* Qualifications and Skill Sets */}
             <section className="mt-[1.87rem]">
@@ -277,6 +241,7 @@ const JobDetailCard = ({ employerName, qualifications }: Props) => {
                 privately funded by some of the industrys leading investors.
               </p>
             </section>
+            cl{" "}
           </section>
         </div>
       </main>
