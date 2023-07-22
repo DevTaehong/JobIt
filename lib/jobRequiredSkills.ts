@@ -1,11 +1,11 @@
 // Specifying the words you want to search for
-export const specificWords = [
+const specificWords = [
   "React",
   "JavaScript",
   "Vue",
   "Angular",
-  "Node.js",
-  "Express.js",
+  "Node\\.js",
+  "Express\\.js",
   "PHP",
   "AWS",
   "C#",
@@ -28,28 +28,35 @@ export const specificWords = [
   "Kotlin",
   "R",
   "Dart",
+  "Agile",
+  "Scrum",
+  "Kubernetes",
+  "Docker",
+  "Git",
+  "Jenkins",
+  "Jira",
+  "Redux",
+  "SASS",
+  "LESS",
+  "Bootstrap",
+  "Tailwind",
+  "Material UI",
+  "Next.js",
+  "Gatsby",
+  "Nest.js",
+  "Spring",
+  "Flask",
+  "Django",
+  "ASP.NET",
+  "Ruby on Rails",
+  "TensorFlow",
+  "PyTorch",
+  "COBOL",
 ];
 
-// Initializing an object to store the values of each specific word
-export const foundWords = {};
-
-// Extract the required skills from job descriptions
-type FoundWords = {
-  [key: string]: string;
-};
-
-export const extractRequiredSkills = (jobDescription: string[]) => {
-  const foundWords: FoundWords = {};
-  return specificWords.map((word) => {
-    const regex = new RegExp(`\\b${word}\\b`, "gi"); // "gi" makes the search case-insensitive
-    let match = "Not Found";
-    jobDescription.forEach((description) => {
-      const descriptionMatch = description.match(regex);
-      if (descriptionMatch) {
-        match = descriptionMatch[0].trim();
-      }
-    });
-    const skills = (foundWords[word] = match);
-    return skills;
-  });
+export const extractRequiredSkills = (jobDescription: string): string[] => {
+  const pattern = new RegExp(`\\b(${specificWords.join(`\\b|`)})\\b`, "gi"); // "gi" makes the search case-insensitive
+  const matchingWords = new Set(jobDescription.match(pattern) || []);
+  console.log(matchingWords);
+  return Array.from(matchingWords);
 };

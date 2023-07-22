@@ -14,12 +14,6 @@ export default async function Home() {
   const [latestJobs] = await Promise.all([latestJobData]);
   const [RecommendedJobs] = await Promise.all([RecommendedJobData]);
 
-  // Extracting the job_description from the JSON data
-  const jobDescription = latestJobs.data.map((data) => data.job_description);
-
-  // Extract the required skills from job descriptions
-  const requiredSkills = extractRequiredSkills(jobDescription);
-
   return (
     <>
       <div>
@@ -47,8 +41,8 @@ export default async function Home() {
                     See All
                     <div className="sm:hidden">
                       <Image
-                        src="/iconography/cheveron.svg"
-                        alt="cheveron"
+                        src="/iconography/chevron.svg"
+                        alt="chevron"
                         width={16}
                         height={16}
                       />
@@ -68,7 +62,9 @@ export default async function Home() {
                         salary={latestJob?.job_min_salary}
                         salaryPeriod={latestJob?.job_salary_period}
                         companyLogo={latestJob?.employer_logo}
-                        jobSkills={requiredSkills.slice(0, 4)}
+                        jobSkills={extractRequiredSkills(
+                          latestJob?.job_description,
+                        ).slice(0, 4)}
                         employmentType={latestJob?.job_employment_type}
                         expirationDate={
                           latestJob?.job_offer_expiration_timestamp
