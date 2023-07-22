@@ -2,7 +2,6 @@ import Image from "next/image";
 import moment from "moment";
 import JobCard from "@/components/JobCard";
 import InlineJobCard from "@/components/InlineJobCard";
-import SmallCards from "@/components/SmallCards";
 
 export default function Home() {
   // const currentDate = new Date().toDateString();
