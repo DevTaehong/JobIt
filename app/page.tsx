@@ -115,7 +115,7 @@ export default async function Home() {
                 ))}
               </div>
             </section>
-            {/* Featured Compaines */}
+            {/* Featured Companies */}
             <section className="mt-10 w-full">
               <span>
                 <h3 className="text-2xl font-bold leading-10 dark:text-White">
