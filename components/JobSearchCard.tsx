@@ -31,7 +31,7 @@ const JobSearchCard = (props: Props) => {
   const postDate = calculatePostDate(props.postDate);
 
   return (
-    <div className="flex w-auto flex-col gap-5 bg-white p-5 font-manrope dark:bg-DarkBG2">
+    <div className="flex w-auto flex-col gap-5 bg-white p-5 dark:bg-DarkBG2">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="h-[45px] w-[45px] rounded-[10px] bg-Natural2 p-2 dark:bg-DarkBG3 sm:h-[64px] sm:w-[64px]">
@@ -83,8 +83,8 @@ const JobSearchCard = (props: Props) => {
         {props.salary && (
           <div className="flex justify-start">
             <h3 className="text-black">
-              <span className="font-manrope text-base font-semibold dark:text-white sm:text-lg">{`$${props.salary}/`}</span>
-              <span className="font-sans text-base text-Natural7 sm:text-lg">
+              <span className="text-base font-semibold dark:text-white sm:text-lg">{`$${props.salary}/`}</span>
+              <span className="text-base text-Natural7 sm:text-lg">
                 {props.salaryPeriod?.toLowerCase()}
               </span>
             </h3>
