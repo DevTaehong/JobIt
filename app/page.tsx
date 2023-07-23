@@ -34,7 +34,7 @@ export default async function Home() {
               <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White">
                 Latest Job Posts
               </h3>
-              <button className="flex items-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3">
+              <button className="flex items-center justify-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] text-xs font-medium leading-6 text-Natural7 marker:w-[5.9375rem] dark:border-DarkBG3 md:w-[4.4375rem] xl:items-center">
                 See All
                 <div className="sm:hidden">
                   <Image
