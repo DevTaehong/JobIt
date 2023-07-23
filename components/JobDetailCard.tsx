@@ -16,7 +16,7 @@ type Props = {
   jobRequiredExperience?: string;
   postDate: number;
   workLevel: string;
-  aboutTheCompany: number;
+  aboutTheCompany: string;
   followers: number;
 };
 
