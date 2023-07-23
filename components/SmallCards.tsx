@@ -40,7 +40,7 @@ return(
               <img className="object-fill" src={props.icon} />
             </div>
   
-  <div className="flex w-[12.25rem] pr-0 flex-col items-start gap-[0.375rem]">
+  <div className="flex pr-0 flex-col items-start gap-[0.375rem]">
     
     <div className="font-manrope text-[1.125rem] font-bold leading-6 not-italic text-black
     dark:text-White">{props.jobTitle}</div>
@@ -57,7 +57,7 @@ return(
               </div>
     </div>
   </div>
-  <div className="flex items-center gap-[9.375rem] bg-Natural4 
+  <div className="flex items-center gap-[9.375rem] bg-White
   dark:bg-DarkBG2">
     <div className="w-[5.3125rem] font-manrope text-[0.875rem] font-medium leading-5 not-italic text-Natural6">
       {daysLeft} days left
@@ -71,7 +71,7 @@ return(
         alt="hut" 
         />
       </button>
-      <button className="flex px-[0.875rem] py-[0.5rem] justify-center items-center gap=[0.625rem] rounded bg-[#0BAB7C10]">
+      <button className="flex px-[0.875rem] py-[0.5rem] justify-center items-center gap-[0.625rem] rounded bg-[#0BAB7C10]">
         <div className="text-center font-manrope text-[0.875rem] not-italic font-medium leading-5 text-Primary">View</div>
         </button>
     </div>
