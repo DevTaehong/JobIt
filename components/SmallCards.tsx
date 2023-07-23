@@ -31,20 +31,20 @@ const daysLeft = calculateDaysLeft(props.daysLeft)
 
 return(
   
-  <div className="p-[1.25rem] flex flex-col justify-center items-start gap-5 bg-white
+  <div className="p-[1.25rem] flex flex-col rounded-lg justify-center items-start gap-5 bg-white
   dark:bg-DarkBG2">
     <div className="flex items-start w-full gap-[.95rem] bg-white
     dark:bg-DarkBG2">
-  <div className="w-[3rem] min-w-[3rem] border">
+  <div className="w-[3rem] min-w-[3rem]">
               <img className="object-fill" src={props.icon} />
             </div>
   
-  <div className="flex pr-0 flex-col items-start gap-[0.375rem]">
+  <div className="flex pr-0 flex-col w-full items-start gap-[0.375rem]">
     
     <div className="font-manrope text-[1.125rem] font-bold leading-6 not-italic text-black
     dark:text-White">{props.jobTitle}</div>
    
-    <div className="font-manrope text-[0.875rem] font-medium leading-5 not-italic text-Natural6">{props.jobCity}, {props.jobState}</div>
+    <div className="font-manrope text-[0.875rem] w-full font-medium leading-5 not-italic text-Natural6">{props.jobCity}, {props.jobState}</div>
     </div>
   
   <div className="flex items-start gap-[0.1875rem] ml-auto">
@@ -56,13 +56,13 @@ return(
               </div>
     </div>
   </div>
-  <div className="flex items-center gap-[9.375rem] bg-White
+  <div className="flex items-center justify-between w-full bg-White
   dark:bg-DarkBG2">
     <div className="w-[5.3125rem] font-manrope text-[0.875rem] font-medium leading-5 not-italic text-Natural6">
       {daysLeft} days left
       </div>
     <div className="flex items-center gap-[0.6875rem]">
-      <button className="flex p-2 justify-center items-center gap-[0.4375rem] rounded-md border-solid border-[0.06rem]">
+      <button className="flex p-2 justify-center items-center gap-[0.4375rem] rounded-md border-[#92929D20] border-[0.06rem]">
         <Image 
         src={hut} 
         width={18}
