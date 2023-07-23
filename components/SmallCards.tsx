@@ -1,6 +1,7 @@
 "use client"
 import React from "react";
-import hut from "@public/iconography/uiHut-icon-ic_Saved.svg"
+import Image from "next/image"
+import hut from "@/public/iconography/uiHut-icon-ic_Saved.svg"
 
 type Props={
   icon: string;
@@ -63,7 +64,12 @@ return(
       </div>
     <div className="flex items-center gap-[0.6875rem]">
       <button className="flex p-2 justify-center items-center gap-[0.4375rem] rounded-md border-solid border-[0.06rem]">
-        {hut}
+        <Image 
+        src={hut} 
+        width={18}
+        height={18}
+        alt="hut" 
+        />
       </button>
       <button className="flex px-[0.875rem] py-[0.5rem] justify-center items-center gap=[0.625rem] rounded bg-[#0BAB7C10]">
         <div className="text-center font-manrope text-[0.875rem] not-italic font-medium leading-5 text-Primary">View</div>

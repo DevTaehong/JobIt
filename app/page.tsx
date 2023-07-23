@@ -2,6 +2,7 @@ import Image from "next/image";
 import moment from "moment";
 import JobCard from "@/components/JobCard";
 import InlineJobCard from "@/components/InlineJobCard";
+import SmallCards from "@/components/SmallCards";
 
 export default function Home() {
   // const currentDate = new Date().toDateString();
@@ -252,20 +253,21 @@ export default function Home() {
               See All Schedule
             </button>
           </section>
-          <div>
-            {""}
-            <SmallCards
-              jobTitle={""}
-               icon={""}
-                salary={0}
-                 jobLocation={""}
-                  salaryPeriod={""}
-                   jobCity={""}
-                    jobState={""}
-                     daysLeft={0}            />
-            </div>
-                      
 
+          <div>
+          <SmallCards
+          icon={""}
+          salary={0}
+          jobTitle={""}
+          jobLocation={""}
+          salaryPeriod={""}
+          jobCity={""}
+          jobState={""}
+          daysLeft={0}
+          />
+
+          </div>
+         
         </main>
       </div>
     </>
