@@ -29,7 +29,7 @@ const JobCard = (props: Props) => {
     return daysLeft;
   }
 
-  const daysLeft = calculateDaysLeft(props.expirationDate);
+  const daysLeft = calculateDaysLeft(props?.expirationDate);
 
   return (
     <div className="">
@@ -39,19 +39,23 @@ const JobCard = (props: Props) => {
             <div className="h-[46px] w-[46px] justify-center rounded-[10px] border border-neutral-50 bg-Natural3 p-2 dark:border-none dark:bg-DarkBG3 sm:h-[64px] sm:w-[64px]">
               <img
                 className="min-h-[34.5px] min-w-[34.5px]  sm:h-[48px] sm:w-[48px]"
-                src={props.companyLogo}
+                src={
+                  props?.companyLogo
+                    ? props?.companyLogo
+                    : "/images/companyPlaceholderLogo.png"
+                }
                 alt="logo"
               />
             </div>
             <div className="flex flex-col justify-between pl-[18px] sm:pl-5">
               <h1 className="line-clamp-1 font-semibold text-gray-900 dark:text-white sm:text-lg">
-                {props.jobTitle}
+                {props?.jobTitle}
               </h1>
 
               {/* Conditionally render skills */}
               <div className="flex gap-1">
-                {props.jobSkills &&
-                  props.jobSkills.map((skill, index) => (
+                {props?.jobSkills &&
+                  props?.jobSkills.map((skill, index) => (
                     <div className="flex " key={index}>
                       <p className="justify-start rounded bg-Natural3 px-[6px] py-[3px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:py-[5px] sm:text-sm">
                         {skill}
@@ -72,7 +76,7 @@ const JobCard = (props: Props) => {
 
         <div>
           <p className="line-clamp-6 text-[15px] text-Natural7 dark:text-Natural6 sm:text-base">
-            {props.jobDescription}
+            {props?.jobDescription}
           </p>
         </div>
 
@@ -83,7 +87,7 @@ const JobCard = (props: Props) => {
               src={briefcase}
               alt="logo"
             />
-            <p>{props.employmentType?.toLowerCase()}</p>
+            <p>{props?.employmentType?.toLowerCase()}</p>
           </div>
           <div className="flex items-center justify-center rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:text-sm">
             <Image
@@ -105,11 +109,15 @@ const JobCard = (props: Props) => {
 
         {/* Conditionally render salaries */}
         <div className="flex items-center justify-between">
-          {props.salary && (
+          {props?.salary === null ? (
             <h3 className="text-[18px] text-black dark:text-white">
-              {`$${props.salary}/`}
+              <span className="text-base text-Natural7 sm:text-[16px]"></span>
+            </h3>
+          ) : (
+            <h3 className="text-[18px] text-black dark:text-white">
+              {`$${props?.salary}/`}
               <span className="text-base text-Natural7 sm:text-[16px]">
-                {props.salaryPeriod?.toLowerCase()}
+                {props?.salaryPeriod?.toLowerCase()}
               </span>
             </h3>
           )}

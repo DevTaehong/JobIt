@@ -38,14 +38,17 @@ const persistConfig = {
   key: "root",
   storage,
   version: 1,
+  // NOTE source 1: https://github.com/rt2zz/redux-persist#blacklist--whitelist
+  // NOTE source 2: Yilmaz's answer https://stackoverflow.com/questions/63761763/how-to-configure-redux-persist-with-redux-toolkit
+  whitelist: ["theme"],
 };
 
-const reducer = combineReducers({
+const reducers = combineReducers({
   theme: themeSlice,
   // NOTE Add more reducers here if needed
 });
 
-const persistedReducer = persistReducer(persistConfig, reducer);
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
   reducer: persistedReducer,

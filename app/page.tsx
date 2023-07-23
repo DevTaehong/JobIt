@@ -2,11 +2,17 @@ import Image from "next/image";
 import moment from "moment";
 import JobCard from "@/components/JobCard";
 import InlineJobCard from "@/components/InlineJobCard";
-import SmallCards from "@/components/SmallCards";
+import { getLatestJobs, getRecommendedJobs } from "@/lib/jsearch";
+import { extractRequiredSkills } from "@/lib/jobRequiredSkills";
 
-export default function Home() {
-  // const currentDate = new Date().toDateString();
+export default async function Home() {
   const currentDate = moment().format("dddd,  D MMM YYYY");
+  const latestJobData: Promise<Job> = getLatestJobs();
+  const RecommendedJobData: Promise<Job> = getRecommendedJobs();
+
+  // https://nextjs.org/docs/app/building-your-application/data-fetching/fetching#parallel-data-fetching
+  const [latestJobs] = await Promise.all([latestJobData]);
+  const [RecommendedJobs] = await Promise.all([RecommendedJobData]);
 
   return (
     <>
@@ -35,8 +41,8 @@ export default function Home() {
                     See All
                     <div className="sm:hidden">
                       <Image
-                        src="/iconography/cheveron.svg"
-                        alt="cheveron"
+                        src="/iconography/chevron.svg"
+                        alt="chevron"
                         width={16}
                         height={16}
                       />
@@ -44,102 +50,32 @@ export default function Home() {
                   </button>
                 </span>
                 <div className="flex flex-col flex-wrap gap-[4.76%] sm:flex-row [&>div]:mb-[4.76%] [&>div]:w-full  [&>div]:md:w-[47.25%]  [&>div]:lg:w-[29.75%] [&>div]:xl:w-[47.62%]">
-                  {/* Card One */}
-                  <div className="">
-                    <JobCard
-                      jobTitle={"nfgkaslnglr"}
-                      jobDescription={
-                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
-                      }
-                      salary={null}
-                      salaryPeriod={null}
-                      companyLogo={""}
-                      jobSkills={null}
-                      employmentType={""}
-                      expirationDate={0}
-                    />
-                  </div>
-                  <div className="">
-                    <JobCard
-                      jobTitle={""}
-                      jobDescription={
-                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
-                      }
-                      salary={null}
-                      salaryPeriod={null}
-                      companyLogo={""}
-                      jobSkills={null}
-                      employmentType={""}
-                      expirationDate={0}
-                    />
-                  </div>
-                  {/* Card Two */}
-                  <div className="">
-                    {" "}
-                    <JobCard
-                      jobTitle={""}
-                      jobDescription={
-                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
-                      }
-                      salary={null}
-                      salaryPeriod={null}
-                      companyLogo={""}
-                      jobSkills={null}
-                      employmentType={""}
-                      expirationDate={0}
-                    />
-                  </div>
-                  {/* Card Three */}
-                  <div className="">
-                    {" "}
-                    <JobCard
-                      jobTitle={""}
-                      jobDescription={
-                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
-                      }
-                      salary={null}
-                      salaryPeriod={null}
-                      companyLogo={""}
-                      jobSkills={null}
-                      employmentType={""}
-                      expirationDate={0}
-                    />
-                  </div>
-                  <div className="">
-                    {" "}
-                    <JobCard
-                      jobTitle={""}
-                      jobDescription={
-                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
-                      }
-                      salary={null}
-                      salaryPeriod={null}
-                      companyLogo={""}
-                      jobSkills={null}
-                      employmentType={""}
-                      expirationDate={0}
-                    />
-                  </div>
-                  {/* Card Four */}
-                  <div className="">
-                    {" "}
-                    <JobCard
-                      jobTitle={""}
-                      jobDescription={
-                        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us."
-                      }
-                      salary={null}
-                      salaryPeriod={null}
-                      companyLogo={""}
-                      jobSkills={null}
-                      employmentType={""}
-                      expirationDate={0}
-                    />
-                  </div>
+                  {latestJobs.data.slice(0, 6).map((latestJob, i) => (
+                    <div key={i}>
+                      <JobCard
+                        jobTitle={latestJob?.job_title}
+                        // https://stackoverflow.com/questions/5454235/shorten-string-without-cutting-words-in-javascript
+                        jobDescription={latestJob?.job_description.replace(
+                          /^(.{380}[^\s]*).*/,
+                          "$1",
+                        )}
+                        salary={latestJob?.job_min_salary}
+                        salaryPeriod={latestJob?.job_salary_period}
+                        companyLogo={latestJob?.employer_logo}
+                        jobSkills={extractRequiredSkills(
+                          latestJob?.job_description,
+                        ).slice(0, 4)}
+                        employmentType={latestJob?.job_employment_type}
+                        expirationDate={
+                          latestJob?.job_offer_expiration_timestamp
+                        }
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </section>
-            {/* Recomended For You */}
+            {/* Recommended For You */}
             <section className="order-last mt-[2.19rem] w-full xl:order-none xl:w-1/3">
               <span className="flex justify-between">
                 <h3 className="text-[1.375rem] font-bold leading-8 dark:text-White lg:ml-10">
@@ -158,61 +94,24 @@ export default function Home() {
                 </button>
               </span>
               {/* Inline Job Cards */}
-              <div className="mt-[2.06rem] flex-row gap-3 pl-10">
-                <div>
-                  <InlineJobCard
-                    employerName={""}
-                    jobTitle={""}
-                    salary={null}
-                    salaryPeriod={null}
-                    companyLogo={""}
-                    jobState={""}
-                    jobCity={""}
-                    employmentType={""}
-                  />
-                </div>
-                <div>
-                  {" "}
-                  <InlineJobCard
-                    employerName={""}
-                    jobTitle={""}
-                    salary={null}
-                    salaryPeriod={null}
-                    companyLogo={""}
-                    jobState={""}
-                    jobCity={""}
-                    employmentType={""}
-                  />
-                </div>
-                <div>
-                  {" "}
-                  <InlineJobCard
-                    employerName={""}
-                    jobTitle={""}
-                    salary={null}
-                    salaryPeriod={null}
-                    companyLogo={""}
-                    jobState={""}
-                    jobCity={""}
-                    employmentType={""}
-                  />
-                </div>
-                <div>
-                  {" "}
-                  <InlineJobCard
-                    employerName={""}
-                    jobTitle={""}
-                    salary={null}
-                    salaryPeriod={null}
-                    companyLogo={""}
-                    jobState={""}
-                    jobCity={""}
-                    employmentType={""}
-                  />
-                </div>
+              <div className="mt-[2.06rem] flex flex-col gap-3 pl-10">
+                {RecommendedJobs.data.slice(0, 15).map((RecommendedJob, i) => (
+                  <div key={i}>
+                    <InlineJobCard
+                      employerName={RecommendedJob?.employer_name}
+                      jobTitle={RecommendedJob.job_title}
+                      salary={RecommendedJob?.job_min_salary}
+                      salaryPeriod={RecommendedJob?.job_salary_period}
+                      companyLogo={RecommendedJob?.employer_logo}
+                      jobState={RecommendedJob?.job_state}
+                      jobCity={RecommendedJob?.job_city}
+                      employmentType={RecommendedJob?.job_employment_type}
+                    />
+                  </div>
+                ))}
               </div>
             </section>
-            {/* Featured Compaines */}
+            {/* Featured Companies */}
             <section className="mt-10 w-full">
               <span>
                 <h3 className="text-2xl font-bold leading-10 dark:text-White">
@@ -237,8 +136,8 @@ export default function Home() {
                 {/* Due Date */}
                 <p className="text-[#0BAB7C]">This Week</p>
                 <Image
-                  src="/iconography/cheveron.svg"
-                  alt="cheveron"
+                  src="/iconography/chevron.svg"
+                  alt="chevron"
                   width={16}
                   height={16}
                 />
@@ -254,19 +153,6 @@ export default function Home() {
             </button>
           </section>
 
-          <div>
-          <SmallCards
-          icon={""}
-          salary={0}
-          jobTitle={""}
-          jobLocation={""}
-          salaryPeriod={""}
-          jobCity={""}
-          jobState={""}
-          daysLeft={0}
-          />
-
-          </div>
          
         </main>
       </div>
