@@ -72,11 +72,11 @@ export default async function Home() {
         </section>
         {/* Recommended For You */}
         <section className="order-last mt-[2.19rem] w-[25rem] md:pl-10 xl:order-none xl:w-1/3">
-          <span className="flex w-[20.4375rem] justify-between md:w-[25rem]">
+          <span className="flex w-[20.4375rem] justify-between md:w-[25rem] 2xl:w-[33.5rem]">
             <h3 className="w-[20.4375rem] text-[1.375rem] font-semibold leading-8 dark:text-White md:w-[25rem] md:font-bold">
               Recommended For You
             </h3>
-            <button className="flex w-[5.9375rem] items-center rounded-[0.625rem] border px-[0.625rem] py-[0.4375rem] text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3 md:w-[4.4375rem]">
+            <button className="flex w-[5.9375rem] items-center justify-center rounded-[0.625rem] border px-[0.625rem] py-[0.4375rem] text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3 md:w-[4.4375rem] xl:items-center">
               <span>See All</span>
               <div className="sm:hidden">
                 <Image
