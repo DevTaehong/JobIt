@@ -58,18 +58,18 @@ const JobDetailCard = ({
               />
             </div>
             {/* Cover Photo */}
-            <div className="">
+            <div>
               <Image
                 className="rounded-t-xl"
                 src="/iconography/job-detail.svg"
-                alt="test"
+                alt="cover"
                 width={860}
-                height={195}
+                height={192}
               />
             </div>
           </section>
           {/* Heading */}
-          <section className="ml-[1.87rem]">
+          <section className="mx-[1.87rem]">
             <section className="pt-[1.75rem]">
               {/* Job Title */}
               <div className="flex items-center">
@@ -92,78 +92,91 @@ const JobDetailCard = ({
                 />
               </div>
               {/* Sub Title */}
-              <section className="sm:flex">
-                <h2 className="text-[.812rem]	font-medium leading-[1.125rem] text-Natural7 sm:text-xs	sm:font-semibold	sm:leading-6">
-                  {employerName}
-                </h2>
-                <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 sm:text-xs	sm:font-semibold	sm:leading-6">
-                  <h3>
-                    {jobCity}
-                    {jobState}
-                  </h3>
-                  <Image
-                    src="/iconography/Oval.svg"
-                    alt="oval"
-                    width={3}
-                    height={3}
-                  />
-                  <h3 className="text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 sm:text-xs	sm:font-semibold	sm:leading-6">
-                    {postDate}
-                  </h3>
-                </div>
+              <section className="flex sm:justify-between">
+                <section className="sm:flex">
+                  <h2 className="text-[.812rem]	font-medium leading-[1.125rem] text-Natural7 sm:text-xs	sm:font-semibold	sm:leading-6">
+                    {employerName}
+                  </h2>
+                  <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 sm:text-xs	sm:font-semibold	sm:leading-6">
+                    <h3>
+                      {jobCity}
+                      {jobState}
+                    </h3>
+                    <Image
+                      src="/iconography/Oval.svg"
+                      alt="oval"
+                      width={3}
+                      height={3}
+                    />
+                    <h3 className="text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 sm:text-xs	sm:font-semibold	sm:leading-6">
+                      {postDate}
+                    </h3>
+                  </div>
+                </section>
+                <section className="mt-[-1.6rem] sm:visible">
+                  <a
+                    className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
+                    href={jobApplyLink}
+                  >
+                    Apply Now
+                  </a>
+                  <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
+                    Message
+                  </button>
+                </section>
               </section>
-            </section>
-            {/* Four specs */}
-            <section className="mt-[1.75rem] sm:flex">
-              <span className="flex gap-[1.88rem] p-[.62rem] sm:gap-[2.5rem]">
-                <div className="w-[6.4rem]">
-                  <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 sm:text-sm sm:font-semibold sm:leading-6">
-                    Experience
-                  </h3>
-                  <p className="text-[.875rem] font-semibold leading-6 text-Natural8 sm:text-base">
-                    {jobRequiredExperience}
-                  </p>
-                </div>
-                <div className="w-[6.4rem]">
-                  <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 sm:text-sm sm:font-semibold sm:leading-6">
-                    Work Level
-                  </h3>
-                  <p className="text-[.875rem] font-semibold leading-6 text-Natural8 sm:text-base">
-                    {workLevel}
-                  </p>
-                </div>
-              </span>
-              <span className="flex gap-[1.88rem] p-[.62rem] sm:gap-[2.5rem] sm:text-base">
-                <div className="w-[6.4rem]">
-                  <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 sm:text-sm sm:font-semibold sm:leading-6">
-                    Employee Type
-                  </h3>
-                  <p className="text-[.875rem] font-semibold leading-6 text-Natural8 sm:text-base">
-                    {jobEmploymentType}
-                  </p>
-                </div>
-                <div className="w-[6.4rem]">
-                  <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 sm:text-sm sm:font-semibold sm:leading-6">
-                    Offer Salary
-                  </h3>
-                  <p className="text-[.875rem] font-semibold leading-6 text-Natural8 sm:text-base">
-                    {estimatedSalaries}
-                  </p>
-                </div>
-              </span>
-            </section>
-            {/* Buttons */}
-            {/* sm:-order-1 is not working */}
-            <section className="ml-[-1.63rem] mt-[.88rem] flex justify-center gap-[.625rem]">
-              <a
-                className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
-                href={jobApplyLink}
-              >
-                Apply Now
-              </a>
-              <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
-                Message
-              </button>
+              {/* Four specs */}
+              <section className="mt-[1.75rem] sm:order-1 sm:flex">
+                <span className="flex gap-[1.88rem] p-[.62rem] sm:gap-[2.5rem]">
+                  <div className="w-[6.4rem]">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 sm:text-sm sm:font-semibold sm:leading-6">
+                      Experience
+                    </h3>
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 sm:text-base">
+                      {jobRequiredExperience}
+                    </p>
+                  </div>
+                  <div className="w-[6.4rem]">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 sm:text-sm sm:font-semibold sm:leading-6">
+                      Work Level
+                    </h3>
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 sm:text-base">
+                      {workLevel}
+                    </p>
+                  </div>
+                </span>
+                <span className="flex gap-[1.88rem] p-[.62rem] sm:gap-[2.5rem] sm:text-base">
+                  <div className="w-[6.4rem]">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 sm:text-sm sm:font-semibold sm:leading-6">
+                      Employee Type
+                    </h3>
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 sm:text-base">
+                      {jobEmploymentType}
+                    </p>
+                  </div>
+                  <div className="w-[6.4rem]">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 sm:text-sm sm:font-semibold sm:leading-6">
+                      Offer Salary
+                    </h3>
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 sm:text-base">
+                      {estimatedSalaries}
+                    </p>
+                  </div>
+                </span>
+              </section>
+              {/* Buttons */}
+              {/* sm:-order-1 is not working */}
+              <section className="mt-[.88rem] flex gap-[.625rem] sm:hidden">
+                <a
+                  className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
+                  href={jobApplyLink}
+                >
+                  Apply Now
+                </a>
+                <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
+                  Message
+                </button>
+              </section>
             </section>
             {/* About the job */}
             <section className="mt-[1.88rem]">
@@ -220,35 +233,37 @@ const JobDetailCard = ({
               <h2 className="text-base font-bold	leading-6 sm:text-lg">
                 About The Company
               </h2>
-              <span className="mt-[1.25rem] flex">
-                <img
-                  className="object-contain"
-                  src={employerLogo}
-                  alt="oval"
-                  width={34}
-                  height={34}
-                />
-                <div className="flex flex-col items-start gap-[.125rem] pl-[1.25rem]">
-                  <h3 className="text-base font-semibold leading-6 sm:text-lg sm:font-bold	">
-                    {employerName}
-                  </h3>
-                  <p className="text-[.9375rem] font-medium	leading-6 text-Natural7 sm:text-base">
-                    {followers}
+              <span className="w-full sm:flex sm:justify-between">
+                <span className="mt-[1.25rem] flex">
+                  <img
+                    className="object-contain"
+                    src={employerLogo}
+                    alt="oval"
+                    width={34}
+                    height={34}
+                  />
+                  <div className="flex flex-col items-start gap-[.125rem] pl-[1.25rem]">
+                    <h3 className="text-base font-semibold leading-6 sm:text-lg sm:font-bold	">
+                      {employerName}
+                    </h3>
+                    <p className="text-[.9375rem] font-medium	leading-6 text-Natural7 sm:text-base">
+                      {followers}
+                    </p>
+                  </div>
+                </span>
+                <button className="mr-[2.88rem] mt-[.88rem] flex h-[1.18rem] w-[11.1875rem] items-center justify-center gap-[.375rem] rounded-[.625rem] border	border-Primary  px-[.4375rem] py-[.625rem] sm:w-[5.13rem]">
+                  <Image
+                    className="shrink-0"
+                    src="/iconography/plus.svg"
+                    alt="oval"
+                    width={18}
+                    height={18}
+                  />
+                  <p className="text-[.8125rem] font-medium	leading-[1.125rem] text-Primary">
+                    Follow
                   </p>
-                </div>
+                </button>
               </span>
-              <button className="mt-[.88rem] flex w-[11.1875rem] items-center justify-center gap-[.375rem] rounded-[.625rem] border border-Primary px-[.4375rem]	py-[.625rem]">
-                <Image
-                  className="shrink-0"
-                  src="/iconography/plus.svg"
-                  alt="oval"
-                  width={18}
-                  height={18}
-                />
-                <p className="text-[.8125rem] font-medium	leading-[1.125rem] text-Primary">
-                  Follow
-                </p>
-              </button>
               <p className="mb-[1.87rem] mt-[1.25rem] text-base	font-normal	leading-6 text-Natural7 sm:text-base sm:leading-6">
                 {aboutTheCompany}
               </p>
