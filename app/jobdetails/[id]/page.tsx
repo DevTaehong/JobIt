@@ -1,6 +1,6 @@
 import JobDetailCard from "@/components/JobDetailCard";
 import SmallCards from "@/components/SmallCards";
-import chevron from "@/public/iconography/CheveronLeft.svg";
+import chevron from "@/public/iconography/ChevronLeft.svg";
 import moment from "moment";
 import Image from "next/image";
 
@@ -46,23 +46,24 @@ const JobDetails = ({ params }: { params: { id: string } }) => {
               </button>
             </span>
             <div className="rounded-[10px] bg-white dark:bg-DarkBG2">
-              <JobDetailCard 
-              aboutTheCompany={"anything"}
-              followers={10}
-              jobRequiredSkills={["Monday" ]}
-              postDate={3846732}
-              workLevel="tuesday"
-              employerLogo={"wednesday"}
-              employerName="thurdsay"
-              estimatedSalaries="friday"
-              jobApplyLink="saturday"
-              jobCity="sunday"
-              jobDescription="nextday"
-              jobEmploymentType="oneday"
-              jobRequiredExperience="funday"
-              jobState="noneday"
-              jobTitle="drumday"
-              qualifications={["2, ", "1"]} />
+              <JobDetailCard
+                aboutTheCompany={"anything"}
+                followers={10}
+                jobRequiredSkills={["Monday"]}
+                postDate={3846732}
+                workLevel="tuesday"
+                employerLogo={"wednesday"}
+                employerName="thurdsay"
+                estimatedSalaries="friday"
+                jobApplyLink="saturday"
+                jobCity="sunday"
+                jobDescription="nextday"
+                jobEmploymentType="oneday"
+                jobRequiredExperience="funday"
+                jobState="noneday"
+                jobTitle="drumday"
+                qualifications={["2, ", "1"]}
+              />
             </div>
           </section>
 
@@ -75,17 +76,16 @@ const JobDetails = ({ params }: { params: { id: string } }) => {
             </span>
             {/* Similar Job Cards */}
             <div className="mt-[2.06rem] flex-row gap-3">
-             <SmallCards
-             daysLeft={277777}
-             icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0
-             "
-            jobCity="Los Angelas"
-            jobLocation="downtown"
-            jobState="California"
-            jobTitle="Head Banger"
-            salary={70}
-            salaryPeriod="year"
-            />
+              <SmallCards
+                daysLeft={277777}
+                icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0"
+                jobCity="Los Angelas"
+                jobLocation="downtown"
+                jobState="California"
+                jobTitle="Head Banger"
+                salary={70}
+                salaryPeriod="year"
+              />
             </div>
           </section>
         </div>
