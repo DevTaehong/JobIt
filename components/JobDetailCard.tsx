@@ -42,31 +42,33 @@ const JobDetailCard = ({
     <>
       {/* Box */}
       {/* Change width to full after when done */}
-      <main className=" shrink-0 border font-manrope lg:ml-20">
+      <main className="max-w-[53.8rem] shrink-0 border font-manrope lg:ml-20">
         {/* Contents */}
         <div className="pt-5">
           {/* Top Images */}
           <section className="mx-[1.25rem]">
             {/* Company Logo */}
-            <div className="absolute ml-[1.87] h-[2.88rem] w-[2.88rem] shrink-0 pl-[.62rem] pt-[7.37rem] lg:h-[4rem] lg:w-[4rem]">
+            <div className="absolute ml-[1.87] h-[2.88rem] w-[2.88rem] shrink-0 pl-[.62rem] pt-[8.63rem] lg:h-[4rem] lg:w-[4rem] lg:pt-[10.56rem]">
               <img
-                className="object-contain"
+                className="rounded-lg border-2	 border-white object-contain"
                 src="/iconography/CompanyLogo.svg"
                 alt="company logo"
               />
             </div>
             {/* Cover Photo */}
-            <div className="h-[9.38rem] w-full lg:h-[12rem]">
-              <img
-                className="rounded-t-xl object-fill"
+            <div className="h-[150px] max-w-[820px] lg:h-[192px]">
+              <Image
+                className="h-[150px] rounded-t-xl object-none object-left lg:h-[192px]"
                 src="/iconography/job-detail.svg"
                 alt="cover"
+                width={820}
+                height={192}
               />
             </div>
           </section>
           {/* Heading */}
-          <section className="mx-[1.87rem]">
-            <section className="pt-[1.75rem]">
+          <section className="mx-[1.87rem] mt-[1.75rem] lg:mt-[4.5rem]">
+            <section>
               {/* Job Title */}
               <div className="flex items-center">
                 <h1 className="pr-[1.25rem] text-xs font-semibold leading-6 lg:text-2xl	lg:font-bold	lg:leading-8">
@@ -90,9 +92,18 @@ const JobDetailCard = ({
               {/* Sub Title */}
               <section className="flex lg:justify-between">
                 <section className="lg:flex">
-                  <h2 className="text-[.812rem]	font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
+                  <h2 className="text-[.812rem] font-medium	leading-[1.125rem] text-Natural7 lg:flex lg:text-xs	lg:font-semibold	lg:leading-6">
                     {employerName}
                   </h2>
+                  <div className="hidden lg:block">
+                    <Image
+                      className="px-[.31rem]"
+                      src="/iconography/Oval.svg"
+                      alt="oval"
+                      width={3}
+                      height={3}
+                    />
+                  </div>
                   <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
                     <h3>
                       {jobCity}
@@ -109,7 +120,7 @@ const JobDetailCard = ({
                     </h3>
                   </div>
                 </section>
-                <section className="mt-[-1.6rem] hidden lg:block">
+                <section className="mt-[-2rem] hidden items-center lg:flex">
                   <a
                     className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
                     href={jobApplyLink}
@@ -119,12 +130,20 @@ const JobDetailCard = ({
                   <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
                     Message
                   </button>
+                  <div className="px-[].62rem] py-[].69rem]">
+                    <Image
+                      src="/iconography/more-vertical.svg"
+                      alt="more-vertical"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
                 </section>
               </section>
               {/* Four specs */}
               <section className="mt-[1.75rem] lg:flex">
-                <span className="flex gap-[1.88rem] p-[.62rem] lg:gap-[2.5rem]">
-                  <div className="w-[6.4rem]">
+                <span className="flex gap-[4rem] p-[.62rem] lg:gap-[2.5rem]">
+                  <div className="w-[6.4] lg:w-[10.31rem]">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Experience
                     </h3>
@@ -132,7 +151,7 @@ const JobDetailCard = ({
                       {jobRequiredExperience}
                     </p>
                   </div>
-                  <div className="w-[6.4rem]">
+                  <div className="w-[6.4rem] lg:w-[10.31rem]">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Work Level
                     </h3>
@@ -142,7 +161,7 @@ const JobDetailCard = ({
                   </div>
                 </span>
                 <span className="flex gap-[1.88rem] p-[.62rem] lg:gap-[2.5rem] lg:text-base">
-                  <div className="w-[6.4rem]">
+                  <div className="w-[6.4rem] lg:w-[10.31rem]">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Employee Type
                     </h3>
@@ -150,7 +169,7 @@ const JobDetailCard = ({
                       {jobEmploymentType}
                     </p>
                   </div>
-                  <div className="w-[6.4rem]">
+                  <div className="w-[6.4rem] lg:w-[10.31rem]">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Offer Salary
                     </h3>
@@ -164,12 +183,12 @@ const JobDetailCard = ({
               {/* lg:-order-1 is not working */}
               <section className="mt-[.88rem] flex gap-[.625rem] lg:hidden">
                 <a
-                  className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
+                  className="h-[2.75rem] w-[10rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
                   href={jobApplyLink}
                 >
                   Apply Now
                 </a>
-                <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
+                <button className="h-[2.75rem] w-[10rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
                   Message
                 </button>
               </section>
