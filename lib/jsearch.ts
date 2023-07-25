@@ -1,11 +1,11 @@
+const jSearchApiKey = process.env.X_RAPID_API_KEY;
+
+const requestHeaders = new Headers();
+
+requestHeaders.set("X-RapidAPI-Key", jSearchApiKey || "");
+requestHeaders.set("X-RapidAPI-Host", "jsearch.p.rapidapi.com");
+
 export async function getLatestJobs() {
-  const jSearchApiKey = process.env.X_RAPID_API_KEY;
-
-  const requestHeaders = new Headers();
-
-  requestHeaders.set("X-RapidAPI-Key", jSearchApiKey || "");
-  requestHeaders.set("X-RapidAPI-Host", "jsearch.p.rapidapi.com");
-
   const res = await fetch(
     "https://jsearch.p.rapidapi.com/search?query=software%20Developer&page=1&num_pages=1&date_posted=today",
     { headers: requestHeaders },
@@ -23,13 +23,6 @@ export async function getLatestJobs() {
 }
 
 export async function getRecommendedJobs() {
-  const jSearchApiKey = process.env.X_RAPID_API_KEY;
-
-  const requestHeaders = new Headers();
-
-  requestHeaders.set("X-RapidAPI-Key", jSearchApiKey || "");
-  requestHeaders.set("X-RapidAPI-Host", "jsearch.p.rapidapi.com");
-
   const res = await fetch(
     "https://jsearch.p.rapidapi.com/search?query=Developer&page=1&num_pages=1&date_posted=today&remote_jobs_only=true",
     { headers: requestHeaders },
@@ -49,12 +42,6 @@ export async function getRecommendedJobs() {
 export async function getJobDetails() {
   const url =
     "https://jsearch.p.rapidapi.com/job-details?job_id=fFunVwyb9l4AAAAAAAAAAA%3D%3D&extended_publisher_details=false";
-  const jSearchApiKey = process.env.X_RAPID_API_KEY;
-
-  const requestHeaders = new Headers();
-
-  requestHeaders.set("X-RapidAPI-Key", jSearchApiKey || "");
-  requestHeaders.set("X-RapidAPI-Host", "jsearch.p.rapidapi.com");
 
   try {
     const res = await fetch(url, { headers: requestHeaders });
