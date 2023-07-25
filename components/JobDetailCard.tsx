@@ -46,11 +46,11 @@ const JobDetailCard = ({
         {/* Contents */}
         <div className="pt-5">
           {/* Top Images */}
-          <section className="mx-[1.25rem]">
+          <section className="relative mx-[1.25rem]">
             {/* Company Logo */}
-            <div className="absolute ml-[1.87] h-[2.88rem] w-[2.88rem] shrink-0 pl-[.62rem] pt-[8.63rem] lg:h-[4rem] lg:w-[4rem] lg:pt-[10.56rem]">
+            <div className="absolute  bottom-[-14px] left-[10px] h-[2.88rem] w-[2.88rem] shrink-0 lg:h-[4rem] lg:w-[4rem]">
               <img
-                className="rounded-lg border-2	 border-white object-contain"
+                className="rounded-lg object-contain outline	 outline-2 outline-white"
                 src="/iconography/CompanyLogo.svg"
                 alt="company logo"
               />
@@ -67,7 +67,7 @@ const JobDetailCard = ({
             </div>
           </section>
           {/* Heading */}
-          <section className="mx-[1.87rem] mt-[2.75rem]">
+          <section className="mx-[1.87rem] mt-[1.75rem]">
             <section className="lg:mt-[1.94rem]">
               {/* Job Title */}
               <div className="flex items-center">
@@ -96,15 +96,13 @@ const JobDetailCard = ({
                   <h2 className="text-[.812rem] font-medium	leading-[1.125rem] text-Natural7 lg:flex lg:text-xs	lg:font-semibold	lg:leading-6">
                     {employerName}
                   </h2>
-                  <div className="hidden lg:block">
-                    <div className="mx-[.31rem] flex align-middle">
-                      <Image
-                        src="/iconography/Oval .svg"
-                        alt="oval"
-                        width={3}
-                        height={3}
-                      />
-                    </div>
+                  <div className="mx-[.31rem] hidden align-middle lg:flex">
+                    <Image
+                      src="/iconography/Oval .svg"
+                      alt="oval"
+                      width={3}
+                      height={3}
+                    />
                   </div>
                   <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
                     <h3>
