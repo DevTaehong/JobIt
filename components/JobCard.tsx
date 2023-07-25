@@ -75,7 +75,7 @@ const JobCard = (props: Props) => {
         </div>
 
         <div>
-          <p className="line-clamp-6 text-[15px] text-Natural7 dark:text-Natural6 sm:text-base">
+          <p className="line-clamp-6 h-[8.875rem] text-[15px] text-Natural7 dark:text-Natural6 sm:text-base">
             {props?.jobDescription}
           </p>
         </div>
