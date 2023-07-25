@@ -83,6 +83,7 @@ const JobDetailCard = ({
                   />
                 </div>
                 <Image
+                  className="justify-end"
                   src="/iconography/more-vertical.svg"
                   alt="more-vertical"
                   width={24}
