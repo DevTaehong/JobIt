@@ -39,9 +39,8 @@ export async function getRecommendedJobs() {
   return res.json();
 }
 
-export async function getJobDetails() {
-  const url =
-    "https://jsearch.p.rapidapi.com/job-details?job_id=fFunVwyb9l4AAAAAAAAAAA%3D%3D&extended_publisher_details=false";
+export async function getJobDetails(id: string) {
+  const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${id}`;
 
   try {
     const res = await fetch(url, { headers: requestHeaders });

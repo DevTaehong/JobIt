@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
-  const jobDetailsData = getJobDetails();
+  const jobDetailsData = getJobDetails(params.id);
 
   const [jobDetails] = await Promise.all([jobDetailsData]);
 
