@@ -45,3 +45,27 @@ export async function getRecommendedJobs() {
 
   return res.json();
 }
+
+export async function getJobDetails() {
+  const url =
+    "https://jsearch.p.rapidapi.com/job-details?job_id=fFunVwyb9l4AAAAAAAAAAA%3D%3D&extended_publisher_details=false";
+  const jSearchApiKey = process.env.X_RAPID_API_KEY;
+
+  const requestHeaders = new Headers();
+
+  requestHeaders.set("X-RapidAPI-Key", jSearchApiKey || "");
+  requestHeaders.set("X-RapidAPI-Key", "jsearch.p.rapidapi.com");
+
+  try {
+    const res = await fetch(url, { headers: requestHeaders });
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error("Failed to Fetch Job Details");
+    }
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
