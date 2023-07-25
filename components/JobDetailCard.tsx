@@ -67,14 +67,14 @@ const JobDetailCard = ({
             </div>
           </section>
           {/* Heading */}
-          <section className="mx-[1.87rem] mt-[1.75rem] lg:mt-[4.5rem]">
-            <section>
+          <section className="mx-[1.87rem] mt-[2.75rem]">
+            <section className="lg:mt-[1.94rem]">
               {/* Job Title */}
               <div className="flex items-center">
                 <h1 className="pr-[1.25rem] text-xs font-semibold leading-6 lg:text-2xl	lg:font-bold	lg:leading-8">
                   {jobTitle}
                 </h1>
-                <div className="pr-[2.06rem]">
+                <div className=" pr-[2.06rem]">
                   <Image
                     src="/iconography/uiHut-icon-ic_Saved.svg"
                     alt="uiHunt"
@@ -83,7 +83,7 @@ const JobDetailCard = ({
                   />
                 </div>
                 <Image
-                  className="justify-end"
+                  className="justify-end lg:hidden"
                   src="/iconography/more-vertical.svg"
                   alt="more-vertical"
                   width={24}
@@ -97,25 +97,28 @@ const JobDetailCard = ({
                     {employerName}
                   </h2>
                   <div className="hidden lg:block">
-                    <Image
-                      className="px-[.31rem]"
-                      src="/iconography/Oval.svg"
-                      alt="oval"
-                      width={3}
-                      height={3}
-                    />
+                    <div className="mx-[.31rem] flex align-middle">
+                      <Image
+                        src="/iconography/Oval .svg"
+                        alt="oval"
+                        width={3}
+                        height={3}
+                      />
+                    </div>
                   </div>
                   <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
                     <h3>
                       {jobCity}
                       {jobState}
                     </h3>
-                    <Image
-                      src="/iconography/Oval.svg"
-                      alt="oval"
-                      width={3}
-                      height={3}
-                    />
+                    <div className="flex align-middle">
+                      <Image
+                        src="/iconography/Oval .svg"
+                        alt="oval"
+                        width={3}
+                        height={3}
+                      />
+                    </div>
                     <h3 className="text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
                       {postDate}
                     </h3>
@@ -123,15 +126,15 @@ const JobDetailCard = ({
                 </section>
                 <section className="mt-[-2rem] hidden items-center lg:flex">
                   <a
-                    className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
+                    className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white lg:mr-[.96rem]"
                     href={jobApplyLink}
                   >
                     Apply Now
                   </a>
-                  <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
+                  <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 lg:text-Natural7">
                     Message
                   </button>
-                  <div className="px-[].62rem] py-[].69rem]">
+                  <div className="px-[.62rem] py-[.69rem]">
                     <Image
                       src="/iconography/more-vertical.svg"
                       alt="more-vertical"
@@ -143,8 +146,8 @@ const JobDetailCard = ({
               </section>
               {/* Four specs */}
               <section className="mt-[1.75rem] lg:flex">
-                <span className="flex gap-[4rem] p-[.62rem] lg:gap-[2.5rem]">
-                  <div className="w-[6.4] lg:w-[10.31rem]">
+                <span className="flex gap-[1rem] p-[.62rem] lg:gap-[2.5rem]">
+                  <div className="w-[6.5rem] lg:w-[10.31rem]">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Experience
                     </h3>
@@ -152,7 +155,7 @@ const JobDetailCard = ({
                       {jobRequiredExperience}
                     </p>
                   </div>
-                  <div className="w-[6.4rem] lg:w-[10.31rem]">
+                  <div className="w-[6.5rem] lg:w-[10.31rem]">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Work Level
                     </h3>
@@ -161,8 +164,8 @@ const JobDetailCard = ({
                     </p>
                   </div>
                 </span>
-                <span className="flex gap-[1.88rem] p-[.62rem] lg:gap-[2.5rem] lg:text-base">
-                  <div className="w-[6.4rem] lg:w-[10.31rem]">
+                <span className="flex gap-[1rem] p-[.62rem] lg:gap-[2.5rem] lg:text-base">
+                  <div className="w-[6.5rem] lg:w-[10.31rem]">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Employee Type
                     </h3>
@@ -170,7 +173,7 @@ const JobDetailCard = ({
                       {jobEmploymentType}
                     </p>
                   </div>
-                  <div className="w-[6.4rem] lg:w-[10.31rem]">
+                  <div className="w-[6.5rem] lg:w-[10.31rem]">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Offer Salary
                     </h3>
@@ -184,12 +187,12 @@ const JobDetailCard = ({
               {/* lg:-order-1 is not working */}
               <section className="mt-[.88rem] flex gap-[.625rem] lg:hidden">
                 <a
-                  className="h-[2.75rem] w-[10rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 "
+                  className="rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white"
                   href={jobApplyLink}
                 >
                   Apply Now
                 </a>
-                <button className="h-[2.75rem] w-[10rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6">
+                <button className="rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 text-Natural7">
                   Message
                 </button>
               </section>
@@ -251,7 +254,7 @@ const JobDetailCard = ({
               </h2>
               <span className="w-full lg:flex lg:items-center lg:justify-between">
                 <span className="mt-[1.25rem] flex">
-                  <div className="lgh[3.13rem] h-[2.13rem] w-[2.13rem] lg:w-[3.13rem]">
+                  <div className="mt-2 h-[2.13rem] w-[2.13rem] lg:h-[3.13rem] lg:w-[3.13rem]">
                     <img
                       className="object-contain"
                       src="/iconography/CompanyLogo.svg"
@@ -267,7 +270,7 @@ const JobDetailCard = ({
                     </p>
                   </div>
                 </span>
-                <button className="mr-[2.88rem] mt-[.88rem] flex h-[1.18rem] w-[11.1875rem] items-center justify-center gap-[.375rem] rounded-[.625rem] border	border-Primary  px-[.4375rem] py-[.625rem] lg:w-[5.13rem]">
+                <button className="mr-[2.88rem] mt-[.88rem] flex h-[2rem] w-[11.1875rem] items-center justify-center gap-[.375rem] rounded-[.625rem]	border  border-Primary px-[.4375rem] py-[.625rem] lg:w-[5.13rem]">
                   <Image
                     className="shrink-0"
                     src="/iconography/plus.svg"
