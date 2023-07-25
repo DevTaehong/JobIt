@@ -60,6 +60,8 @@ export const extractRequiredSkills = (jobDescription: string): string[] => {
   const pattern = new RegExp(`\\b(${specificWords.join(`\\b|`)})\\b`, "gi"); // "gi" makes the search case-insensitive
 
   // NOTE new Set(...) to eliminate duplicates (if any) since a Set only contains unique values.
+  // NOTE Return value: A new Set object.
   const matchingWords = new Set(jobDescription.match(pattern) || []);
+
   return Array.from(matchingWords);
 };
