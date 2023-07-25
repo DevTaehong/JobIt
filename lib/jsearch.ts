@@ -54,7 +54,7 @@ export async function getJobDetails() {
   const requestHeaders = new Headers();
 
   requestHeaders.set("X-RapidAPI-Key", jSearchApiKey || "");
-  requestHeaders.set("X-RapidAPI-Key", "jsearch.p.rapidapi.com");
+  requestHeaders.set("X-RapidAPI-Host", "jsearch.p.rapidapi.com");
 
   try {
     const res = await fetch(url, { headers: requestHeaders });

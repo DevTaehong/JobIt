@@ -1,12 +1,19 @@
+import { getJobDetails } from "@/lib/jsearch";
+
 import JobDetailCard from "@/components/JobDetailCard";
 import SmallCards from "@/components/SmallCards";
 import chevron from "@/public/iconography/CheveronLeft.svg";
 import moment from "moment";
 import Image from "next/image";
 
-const JobDetails = ({ params }: { params: { id: string } }) => {
+const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
-  // console.log("job-id: ", params.id);
+  const jobDetailsData = getJobDetails();
+
+  const [jobDetails] = await Promise.all([jobDetailsData]);
+
+  console.log("Check this Job", jobDetails);
+
   return (
     <>
       <main className="mx-6 w-auto sm:mx-20">
