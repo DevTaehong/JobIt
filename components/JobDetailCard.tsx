@@ -42,7 +42,7 @@ const JobDetailCard = ({
     <>
       {/* Box */}
       {/* Change width to full after when done */}
-      <main className="max-w-[53.8rem] shrink-0 border font-manrope lg:ml-20">
+      <main className="max-w-[53.8rem] font-manrope">
         {/* Contents */}
         <div className="pt-5">
           {/* Top Images */}
