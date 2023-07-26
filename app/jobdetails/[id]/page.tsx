@@ -12,7 +12,11 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
 
   const [jobDetails] = await Promise.all([jobDetailsData]);
 
-  console.log("Check this Job", jobDetails);
+  // console.log("Check this Job", jobDetails);
+  console.log(
+    "Check this Job salaries Array",
+    jobDetails.data[0].estimated_salaries,
+  );
 
   return (
     <>
@@ -59,16 +63,16 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
                 jobRequiredSkills={["Monday"]}
                 postDate={3846732}
                 workLevel="tuesday"
-                employerLogo={"wednesday"}
-                employerName="thurdsay"
+                employerLogo={jobDetails.data[0].employer_logo}
+                employerName={jobDetails.data[0].employer_name}
                 estimatedSalaries="friday"
-                jobApplyLink="saturday"
-                jobCity="sunday"
+                jobApplyLink={jobDetails.data[0].job_apply_link}
+                jobCity={jobDetails.data[0].job_city}
                 jobDescription="nextday"
-                jobEmploymentType="oneday"
+                jobEmploymentType={jobDetails.data[0].job_employment_type}
                 jobRequiredExperience="funday"
-                jobState="noneday"
-                jobTitle="drumday"
+                jobState={jobDetails.data[0].job_state}
+                jobTitle={jobDetails.data[0].job_title}
                 qualifications={
                   jobDetails.data[0].job_highlights.Qualifications
                 }
