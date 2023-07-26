@@ -254,7 +254,7 @@ const JobDetailCard = ({
               <h2 className="text-base font-bold mb-[1.25rem] leading-6 dark:text-white lg:text-lg">
                 About The Company
               </h2>
-              <span className="mt-[1.25rem] w-full lg:flex lg:items-center lg:justify-between">
+              <span className="w-full lg:flex lg:items-center lg:justify-between">
                 <span className="flex">
                   <div className="mt-[.5rem] h-[2.13rem] w-[2.13rem] lg:mt-[.25rem] lg:h-[3.13rem] lg:w-[3.13rem]">
                     <img
