@@ -169,29 +169,45 @@ const JobDetailCard = ({
             {/* Responsibilities */}
             <section className="mb-[1.87rem] mt-[3.62rem]">
               <h2 className="text-base font-bold	leading-6">Responsibilities</h2>
-              {jobRequiredSkills.map((jobRequiredSkills, idx) => (
-                <div className="flex flex-row pt-[.75rem]" key={idx}>
-                  <Image
-                    className="mt-2 h-[.5rem] stroke-2"
-                    src="/iconography/Oval (2).svg"
-                    alt="oval"
-                    width={8}
-                    height={8}
-                  />
-                  <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                    Design, build, test, and deploy software applications and
-                    features
-                  </p>
-                </div>
-              ))}
+              {jobRequiredSkills &&
+                jobRequiredSkills.map((jobRequiredSkills, idx) => (
+                  <div className="flex flex-row pt-[.75rem]" key={idx}>
+                    <Image
+                      className="mt-2 h-[.5rem] stroke-2"
+                      src="/iconography/Oval (2).svg"
+                      alt="oval"
+                      width={8}
+                      height={8}
+                    />
+                    <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
+                      Design, build, test, and deploy software applications and
+                      features
+                    </p>
+                  </div>
+                ))}
             </section>
             {/* Qualifications and Skill Sets */}
             <section className="mt-[1.87rem]">
               <h2 className="text-base font-bold	leading-6">
                 Qualifications and Skill Sets
               </h2>
-              {qualifications.map((qualificationDescription, idx) => (
-                <div className="flex flex-row pt-[.75rem]" key={idx}>
+              {qualifications ? (
+                qualifications.map((qualificationDescription, idx) => (
+                  <div className="flex flex-row pt-[.75rem]" key={idx}>
+                    <Image
+                      className="mt-2 h-[.5rem] stroke-2"
+                      src="/iconography/Oval (2).svg"
+                      alt="oval"
+                      width={8}
+                      height={8}
+                    />
+                    <p className="pl-[.63rem] text-base font-medium leading-6 text-Natural7">
+                      {qualificationDescription}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <div className="flex flex-row pt-[.75rem]">
                   <Image
                     className="mt-2 h-[.5rem] stroke-2"
                     src="/iconography/Oval (2).svg"
@@ -199,11 +215,11 @@ const JobDetailCard = ({
                     width={8}
                     height={8}
                   />
-                  <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                    {qualificationDescription}
+                  <p className="pl-[.63rem] text-base font-medium leading-6 text-Natural7">
+                    N/A
                   </p>
                 </div>
-              ))}
+              )}
             </section>
             {/* About The Company */}
             <section className="mt-[1.87rem]">
