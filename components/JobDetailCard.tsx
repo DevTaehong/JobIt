@@ -71,7 +71,7 @@ const JobDetailCard = ({
             <section className="lg:mt-[1.94rem]">
               {/* Job Title */}
               <div className="flex  items-center">
-                <h1 className="flex flex-auto items-center gap-[1.25rem] text-xs font-semibold leading-6 dark:text-white	lg:text-2xl	lg:font-bold lg:leading-8">
+                <h1 className="flex flex-auto items-center gap-[1.25rem] text-base font-semibold leading-6 dark:text-white	lg:text-2xl	lg:font-bold lg:leading-8">
                   {jobTitle}
                   <Image
                     className="hidden lg:block"
