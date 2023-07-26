@@ -67,14 +67,14 @@ const JobDetailCard = ({
             </div>
           </section>
           {/* Heading */}
-          <section className="mx-[1.87rem] mt-[1.75rem]">
+          <section className="ml-[1.87rem] mr-[1.38rem] mt-[1.75rem] ">
             <section className="lg:mt-[1.94rem]">
               {/* Job Title */}
               <div className="flex items-center">
                 <h1 className="pr-[1.25rem] text-xs font-semibold leading-6 lg:text-2xl	lg:font-bold	lg:leading-8">
                   {jobTitle}
                 </h1>
-                <div className=" pr-[2.06rem]">
+                <div className="pr-[2.06rem]">
                   <Image
                     src="/iconography/uiHut-icon-ic_Saved.svg"
                     alt="uiHunt"
@@ -181,16 +181,15 @@ const JobDetailCard = ({
                   </div>
                 </span>
               </section>
-              {/* Buttons */}
-              {/* lg:-order-1 is not working */}
+              {/* Mobile Buttons */}
               <section className="mt-[.88rem] flex gap-[.625rem] lg:hidden">
                 <a
-                  className="rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white"
+                  className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white"
                   href={jobApplyLink}
                 >
                   Apply Now
                 </a>
-                <button className="rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 text-Natural7">
+                <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 text-Natural7">
                   Message
                 </button>
               </section>
@@ -250,16 +249,16 @@ const JobDetailCard = ({
               <h2 className="text-base font-bold	leading-6 lg:text-lg">
                 About The Company
               </h2>
-              <span className="w-full lg:flex lg:items-center lg:justify-between">
-                <span className="mt-[1.25rem] flex">
-                  <div className="mt-2 h-[2.13rem] w-[2.13rem] lg:h-[3.13rem] lg:w-[3.13rem]">
+              <span className="mt-[1.25rem] w-full lg:flex lg:items-center lg:justify-between">
+                <span className=" flex">
+                  <div className="mt-[.5rem] h-[2.13rem] w-[2.13rem] lg:mt-[.25rem] lg:h-[3.13rem] lg:w-[3.13rem]">
                     <img
                       className="object-contain"
                       src="/iconography/CompanyLogo.svg"
                       alt="oval"
                     />
                   </div>
-                  <div className="flex flex-col items-start gap-[.125rem] pl-[1.25rem]">
+                  <div className="ml-[1.25rem] flex flex-col items-start gap-[.125rem]">
                     <h3 className="text-base font-semibold leading-6 lg:text-lg lg:font-bold	">
                       {employerName}
                     </h3>
