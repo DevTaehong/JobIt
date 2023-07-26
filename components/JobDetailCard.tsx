@@ -251,7 +251,7 @@ const JobDetailCard = ({
             </section>
             {/* About The Company */}
             <section className="mt-[1.87rem]">
-              <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
+              <h2 className="text-base font-bold mb-[1.25rem] leading-6 dark:text-white lg:text-lg">
                 About The Company
               </h2>
               <span className="mt-[1.25rem] w-full lg:flex lg:items-center lg:justify-between">
