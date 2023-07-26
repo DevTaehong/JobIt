@@ -22,7 +22,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
             Let's find your dream job
           </h1>
           {/* Date */}
-          <h2 className=" flex text-Natural6 sm:font-medium sm:leading-8 xl:pt-[.88rem]">
+          <h2 className=" flex font-medium text-Natural6 sm:text-lg sm:font-semibold sm:leading-6 xl:pt-[.88rem]">
             {currentDate}
           </h2>
         </section>
