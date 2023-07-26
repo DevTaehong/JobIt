@@ -36,7 +36,7 @@ dark:bg-DarkBG2 ">
 <div className="flex flex-col w-[11.1875rem] pr-0 items-start gap-[0.375rem] shrink-0">
 <div className=" text-black font-[manrope] text-[1.25rem] not-italic font-semibold leading-6
 dark:text-White ">{props.JobTitle}</div>
-<div className="text-[#92929D] font-[manrope] text-[0.875rem] not-italic font-medium leading-5">{props.JobTitle}</div>
+<div className="text-Natural6 font-[manrope] text-[0.875rem] not-italic font-medium leading-5">{props.JobTitle}</div>
 </div>
     </div>
 
@@ -60,7 +60,7 @@ height={18}
     </div>
 
     {/* Button Text Code Below  */}
-  <div className="font-[manrope] text-[0.875rem] font-semibold not-italic leading-6 text-[#0BAB7C]">
+  <div className="font-[manrope] text-[0.875rem] font-semibold not-italic leading-6 text-Primary">
        Follow
     </div>
     </button>
