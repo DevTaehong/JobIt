@@ -50,7 +50,7 @@ const JobDetailCard = ({
             {/* Company Logo */}
             <div className="absolute bottom-[-14px] left-[10px] h-[2.88rem] w-[2.88rem] shrink-0 lg:bottom-[-41px] lg:left-[20px] lg:h-[4rem] lg:w-[4rem]">
               <img
-                className="rounded-lg object-contain outline	 outline-2 outline-white"
+                className="rounded-lg object-contain outline outline-2 outline-white"
                 src="/iconography/CompanyLogo.svg"
                 alt="company logo"
               />
@@ -71,7 +71,7 @@ const JobDetailCard = ({
             <section className="lg:mt-[1.94rem]">
               {/* Job Title */}
               <div className="flex  items-center">
-                <h1 className="flex flex-auto items-center gap-[1.25rem] text-xs font-semibold leading-6 lg:text-2xl	lg:font-bold	lg:leading-8">
+                <h1 className="flex flex-auto items-center gap-[1.25rem] text-xs font-semibold leading-6 dark:text-white	lg:text-2xl	lg:font-bold lg:leading-8">
                   {jobTitle}
                   <Image
                     className="hidden lg:block"
@@ -151,36 +151,36 @@ const JobDetailCard = ({
               </section>
               {/* Four specs */}
               <section className="mt-[1.75rem]">
-                <span className="grid grid-cols-2 rounded-[.325rem] bg-Natural3 lg:grid-cols-4 lg:gap-[2.5rem] lg:rounded-[1.25rem] lg:text-base">
+                <span className="grid grid-cols-2 rounded-[.325rem] bg-Natural3 dark:bg-[#21212B] lg:grid-cols-4 lg:gap-[2.5rem] lg:rounded-[1.25rem] lg:text-base">
                   <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
-                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
                       Experience
                     </h3>
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 lg:text-base">
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
                       {jobRequiredExperience}
                     </p>
                   </div>
                   <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
-                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
                       Work Level
                     </h3>
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 lg:text-base">
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
                       {workLevel}
                     </p>
                   </div>
                   <div className="min-w-[6.5rem] border-t border-Natural6 p-[.62rem] sm:w-auto lg:border-none">
-                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
                       Employee Type
                     </h3>
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 lg:text-base">
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
                       {jobEmploymentType}
                     </p>
                   </div>
                   <div className="min-w-[6.5rem] border-t  border-Natural6 p-[.62rem] sm:w-auto lg:border-none">
-                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
                       Offer Salary
                     </h3>
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 lg:text-base">
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
                       {estimatedSalaries}
                     </p>
                   </div>
@@ -201,16 +201,16 @@ const JobDetailCard = ({
             </section>
             {/* About the job */}
             <section className="mt-[1.88rem]">
-              <h2 className="text-base font-bold	leading-6 lg:text-lg">
+              <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
                 About The Job
               </h2>
-              <p className="pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7 lg:text-base lg:leading-6">
+              <p className="pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
                 {jobDescription}
               </p>
             </section>
             {/* Responsibilities */}
             <section className="mb-[1.87rem] mt-[3.62rem]">
-              <h2 className="text-base font-bold leading-6 lg:text-lg">
+              <h2 className="text-base font-bold leading-6 dark:text-white lg:text-lg">
                 Responsibilities
               </h2>
               {jobRequiredSkills.map((jobRequiredSkills, idx) => (
@@ -222,7 +222,7 @@ const JobDetailCard = ({
                     width={8}
                     height={8}
                   />
-                  <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7 lg:text-base lg:leading-6">
+                  <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
                     Design, build, test, and deploy software applications and
                     features
                   </p>
@@ -231,7 +231,7 @@ const JobDetailCard = ({
             </section>
             {/* Qualifications and Skill Sets */}
             <section className="mt-[1.87rem]">
-              <h2 className="text-base font-bold	leading-6 lg:text-lg">
+              <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
                 Qualifications and Skill Sets
               </h2>
               {qualifications.map((qualificationDescription, idx) => (
@@ -243,7 +243,7 @@ const JobDetailCard = ({
                     width={8}
                     height={8}
                   />
-                  <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7 lg:text-base lg:leading-6">
+                  <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
                     {qualificationDescription}
                   </p>
                 </div>
@@ -251,20 +251,20 @@ const JobDetailCard = ({
             </section>
             {/* About The Company */}
             <section className="mt-[1.87rem]">
-              <h2 className="text-base font-bold	leading-6 lg:text-lg">
+              <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
                 About The Company
               </h2>
               <span className="mt-[1.25rem] w-full lg:flex lg:items-center lg:justify-between">
                 <span className="flex">
                   <div className="mt-[.5rem] h-[2.13rem] w-[2.13rem] lg:mt-[.25rem] lg:h-[3.13rem] lg:w-[3.13rem]">
                     <img
-                      className="object-contain"
+                      className="rounded-[.33rem] object-contain	outline outline-2 outline-white lg:outline-none"
                       src="/iconography/CompanyLogo.svg"
                       alt="oval"
                     />
                   </div>
                   <div className="ml-[1.25rem] flex flex-col items-start gap-[.125rem]">
-                    <h3 className="text-base font-semibold leading-6 dark:bg-Natural2 lg:text-lg	lg:font-bold">
+                    <h3 className="text-base font-semibold leading-6 dark:text-Natural2 lg:text-lg	lg:font-bold">
                       {employerName}
                     </h3>
                     <p className="text-[.9375rem] font-medium	leading-6 text-Natural7 lg:text-base">
@@ -285,7 +285,7 @@ const JobDetailCard = ({
                   </p>
                 </button>
               </span>
-              <p className="mb-[1.87rem] mt-[1.25rem] text-base	font-normal	leading-6 text-Natural7 dark:bg-Natural5 lg:text-base lg:leading-6">
+              <p className="mb-[1.87rem] mt-[1.25rem] text-base	font-normal	leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
                 {aboutTheCompany}
               </p>
             </section>
