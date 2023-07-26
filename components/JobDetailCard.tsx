@@ -151,7 +151,7 @@ const JobDetailCard = ({
               </section>
               {/* Four specs */}
               <section className="mt-[1.75rem]">
-                <span className="grid grid-cols-2 gap-x-[1.88rem] lg:grid-cols-4 lg:gap-[2.5rem] lg:text-base">
+                <span className="grid grid-cols-2 rounded-[.325rem] bg-Natural3 lg:grid-cols-4 lg:gap-[2.5rem] lg:rounded-[1.25rem] lg:text-base">
                   <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Experience
@@ -168,7 +168,7 @@ const JobDetailCard = ({
                       {workLevel}
                     </p>
                   </div>
-                  <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto ">
+                  <div className="min-w-[6.5rem] border-t border-Natural6 p-[.62rem] sm:w-auto lg:border-none">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Employee Type
                     </h3>
@@ -176,7 +176,7 @@ const JobDetailCard = ({
                       {jobEmploymentType}
                     </p>
                   </div>
-                  <div className="min-w-[6.5rem]  p-[.62rem] sm:w-auto">
+                  <div className="min-w-[6.5rem] border-t  border-Natural6 p-[.62rem] sm:w-auto lg:border-none">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Offer Salary
                     </h3>
@@ -187,7 +187,7 @@ const JobDetailCard = ({
                 </span>
               </section>
               {/* Mobile Buttons */}
-              <section className="mt-[.88rem] flex gap-[.625rem] lg:hidden">
+              <section className="mt-[.88rem] flex gap-[.625rem] lg:hidden ">
                 <a
                   className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white"
                   href={jobApplyLink}
@@ -255,7 +255,7 @@ const JobDetailCard = ({
                 About The Company
               </h2>
               <span className="mt-[1.25rem] w-full lg:flex lg:items-center lg:justify-between">
-                <span className=" flex">
+                <span className="flex">
                   <div className="mt-[.5rem] h-[2.13rem] w-[2.13rem] lg:mt-[.25rem] lg:h-[3.13rem] lg:w-[3.13rem]">
                     <img
                       className="object-contain"
@@ -264,7 +264,7 @@ const JobDetailCard = ({
                     />
                   </div>
                   <div className="ml-[1.25rem] flex flex-col items-start gap-[.125rem]">
-                    <h3 className="text-base font-semibold leading-6 lg:text-lg lg:font-bold	">
+                    <h3 className="text-base font-semibold leading-6 dark:bg-Natural2 lg:text-lg	lg:font-bold">
                       {employerName}
                     </h3>
                     <p className="text-[.9375rem] font-medium	leading-6 text-Natural7 lg:text-base">
@@ -285,7 +285,7 @@ const JobDetailCard = ({
                   </p>
                 </button>
               </span>
-              <p className="mb-[1.87rem] mt-[1.25rem] text-base	font-normal	leading-6 text-Natural7 lg:text-base lg:leading-6">
+              <p className="mb-[1.87rem] mt-[1.25rem] text-base	font-normal	leading-6 text-Natural7 dark:bg-Natural5 lg:text-base lg:leading-6">
                 {aboutTheCompany}
               </p>
             </section>
