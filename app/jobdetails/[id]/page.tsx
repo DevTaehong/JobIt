@@ -69,7 +69,9 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
                 jobRequiredExperience="funday"
                 jobState="noneday"
                 jobTitle="drumday"
-                qualifications={["2, ", "1"]}
+                qualifications={
+                  jobDetails.data[0].job_highlights.Qualifications
+                }
               />
             </div>
           </section>
