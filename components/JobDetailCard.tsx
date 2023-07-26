@@ -48,7 +48,7 @@ const JobDetailCard = ({
           {/* Top Images */}
           <section className="relative mx-[1.25rem]">
             {/* Company Logo */}
-            <div className="absolute  bottom-[-14px] left-[10px] h-[2.88rem] w-[2.88rem] shrink-0 lg:h-[4rem] lg:w-[4rem]">
+            <div className="absolute bottom-[-14px] left-[10px] h-[2.88rem] w-[2.88rem] shrink-0 lg:bottom-[-41px] lg:left-[20px] lg:h-[4rem] lg:w-[4rem]">
               <img
                 className="rounded-lg object-contain outline	 outline-2 outline-white"
                 src="/iconography/CompanyLogo.svg"
@@ -58,7 +58,7 @@ const JobDetailCard = ({
             {/* Cover Photo */}
             <div className="h-[150px] max-w-[820px] lg:h-[192px]">
               <Image
-                className="h-[150px] rounded-t-[1.25rem] object-none object-left lg:h-[192px]"
+                className="h-[150px] rounded-t-xl object-none object-left lg:h-[192px]"
                 src="/iconography/job-detail.svg"
                 alt="cover"
                 width={820}
@@ -67,23 +67,30 @@ const JobDetailCard = ({
             </div>
           </section>
           {/* Heading */}
-          <section className="ml-[1.87rem] mr-[1.38rem] mt-[1.75rem] ">
+          <section className="ml-[1.87rem] mr-[1.38rem] mt-[1.75rem] lg:mt-[4.5rem]">
             <section className="lg:mt-[1.94rem]">
               {/* Job Title */}
-              <div className="flex items-center">
-                <h1 className="pr-[1.25rem] text-xs font-semibold leading-6 lg:text-2xl	lg:font-bold	lg:leading-8">
+              <div className="flex  items-center">
+                <h1 className="flex flex-auto items-center gap-[1.25rem] text-xs font-semibold leading-6 lg:text-2xl	lg:font-bold	lg:leading-8">
                   {jobTitle}
-                </h1>
-                <div className="pr-[2.06rem]">
                   <Image
+                    className="hidden lg:block"
                     src="/iconography/uiHut-icon-ic_Saved.svg"
                     alt="uiHunt"
                     width={20}
                     height={20}
                   />
-                </div>
+                </h1>
+
                 <Image
-                  className="justify-end lg:hidden"
+                  className="mr-[2.6rem] lg:hidden"
+                  src="/iconography/uiHut-icon-ic_Saved.svg"
+                  alt="uiHunt"
+                  width={20}
+                  height={20}
+                />
+                <Image
+                  className="lg:hidden"
                   src="/iconography/more-vertical.svg"
                   alt="more-vertical"
                   width={24}
@@ -143,9 +150,9 @@ const JobDetailCard = ({
                 </section>
               </section>
               {/* Four specs */}
-              <section className="mt-[1.75rem] lg:flex">
+              <section className="mt-[1.75rem] flex">
                 <span className="flex gap-[1rem] p-[.62rem] lg:gap-[2.5rem]">
-                  <div className="w-[6.5rem] lg:w-[10.31rem]">
+                  <div className="w-[6.5rem] lg:w-auto">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Experience
                     </h3>
@@ -153,7 +160,7 @@ const JobDetailCard = ({
                       {jobRequiredExperience}
                     </p>
                   </div>
-                  <div className="w-[6.5rem] lg:w-[10.31rem]">
+                  <div className="w-[6.5rem] lg:w-auto">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Work Level
                     </h3>
