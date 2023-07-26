@@ -12,12 +12,6 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
 
   const [jobDetails] = await Promise.all([jobDetailsData]);
 
-  // console.log("Check this Job", jobDetails);
-  console.log(
-    "Check this Job salaries Array",
-    jobDetails.data[0].estimated_salaries,
-  );
-
   return (
     <>
       <main className="mx-6 w-auto sm:mx-20">
