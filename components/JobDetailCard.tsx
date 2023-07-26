@@ -150,9 +150,9 @@ const JobDetailCard = ({
                 </section>
               </section>
               {/* Four specs */}
-              <section className="mt-[1.75rem] flex">
-                <span className="flex gap-[1rem] p-[.62rem] lg:gap-[2.5rem]">
-                  <div className="w-[6.5rem] lg:w-auto">
+              <section className="mt-[1.75rem]">
+                <span className="grid grid-cols-2 gap-x-[1.88rem] lg:grid-cols-4 lg:gap-[2.5rem] lg:text-base">
+                  <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Experience
                     </h3>
@@ -160,7 +160,7 @@ const JobDetailCard = ({
                       {jobRequiredExperience}
                     </p>
                   </div>
-                  <div className="w-[6.5rem] lg:w-auto">
+                  <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Work Level
                     </h3>
@@ -168,9 +168,7 @@ const JobDetailCard = ({
                       {workLevel}
                     </p>
                   </div>
-                </span>
-                <span className="flex gap-[1rem] p-[.62rem] lg:gap-[2.5rem] lg:text-base">
-                  <div className="w-[6.5rem] lg:w-[10.31rem]">
+                  <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto ">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Employee Type
                     </h3>
@@ -178,7 +176,7 @@ const JobDetailCard = ({
                       {jobEmploymentType}
                     </p>
                   </div>
-                  <div className="w-[6.5rem] lg:w-[10.31rem]">
+                  <div className="min-w-[6.5rem]  p-[.62rem] sm:w-auto">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-lg lg:font-semibold lg:leading-6">
                       Offer Salary
                     </h3>
