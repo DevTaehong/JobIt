@@ -58,7 +58,7 @@ const JobDetailCard = ({
             {/* Cover Photo */}
             <div className="h-[150px] max-w-[820px] lg:h-[192px]">
               <Image
-                className="h-[150px] rounded-t-xl object-none object-left lg:h-[192px]"
+                className="h-[150px] rounded-t-[1.25rem] object-none object-left lg:h-[192px]"
                 src="/iconography/job-detail.svg"
                 alt="cover"
                 width={820}
