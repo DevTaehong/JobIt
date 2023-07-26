@@ -176,7 +176,7 @@ const JobDetailCard = ({
                       {jobEmploymentType}
                     </p>
                   </div>
-                  <div className="min-w-[6.5rem] border-t  border-Natural6 p-[.62rem] sm:w-auto lg:border-none">
+                  <div className="min-w-[6.5rem] border-t   border-Natural5 dark:border-DarkBG2 p-[.62rem] sm:w-auto lg:border-none">
                     <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
                       Offer Salary
                     </h3>
