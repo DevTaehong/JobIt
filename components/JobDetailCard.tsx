@@ -143,7 +143,7 @@ const JobDetailCard = ({
                   </h3>
                   {estimatedSalaries ? (
                     <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
-                      {estimatedSalaries}
+                      {`$${estimatedSalaries}`}
                     </p>
                   ) : (
                     <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
