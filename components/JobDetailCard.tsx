@@ -216,7 +216,7 @@ const JobDetailCard = ({
               <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
                 About The Job
               </h2>
-              <p className="line-clamp-6 pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
+              <p className="pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
                 {jobDescription}
               </p>
             </section>
