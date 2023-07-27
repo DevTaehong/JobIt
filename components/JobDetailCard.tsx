@@ -12,7 +12,7 @@ type Props = {
   jobDescription?: string;
   jobCity?: string;
   jobState?: string;
-  estimatedSalaries?: string;
+  estimatedSalaries?: number;
   jobRequiredExperience?: string;
   postDate: number;
   workLevel: string;
@@ -141,9 +141,15 @@ const JobDetailCard = ({
                   <h3 className="text-[.812rem] font-medium leading-5	text-Natural6">
                     Offer Salary
                   </h3>
-                  <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
-                    {estimatedSalaries}
-                  </p>
+                  {estimatedSalaries ? (
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
+                      {estimatedSalaries}
+                    </p>
+                  ) : (
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
+                      N/A
+                    </p>
+                  )}
                 </div>
               </span>
             </section>

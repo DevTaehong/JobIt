@@ -10,6 +10,10 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
   const jobDetailsData = getJobDetails(params.id);
 
+  // Round down salary to nearest 100
+  function roundDown(number: number) {
+    return Math.floor(number / 100) * 100;
+  }
   const [jobDetails] = await Promise.all([jobDetailsData]);
 
   return (
@@ -59,7 +63,9 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
                 workLevel="tuesday"
                 employerLogo={jobDetails.data[0].employer_logo}
                 employerName={jobDetails.data[0].employer_name}
-                estimatedSalaries="friday"
+                estimatedSalaries={roundDown(
+                  jobDetails.data[0].estimated_salaries[0]?.median_salary,
+                )}
                 jobApplyLink={jobDetails.data[0].job_apply_link}
                 jobCity={jobDetails.data[0].job_city}
                 jobDescription="nextday"
