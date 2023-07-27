@@ -1,7 +1,7 @@
 import { getJobDetails } from "@/lib/jsearch";
 
 import JobDetailCard from "@/components/JobDetailCard";
-import SmallCards from "@/components/SmallCards";
+import SmallCard from "@/components/SmallCard";
 import chevron from "@/public/iconography/CheveronLeft.svg";
 import moment from "moment";
 import Image from "next/image";
@@ -103,8 +103,8 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               </h3>
             </span>
             {/* Similar Job Cards */}
-            <div className="mt-[2.06rem] max-w-[379px] flex-row gap-3">
-              <SmallCards
+            <div className="mt-[2.06rem] flex-row gap-3">
+              <SmallCard
                 daysLeft={277777}
                 icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0
              "
