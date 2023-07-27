@@ -129,87 +129,87 @@ const JobDetailCard = ({
                     </h3>
                   </div>
                 </section>
+                <section className="mt-[-2rem] hidden items-center lg:flex">
+                  <a
+                    className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white lg:mr-[.96rem]"
+                    href={jobApplyLink}
+                  >
+                    Apply Now
+                  </a>
+                  <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 lg:text-Natural7">
+                    Message
+                  </button>
+                  <div className="px-[.62rem] py-[.69rem]">
+                    <Image
+                      src="/iconography/more-vertical.svg"
+                      alt="more-vertical"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                </section>
               </section>
-              <section className="mt-[-2rem] hidden items-center lg:flex">
+              {/* Four specs */}
+              <section className="mt-[1.75rem]">
+                <span className="grid grid-cols-2 rounded-[.325rem] bg-Natural3 dark:bg-[#21212B] lg:grid-cols-4 lg:gap-[2.5rem] lg:rounded-[1.25rem] lg:text-base">
+                  <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
+                      Experience
+                    </h3>
+                    {jobRequiredExperience ? (
+                      <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
+                        {`Minimum ${jobRequiredExperience} Year(s)`}
+                      </p>
+                    ) : (
+                      <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
+                        N/A
+                      </p>
+                    )}
+                  </div>
+                  <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6  lg:text-[.875rem] lg:font-semibold lg:leading-6">
+                      Work Level
+                    </h3>
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
+                      {workLevel}
+                    </p>
+                  </div>
+                  <div className="min-w-[6.5rem] border-t  border-Natural5 p-[.62rem] dark:border-DarkBG2 sm:w-auto lg:border-none">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
+                      Employee Type
+                    </h3>
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
+                      {jobEmploymentType}
+                    </p>
+                  </div>
+                  <div className="min-w-[6.5rem] border-t   border-Natural5 p-[.62rem] dark:border-DarkBG2 sm:w-auto lg:border-none">
+                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
+                      Offer Salary
+                    </h3>
+                    {estimatedSalaries ? (
+                      <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
+                        {`$${estimatedSalaries}`}
+                      </p>
+                    ) : (
+                      <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
+                        N/A
+                      </p>
+                    )}
+                  </div>
+                </span>
+              </section>
+              {/* Mobile Buttons */}
+              <section className="mt-[.88rem] flex gap-[.625rem] lg:hidden">
                 <a
-                  className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white lg:mr-[.96rem]"
+                  className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white"
                   href={jobApplyLink}
                 >
                   Apply Now
                 </a>
-                <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 lg:text-Natural7">
+                <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 text-Natural7">
                   Message
                 </button>
-                <div className="px-[.62rem] py-[.69rem]">
-                  <Image
-                    src="/iconography/more-vertical.svg"
-                    alt="more-vertical"
-                    width={24}
-                    height={24}
-                  />
-                </div>
               </section>
-            </section>
-            {/* Four specs */}
-            <section className="mt-[1.75rem]">
-              <span className="grid grid-cols-2 rounded-[.325rem] bg-Natural3 dark:bg-[#21212B] lg:grid-cols-4 lg:gap-[2.5rem] lg:rounded-[1.25rem] lg:text-base">
-                <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
-                  <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
-                    Experience
-                  </h3>
-                  {jobRequiredExperience ? (
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                      {`Minimum ${jobRequiredExperience} Year(s)`}
-                    </p>
-                  ) : (
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                      N/A
-                    </p>
-                  )}
-                </div>
-                <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
-                  <h3 className="text-[.812rem] font-medium leading-5	text-Natural6  lg:text-[.875rem] lg:font-semibold lg:leading-6">
-                    Work Level
-                  </h3>
-                  <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                    {workLevel}
-                  </p>
-                </div>
-                <div className="min-w-[6.5rem] border-t  border-Natural5 p-[.62rem] dark:border-DarkBG2 sm:w-auto lg:border-none">
-                  <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
-                    Employee Type
-                  </h3>
-                  <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                    {jobEmploymentType}
-                  </p>
-                </div>
-                <div className="min-w-[6.5rem] border-t   border-Natural5 p-[.62rem] dark:border-DarkBG2 sm:w-auto lg:border-none">
-                  <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
-                    Offer Salary
-                  </h3>
-                  {estimatedSalaries ? (
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                      {`$${estimatedSalaries}`}
-                    </p>
-                  ) : (
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                      N/A
-                    </p>
-                  )}
-                </div>
-              </span>
-            </section>
-            {/* Mobile Buttons */}
-            <section className="mt-[.88rem] flex gap-[.625rem] lg:hidden">
-              <a
-                className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white"
-                href={jobApplyLink}
-              >
-                Apply Now
-              </a>
-              <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 text-Natural7">
-                Message
-              </button>
             </section>
             {/* About the job */}
             <section className="mt-[1.88rem]">
