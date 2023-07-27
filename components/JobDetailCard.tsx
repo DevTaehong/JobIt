@@ -168,7 +168,7 @@ const JobDetailCard = ({
             {/* About the job */}
             <section className="mt-[1.88rem]">
               <h2 className="text-base font-bold	leading-6">About The Job</h2>
-              <p className="pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7">
+              <p className="line-clamp-6 pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7">
                 {jobDescription}
               </p>
             </section>
@@ -186,8 +186,7 @@ const JobDetailCard = ({
                       height={8}
                     />
                     <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7">
-                      Design, build, test, and deploy software applications and
-                      features
+                      {jobRequiredSkills}
                     </p>
                   </div>
                 ))}

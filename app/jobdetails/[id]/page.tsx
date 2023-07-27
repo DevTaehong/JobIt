@@ -58,7 +58,9 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               <JobDetailCard
                 aboutTheCompany={"anything"}
                 followers={10}
-                jobRequiredSkills={["Monday"]}
+                jobRequiredSkills={
+                  jobDetails.data[0].job_highlights.Responsibilities
+                }
                 postDate={3846732}
                 workLevel="tuesday"
                 employerLogo={jobDetails.data[0].employer_logo}
@@ -68,7 +70,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
                 )}
                 jobApplyLink={jobDetails.data[0].job_apply_link}
                 jobCity={jobDetails.data[0].job_city}
-                jobDescription="nextday"
+                jobDescription={jobDetails.data[0].job_description}
                 jobEmploymentType={jobDetails.data[0].job_employment_type}
                 jobRequiredExperience="funday"
                 jobState={jobDetails.data[0].job_state}
