@@ -6,7 +6,7 @@ export default function ImageErrorFallback({ src }: { src: string }) {
   if (!src || error)
     return (
       <img
-        className="min-h-[30px] min-w-[30px] sm:max-h-[36px] sm:max-w-[36px]"
+        className="min-h-[30px] min-w-[30px] object-contain sm:max-h-[36px] sm:max-w-[36px]"
         alt="Company placeholder logo"
         src="/images/companyPlaceholderLogo.png"
       />
@@ -14,7 +14,7 @@ export default function ImageErrorFallback({ src }: { src: string }) {
   if (!error) {
     return (
       <img
-        className="min-h-[30px] min-w-[30px] sm:max-h-[36px] sm:max-w-[36px]"
+        className="min-h-[30px] min-w-[30px] object-contain sm:max-h-[36px] sm:max-w-[36px]"
         alt="Company Logo"
         src={src}
         onError={(e) => {
