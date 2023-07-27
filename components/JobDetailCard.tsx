@@ -51,7 +51,7 @@ const JobDetailCard = ({
             <div className="absolute bottom-[-14px] left-[10px] h-[2.88rem] w-[2.88rem] shrink-0 lg:bottom-[-41px] lg:left-[20px] lg:h-[4rem] lg:w-[4rem]">
               <img
                 className="rounded-lg object-contain outline outline-2 outline-white"
-                src="/iconography/CompanyLogo.svg"
+                src={"/iconography/CompanyLogo.svg"}
                 alt="company logo"
               />
             </div>
@@ -286,7 +286,7 @@ const JobDetailCard = ({
                   <div className="mt-[.5rem] h-[2.13rem] w-[2.13rem] lg:mt-[.25rem] lg:h-[3.13rem] lg:w-[3.13rem]">
                     <img
                       className="rounded-[.33rem] object-contain	outline outline-2 outline-white lg:outline-none"
-                      src="/iconography/CompanyLogo.svg"
+                      src={"/iconography/CompanyLogo.svg"}
                       alt="oval"
                     />
                   </div>

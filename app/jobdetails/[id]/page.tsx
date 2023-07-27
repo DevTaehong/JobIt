@@ -5,6 +5,7 @@ import SmallCards from "@/components/SmallCards";
 import chevron from "@/public/iconography/CheveronLeft.svg";
 import moment from "moment";
 import Image from "next/image";
+import Link from "next/link";
 
 const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
@@ -53,12 +54,15 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
         <div className="flex flex-row flex-wrap gap-10">
           <section className="mt-8 w-full lg:w-[calc(66%-20px)]">
             <span className="flex items-center sm:mb-[23px] ">
-              <button className="hidden items-center gap-2 rounded-[0.625rem] bg-Natural4 px-[.62rem] py-[.44rem] text-xs font-medium leading-[18px] text-Natural7 dark:border-DarkBG3 dark:bg-DarkBG2 sm:flex">
+              <Link
+                href="/"
+                className="hidden items-center gap-2 rounded-[0.625rem] bg-Natural4 px-[.62rem] py-[.44rem] text-xs font-medium leading-[18px] text-Natural7 dark:border-DarkBG3 dark:bg-DarkBG2 sm:flex"
+              >
                 <div className="">
                   <Image src={chevron} alt="back logo" width={18} height={18} />
                 </div>
                 Back
-              </button>
+              </Link>
             </span>
             <div className="max-w-[860px] rounded-[10px] bg-white dark:bg-DarkBG2">
               <JobDetailCard
