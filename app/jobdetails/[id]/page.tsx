@@ -10,11 +10,17 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
   const jobDetailsData = getJobDetails(params.id);
 
+  const [jobDetails] = await Promise.all([jobDetailsData]);
+
   // Round down salary to nearest 100
   function roundDown(number: number) {
     return Math.floor(number / 100) * 100;
   }
-  const [jobDetails] = await Promise.all([jobDetailsData]);
+
+  // calc experience in years
+  function expInYears(number: number) {
+    return Math.floor(number / 12);
+  }
 
   return (
     <>
@@ -72,7 +78,10 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
                 jobCity={jobDetails.data[0].job_city}
                 jobDescription={jobDetails.data[0].job_description}
                 jobEmploymentType={jobDetails.data[0].job_employment_type}
-                jobRequiredExperience="funday"
+                jobRequiredExperience={expInYears(
+                  jobDetails.data[0].job_required_experience
+                    .required_experience_in_months,
+                )}
                 jobState={jobDetails.data[0].job_state}
                 jobTitle={jobDetails.data[0].job_title}
                 qualifications={

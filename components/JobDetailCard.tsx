@@ -13,7 +13,7 @@ type Props = {
   jobCity?: string;
   jobState?: string;
   estimatedSalaries?: number;
-  jobRequiredExperience?: string;
+  jobRequiredExperience?: number;
   postDate: number;
   workLevel: string;
   aboutTheCompany: string;
@@ -115,9 +115,15 @@ const JobDetailCard = ({
                   <h3 className="text-[.812rem] font-medium leading-5	text-Natural6">
                     Experience
                   </h3>
-                  <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
-                    {jobRequiredExperience}
-                  </p>
+                  {jobRequiredExperience ? (
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
+                      {`Minimum ${jobRequiredExperience} Year(s)`}
+                    </p>
+                  ) : (
+                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8">
+                      N/A
+                    </p>
+                  )}
                 </div>
                 <div>
                   <h3 className="text-[.812rem] font-medium leading-5	text-Natural6">
