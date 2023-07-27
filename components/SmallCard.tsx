@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import bookmark from "@/public/iconography/archive.svg";
+import { calculateDaysLeft } from "@/lib/utils";
 
 type Props = {
   icon: string;
@@ -12,16 +13,6 @@ type Props = {
   jobState: string;
   daysLeft: number;
 };
-
-function calculateDaysLeft(expTime: number): number {
-  const expDate = new Date(expTime * 1000); // Convert to milliseconds
-  const currentDate = new Date();
-
-  const timeDiff = expDate.getTime() - currentDate.getTime();
-  const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-
-  return daysLeft;
-}
 
 const SmallCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.daysLeft);
@@ -74,7 +65,7 @@ const SmallCard = (props: Props) => {
         </div>
         <div className="flex items-center gap-[0.6875rem]">
           <button className="flex items-center justify-center gap-[0.4375rem] rounded-md border-[0.06rem] border-[#92929D20] p-2">
-            <Image src={bookmark} width={18} height={18} alt="hut" />
+            <Image src={bookmark} width={18} height={18} alt="bookmark" />
           </button>
           <button className="flex items-center justify-center gap-[0.625rem] rounded bg-[#0BAB7C10] px-[0.875rem] py-[0.5rem]">
             <div className="text-center font-manrope text-[0.875rem] font-medium not-italic leading-5 text-Primary">
