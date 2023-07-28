@@ -38,3 +38,20 @@ export async function getRecommendedJobs() {
 
   return res.json();
 }
+
+export async function getJobDetails(id: string) {
+  const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${id}`;
+
+  try {
+    const res = await fetch(url, { headers: requestHeaders });
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error("Failed to Fetch Job Details");
+    }
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
