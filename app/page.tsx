@@ -20,6 +20,8 @@ export default async function Home() {
   const [RecommendedJobs] = await Promise.all([RecommendedJobData]);
   const [CompanyDetails] = await Promise.all([CompanyData]);
   console.log(CompanyDetails.data);
+  // employer_name
+  //
 
   return (
     <main className="mx-6 w-auto md:mx-20">
