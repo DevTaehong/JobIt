@@ -243,7 +243,9 @@ function CompanyDetails() {
                 )}
               </p>
               <Button className="rounded-[0.625rem] bg-[#0bab7c1a] px-[0.88rem] text-[0.8125rem] font-semibold not-italic leading-5 text-Primary">
-                <a href={demoData.job_apply_link}>Apply now</a>
+                <a target="_blank" href={demoData.job_apply_link}>
+                  Apply now
+                </a>
               </Button>
             </CardFooter>
           </Card>
