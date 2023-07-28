@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -17,6 +19,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Separator } from "@/components/ui/separator";
+import { useRouter } from "next/navigation";
 
 const demoData = {
   employer_logo: "/images/companyPlaceholderLogo.png",
@@ -34,24 +38,59 @@ const demoData = {
   job_state: "TX",
 };
 
-function CompanyDetails() {
+const randomAvatars = [
+  "https://xsgames.co/randomusers/avatar.php?g=male",
+  "https://xsgames.co/randomusers/avatar.php?g=male",
+  "https://xsgames.co/randomusers/avatar.php?g=female",
+  "",
+];
+
+const CompanyDetailCard = () => {
+  // NOTE https://nextjs.org/docs/app/api-reference/functions/use-router
+  const router = useRouter();
+
   return (
-    <main className="flex flex-col px-6 pt-[5.14rem]">
+    <main className="flex flex-col px-6 pt-[5.14rem] lg:px-20">
+      {/* Back button */}
+      <Button
+        onClick={() => router.back()}
+        className="mb-[1.73rem] w-[4.625rem] gap-[0.375rem] rounded-[0.625rem] bg-Natural2 px-[0.4375rem] py-[0.625rem] text-[0.8125rem] font-medium not-italic leading-[1.125rem] text-Natural6 hover:text-white lg:mb-9"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+        >
+          <path
+            d="M11.25 4.5L6.75 9L11.25 13.5"
+            stroke="#92929D"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Back
+      </Button>
       <Card className="border-0 bg-transparent shadow-none">
         <div
-          className="relative h-[8.21875rem] w-full rounded-t-[1.25rem] bg-[url('/images/companyCover.png')] 
-            bg-cover bg-center"
+          className="relative h-[8.21875rem] w-full rounded-t-[1.25rem] bg-[url('/images/companyCover.png')] bg-cover 
+            bg-center lg:h-[9.87rem]"
         >
           {/* // TODO fallback for company logo */}
           <img
-            className="absolute left-3 top-[6.47rem] h-14 w-14 rounded-[10px] 
-              border-[3px] border-Natural3"
+            className="absolute left-3 top-[6.47rem] h-14 w-14 rounded-[10px] border-[3px]
+              border-Natural3 lg:left-6 lg:top-[8.12125rem]"
             src={demoData.employer_logo}
           />
         </div>
-        <CardHeader className="pb-[1.19rem] pl-3 pt-[2.45875rem]">
-          <CardTitle>{demoData.employer_Name}</CardTitle>
-          <CardDescription className="mt-2 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic text-Natural7">
+        {/* Card header */}
+        <div className="pl-3 pt-[2.45875rem] lg:flex lg:flex-col lg:gap-[0.63rem] lg:pl-6 lg:pt-[5.64875rem]">
+          <CardTitle className="text-[1.375rem] not-italic leading-8 lg:text-[2rem] lg:font-bold">
+            {demoData.employer_Name}
+          </CardTitle>
+          <CardDescription className="mt-2 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic text-Natural7 lg:mt-0 lg:text-[1.125rem] lg:leading-6">
             {demoData.employer_Name}
             {/* Oval image */}
             <svg
@@ -70,7 +109,7 @@ function CompanyDetails() {
             </svg>
             {demoData.job_city}, {demoData.job_state}
           </CardDescription>
-          <CardDescription className="mt-1 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic text-Natural6">
+          <CardDescription className="mt-1 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic text-Natural6 lg:mt-0 lg:text-base">
             {demoData.employer_company_type}
             {/* Oval image */}
             <svg
@@ -89,45 +128,45 @@ function CompanyDetails() {
             </svg>
             {`${generateFakeFollowerCounts(10000, 999999)} Followers`}
           </CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-row -space-x-3 pl-3">
-          <Avatar>
-            <AvatarImage
-              src="https://github.com/shadcn.png"
-              className="rounded-[5rem] border-2 border-solid border-White"
-            />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <Avatar>
-            <AvatarImage
-              className="rounded-[5rem] border-2 border-solid border-White"
-              src="https://github.com/shadcn.png"
-            />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <Avatar>
-            <AvatarImage
-              className="rounded-[5rem] border-2 border-solid border-White"
-              src="https://github.com/shadcn.png"
-            />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <Avatar>
-            <AvatarImage
-              className="rounded-[5rem] border-2 border-solid border-White"
-              src="https://github.com/shadcn.png"
-            />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+          <Separator className="my-5 lg:hidden" />
+        </div>
+        <CardContent className="flex flex-row -space-x-3 pb-4 pl-3">
+          {randomAvatars.map((avatar: string, i: number) => (
+            <Avatar key={i}>
+              <AvatarImage
+                src={avatar}
+                className="rounded-[5rem] border-2 border-solid border-White"
+              />
+              <AvatarFallback className="rounded-[5rem] border-2 border-solid border-White">
+                +99
+              </AvatarFallback>
+            </Avatar>
+          ))}
         </CardContent>
-        <CardFooter className="pl-3">
+        <div className="mr-[0.63rem] pb-[1.62rem] pl-3">
           <Button
             variant="outline"
-            className="w-full rounded-[0.625rem] border border-solid border-Primary text-Primary"
+            className="flex w-full flex-row gap-[0.38rem] rounded-[0.625rem] border border-solid border-Primary text-Primary"
           >
-            Follow
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M14.25 8.25H9.75V3.75C9.75 3.33525 9.414 3 9 3C8.586 3 8.25 3.33525 8.25 3.75V8.25H3.75C3.336 8.25 3 8.58525 3 9C3 9.41475 3.336 9.75 3.75 9.75H8.25V14.25C8.25 14.6648 8.586 15 9 15C9.414 15 9.75 14.6648 9.75 14.25V9.75H14.25C14.664 9.75 15 9.41475 15 9C15 8.58525 14.664 8.25 14.25 8.25Z"
+                fill="#0BAB7C"
+              />
+            </svg>
+            <span className="text-[0.875rem] font-semibold not-italic leading-6">
+              Follow
+            </span>
           </Button>
-        </CardFooter>
+        </div>
       </Card>
 
       {/* Search Job title */}
@@ -263,6 +302,6 @@ function CompanyDetails() {
       </div>
     </main>
   );
-}
+};
 
-export default CompanyDetails;
+export default CompanyDetailCard;
