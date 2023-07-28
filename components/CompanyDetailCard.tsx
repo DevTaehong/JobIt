@@ -12,7 +12,7 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import { formatSalaryRange } from "@/lib/formatSalaryRage";
-import { generateFakeFollowerCounts } from "@/lib/fakeFollowerCounts";
+import followerCounts from "@/lib/followerCounts";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,8 +40,8 @@ const demoData = {
 
 const randomAvatars = [
   "https://xsgames.co/randomusers/avatar.php?g=male",
-  "https://xsgames.co/randomusers/avatar.php?g=male",
-  "https://xsgames.co/randomusers/avatar.php?g=female",
+  "https://randomuser.me/api/portraits/thumb/men/55.jpg",
+  "https://randomuser.me/api/portraits/thumb/men/77.jpg",
   "",
 ];
 
@@ -126,7 +126,7 @@ const CompanyDetailCard = () => {
                 fill="#696974"
               />
             </svg>
-            {`${generateFakeFollowerCounts(10000, 999999)} Followers`}
+            {`${followerCounts(demoData.employer_Name)} Followers`}
           </CardDescription>
           <Separator className="my-5 lg:hidden" />
         </div>
@@ -134,7 +134,14 @@ const CompanyDetailCard = () => {
           {randomAvatars.map((avatar: string, i: number) => (
             <Avatar key={i}>
               <AvatarImage
-                src={avatar}
+                src={
+                  i === 2
+                    ? // Get random avatar for the randomuser.me API
+                      `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
+                        Math.random() * 100,
+                      )}.jpg`
+                    : avatar
+                }
                 className="rounded-[5rem] border-2 border-solid border-White"
               />
               <AvatarFallback className="rounded-[5rem] border-2 border-solid border-White">
