@@ -126,7 +126,9 @@ const CompanyDetailCard = () => {
                 fill="#696974"
               />
             </svg>
-            {`${followerCounts(demoData.employer_Name)} Followers`}
+            {`${followerCounts(
+              demoData.employer_Name,
+            ).toLocaleString()} Followers`}
           </CardDescription>
           <Separator className="my-5 lg:hidden" />
         </div>
