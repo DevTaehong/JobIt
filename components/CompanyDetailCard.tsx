@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Card,
   CardContent,
@@ -25,24 +23,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
-import { useRouter } from "next/navigation";
-
-// NOTE To be removed after API integration
-// const demoData = {
-//   logo: "/iconography/companyLogo.svg",
-//   jobTitle: "Web developer",
-//   employer: "UIHUT",
-//   description:
-//     "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve.Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve.",
-//   minSalary: 70000,
-//   maxSalary: 100000,
-//   salaryPeriod: "MONTH",
-//   skills: ["React", "Node.js", "JavaScript"],
-//   companyType: "Finance",
-//   applyLink: "https://www.google.com",
-//   city: "Austin",
-//   state: "TX",
-// };
 
 type TypeProps = {
   logo: string;
@@ -80,39 +60,14 @@ const CompanyDetailCard = ({
   city,
   state,
 }: TypeProps) => {
-  // NOTE https://nextjs.org/docs/app/api-reference/functions/use-router
-  const router = useRouter();
-
   return (
     <main className="flex flex-col px-6 pt-[5.14rem] lg:px-20">
-      {/* Back button */}
-      <Button
-        onClick={() => router.back()}
-        className="mb-[1.73rem] w-[4.625rem] gap-[0.375rem] rounded-[0.625rem] bg-Natural2 px-[0.63rem] py-[0.44rem] text-[0.8125rem] font-medium not-italic leading-[1.125rem] text-Natural6 hover:text-white dark:border-DarkBG3 dark:bg-DarkBG3 dark:text-Natural6 lg:mb-9 lg:w-[4.625rem]"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-        >
-          <path
-            d="M11.25 4.5L6.75 9L11.25 13.5"
-            stroke="#92929D"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-        Back
-      </Button>
       {/* Title, Logo, followers, city, state, follow button */}
       <Card className="border-0 bg-transparent shadow-none">
         {/* Company cover and logo */}
         <div
-          className="relative h-[8.21875rem] w-full rounded-t-[1.25rem] bg-[url('/images/companyCover.png')] bg-cover 
-            bg-center lg:h-[9.87rem]"
+          className="relative h-[8.21875rem] w-full rounded-t-[1.25rem] bg-[url('/iconography/job-detail.svg')] bg-cover 
+            bg-left lg:h-[9.87rem]"
         >
           {/* // TODO fallback for company logo */}
           <img
@@ -196,22 +151,14 @@ const CompanyDetailCard = ({
                   alert("Follow Functionality Coming Soon :)");
                 }}
                 variant="outline"
-                className="flex w-full flex-row gap-[0.38rem] rounded-[0.625rem] border border-solid border-Primary text-Primary dark:border-Primary dark:bg-DarkBG1"
+                className="flex w-full flex-row gap-[0.38rem] rounded-[0.625rem] border border-solid border-Primary text-Primary hover:text-Primary dark:border-Primary dark:bg-DarkBG1 dark:hover:text-Primary"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M14.25 8.25H9.75V3.75C9.75 3.33525 9.414 3 9 3C8.586 3 8.25 3.33525 8.25 3.75V8.25H3.75C3.336 8.25 3 8.58525 3 9C3 9.41475 3.336 9.75 3.75 9.75H8.25V14.25C8.25 14.6648 8.586 15 9 15C9.414 15 9.75 14.6648 9.75 14.25V9.75H14.25C14.664 9.75 15 9.41475 15 9C15 8.58525 14.664 8.25 14.25 8.25Z"
-                    fill="#0BAB7C"
-                  />
-                </svg>
+                <Image
+                  src="/iconography/plus.svg"
+                  width={18}
+                  height={18}
+                  alt="Follow plus icon"
+                />
                 <span className="text-[0.875rem] font-semibold not-italic leading-6">
                   Follow
                 </span>
@@ -224,9 +171,9 @@ const CompanyDetailCard = ({
       {/* Search Job title */}
       <div className="rounded-[0.625rem] bg-white px-4 py-5 dark:bg-DarkBG2 lg:ml-6 lg:px-5 lg:pb-0 lg:pt-[1.88rem]">
         <div className="relative md:w-[28.75rem]">
-          <span className="absolute left-[0.625rem] top-1/2 -mt-2.5 lg:left-[1.12rem]">
+          <span className="absolute left-[0.625rem] top-1/2 translate-y-[-50%] lg:left-[1.12rem]">
             <Image
-              className="flex"
+              className="flex lg:h-[24px] lg:w-[24px]"
               src="/iconography/outline-search.svg"
               alt="Search icon"
               width={18}
