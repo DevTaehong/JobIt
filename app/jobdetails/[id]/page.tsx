@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { getJobDetails, getSimilarJobs } from "@/lib/jsearch";
 
+import { Skeleton } from "@/components/ui/skeleton";
 import JobDetailCard from "@/components/JobDetailCard";
 import SmallCard from "@/components/SmallCard";
 import chevron from "@/public/iconography/CheveronLeft.svg";
@@ -108,19 +110,25 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               </h3>
             </span>
             {/* Similar Job Cards */}
-            <div className="mt-[2.06rem] flex-row gap-3">
-              <SmallCard
-                daysLeft={277777}
-                icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0
+            <Suspense
+              fallback={
+                <Skeleton className="h-[20px] w-[100px] rounded-full" />
+              }
+            >
+              <div className="mt-[2.06rem] flex-row gap-3">
+                <SmallCard
+                  daysLeft={277777}
+                  icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0
              "
-                jobCity="Los Angelas"
-                jobLocation="downtown"
-                jobState="California"
-                jobTitle="Head Banger"
-                salary={70}
-                salaryPeriod="year"
-              />
-            </div>
+                  jobCity={similarJobDetails.data[0].job_city}
+                  jobLocation="downtown"
+                  jobState={similarJobDetails.data[1].job_state}
+                  jobTitle={similarJobDetails.data[2].job_title}
+                  salary={70}
+                  salaryPeriod="year"
+                />
+              </div>
+            </Suspense>
           </section>
         </div>
       </main>
