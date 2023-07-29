@@ -238,7 +238,7 @@ const JobDetailCard = ({
               <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
                 Qualifications and Skill Sets
               </h2>
-              {qualifications ? (
+              {qualifications?.length ? (
                 qualifications.map((qualificationDescription, idx) => (
                   <div className="flex flex-row pt-[.75rem]" key={idx}>
                     <Image
