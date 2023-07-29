@@ -27,6 +27,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { useRouter } from "next/navigation";
 
+// NOTE To be removed after API integration
 // const demoData = {
 //   logo: "/iconography/companyLogo.svg",
 //   jobTitle: "Web developer",
