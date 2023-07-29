@@ -214,24 +214,27 @@ const JobDetailCard = ({
             </section>
             {/* Responsibilities */}
             <section className="mb-[1.87rem] mt-[3.62rem]">
-              <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
-                Responsibilities
-              </h2>
-              {jobRequiredSkills &&
-                jobRequiredSkills.map((jobRequiredSkills, idx) => (
-                  <div className="flex flex-row pt-[.75rem]" key={idx}>
-                    <Image
-                      className="mt-2 h-[.5rem] stroke-2"
-                      src="/iconography/Oval (2).svg"
-                      alt="oval"
-                      width={8}
-                      height={8}
-                    />
-                    <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
-                      {jobRequiredSkills}
-                    </p>
-                  </div>
-                ))}
+              {jobRequiredSkills && (
+                <>
+                  <h2 className="text-base font-bold leading-6 dark:text-white lg:text-lg">
+                    Responsibilities
+                  </h2>
+                  {jobRequiredSkills.map((jobSkill, idx) => (
+                    <div className="flex flex-row pt-[.75rem]" key={idx}>
+                      <Image
+                        className="mt-2 h-[.5rem] stroke-2"
+                        src="/iconography/Oval (2).svg"
+                        alt="oval"
+                        width={8}
+                        height={8}
+                      />
+                      <p className="pl-[.63rem] text-base font-medium leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
+                        {jobSkill}
+                      </p>
+                    </div>
+                  ))}
+                </>
+              )}
             </section>
             {/* Qualifications and Skill Sets */}
             <section className="mt-[1.87rem]">
