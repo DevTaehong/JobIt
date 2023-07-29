@@ -1,4 +1,4 @@
-import { getJobDetails } from "@/lib/jsearch";
+import { getJobDetails, getSimilarJobs } from "@/lib/jsearch";
 
 import JobDetailCard from "@/components/JobDetailCard";
 import SmallCard from "@/components/SmallCard";
@@ -12,6 +12,11 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
   const jobDetailsData = getJobDetails(params.id);
 
   const [jobDetails] = await Promise.all([jobDetailsData]);
+
+  const similarJobDetails = await getSimilarJobs(
+    jobDetails.data[0].employer_name,
+  );
+  console.log("Check here", similarJobDetails.data[0]);
 
   // Round down salary to nearest 100
   function roundDown(number: number) {
