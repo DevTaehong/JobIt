@@ -10,33 +10,38 @@ type Props = {};
 
 const SearchBar = (props: Props) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-[11px] px-4 text-sm font-bold text-Natural6 sm:flex-row sm:justify-between sm:py-4 sm:pl-5">
       {/* Content */}
-      <div className="flex flex-row">
+      <div className="flex flex-row items-center gap-[13px] border-b border-Natural2  py-3 sm:border-none">
         {/* Search */}
-        <div>
+        <div className="h-[28px] w-[28px] p-1">
           <Image src={search} />
         </div>
         <div>Job Title, Company, or Keywords</div>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row items-center justify-between border-b border-Natural2  py-3 sm:border-none">
         {/* Location */}
-        <div>
-          <Image src={pin} />
+        <div className="flex flex-row items-center gap-[13px]">
+          {/* Icon, Location */}
+          <div className="h-[28px] w-[28px] p-1">
+            <Image src={pin} />
+          </div>
+          <div>Select Location</div>
         </div>
-        <div>Select Location</div>
-        <div>
+        <div className="h-[18px] w-[18px]">
           <Image src={chevronDown} />
         </div>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row items-center gap-[13px] border-b border-Natural2  py-3 sm:border-none">
         {/* Job Type */}
-        <div>
+        <div className="h-[28px] w-[28px] p-1">
           <Image src={briefcase} />
         </div>
         <div>Job Type</div>
       </div>
-      <button>Find Jobs</button>
+      <button className="my-2.5 rounded-lg bg-Primary px-[19px] py-3 font-semibold text-white">
+        Find Jobs
+      </button>
     </div>
   );
 };
