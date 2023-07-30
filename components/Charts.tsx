@@ -62,13 +62,31 @@ const Charts = (props: Props) => {
       },
     },
     xaxis: {
+      type: "category",
       categories: publisherName,
+      label: {
+        show: true,
+        style: {
+          fontFamily: "Manrope, sans-serif",
+          fontSize: "10px",
+          colors: ["#92929D"],
+          fontWeight: 500,
+        },
+      },
     },
     yaxis: {
+      min: 80000,
+      forceNiceScale: true,
       labels: {
         formatter: function (value: number) {
           const formatValue = value / 1000 + "k " + demoData[0].salary_currency;
           return formatValue;
+        },
+        style: {
+          fontFamily: "Manrope, sans-serif",
+          fontSize: "8px",
+          colors: ["#44444F"],
+          fontWeight: 500,
         },
       },
     },
