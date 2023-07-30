@@ -50,6 +50,7 @@ export default async function Home() {
               {latestJobs.data.slice(0, 6).map((latestJob, i) => (
                 <div key={i}>
                   <JobCard
+                    jobId={latestJob.job_id}
                     jobTitle={latestJob?.job_title}
                     // NOTE Source: https://stackoverflow.com/questions/5454235/shorten-string-without-cutting-words-in-javascript
                     jobDescription={latestJob?.job_description.replace(
