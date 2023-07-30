@@ -20,7 +20,7 @@ const CompanyDetails = () => {
   };
 
   return (
-    <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:flex-row lg:gap-10 lg:pb-11 lg:pl-[6.5rem] lg:pr-20 lg:pt-[2.87rem]">
+    <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:mx-20 lg:mb-11 lg:mt-[2.87rem] lg:flex-row lg:gap-10">
       <CompanyDetailCard
         logo={demoData?.logo}
         employer={demoData?.employer}
