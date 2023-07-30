@@ -1,67 +1,90 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+"use client";
+
 import Image from "next/image";
-import { formatSalaryRange } from "@/lib/formatSalaryRage";
-import followerCounts from "@/lib/followerCounts";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
+import followerCounts from "@/lib/followerCounts";
+import { useRouter } from "next/navigation";
+import CompanyDetailJobCard from "./CompanyDetailJobCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useToast } from "@/components/ui/use-toast";
+import { extractRequiredSkills } from "@/lib/jobRequiredSkills";
 
 type TypeProps = {
   logo: string;
-  jobTitle: string;
   employer: string;
-  description: string;
-  minSalary: number | null;
-  maxSalary: number | null;
-  salaryPeriod: string | null;
-  skills: string[];
   companyType: string;
-  applyLink: string;
   city: string;
   state: string;
 };
 
 const randomAvatars = [
-  "https://xsgames.co/randomusers/avatar.php?g=male",
-  "https://randomuser.me/api/portraits/thumb/men/55.jpg",
-  "https://randomuser.me/api/portraits/thumb/men/77.jpg",
-  "",
+  {
+    url: "https://xsgames.co/randomusers/avatar.php?g=male",
+    id: "maleAvatar",
+  },
+  {
+    url: "https://randomuser.me/api/portraits/thumb/men/55.jpg",
+    id: "menAvatar55",
+  },
+  {
+    url: "https://randomuser.me/api/portraits/thumb/men/77.jpg",
+    id: "menAvatar77",
+  },
+  {
+    url: "",
+    id: "empty",
+  },
 ];
 
 const CompanyDetailCard = ({
   logo,
-  jobTitle,
   employer,
-  description,
-  minSalary,
-  maxSalary,
-  salaryPeriod,
-  skills,
   companyType,
-  applyLink,
   city,
   state,
 }: TypeProps) => {
+  // NOTE https://nextjs.org/docs/app/api-reference/functions/use-router
+  const router = useRouter();
+  const { toast } = useToast();
+
+  const demoData = [
+    {
+      logo: "/iconography/companyLogo.svg",
+      jobTitle: "Web developer",
+      description:
+        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve.Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve. React, JavaScript, Node.js",
+      minSalary: 70000,
+      maxSalary: 100000,
+      salaryPeriod: "MONTH",
+      skills: ["React", "Node.js", "JavaScript"],
+      applyLink: "https://www.google.com",
+    },
+  ];
+
   return (
     <main className="flex flex-col px-6 pt-[5.14rem] lg:px-20">
+      {/* Back button */}
+      <Button
+        onClick={() => router.back()}
+        className="mb-[1.73rem] w-[4.625rem] gap-[0.375rem] rounded-[0.625rem] bg-Natural2 px-[0.63rem] py-[0.44rem] 
+          text-[0.8125rem] font-medium not-italic leading-[1.125rem] text-Natural6 hover:text-white dark:border-DarkBG3 
+          dark:bg-DarkBG3 dark:text-Natural6 lg:mb-9 lg:w-[4.625rem]"
+      >
+        <Image
+          src="/iconography/ChevronLeft.svg"
+          width={18}
+          height={18}
+          alt="Back button"
+        />
+        Back
+      </Button>
       {/* Title, Logo, followers, city, state, follow button */}
       <Card className="border-0 bg-transparent shadow-none">
         {/* Company cover and logo */}
@@ -83,42 +106,29 @@ const CompanyDetailCard = ({
             <CardTitle className="text-[1.375rem] not-italic leading-8 lg:text-[2rem] lg:font-bold">
               {employer}
             </CardTitle>
-            <CardDescription className="mt-2 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic text-Natural7 dark:text-Natural6 lg:mt-0 lg:text-[1.125rem] lg:leading-6 lg:text-Natural8">
+            <CardDescription
+              className="mt-2 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic 
+              text-Natural7 dark:text-Natural6 lg:mt-0 lg:text-[1.125rem] lg:leading-6 lg:text-Natural8"
+            >
               {employer}
               {/* Oval image */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="3"
-                height="4"
-                viewBox="0 0 3 4"
-                fill="none"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M1.5 3.5C2.32843 3.5 3 2.82843 3 2C3 1.17157 2.32843 0.5 1.5 0.5C0.671573 0.5 0 1.17157 0 2C0 2.82843 0.671573 3.5 1.5 3.5Z"
-                  fill="#696974"
-                />
-              </svg>
+              <Image
+                src="/iconography/Oval .svg"
+                width={3}
+                height={3}
+                alt="Oval"
+              />
               {city}, {state}
             </CardDescription>
             <CardDescription className="mt-1 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic text-Natural6 lg:mt-0 lg:text-base">
               {companyType}
               {/* Oval image */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="3"
-                height="4"
-                viewBox="0 0 3 4"
-                fill="none"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M1.5 3.5C2.32843 3.5 3 2.82843 3 2C3 1.17157 2.32843 0.5 1.5 0.5C0.671573 0.5 0 1.17157 0 2C0 2.82843 0.671573 3.5 1.5 3.5Z"
-                  fill="#696974"
-                />
-              </svg>
+              <Image
+                src="/iconography/ovalGray.svg"
+                width={3}
+                height={3}
+                alt="Oval"
+              />
               {`${followerCounts(employer).toLocaleString()} Followers`}
             </CardDescription>
             <Separator className="my-5 lg:hidden" />
@@ -126,16 +136,14 @@ const CompanyDetailCard = ({
           {/* Avatars and the follow button */}
           <div>
             <div className="flex flex-row -space-x-3 pb-4 pl-3 lg:mr-5">
-              {randomAvatars.map((avatar: string, i: number) => (
-                <Avatar key={i}>
+              {randomAvatars.map((avatar, i) => (
+                <Avatar key={avatar.id}>
                   <AvatarImage
                     src={
-                      i === 2
-                        ? // Get random avatar for the random user  API
-                          `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
-                            Math.random() * 100,
-                          )}.jpg`
-                        : avatar
+                      avatar.url ??
+                      `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
+                        Math.random() * 100,
+                      )}.jpg`
                     }
                     className="rounded-[5rem] border-2 border-solid border-White dark:border-Natural8"
                   />
@@ -148,10 +156,13 @@ const CompanyDetailCard = ({
             <div className="mb-[1.63rem] mr-[0.63rem] pl-3 lg:mb-[0.62rem] lg:mr-5">
               <Button
                 onClick={() => {
-                  alert("Follow Functionality Coming Soon :)");
+                  toast({
+                    description: "Follow Functionality Coming Soon :)",
+                  });
                 }}
                 variant="outline"
-                className="flex w-full flex-row gap-[0.38rem] rounded-[0.625rem] border border-solid border-Primary text-Primary hover:text-Primary dark:border-Primary dark:bg-DarkBG1 dark:hover:text-Primary"
+                className="flex w-full flex-row gap-[0.38rem] rounded-[0.625rem] border border-solid border-Primary text-Primary 
+                  hover:text-Primary dark:border-Primary dark:bg-DarkBG1 dark:hover:text-Primary"
               >
                 <Image
                   src="/iconography/plus.svg"
@@ -188,7 +199,9 @@ const CompanyDetailCard = ({
           />
           <Button
             onClick={() => {
-              alert("Search Functionality Coming Soon :)");
+              toast({
+                description: "Search Functionality Coming Soon :)",
+              });
             }}
             className="absolute inset-y-0 right-[0.62rem] top-2 h-[1.75rem] w-[4.5rem] rounded-[0.625rem] rounded-r-lg bg-Primary px-[0.88rem] py-1 font-semibold text-White dark:bg-Primary dark:text-White lg:right-[1.12rem] lg:h-[2.625rem] lg:w-[4.9375rem]"
           >
@@ -201,191 +214,40 @@ const CompanyDetailCard = ({
         </div>
         {/* Recently Posted Job Card */}
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-[1.88rem]">
-          {
-            <Card className="flex flex-col gap-5 rounded-[0.625rem] border-0 bg-white shadow-custom dark:bg-DarkBG3 dark:shadow-none lg:gap-[1.38rem]">
-              {/* Company logo, job title, skills */}
-              <CardHeader className="flex flex-row justify-between px-5 pb-0 pt-5">
-                <div className="flex flex-row gap-3 lg:gap-5">
-                  <div
-                    className="h-12 w-12 shrink-0 rounded-[0.47rem] border-[0.14rem] border-Natural3 
-                    bg-Natural3 p-[0.35rem] dark:border-Natural8 dark:bg-[#1717250f] lg:rounded-[0.625rem] lg:border-[3px]"
-                  >
-                    <img width={36} height={36} src={logo} alt="Company logo" />
-                  </div>
-                  <div className="flex flex-col gap-1 lg:gap-[0.62rem]">
-                    <CardTitle className="text-base font-semibold not-italic text-Black dark:text-White lg:text-[1.125rem]">
-                      {jobTitle}
-                    </CardTitle>
-                    {/* Skills */}
-                    <div className="flex flex-row flex-wrap gap-[0.31rem]">
-                      {skills.slice(0, 3).map((skill: string, i: number) => (
-                        <CardDescription
-                          key={i}
-                          className="rounded-[0.3125rem] bg-Natural3 px-[0.38rem] py-[0.06rem] text-center text-[0.8125rem] font-normal not-italic leading-[1.375rem] dark:bg-DarkBG2 lg:px-[0.62rem] lg:py-[0.19rem] lg:text-Natural6 "
-                        >
-                          {skill}
-                        </CardDescription>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                {/* ic-More button */}
-                <div>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger>
-                      <Image
-                        src="/iconography/ic_More.svg"
-                        alt="More button"
-                        width={16}
-                        height={16}
-                      />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="dark:bg-DarkBG2">
-                      <DropdownMenuItem
-                        onClick={() => {
-                          alert("Save Job Functionality Coming Soon :)");
-                        }}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="21"
-                          height="20"
-                          viewBox="0 0 21 20"
-                          fill="none"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M7.04765 0.872986H14.7857C16.539 0.872986 17.9603 2.2943 17.9603 4.04759V16.8432C17.9603 17.7199 17.2497 18.4305 16.373 18.4305C16.0126 18.4305 15.6629 18.3078 15.3814 18.0826L10.9167 14.5104L6.45201 18.0826C5.7675 18.6303 4.76862 18.5194 4.22094 17.8349C3.99574 17.5534 3.87305 17.2037 3.87305 16.8432V4.04759C3.87305 2.2943 5.29437 0.872986 7.04765 0.872986ZM7.04765 2.46029C6.17101 2.46029 5.46035 3.17095 5.46035 4.04759V16.8432L9.92504 13.271C10.5048 12.8072 11.3286 12.8072 11.9084 13.271L16.373 16.8432V4.04759C16.373 3.17095 15.6624 2.46029 14.7857 2.46029H7.04765Z"
-                            fill="#92929D"
-                          />
-                        </svg>
-                        <span className="ml-1 dark:text-white">Save Job</span>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </div>
-              </CardHeader>
-              <CardContent className="px-5 pb-0">
-                <p className="line-clamp-4 h-[5.3125rem] text-[0.875rem] font-normal not-italic leading-[1.375rem] text-Natural7 dark:text-Natural6 lg:line-clamp-3 lg:h-[4.4375rem] lg:text-base">
-                  {description}
-                </p>
-              </CardContent>
-              <CardFooter className="flex flex-row justify-between px-5 pb-5">
-                <p>
-                  {minSalary && maxSalary && salaryPeriod ? (
-                    formatSalaryRange(minSalary, maxSalary, salaryPeriod)
-                  ) : (
-                    <span className="ml-2 text-sm font-medium not-italic text-Natural7 dark:text-White">
-                      -
-                    </span>
-                  )}
-                </p>
-                <Button className="rounded-[0.625rem] bg-[#0bab7c1a] px-[0.875rem] py-2 text-[0.8125rem] font-semibold not-italic leading-5 text-Primary dark:bg-[#0bab7c1a] dark:text-Primary lg:text-[0.9375rem] lg:leading-6">
-                  <a target="_blank" href={applyLink}>
-                    Apply now
-                  </a>
-                </Button>
-              </CardFooter>
-            </Card>
-          }
+          {/* NOTE Change demoData  */}
+          {demoData.slice(0, 4).map((demoData, i) => (
+            <CompanyDetailJobCard
+              key={i}
+              logo={demoData?.logo}
+              jobTitle={demoData?.jobTitle}
+              description={demoData?.description}
+              minSalary={demoData?.minSalary}
+              maxSalary={demoData?.maxSalary}
+              salaryPeriod={demoData?.salaryPeriod}
+              skills={extractRequiredSkills(demoData?.description).slice(0, 3)}
+              applyLink={demoData?.applyLink}
+            />
+          ))}
         </div>
 
         {/* See all jobs button */}
         <Collapsible>
           <CollapsibleContent>
             <div className="mt-2 grid grid-cols-1 gap-2 lg:mt-[1.88rem] lg:grid-cols-2 lg:gap-[1.88rem]">
-              <Card className="flex flex-col gap-5 rounded-[0.625rem] border-0 bg-white shadow-custom dark:bg-DarkBG3 dark:shadow-none lg:gap-[1.38rem]">
-                {/* Company logo, job title, skills */}
-                <CardHeader className="flex flex-row justify-between px-5 pb-0 pt-5">
-                  <div className="flex flex-row gap-3 lg:gap-5">
-                    <div
-                      className="h-12 w-12 shrink-0 rounded-[0.47rem] border-[0.14rem] border-Natural3 
-                    bg-Natural3 p-[0.35rem] dark:border-Natural8 dark:bg-[#1717250f] lg:rounded-[0.625rem] lg:border-[3px]"
-                    >
-                      <img
-                        width={36}
-                        height={36}
-                        src={logo}
-                        alt="Company logo"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1 lg:gap-[0.62rem]">
-                      <CardTitle className="text-base font-semibold not-italic text-Black dark:text-White lg:text-[1.125rem]">
-                        {jobTitle}
-                      </CardTitle>
-                      {/* Skills */}
-                      <div className="flex flex-row flex-wrap gap-[0.31rem]">
-                        {skills.slice(0, 3).map((skill: string, i: number) => (
-                          <CardDescription
-                            key={i}
-                            className="rounded-[0.3125rem] bg-Natural3 px-[0.38rem] py-[0.06rem] text-center text-[0.8125rem] font-normal not-italic leading-[1.375rem] dark:bg-DarkBG2 lg:px-[0.62rem] lg:py-[0.19rem] lg:text-Natural6 "
-                          >
-                            {skill}
-                          </CardDescription>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  {/* ic-More button */}
-                  <div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger>
-                        <Image
-                          src="/iconography/ic_More.svg"
-                          alt="More button"
-                          width={16}
-                          height={16}
-                        />
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent className="dark:bg-DarkBG2">
-                        <DropdownMenuItem
-                          onClick={() => {
-                            alert("Save Job Functionality Coming Soon :)");
-                          }}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="21"
-                            height="20"
-                            viewBox="0 0 21 20"
-                            fill="none"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M7.04765 0.872986H14.7857C16.539 0.872986 17.9603 2.2943 17.9603 4.04759V16.8432C17.9603 17.7199 17.2497 18.4305 16.373 18.4305C16.0126 18.4305 15.6629 18.3078 15.3814 18.0826L10.9167 14.5104L6.45201 18.0826C5.7675 18.6303 4.76862 18.5194 4.22094 17.8349C3.99574 17.5534 3.87305 17.2037 3.87305 16.8432V4.04759C3.87305 2.2943 5.29437 0.872986 7.04765 0.872986ZM7.04765 2.46029C6.17101 2.46029 5.46035 3.17095 5.46035 4.04759V16.8432L9.92504 13.271C10.5048 12.8072 11.3286 12.8072 11.9084 13.271L16.373 16.8432V4.04759C16.373 3.17095 15.6624 2.46029 14.7857 2.46029H7.04765Z"
-                              fill="#92929D"
-                            />
-                          </svg>
-                          <span className="ml-1 dark:text-white">Save Job</span>
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </div>
-                </CardHeader>
-                <CardContent className="px-5 pb-0">
-                  <p className="line-clamp-4 h-[5.3125rem] text-[0.875rem] font-normal not-italic leading-[1.375rem] text-Natural7 dark:text-Natural6 lg:line-clamp-3 lg:h-[4.4375rem] lg:text-base">
-                    {description}
-                  </p>
-                </CardContent>
-                <CardFooter className="flex flex-row justify-between px-5 pb-5">
-                  <p>
-                    {minSalary && maxSalary && salaryPeriod ? (
-                      formatSalaryRange(minSalary, maxSalary, salaryPeriod)
-                    ) : (
-                      <span className="ml-2 text-sm font-medium not-italic text-Natural7 dark:text-White">
-                        -
-                      </span>
-                    )}
-                  </p>
-                  <Button className="rounded-[0.625rem] bg-[#0bab7c1a] px-[0.875rem] py-2 text-[0.8125rem] font-semibold not-italic leading-5 text-Primary dark:bg-[#0bab7c1a] dark:text-Primary lg:text-[0.9375rem] lg:leading-6">
-                    <a target="_blank" href={applyLink}>
-                      Apply now
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
+              {/* NOTE Change demoData */}
+              {demoData.slice(0, 4).map((demoData, i) => (
+                <CompanyDetailJobCard
+                  key={i}
+                  logo={demoData?.logo}
+                  jobTitle={demoData?.jobTitle}
+                  description={demoData?.description}
+                  minSalary={demoData?.minSalary}
+                  maxSalary={demoData?.maxSalary}
+                  salaryPeriod={demoData?.salaryPeriod}
+                  skills={demoData?.skills}
+                  applyLink={demoData?.applyLink}
+                />
+              ))}
             </div>
           </CollapsibleContent>
           <div className="mb-[1.875rem] flex items-center justify-center lg:mb-[3.25rem] lg:mt-[3.75rem]">
