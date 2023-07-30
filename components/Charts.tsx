@@ -75,16 +75,16 @@ const Charts = (props: Props) => {
       },
     },
     yaxis: {
-      min: 80000,
+      min: 60000,
       forceNiceScale: true,
       labels: {
         formatter: function (value: number) {
-          const formatValue = value / 1000 + "k " + demoData[0].salary_currency;
+          const formatValue = value + "k " + demoData[0].salary_currency;
           return formatValue;
         },
         style: {
           fontFamily: "Manrope, sans-serif",
-          fontSize: "8px",
+          fontSize: "9px",
           colors: ["#44444F"],
           fontWeight: 500,
         },
@@ -93,7 +93,7 @@ const Charts = (props: Props) => {
     colors: ["#FDDD8C", "#0BAB7C", "#FFBBD7"],
     legend: {
       position: "top",
-      fontSize: "10px",
+      fontSize: "13px",
       fontFamily: "Manrope, sans-serif",
       horizontalAlign: "left",
       markers: {
@@ -104,14 +104,42 @@ const Charts = (props: Props) => {
     },
     plotOptions: {
       bar: {
-        borderRadius: 7,
+        borderRadius: 8,
         borderRadiusApplication: "end",
-        columnWidth: "30%",
+        columnWidth: "23%",
       },
     },
     dataLabels: {
       enabled: false,
     },
+    responsive: [
+      {
+        breakpoint: 640,
+        options: {
+          yaxis: {
+            labels: {
+              formatter: function (value: number) {
+                const formatValue =
+                  value / 1000 + "k " + demoData[0].salary_currency;
+                return formatValue;
+              },
+              style: {
+                fontSize: "8px",
+              },
+            },
+          },
+          plotOptions: {
+            bar: {
+              borderRadius: 5,
+              columnWidth: "30%",
+            },
+          },
+          legend: {
+            fontSize: "10px",
+          },
+        },
+      },
+    ],
   };
 
   const series = [
@@ -122,7 +150,7 @@ const Charts = (props: Props) => {
 
   return (
     <div className="flex flex-col">
-      <div className="pl-[21px] font-bold leading-[22px]">
+      <div className="pl-[21px] font-bold leading-[22px] sm:text-[22px] sm:leading-[32px]">
         <h3>
           Estimated Salary <span className="font-normal">for</span>{" "}
           {demoData[0].job_title} <span className="font-normal">in</span>{" "}
