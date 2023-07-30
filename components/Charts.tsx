@@ -4,55 +4,28 @@ import React from "react";
 
 import Chart from "react-apexcharts";
 
-type Props = {};
+type DataItem = {
+  location: string;
+  job_title: string;
+  publisher_name: string;
+  publisher_link: string;
+  min_salary: number;
+  max_salary: number;
+  median_salary: number;
+  salary_period: string;
+  salary_currency: string;
+};
 
-const demoData = [
-  {
-    location: "New York, NY",
-    job_title: "NodeJS Developer",
-    publisher_name: "Salary.com",
-    publisher_link:
-      "https://www.salary.com/research/salary/recruiting/nodejs-developer-salary/new-york-ny",
-    min_salary: 101323,
-    max_salary: 150015,
-    median_salary: 123104,
-    salary_period: "YEAR",
-    salary_currency: "USD",
-  },
+type Props = {
+  data: DataItem[];
+};
 
-  {
-    location: "New York, NY",
-    job_title: "Node JS Developer",
-    publisher_name: "ZipRecruiter",
-    publisher_link:
-      "https://www.ziprecruiter.com/Salaries/Node-JS-Developer-Salary--in-New-York",
-    min_salary: 92994,
-    max_salary: 158637,
-    median_salary: 122925,
-    salary_period: "YEAR",
-    salary_currency: "USD",
-  },
+const Charts = ({ data }: Props) => {
+  const publisherName = data.map((item) => item.publisher_name);
+  const minSalary = data.map((item) => item.min_salary);
+  const maxSalary = data.map((item) => item.max_salary);
+  const medianSalary = data.map((item) => item.median_salary);
 
-  {
-    location: "New York, NY",
-    job_title: "node js developer",
-    publisher_name: "Talent.com",
-    publisher_link:
-      "https://www.talent.com/salary?job=node+js+developer&location=new+york",
-    min_salary: 82895,
-    max_salary: 167450,
-    median_salary: 127400,
-    salary_period: "YEAR",
-    salary_currency: "USD",
-  },
-];
-
-const publisherName = demoData.map((item) => item.publisher_name);
-const minSalary = demoData.map((item) => item.min_salary);
-const maxSalary = demoData.map((item) => item.max_salary);
-const medianSalary = demoData.map((item) => item.median_salary);
-
-const Charts = (props: Props) => {
   const options = {
     chart: {
       id: "basic-bar",
@@ -79,7 +52,7 @@ const Charts = (props: Props) => {
       forceNiceScale: true,
       labels: {
         formatter: function (value: number) {
-          const formatValue = value + "k " + demoData[0].salary_currency;
+          const formatValue = value + "k " + data[0].salary_currency;
           return formatValue;
         },
         style: {
@@ -120,7 +93,7 @@ const Charts = (props: Props) => {
             labels: {
               formatter: function (value: number) {
                 const formatValue =
-                  value / 1000 + "k " + demoData[0].salary_currency;
+                  value / 1000 + "k " + data[0].salary_currency;
                 return formatValue;
               },
               style: {
@@ -153,8 +126,8 @@ const Charts = (props: Props) => {
       <div className="pl-[21px] font-bold leading-[22px] sm:text-[22px] sm:leading-[32px]">
         <h3>
           Estimated Salary <span className="font-normal">for</span>{" "}
-          {demoData[0].job_title} <span className="font-normal">in</span>{" "}
-          {demoData[0].location}
+          {data[0].job_title} <span className="font-normal">in</span>{" "}
+          {data[0].location}
         </h3>
       </div>
       <div>
