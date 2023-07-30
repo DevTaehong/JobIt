@@ -69,7 +69,7 @@ const CompanyDetailCard = ({
   ];
 
   return (
-    <main className="flex flex-col px-6 pt-[5.14rem] lg:px-20">
+    <main className="flex flex-col">
       {/* Back button */}
       <Button
         onClick={() => router.back()}
@@ -113,7 +113,7 @@ const CompanyDetailCard = ({
               {employer}
               {/* Oval image */}
               <Image
-                src="/iconography/Oval .svg"
+                src="/iconography/Oval.svg"
                 width={3}
                 height={3}
                 alt="Oval"

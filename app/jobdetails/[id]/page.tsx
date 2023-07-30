@@ -68,26 +68,28 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               aboutTheCompany={"anything"}
               followers={10}
               jobRequiredSkills={
-                jobDetails.data[0].job_highlights.Responsibilities
+                jobDetails.data[0]?.job_highlights?.Responsibilities
               }
               postDate={3846732}
               workLevel="tuesday"
-              employerLogo={jobDetails.data[0].employer_logo}
-              employerName={jobDetails.data[0].employer_name}
+              employerLogo={jobDetails.data[0]?.employer_logo}
+              employerName={jobDetails.data[0]?.employer_name}
               estimatedSalaries={roundDown(
-                jobDetails.data[0].estimated_salaries[0]?.median_salary,
+                jobDetails.data[0]?.estimated_salaries[0]?.median_salary,
               )}
-              jobApplyLink={jobDetails.data[0].job_apply_link}
-              jobCity={jobDetails.data[0].job_city}
-              jobDescription={jobDetails.data[0].job_description}
-              jobEmploymentType={jobDetails.data[0].job_employment_type}
+              jobApplyLink={jobDetails.data[0]?.job_apply_link}
+              jobCity={jobDetails.data[0]?.job_city}
+              jobDescription={jobDetails.data[0]?.job_description}
+              jobEmploymentType={jobDetails.data[0]?.job_employment_type}
               jobRequiredExperience={expInYears(
-                jobDetails.data[0].job_required_experience
-                  .required_experience_in_months,
+                jobDetails.data[0]?.job_required_experience
+                  ?.required_experience_in_months,
               )}
-              jobState={jobDetails.data[0].job_state}
-              jobTitle={jobDetails.data[0].job_title}
-              qualifications={jobDetails.data[0].job_highlights.Qualifications}
+              jobState={jobDetails.data[0]?.job_state}
+              jobTitle={jobDetails.data[0]?.job_title}
+              qualifications={
+                jobDetails.data[0]?.job_highlights?.Qualifications
+              }
             />
           </div>
         </section>
