@@ -1,4 +1,4 @@
-import React from "react";
+import ImageErrorFallback from "@/lib/ImageErrorFallback";
 
 type Props = {
   employerName: string;
@@ -15,17 +15,9 @@ const InlineJobCard = (props: Props) => {
   return (
     <div className="w-full gap-5 rounded-[10px] bg-Natural3 px-3 py-3.5 dark:bg-DarkBG3">
       <div className="flex justify-between">
-        <div className="flex rounded">
+        <div className="flex gap-[0.56rem] rounded">
           <div className="h-9 w-9 rounded py-1.5 pr-2">
-            <img
-              className="min-h-[30px] min-w-[30px]  sm:max-h-[36px] sm:max-w-[36px]"
-              src={
-                props?.companyLogo
-                  ? props?.companyLogo
-                  : "/images/companyPlaceholderLogo.png"
-              }
-              alt="logo"
-            />
+            <ImageErrorFallback src={props.companyLogo} />
           </div>
           <div className="flex flex-col justify-between pl-0 text-start">
             <h1 className="line-clamp-1 text-[15px] font-semibold text-gray-900 dark:text-white sm:text-base">
