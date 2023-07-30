@@ -47,34 +47,48 @@ const demoData = [
   },
 ];
 
+const publisherName = demoData.map((item) => item.publisher_name);
+const minSalary = demoData.map((item) => item.min_salary);
+const maxSalary = demoData.map((item) => item.max_salary);
+const medianSalary = demoData.map((item) => item.median_salary);
+
 const Charts = (props: Props) => {
   const options = {
     chart: {
       id: "basic-bar",
-      height: 188,
+
       toolbar: {
         show: false,
       },
     },
     xaxis: {
-      categories: ["Salary.com", "ZipRecruiter", "Talent.com"],
+      categories: publisherName,
+    },
+    yaxis: {
+      labels: {
+        formatter: function (value: number) {
+          const formatValue = value / 1000 + "k " + demoData[0].salary_currency;
+          return formatValue;
+        },
+      },
     },
     colors: ["#FDDD8C", "#0BAB7C", "#FFBBD7"],
     legend: {
       position: "top",
       fontSize: "10px",
       fontFamily: "Manrope, sans-serif",
+      horizontalAlign: "left",
       markers: {
         width: 8,
         height: 8,
+        radius: 8,
       },
     },
-    fill: {
-      type: "solid",
-      pattern: {
-        style: "verticalLines",
-        width: 7,
-        strokeWidth: 10,
+    plotOptions: {
+      bar: {
+        borderRadius: 7,
+        borderRadiusApplication: "end",
+        columnWidth: "30%",
       },
     },
     dataLabels: {
@@ -83,14 +97,14 @@ const Charts = (props: Props) => {
   };
 
   const series = [
-    { name: "Minimun Salary", data: [90, 105, 110] },
-    { name: "Maximum Salary", data: [125, 140, 135] },
-    { name: "Median Salary", data: [112, 115, 110] },
+    { name: "Minimun Salary", data: minSalary },
+    { name: "Maximum Salary", data: maxSalary },
+    { name: "Median Salary", data: medianSalary },
   ];
 
   return (
     <div className="flex flex-col">
-      <div className="font-bold leading-[22px]">
+      <div className="pl-[21px] font-bold leading-[22px]">
         <h3>
           Estimated Salary <span className="font-normal">for</span>{" "}
           {demoData[0].job_title} <span className="font-normal">in</span>{" "}
