@@ -23,11 +23,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border-b border-solid border-Natural5 bg-White dark:border-DarkBG3 dark:bg-DarkBG1">
-      <header className="2xl:mx-auto 2xl:max-w-[90rem]">
+    <div className="bg-White dark:bg-DarkBG1 2xl:border-b 2xl:border-solid 2xl:border-Natural5 dark:2xl:border-DarkBG3">
+      <header className="2xl:mx-auto 2xl:max-w-[90rem] ">
         <nav
-          className="flex h-[3.875rem] w-full shrink-0 items-center justify-between gap-[0.625rem] px-6 py-[1.125rem] md:h-[4.375rem] 
-            lg:px-20 lg:py-0 2xl:mx-auto 2xl:px-0"
+          className="flex h-[3.875rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid
+            border-Natural5 px-6 py-[1.125rem] dark:border-DarkBG3 md:h-[4.375rem] lg:px-20 lg:py-0 2xl:mx-auto 2xl:border-b-0 2xl:border-transparent 2xl:px-0"
         >
           {/* Mobile navigation */}
           <Sheet
@@ -59,13 +59,13 @@ const Navbar = () => {
                 </div>
               )}
             </SheetTrigger>
-            <SheetContent className="flex shrink flex-wrap content-center items-center justify-start gap-12 bg-White dark:bg-DarkBG1">
+            <SheetContent className="flex shrink flex-wrap content-center items-center justify-start gap-10 bg-White dark:bg-DarkBG1">
               <ul
                 className="flex w-[14.75rem] flex-col items-start"
                 onClick={(e) => setClose(e)}
               >
                 <li
-                  className={`py-[0.75rem] pl-2 pr-[9.1875rem] ${
+                  className={`py-[0.75rem] pl-4 pr-[9.1875rem] ${
                     pathName === "/" && mobileSelectedClass
                   } `}
                 >
@@ -74,7 +74,7 @@ const Navbar = () => {
                   </NavBarLink>
                 </li>
                 <li
-                  className={`py-[0.75rem] pl-2 pr-[8.625rem]  ${
+                  className={`py-[0.75rem] pl-4 pr-[8.375rem] ${
                     pathName === "/jobsearch" && mobileSelectedClass
                   }`}
                 >
@@ -83,7 +83,7 @@ const Navbar = () => {
                   </NavBarLink>
                 </li>
                 <li
-                  className={`py-[0.75rem] pl-2 pr-[5.1875rem]  ${
+                  className={`py-[0.75rem] pl-4 pr-[4.69rem] ${
                     pathName === "/estimatedsalaries" && mobileSelectedClass
                   }`}
                 >
@@ -93,7 +93,7 @@ const Navbar = () => {
                 </li>
               </ul>
               {/* when opening the Sheet, show the theme switch button */}
-              <div className="pl-2">
+              <div className="pl-4">
                 <ThemeSwitch />
               </div>
             </SheetContent>

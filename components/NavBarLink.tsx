@@ -22,12 +22,12 @@ function NavBarLink({
     pathName === href
       ? "border-solid border-Primary text-Primary font-bold " +
         mobileNoBorderBottom
-      : "font-medium";
+      : "font-normal md:font-medium";
 
   return (
     <Link
       href={href}
-      className={`${selectedClass} flex px-0 py-[1.4375rem] text-base not-italic text-Natural6 hover:text-Primary`}
+      className={`${selectedClass} flex px-0 text-base not-italic text-Natural6 hover:text-Primary md:py-[1.4375rem]`}
     >
       {children}
     </Link>

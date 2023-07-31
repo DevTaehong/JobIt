@@ -14,7 +14,7 @@ module.exports = {
         Secondary2: "#D7D0FF",
         Secondary3: "FDDD8C",
         Secondary4: "FFBBD7",
-        Natural1: "#FAFAF4",
+        Natural1: "#F4F4F4",
         Natural2: "#F1F1F5",
         Natural3: "#FAFAFB",
         Natural4: "#F5F5F8",
