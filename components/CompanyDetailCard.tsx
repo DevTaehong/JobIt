@@ -25,22 +25,18 @@ type TypeProps = {
 };
 
 const randomAvatars = [
+  { url: "https://xsgames.co/randomusers/avatar.php?g=male", id: "maleAvatar" },
   {
-    url: "https://xsgames.co/randomusers/avatar.php?g=male",
-    id: "maleAvatar",
+    url: "https://xsgames.co/randomusers/avatar.php?g=female",
+    id: "femaleAvatar",
   },
   {
-    url: "https://randomuser.me/api/portraits/thumb/men/55.jpg",
-    id: "menAvatar55",
+    url: `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
+      Math.random() * 100,
+    )}.jpg`,
+    id: "maleAvatar2",
   },
-  {
-    url: "https://randomuser.me/api/portraits/thumb/men/77.jpg",
-    id: "menAvatar77",
-  },
-  {
-    url: "",
-    id: "empty",
-  },
+  { url: "", id: "emptyAvatar" },
 ];
 
 const CompanyDetailCard = ({
@@ -136,15 +132,10 @@ const CompanyDetailCard = ({
           {/* Avatars and the follow button */}
           <div>
             <div className="flex flex-row -space-x-3 pb-4 pl-3 lg:mr-5">
-              {randomAvatars.map((avatar, i) => (
+              {randomAvatars.map((avatar) => (
                 <Avatar key={avatar.id}>
                   <AvatarImage
-                    src={
-                      avatar.url ??
-                      `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
-                        Math.random() * 100,
-                      )}.jpg`
-                    }
+                    src={avatar.url}
                     className="rounded-[5rem] border-2 border-solid border-White dark:border-Natural8"
                   />
                   <AvatarFallback className="rounded-[5rem] border-2 border-solid border-White dark:border-Natural8 dark:bg-Natural2">
