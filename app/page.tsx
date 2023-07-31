@@ -17,7 +17,7 @@ export default async function Home() {
   return (
     <main className="mx-6	max-w-screen-2xl md:mx-20">
       {/* Heading */}
-      <section className=" ml-[-.25] mt-[3.13] sm:mt-[3.12rem]">
+      <section className=" mt-[1.73rem] sm:mt-[3.12rem]">
         <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
           Welcome to the Job Search Platform for Developers
         </h1>
