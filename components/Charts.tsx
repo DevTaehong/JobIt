@@ -48,7 +48,7 @@ const Charts = ({ data }: Props) => {
       },
     },
     yaxis: {
-      min: 60000,
+      min: 0,
       forceNiceScale: true,
       labels: {
         formatter: function (value: number) {
