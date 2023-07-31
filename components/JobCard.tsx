@@ -125,10 +125,10 @@ const JobCard = (props: Props) => {
           )}
           {/* Button based on screen size */}
           <Link href={`/jobdetails/${props.jobId}`}>
-            <Button className="h-10 w-[103px] items-center justify-center rounded-[10px] bg-Primary px-3.5 py-2 text-[15px] dark:bg-Primary dark:text-white sm:hidden">
+            <Button className="items-center justify-center rounded-[.625rem] bg-Primary px-[.86rem] py-[.5rem] text-[.9375rem] font-semibold leading-6 dark:bg-Primary dark:text-white sm:hidden">
               Apply Now
             </Button>
-            <Button className="hidden items-center justify-center rounded-[10px] bg-Primary px-3.5 py-3 text-[15px] dark:bg-Primary dark:text-white sm:flex sm:h-12 sm:w-[94px]">
+            <Button className="hidden items-center justify-center rounded-[.625rem] bg-Primary p-[1.25rem] text-[.9375rem] font-semibold leading-6 dark:bg-Primary dark:text-white sm:flex">
               Visit Now
             </Button>
           </Link>
