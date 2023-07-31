@@ -213,7 +213,7 @@ const CompanyDetailCard = ({
           Recently Posted Job
         </div>
         {/* Recently Posted Job Card */}
-        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-[1.88rem]">
+        <div className="grid grid-cols-1 gap-2 xl:grid-cols-2 xl:gap-[1.88rem]">
           {/* NOTE Change demoData  */}
           {demoData.slice(0, 4).map((demoData, i) => (
             <CompanyDetailJobCard
