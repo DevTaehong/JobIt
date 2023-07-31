@@ -40,7 +40,7 @@ const JobCard = (props: Props) => {
           <div className="flex rounded">
             <div className="h-[46px] w-[46px] justify-center rounded-[10px] border border-neutral-50 bg-Natural3 p-2 dark:border-none dark:bg-DarkBG3 sm:h-[64px] sm:w-[64px]">
               <img
-                className="min-h-[34.5px] min-w-[34.5px]  sm:h-[48px] sm:w-[48px]"
+                className="min-h-[34.5px] min-w-[34.5px] object-contain sm:h-[48px] sm:w-[48px]"
                 src={
                   props?.companyLogo
                     ? props?.companyLogo
@@ -77,7 +77,7 @@ const JobCard = (props: Props) => {
         </div>
 
         <div>
-          <p className="line-clamp-6 text-[15px] text-Natural7 dark:text-Natural6 sm:text-base">
+          <p className="line-clamp-6 h-[8.875rem] text-[15px] text-Natural7 dark:text-Natural6 sm:text-base">
             {props?.jobDescription}
           </p>
         </div>
