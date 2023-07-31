@@ -22,13 +22,13 @@ export default async function Home() {
           Welcome to the Job Search Platform for Developers
         </h1>
         {/* Date */}
-        <h2 className="hidden text-Natural6 sm:flex sm:text-xl sm:font-medium sm:leading-8 xl:mt-[.88rem]">
+        <h2 className="mt-[.31rem] text-Natural6 sm:flex sm:text-xl sm:font-medium sm:leading-8 xl:mt-[.88rem]">
           {currentDate}
         </h2>
       </section>
       <div className="flex flex-row flex-wrap">
         {/* Latest Job Posts */}
-        <section className="mt-[3.56rem] w-full xl:mt-[2.19rem] xl:w-2/3">
+        <section className="mt-[3.56rem] w-full xl:mt-[3.25rem] xl:w-2/3">
           <div className="flex-row ">
             <span className="mb-[2.06rem] flex items-center justify-between sm:mb-[2.06rem]">
               <h3 className="text-[1.375rem] font-semibold leading-8 dark:text-White md:font-bold">
