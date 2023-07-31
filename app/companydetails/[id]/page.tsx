@@ -1,7 +1,11 @@
 import CompanyDetailCard from "@/components/CompanyDetailCard";
 import SmallCard from "@/components/SmallCard";
 import SimilarCompanies from "@/components/SimilarCompanies";
-import { getCompanyDetails, getQuery } from "@/lib/jsearch";
+import {
+  getCompanyDetails,
+  getQuery,
+  getSimilarCompanies,
+} from "@/lib/jsearch";
 
 const CompanyDetails = async ({
   params,
@@ -12,7 +16,9 @@ const CompanyDetails = async ({
 }) => {
   const CompanyData: Promise<Job> = getCompanyDetails(params.id);
   const [CompanyDetails] = await Promise.all([CompanyData]);
-  console.log(CompanyDetails);
+
+  const moreCompany: Promise<Job> = getSimilarCompanies(params.id);
+  const [SimilarCompanies] = await Promise.all([moreCompany]);
 
   const { query } = searchParams;
   const queryData: Promise<Job> = getQuery(query ?? "developer");
@@ -25,6 +31,13 @@ const CompanyDetails = async ({
     city: CompanyDetails.data[0].job_city,
     companyType: CompanyDetails.data[0].employer_company_type,
     companyLink: CompanyDetails.data[0].employer_website,
+  };
+
+  const moreCompany = {
+    icon: SimilarCompanies.data[0].employer_logo,
+    JobTitle: SimilarCompanies.data[0].employer_name,
+    legalName: SimilarCompanies.data[0].employer_company_type,
+    follow: SimilarCompanies.data[0].employer_website,
   };
 
   return (

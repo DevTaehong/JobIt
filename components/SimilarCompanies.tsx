@@ -2,18 +2,17 @@ import React from "react";
 import Image from "next/image";
 import plus from "@/public/iconography/Fbuttonplus.svg";
 
-
 // All notations/comments below are intended for informative purposes for testing
 
 // Job title sec means secondary title
-type Props={
-icon: string;
-JobTitle: string;
-JobTitleSec:string;
+type Props = {
+  icon: string;
+  JobTitle: string;
+  legalName: string;
+  follow: string;
 };
 
-
-const SimilarCompanies = (props: Props) => {
+const SimilarCompanies = ({ icon, JobTitle, legalName, follow }: Props) => {
   return (
     <div
       className="rounded-[0.625rem] bg-white p-[1.25rem] font-manrope shadow-[0_6px_14px_0_rgba(23,23,37,0.02)] dark:bg-DarkBG2

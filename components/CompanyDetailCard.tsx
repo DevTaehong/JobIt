@@ -27,6 +27,10 @@ type TypeProps = {
   companyLink: string;
   jobId: string;
   queryData: Promise<Job[] | null>;
+  icon: string;
+  JobTitle: string;
+  legalName: string;
+  follow: string;
 };
 
 const randomAvatars = [
