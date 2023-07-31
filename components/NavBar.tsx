@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-White dark:bg-DarkBG1 2xl:border-b 2xl:border-solid 2xl:border-Natural5 dark:2xl:border-DarkBG3">
-      <header className="2xl:mx-auto 2xl:max-w-[90rem] ">
+      <header className="2xl:mx-auto 2xl:max-w-[90rem]">
         <nav
           className="flex h-[3.875rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid
             border-Natural5 px-6 py-[1.125rem] dark:border-DarkBG3 md:h-[4.375rem] lg:px-20 lg:py-0 2xl:mx-auto 2xl:border-b-0 2xl:border-transparent 2xl:px-0"
