@@ -11,7 +11,7 @@ const followerCounts = (companyName: string): number => {
   const max = 99000;
   const scaledHash = (hash % (max - min + 1)) + min;
 
-  return scaledHash; // Ensure the result is an unsigned 32-bit integer
+  return Math.abs(scaledHash); // Ensure the result is an unsigned 32-bit integer
 };
 
 export default followerCounts;

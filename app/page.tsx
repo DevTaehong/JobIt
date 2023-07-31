@@ -13,13 +13,10 @@ export default async function Home() {
   const currentDate = moment().format("dddd,  D MMM YYYY");
   const latestJobData: Promise<Job> = getLatestJobs();
   const RecommendedJobData: Promise<Job> = getRecommendedJobs();
-  const CompanyData: Promise<Job> = getCompanyDetails();
 
   // https://nextjs.org/docs/app/building-your-application/data-fetching/fetching#parallel-data-fetching
   const [latestJobs] = await Promise.all([latestJobData]);
   const [RecommendedJobs] = await Promise.all([RecommendedJobData]);
-  const [CompanyDetails] = await Promise.all([CompanyData]);
-  console.log(CompanyDetails.data);
   // employer_name
   //
 
