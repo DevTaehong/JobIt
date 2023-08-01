@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-
+import { calculatePostDate } from "@/lib/utils";
 type Props = {
   employerName?: string;
   employerLogo?: String;
@@ -41,6 +41,10 @@ const JobDetailCard = ({
   jobRequiredExperience = jobRequiredExperience
     ? `Minimum ${jobRequiredExperience} Year(s)`
     : `N/A`;
+
+  //  calc days left
+  const calcPostDate = calculatePostDate(postDate);
+
   return (
     <>
       {/* Box */}
@@ -128,7 +132,7 @@ const JobDetailCard = ({
                       />
                     </div>
                     <h3 className="text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
-                      {postDate}
+                      {`${calcPostDate} days ago`}
                     </h3>
                   </div>
                 </section>
