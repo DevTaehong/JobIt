@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -38,7 +37,7 @@ const formSchema = z.object({
     }),
 });
 
-const InputValidationExample = () => {
+const SalariesInputs = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -64,12 +63,13 @@ const InputValidationExample = () => {
           name="jobTittle"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-[0.875rem] font-semibold leading-6 text-Natural6 lg:text-[0.9375rem]">
+              <FormLabel className="text-[0.875rem] font-semibold leading-6 text-Natural6 dark:text-Natural5 lg:text-[0.9375rem]">
                 Job Title
               </FormLabel>
               <FormControl>
                 <Input
-                  className="mt-2 rounded-[0.625rem] border-b border-solid border-[#e2e2ea99] bg-Natural2 py-3 pl-5 pr-0 text-[0.8125rem] font-bold not-italic leading-6"
+                  className="mt-2 rounded-[0.625rem] border-b border-solid border-[#e2e2ea99] bg-Natural2 py-3 pl-5 pr-0 text-[0.8125rem] 
+                    font-bold not-italic leading-6 text-Natural8 dark:border-Natural8 dark:bg-DarkBG2 dark:text-Natural7"
                   placeholder="Developer"
                   {...field}
                 />
@@ -84,12 +84,13 @@ const InputValidationExample = () => {
             name="location"
             render={({ field }) => (
               <FormItem className="mt-5">
-                <FormLabel className="text-[0.875rem] font-semibold leading-6 text-Natural6 lg:text-[0.9375rem]">
+                <FormLabel className="text-[0.875rem] font-semibold leading-6 text-Natural6 dark:text-Natural5 lg:text-[0.9375rem]">
                   Location
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="mt-2 w-full rounded-[0.625rem] border-b border-solid border-[#e2e2ea99] bg-Natural2 py-3 pl-5 pr-0 text-[0.8125rem] font-bold not-italic leading-6"
+                    className="mt-2 w-full rounded-[0.625rem] border-b border-solid border-[#e2e2ea99] bg-Natural2 py-3 pl-5 pr-0 text-[0.8125rem] 
+                      font-bold not-italic leading-6 text-Natural8 dark:border-Natural8 dark:bg-DarkBG2 dark:text-Natural7"
                     placeholder="Austin, TX"
                     {...field}
                   />
@@ -103,12 +104,13 @@ const InputValidationExample = () => {
             name="radius"
             render={({ field }) => (
               <FormItem className="mt-5">
-                <FormLabel className="text-[0.875rem] font-semibold leading-6 text-Natural6 lg:text-[0.9375rem]">
+                <FormLabel className="text-[0.875rem] font-semibold leading-6 text-Natural6 dark:text-Natural5 lg:text-[0.9375rem]">
                   Radius
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="mt-2 w-full rounded-[0.625rem] border-b border-solid border-[#e2e2ea99] bg-Natural2 py-3 pl-5 pr-0 text-[0.8125rem] font-bold not-italic leading-6"
+                    className="mt-2 w-full rounded-[0.625rem] border-b border-solid border-[#e2e2ea99] bg-Natural2 py-3 pl-5 pr-0 text-[0.8125rem] 
+                      font-bold not-italic leading-6 text-Natural8 dark:border-Natural8 dark:bg-DarkBG2 dark:text-Natural7"
                     placeholder="200"
                     {...field}
                   />
@@ -124,4 +126,4 @@ const InputValidationExample = () => {
   );
 };
 
-export default InputValidationExample;
+export default SalariesInputs;
