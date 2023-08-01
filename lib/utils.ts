@@ -21,6 +21,9 @@ export function calculateDaysLeft(expTime: number): number {
 
 /* {Calculate Days since job posting} */
 export function calculatePostDate(expTime: number): number {
+  if (!expTime) {
+    return 0;
+  }
   const postDate = new Date(expTime * 1000); // Convert to milliseconds
   const currentDate = new Date();
 
