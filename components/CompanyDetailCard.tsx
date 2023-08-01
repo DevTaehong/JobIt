@@ -30,22 +30,18 @@ type TypeProps = {
 };
 
 const randomAvatars = [
+  { url: "https://xsgames.co/randomusers/avatar.php?g=male", id: "maleAvatar" },
   {
-    url: "https://xsgames.co/randomusers/avatar.php?g=male",
-    id: "maleAvatar",
+    url: "https://xsgames.co/randomusers/avatar.php?g=female",
+    id: "femaleAvatar",
   },
   {
-    url: "https://randomuser.me/api/portraits/thumb/men/55.jpg",
-    id: "menAvatar55",
+    url: `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
+      Math.random() * 100,
+    )}.jpg`,
+    id: "maleAvatar2",
   },
-  {
-    url: "https://randomuser.me/api/portraits/thumb/men/77.jpg",
-    id: "menAvatar77",
-  },
-  {
-    url: "",
-    id: "empty",
-  },
+  { url: "", id: "emptyAvatar" },
 ];
 
 const CompanyDetailCard = ({
@@ -134,8 +130,8 @@ const CompanyDetailCard = ({
         >
           {/* // TODO fallback for company logo */}
           <img
-            className="absolute left-3 top-[6.47rem] h-14 w-14 rounded-[10px] border-[3px]
-              border-Natural3 dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8.12125rem]"
+            className="absolute left-3 top-[6.84rem] h-[2.875rem] w-[2.875rem] rounded-[0.625rem] border-[2.156px]
+              border-Natural3 dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8rem] lg:h-16 lg:w-16 lg:border-[3px]"
             src={logo}
           />
         </div>
@@ -176,15 +172,10 @@ const CompanyDetailCard = ({
           {/* Avatars and the follow button */}
           <div>
             <div className="flex flex-row -space-x-3 pb-4 pl-3 lg:mr-5">
-              {randomAvatars.map((avatar, i) => (
+              {randomAvatars.map((avatar) => (
                 <Avatar key={avatar.id}>
                   <AvatarImage
-                    src={
-                      avatar.url ??
-                      `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
-                        Math.random() * 100,
-                      )}.jpg`
-                    }
+                    src={avatar.url}
                     className="rounded-[5rem] border-2 border-solid border-White dark:border-Natural8"
                   />
                   <AvatarFallback className="rounded-[5rem] border-2 border-solid border-White dark:border-Natural8 dark:bg-Natural2">
@@ -252,7 +243,7 @@ const CompanyDetailCard = ({
           Recently Posted Job
         </div>
         {/* Recently Posted Job Card */}
-        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-[1.88rem]">
+        <div className="grid grid-cols-1 gap-2 xl:grid-cols-2 xl:gap-[1.88rem]">
           {/* NOTE Change demoData  */}
           {jobResults.length &&
             jobResults
