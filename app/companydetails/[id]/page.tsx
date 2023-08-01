@@ -13,14 +13,14 @@ const CompanyDetails = async ({
   const CompanyData: Promise<Job> = getCompanyDetails(params.id);
   const [CompanyDetails] = await Promise.all([CompanyData]);
 
-  const moreCompany: Promise<Job> = getCompanies("Texas");
+  const moreCompany: Promise<Job> = getCompanies(
+    CompanyDetails.data[0].job_state,
+  );
   const [Companies] = await Promise.all([moreCompany]);
-  console.log(Companies);
 
   const { query } = searchParams;
   const queryData: Promise<Job> = getQuery(query ?? "developer");
 
-  // TODO: Remove this demo data
   const companyData = {
     logo: CompanyDetails.data[0].employer_logo,
     employer: CompanyDetails.data[0].employer_name,
@@ -54,6 +54,7 @@ const CompanyDetails = async ({
                 JobTitle={Companies?.employer_name}
                 JobTitleSec={Companies?.employer_name}
                 icon={Companies?.employer_logo}
+                Link={Companies?.job_apply_link}
               />
             </div>
           ))}

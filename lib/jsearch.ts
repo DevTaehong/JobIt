@@ -96,6 +96,8 @@ export async function getQuery(query: string) {
 }
 
 export async function getCompanies(jobStates: string) {
+  jobStates = jobStates ?? "New York";
+
   const res = await fetch(
     `https://jsearch.p.rapidapi.com/search?query=${jobStates}`,
     {

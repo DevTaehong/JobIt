@@ -9,9 +9,15 @@ type Props = {
   icon: string;
   JobTitle: string;
   JobTitleSec: string;
+  Link: string;
 };
 
-const SimilarCompanies = ({ icon, JobTitle, JobTitleSec }: Props) => {
+// Should this be structured differently?
+// icon =
+//   icon ??
+//   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0";
+
+const SimilarCompanies = ({ icon, JobTitle, JobTitleSec, Link }: Props) => {
   return (
     <div
       className="rounded-[0.625rem] bg-white p-[1.25rem] font-manrope shadow-[0_6px_14px_0_rgba(23,23,37,0.02)] dark:bg-DarkBG2
