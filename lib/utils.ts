@@ -5,6 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/* {Calculate Days left for job posting} */
 export function calculateDaysLeft(expTime: number): number {
   const expDate = new Date(expTime * 1000); // Convert to milliseconds
   const currentDate = new Date();
@@ -13,4 +14,15 @@ export function calculateDaysLeft(expTime: number): number {
   const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
   return daysLeft;
+}
+
+/* {Calculate Days since job posting} */
+export function calculatePostDate(expTime: number): number {
+  const postDate = new Date(expTime * 1000); // Convert to milliseconds
+  const currentDate = new Date();
+
+  const timeDiff = currentDate.getTime() - postDate.getTime();
+  const daysPosted = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+  return daysPosted;
 }

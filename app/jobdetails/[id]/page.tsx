@@ -15,9 +15,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
 
   const [jobDetails] = await Promise.all([jobDetailsData]);
 
-  const similarJobDetails = await getSimilarJobs(
-    jobDetails.data[0].employer_name,
-  );
+  const similarJobDetails = await getSimilarJobs(jobDetails.data[0].job_title);
   console.log("Check here", similarJobDetails.data[0]);
 
   // Round down salary to nearest 100
@@ -101,37 +99,34 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
           </div>
         </section>
 
-          {/* Similar Jobs */}
-          <section className="order-last mt-[2.19rem] max-w-[379px] lg:w-[calc(33%-20px)] xl:order-none ">
-            <span className="flex justify-between">
-              <h3 className="text-[18px] font-bold leading-8 dark:text-White">
-                Similar Jobs
-              </h3>
-            </span>
-            {/* Similar Job Cards */}
-            <Suspense
-              fallback={
-                <Skeleton className="h-[20px] w-[100px] rounded-full" />
-              }
-            >
-              <div className="mt-[2.06rem] flex-row gap-3">
-                <SmallCard
-                  daysLeft={277777}
-                  icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0
+        {/* Similar Jobs */}
+        <section className="order-last mt-[2.19rem] max-w-[379px] lg:w-[calc(33%-20px)] xl:order-none ">
+          <span className="flex justify-between">
+            <h3 className="text-[18px] font-bold leading-8 dark:text-White">
+              Similar Jobs
+            </h3>
+          </span>
+          {/* Similar Job Cards */}
+          <Suspense
+            fallback={<Skeleton className="h-[20px] w-[100px] rounded-full" />}
+          >
+            <div className="mt-[2.06rem] flex-row gap-3">
+              <SmallCard
+                daysLeft={277777}
+                icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0
              "
-                  jobCity={similarJobDetails.data[0].job_city}
-                  jobLocation="downtown"
-                  jobState={similarJobDetails.data[1].job_state}
-                  jobTitle={similarJobDetails.data[2].job_title}
-                  salary={70}
-                  salaryPeriod="year"
-                />
-              </div>
-            </Suspense>
-          </section>
-        </div>
-      </main>
-    </>
+                jobCity={similarJobDetails.data[0].job_city}
+                jobLocation="downtown"
+                jobState={similarJobDetails.data[1].job_state}
+                jobTitle={similarJobDetails.data[2].job_title}
+                salary={70}
+                salaryPeriod="year"
+              />
+            </div>
+          </Suspense>
+        </section>
+      </div>
+    </main>
   );
 };
 
