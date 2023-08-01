@@ -1,8 +1,45 @@
 import moment from "moment";
 import Charts from "@/components/Charts";
+import { data } from "autoprefixer";
 
 const EstimatedSalaries = () => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
+
+  type DataItem = {
+    location: string;
+    job_title: string;
+    publisher_name: string;
+    publisher_link: string;
+    min_salary: number;
+    max_salary: number;
+    median_salary: number;
+    salary_period: string;
+    salary_currency: string;
+  };
+  const data: DataItem[] = [
+    {
+      location: "London",
+      job_title: "Software Engineer",
+      publisher_name: "Google",
+      publisher_link: "https://www.google.com",
+      min_salary: 50000,
+      max_salary: 60000,
+      median_salary: 55000,
+      salary_period: "year",
+      salary_currency: "GBP",
+    },
+    {
+      location: "London",
+      job_title: "Software Engineer",
+      publisher_name: "Google",
+      publisher_link: "https://www.google.com",
+      min_salary: 20000,
+      max_salary: 40000,
+      median_salary: 34000,
+      salary_period: "year",
+      salary_currency: "GBP",
+    },
+  ];
 
   return (
     <>
@@ -16,11 +53,9 @@ const EstimatedSalaries = () => {
           </h2>
         </section>
         <div className="mt-[2.5rem] flex-row gap-[2.5rem] md:flex md:w-full">
-          <section className=" h-[20rem] w-auto bg-yellow-400 md:w-1/2">
-            {/* <SalariesInputs /> */}
-          </section>
-          <section className="mt-[2.5rem] h-[20rem] w-auto bg-pink-600 md:mt-[-6.5rem] md:h-[26.5rem] md:w-1/2">
-            {/* <Charts /> */}
+          <section className="md:w-1/2">{/* <SalariesInputs /> */}</section>
+          <section className="mt-[2.5rem] md:mt-[-6.5rem] md:h-[26.5rem] md:w-1/2">
+            <Charts data={data} />
           </section>
         </div>
       </div>
