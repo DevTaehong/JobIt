@@ -33,6 +33,7 @@ export async function getRecommendedJobs() {
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
+
     throw new Error("Failed to fetch data");
   }
 
@@ -56,14 +57,16 @@ export async function getJobDetails(id: string) {
   }
 }
 
-export async function searchJob(keywords: string) {
-  const url = `https://jsearch.p.rapidapi.com/search-filters?query=${keywords}`;
+export async function searchJob(keywords: string, jobType: string) {
+  jobType ? (jobType = "&employment_types=" + jobType) : (jobType = "");
+  const url = `https://jsearch.p.rapidapi.com/search-filters?query=${keywords}&page=1&num_pages=1${jobType}`;
 
   try {
     const res = await fetch(url, { headers: requestHeaders });
     const data = await res.json();
 
     if (!res.ok) {
+      console.log("res error", Response);
       throw new Error("Failed to Fetch Job Details");
     }
 
