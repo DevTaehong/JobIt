@@ -1,11 +1,7 @@
 import CompanyDetailCard from "@/components/CompanyDetailCard";
 import SmallCard from "@/components/SmallCard";
 import SimilarCompanies from "@/components/SimilarCompanies";
-import {
-  getCompanyDetails,
-  getQuery,
-  getSimilarCompanies,
-} from "@/lib/jsearch";
+import { getCompanies, getCompanyDetails, getQuery } from "@/lib/jsearch";
 
 const CompanyDetails = async ({
   params,
@@ -17,8 +13,9 @@ const CompanyDetails = async ({
   const CompanyData: Promise<Job> = getCompanyDetails(params.id);
   const [CompanyDetails] = await Promise.all([CompanyData]);
 
-  const moreCompany: Promise<Job> = getSimilarCompanies(params.id);
-  const [SimilarCompanies] = await Promise.all([moreCompany]);
+  const moreCompany: Promise<Job> = getCompanies("Texas");
+  const [Companies] = await Promise.all([moreCompany]);
+  console.log(Companies);
 
   const { query } = searchParams;
   const queryData: Promise<Job> = getQuery(query ?? "developer");
@@ -31,13 +28,6 @@ const CompanyDetails = async ({
     city: CompanyDetails.data[0].job_city,
     companyType: CompanyDetails.data[0].employer_company_type,
     companyLink: CompanyDetails.data[0].employer_website,
-  };
-
-  const moreCompany = {
-    icon: SimilarCompanies.data[0].employer_logo,
-    JobTitle: SimilarCompanies.data[0].employer_name,
-    legalName: SimilarCompanies.data[0].employer_company_type,
-    follow: SimilarCompanies.data[0].employer_website,
   };
 
   return (
@@ -58,24 +48,15 @@ const CompanyDetails = async ({
         </h2>
         <div className="flex flex-col gap-6">
           {/* // TODO: Replace with Similar Company Component */}
-          <SimilarCompanies
-            JobTitle="Company"
-            JobTitleSec="Comp/inc"
-            icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0"
-          />
-
-          <SimilarCompanies
-            JobTitle="Companny 2"
-            JobTitleSec="Comp/inc"
-            icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8i49TxmypL921gwSrXCigLk762K1u2Qu9yW0x&s=0
-           "
-          />
-
-          <SimilarCompanies
-            JobTitle="Company 3"
-            JobTitleSec="Comp/inc"
-            icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3LtpFk_Qn5msyHfLis8HxKBBhhxla_ZNtS7bV&s=0"
-          />
+          {Companies.data.map((Companies, i) => (
+            <div key={i}>
+              <SimilarCompanies
+                JobTitle={Companies?.employer_name}
+                JobTitleSec={Companies?.employer_name}
+                icon={Companies?.employer_logo}
+              />
+            </div>
+          ))}
         </div>
       </aside>
     </div>

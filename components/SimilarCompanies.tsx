@@ -8,11 +8,10 @@ import plus from "@/public/iconography/Fbuttonplus.svg";
 type Props = {
   icon: string;
   JobTitle: string;
-  legalName: string;
-  follow: string;
+  JobTitleSec: string;
 };
 
-const SimilarCompanies = ({ icon, JobTitle, legalName, follow }: Props) => {
+const SimilarCompanies = ({ icon, JobTitle, JobTitleSec }: Props) => {
   return (
     <div
       className="rounded-[0.625rem] bg-white p-[1.25rem] font-manrope shadow-[0_6px_14px_0_rgba(23,23,37,0.02)] dark:bg-DarkBG2
@@ -22,7 +21,7 @@ lg:w-[400px] "
         <div className="flex shrink-0 items-center gap-[10px] sm:gap-[0.9375rem]">
           {/* Apple Icon Test Below  */}
           <div className="h-[3rem] w-[3rem] shrink-0">
-            <img src={props.icon} />
+            <img src={icon} />
           </div>
 
           {/* Flex section for Company Title and Secondary Title Below */}
@@ -31,10 +30,10 @@ lg:w-[400px] "
               className=" text-[1rem] font-semibold  not-italic leading-6 text-black dark:text-White
 lg:text-[18px] "
             >
-              {props.JobTitle}
+              {JobTitle}
             </div>
             <div className="text-[0.875rem] font-medium not-italic leading-5 text-Natural6">
-              {props.JobTitleSec}
+              {JobTitleSec}
             </div>
           </div>
         </div>

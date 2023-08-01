@@ -95,9 +95,9 @@ export async function getQuery(query: string) {
   return res.json();
 }
 
-export async function getSimilarCompanies(id: string) {
+export async function getCompanies(jobStates: string) {
   const res = await fetch(
-    `https://jsearch.p.rapidapi.com/job-details?job_id=${id}`,
+    `https://jsearch.p.rapidapi.com/search?query=${jobStates}`,
     {
       headers: requestHeaders,
     },
