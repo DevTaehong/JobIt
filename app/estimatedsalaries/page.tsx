@@ -6,7 +6,7 @@ const EstimatedSalaries = () => {
 
   return (
     <>
-      <div className="mx:mb-[5.75rem] mx-[1.5rem] mb-[4rem] mt-[2.5rem] flex md:mx-[5rem] md:mt-[3.5rem]">
+      <div className="mx:mb-[5.75rem] mx-[1.5rem] mb-[4rem] mt-[2.5rem] md:mx-[5rem] md:mt-[3.5rem]">
         <section>
           <h1 className="ml-[.13rem] text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 md:text-[2rem] md:leading-10">
             Estimated Salaries
@@ -15,11 +15,11 @@ const EstimatedSalaries = () => {
             {currentDate}
           </h2>
         </section>
-        <div className="mt-[2.5rem] flex-row">
-          <section className=" h-[20rem] bg-yellow-400">
+        <div className="mt-[2.5rem] flex-row gap-[2.5rem] md:flex md:w-full">
+          <section className=" h-[20rem] w-auto bg-yellow-400 md:w-1/2">
             {/* <SalariesInputs /> */}
           </section>
-          <section className="mt-[2.5rem] h-[20rem] bg-pink-600">
+          <section className="mt-[2.5rem] h-[20rem] w-auto bg-pink-600 md:mt-[-6.5rem] md:h-[26.5rem] md:w-1/2">
             {/* <Charts /> */}
           </section>
         </div>
