@@ -33,12 +33,6 @@ const CompanyDetails = async ({
     companyLink: CompanyDetails.data[0].employer_website,
   };
 
-  const moreCompany = {
-    icon: SimilarCompanies.data[0].employer_logo,
-    JobTitle: SimilarCompanies.data[0].employer_name,
-    legalName: SimilarCompanies.data[0].employer_company_type,
-    follow: SimilarCompanies.data[0].employer_website,
-  };
 
   return (
     <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:mx-20 lg:mb-11 lg:mt-[2.87rem] lg:flex-row lg:gap-10">
