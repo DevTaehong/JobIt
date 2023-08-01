@@ -2,7 +2,11 @@ import Image from "next/image";
 import moment from "moment";
 import JobCard from "@/components/JobCard";
 import InlineJobCard from "@/components/InlineJobCard";
-import { getLatestJobs, getRecommendedJobs } from "@/lib/jsearch";
+import {
+  getLatestJobs,
+  getRecommendedJobs,
+  getCompanyDetails,
+} from "@/lib/jsearch";
 import { extractRequiredSkills } from "@/lib/jobRequiredSkills";
 
 export default async function Home() {
@@ -13,6 +17,8 @@ export default async function Home() {
   // https://nextjs.org/docs/app/building-your-application/data-fetching/fetching#parallel-data-fetching
   const [latestJobs] = await Promise.all([latestJobData]);
   const [RecommendedJobs] = await Promise.all([RecommendedJobData]);
+  // employer_name
+  //
 
   return (
     <main className="mx-6	max-w-screen-2xl md:mx-20">
