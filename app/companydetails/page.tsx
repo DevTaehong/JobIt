@@ -1,5 +1,4 @@
 import CompanyDetailCard from "@/components/CompanyDetailCard";
-import SmallCard from "@/components/SmallCard";
 import SimilarCompanies from "@/components/SimilarCompanies";
 
 const CompanyDetails = () => {
@@ -34,26 +33,21 @@ const CompanyDetails = () => {
           Similar Companies
         </h2>
         <div className="flex flex-col gap-6">
-          {/* // TODO: Replace with Similar Company Component */}
-           <SimilarCompanies 
-           JobTitle="Company"
-           JobTitleSec="Comp/inc"
-           icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0"/>
-
-          <SimilarCompanies 
-           JobTitle="Companny 2"
-           JobTitleSec="Comp/inc"
-           icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8i49TxmypL921gwSrXCigLk762K1u2Qu9yW0x&s=0
-           "/>
-
-
-          <SimilarCompanies 
-           JobTitle="Company 3"
-           JobTitleSec="Comp/inc"
-           icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3LtpFk_Qn5msyHfLis8HxKBBhhxla_ZNtS7bV&s=0"/>
-
-
-
+          <SimilarCompanies
+            JobTitle="Company"
+            JobTitleSec="Comp/inc"
+            icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0"
+          />
+          <SimilarCompanies
+            JobTitle="Companny 2"
+            JobTitleSec="Comp/inc"
+            icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8i49TxmypL921gwSrXCigLk762K1u2Qu9yW0x&s=0"
+          />
+          <SimilarCompanies
+            JobTitle="Company 3"
+            JobTitleSec="Comp/inc"
+            icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3LtpFk_Qn5msyHfLis8HxKBBhhxla_ZNtS7bV&s=0"
+          />
         </div>
       </aside>
     </div>
