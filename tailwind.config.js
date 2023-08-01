@@ -28,6 +28,9 @@ module.exports = {
         White: "#FFFFFF",
         Black: "#171725",
       },
+      boxShadow: {
+        'custom': '0px 23px 30px 0px rgba(226, 226, 234, 0.40), -3px -2px 24px 0px rgba(0, 0, 0, 0.02)',
+      },
     },
     fontFamily: {
       manrope: ["var(--font-manrope)"],
