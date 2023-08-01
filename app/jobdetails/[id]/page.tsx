@@ -70,7 +70,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
           <div className="max-w-[860px] rounded-[10px] bg-white dark:bg-DarkBG2">
             <JobDetailCard
               aboutTheCompany={"anything"}
-              followers={10}
+              followers={100000}
               jobRequiredSkills={
                 jobDetails.data[0]?.job_highlights?.Responsibilities
               }
@@ -105,26 +105,30 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               Similar Jobs
             </h3>
           </span>
+
           {/* Similar Job Cards */}
-          <Suspense
-            fallback={<Skeleton className="h-[20px] w-[100px] rounded-full" />}
-          >
-            <div className="mt-[2.06rem] flex-row gap-3">
-              <SmallCard
-                daysLeft={
-                  similarJobDetails.data[0].job_offer_expiration_timestamp
+          {similarJobDetails &&
+            similarJobDetails.data.map((similarJob, idx: number) => (
+              <Suspense
+                key={idx}
+                fallback={
+                  <Skeleton className="h-[200px] w-[100px] rounded-full" />
                 }
-                icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0
-             "
-                jobCity={similarJobDetails.data[0].job_city}
-                jobLocation="downtown"
-                jobState={similarJobDetails.data[1].job_state}
-                jobTitle={similarJobDetails.data[2].job_title}
-                salary={70}
-                salaryPeriod="year"
-              />
-            </div>
-          </Suspense>
+              >
+                <div className="mt-[2.06rem] flex-row gap-3">
+                  <SmallCard
+                    daysLeft={similarJob.job_offer_expiration_timestamp}
+                    icon={similarJob.employer_logo}
+                    jobCity={similarJob.job_city}
+                    jobLocation="downtown"
+                    jobState={similarJob.job_state}
+                    jobTitle={similarJob.job_title}
+                    salary={70}
+                    salaryPeriod="year"
+                  />
+                </div>
+              </Suspense>
+            ))}
         </section>
       </div>
     </main>
