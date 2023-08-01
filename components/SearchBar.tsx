@@ -5,6 +5,7 @@ import chevronDown from "@/public/iconography/chevron.svg";
 import search from "@/public/iconography/outline-search.svg";
 import pin from "@/public/iconography/outline-pin.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {};
 
@@ -39,9 +40,12 @@ const SearchBar = (props: Props) => {
         </div>
         <div>Job Type</div>
       </div>
-      <button className="my-2.5 rounded-lg bg-Primary px-[19px] py-3 font-semibold text-white">
+      <Link
+        href="/jobsearch"
+        className="my-2.5 rounded-lg bg-Primary px-[19px] py-3 font-semibold text-white"
+      >
         Find Jobs
-      </button>
+      </Link>
     </div>
   );
 };
