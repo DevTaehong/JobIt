@@ -72,12 +72,12 @@ export default async function Home() {
           </div>
         </section>
         {/* Recommended For You */}
-        <section className="order-last mt-[2.19rem] w-[25rem] xl:order-none xl:w-1/3 xl:pl-10">
-          <span className="flex w-[20.4375rem] justify-between md:w-[25rem] 2xl:w-[33.5rem]">
+        <section className="order-last mt-[3.56rem] w-auto xl:order-none xl:w-1/3 xl:pl-10">
+          <span className="flex w-auto justify-between md:w-[25rem] 2xl:w-[33.5rem]">
             <h3 className="w-[20.4375rem] text-[1.375rem] font-semibold	leading-8 dark:text-White md:w-[25rem] md:font-bold">
               Recommended For You
             </h3>
-            <button className="flex w-[5.9375rem] items-center justify-center rounded-[0.625rem] border px-[0.625rem] py-[0.4375rem] text-xs font-medium leading-6 text-Natural7 dark:border-DarkBG3 md:w-[4.4375rem] xl:items-center">
+            <button className="flex items-center justify-center gap-2 rounded-[0.625rem] border px-[.62rem] py-[.44rem] text-[1rem] font-medium leading-6 text-Natural7 marker:w-[5.9375rem] dark:border-DarkBG3 md:w-[8rem] xl:items-center">
               <span>See All</span>
               <div className="sm:hidden">
                 <Image
@@ -90,7 +90,7 @@ export default async function Home() {
             </button>
           </span>
           {/* Inline Job Cards */}
-          <div className="mt-[1.88rem] flex w-[20.4375rem] flex-col gap-3 rounded-[0.625rem] bg-White px-5 py-[1.25rem] dark:bg-DarkBG2 md:mt-[2.06rem] md:w-[25rem] 2xl:w-[33.5rem]">
+          <div className="mt-[1.88rem] flex w-auto flex-col gap-3 rounded-[0.625rem] bg-White px-5 py-[1.25rem] dark:bg-DarkBG2 md:mt-[2.06rem] md:w-[25rem] 2xl:w-[33.5rem]">
             {RecommendedJobs.data.slice(0, 10).map((RecommendedJob, i) => (
               <div key={i}>
                 <InlineJobCard
