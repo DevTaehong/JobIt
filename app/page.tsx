@@ -72,7 +72,7 @@ export default async function Home() {
           </div>
         </section>
         {/* Recommended For You */}
-        <section className="order-last mt-[2.19rem] w-[25rem] xl:order-none xl:w-1/3 xl:pl-10">
+        <section className="order-last mt-[3.56rem] w-[25rem] xl:order-none xl:w-1/3 xl:pl-10">
           <span className="flex w-[20.4375rem] justify-between md:w-[25rem] 2xl:w-[33.5rem]">
             <h3 className="w-[20.4375rem] text-[1.375rem] font-semibold	leading-8 dark:text-White md:w-[25rem] md:font-bold">
               Recommended For You
