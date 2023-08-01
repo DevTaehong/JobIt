@@ -1,5 +1,4 @@
 import CompanyDetailCard from "@/components/CompanyDetailCard";
-import SmallCard from "@/components/SmallCard";
 import SimilarCompanies from "@/components/SimilarCompanies";
 import { getCompanies, getCompanyDetails, getQuery } from "@/lib/jsearch";
 
@@ -47,7 +46,6 @@ const CompanyDetails = async ({
           Similar Companies
         </h2>
         <div className="flex flex-col gap-6">
-          {/* // TODO: Replace with Similar Company Component */}
           {Companies.data.map((Companies, i) => (
             <div key={i}>
               <SimilarCompanies
