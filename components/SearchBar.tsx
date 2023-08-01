@@ -9,7 +9,6 @@ import { Button } from "./ui/button";
 import briefcase from "@/public/iconography/outline-briefcase.svg";
 import search from "@/public/iconography/outline-search.svg";
 import pin from "@/public/iconography/outline-pin.svg";
-// import Link from "next/link";
 
 type Props = {};
 
@@ -92,9 +91,6 @@ const SearchBar = (props: Props) => {
             <option value="Intern">Intern</option>
           </select>
         </div>
-        {/* <div className="h-[18px] w-[18px]">
-          <Image src={chevronDown} alt="Chevron Down" />
-        </div> */}
       </div>
 
       <Button
@@ -104,17 +100,6 @@ const SearchBar = (props: Props) => {
       >
         Find Jobs
       </Button>
-      {/* <Link
-        href="/jobsearch"
-        className="h-12 rounded-lg bg-Primary px-[19px] py-3 text-center text-[15px] font-semibold text-white"
-      >
-        Find Jobs
-
-        Car {
-          type: 'BMW'
-        }
-
-      </Link> */}
     </div>
   );
 };

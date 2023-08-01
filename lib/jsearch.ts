@@ -66,7 +66,6 @@ export async function searchJob(keywords: string, jobType: string) {
     const data = await res.json();
 
     if (!res.ok) {
-      console.log("res error", Response);
       throw new Error("Failed to Fetch Job Details");
     }
 
