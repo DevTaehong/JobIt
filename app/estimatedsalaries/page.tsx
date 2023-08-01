@@ -53,11 +53,11 @@ const EstimatedSalaries = () => {
             {currentDate}
           </h2>
         </section>
-        <div className="mt-[2.5rem] flex-row gap-[2.5rem] lg:flex lg:w-full">
+        <div className="mt-[2.5rem] flex-row lg:flex lg:w-full">
           <section className="lg:h-[20.75rem] lg:w-1/2">
             <SalariesInputs />
           </section>
-          <section className="mt-[2.5rem] lg:mt-[-6.5rem] lg:h-[26.5rem] lg:w-1/2">
+          <section className="mt-[2.5rem] lg:ml-[5.63rem] lg:mt-[-6.5rem] lg:h-[26.5rem] lg:w-1/2">
             <Charts data={data} />
           </section>
         </div>
