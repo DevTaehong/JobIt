@@ -78,9 +78,7 @@ const CompanyDetailCard = ({
 
   city = city ?? "New York";
   state = state ?? "New York";
-  logo =
-    logo ??
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0";
+  logo = logo ?? "/iconography/CompanyLogo.svg";
   employer = employer ?? "Employer";
   companyType = companyType ?? "Contractor";
   companyLink = companyLink ?? "www.linkedin.com";
