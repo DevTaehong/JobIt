@@ -7,6 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 
 /* {Calculate Days left for job posting} */
 export function calculateDaysLeft(expTime: number): number {
+  if (!expTime) {
+    return 0;
+  }
   const expDate = new Date(expTime * 1000); // Convert to milliseconds
   const currentDate = new Date();
 
