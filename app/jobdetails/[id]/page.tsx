@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getJobDetails, getSimilarJobs } from "@/lib/jsearch";
-import { calculateDaysLeft } from "@/lib/utils";
+
 import { Skeleton } from "@/components/ui/skeleton";
 import JobDetailCard from "@/components/JobDetailCard";
 import SmallCard from "@/components/SmallCard";
@@ -17,15 +17,6 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
 
   const similarJobDetails = await getSimilarJobs(jobDetails.data[0].job_title);
 
-  //  calc days left
-  const daysLeft = calculateDaysLeft(
-    similarJobDetails.data[0].job_offer_expiration_timestamp,
-  );
-  console.log(
-    "timestamp",
-    similarJobDetails.data[0].job_offer_expiration_timestamp,
-  );
-  console.log("days left", daysLeft);
   // Round down salary to nearest 100
   function roundDown(number: number) {
     return Math.floor(number / 100) * 100;
