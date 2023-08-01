@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import plus from "@/public/iconography/Fbuttonplus.svg";
-
+import Link from "next/link";
 // All notations/comments below are intended for informative purposes for testing
 
 // Job title sec means secondary title
@@ -9,7 +9,7 @@ type Props = {
   icon: string;
   JobTitle: string;
   JobTitleSec: string;
-  Link: string;
+  Follow: string;
 };
 
 // Should this be structured differently?
@@ -17,7 +17,7 @@ type Props = {
 //   icon ??
 //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0";
 
-const SimilarCompanies = ({ icon, JobTitle, JobTitleSec, Link }: Props) => {
+const SimilarCompanies = ({ icon, JobTitle, JobTitleSec, Follow }: Props) => {
   return (
     <div
       className="rounded-[0.625rem] bg-white p-[1.25rem] font-manrope shadow-[0_6px_14px_0_rgba(23,23,37,0.02)] dark:bg-DarkBG2
@@ -45,7 +45,10 @@ lg:text-[18px] "
         </div>
 
         {/* Button code below. Incase of image sizing error with button check below  */}
-        <button className="flex w-[5.2rem] items-center justify-center gap-[0.375rem] rounded-[0.625rem] border border-solid border-[#0BAB7C] p-[0.375rem_0.625rem] sm:w-[6.125rem] ">
+        <Link
+          className="flex w-[5.2rem] items-center justify-center gap-[0.375rem] rounded-[0.625rem] border border-solid border-[#0BAB7C] p-[0.375rem_0.625rem] sm:w-[6.125rem] "
+          href={Follow}
+        >
           <div className="h-[1.125rem] w-[1.125rem] shrink-0">
             <Image src={plus} width={18} height={18} alt="plus" />
           </div>
@@ -54,7 +57,7 @@ lg:text-[18px] "
           <div className="text-[0.875rem] font-semibold not-italic leading-6 text-Primary">
             Follow
           </div>
-        </button>
+        </Link>
       </div>
     </div>
   );

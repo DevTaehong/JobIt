@@ -54,7 +54,7 @@ const CompanyDetails = async ({
                 JobTitle={Companies?.employer_name}
                 JobTitleSec={Companies?.employer_name}
                 icon={Companies?.employer_logo}
-                Link={Companies?.job_apply_link}
+                Follow={Companies?.job_apply_link}
               />
             </div>
           ))}
