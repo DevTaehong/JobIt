@@ -108,7 +108,7 @@ const JobDetailCard = ({
                   </h2>
                   <div className="mx-[.31rem] hidden align-middle lg:flex">
                     <Image
-                      src="/iconography/Oval .svg"
+                      src="/iconography/oval.svg"
                       alt="oval"
                       width={3}
                       height={3}
@@ -121,7 +121,7 @@ const JobDetailCard = ({
                     </h3>
                     <div className="flex align-middle">
                       <Image
-                        src="/iconography/Oval.svg"
+                        src="/iconography/oval.svg"
                         alt="oval"
                         width={3}
                         height={3}
