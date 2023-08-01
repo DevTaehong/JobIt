@@ -83,7 +83,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               jobRequiredSkills={
                 jobDetails.data[0]?.job_highlights?.Responsibilities
               }
-              postDate={3846732}
+              postDate={jobDetails.data[0].job_posted_at_timestamp}
               workLevel="tuesday"
               employerLogo={jobDetails.data[0]?.employer_logo}
               employerName={jobDetails.data[0]?.employer_name}
@@ -120,7 +120,9 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
           >
             <div className="mt-[2.06rem] flex-row gap-3">
               <SmallCard
-                daysLeft={277777}
+                daysLeft={
+                  similarJobDetails.data[0].job_offer_expiration_timestamp
+                }
                 icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0
              "
                 jobCity={similarJobDetails.data[0].job_city}
