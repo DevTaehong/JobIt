@@ -55,7 +55,7 @@ const SalariesInputs = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // ✅ This will be type-safe and validated.
     router.push(
-      `/estimatedsalaries?query=/${values.jobTittle}/${values.location}/${values.radius}`,
+      `/estimatedsalaries?jobTitle=${values.jobTittle}?location=${values.location}?radius=${values.radius}`,
     );
   }
 
