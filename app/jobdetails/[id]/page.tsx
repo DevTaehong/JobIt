@@ -1,5 +1,6 @@
 import { getJobDetails } from "@/lib/jsearch";
 
+import SearchBar from "@/components/SearchBar";
 import JobDetailCard from "@/components/JobDetailCard";
 import SmallCard from "@/components/SmallCard";
 import chevron from "@/public/iconography/ChevronLeft.svg";
@@ -38,15 +39,8 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
       </section>
 
       {/* Search  */}
-      <div className="w-full rounded-[10px] bg-white px-2.5 py-4 shadow dark:bg-DarkBG2">
-        <div className="flex flex-col gap-2.5 sm:flex-row sm:justify-between">
-          <div className="border-b px-5 py-3 sm:border-none">Job title</div>
-          <div className="border-b px-5 py-3 sm:border-none">Location</div>
-          <div className="border-b px-5 py-3 sm:border-none">Job Type</div>
-          <button className="w-full justify-end rounded-[10px] bg-Primary px-[19px] py-3 text-center text-[15px] font-semibold leading-normal text-white sm:w-fit">
-            Find Jobs
-          </button>
-        </div>
+      <div className="w-full rounded-[20px] bg-white px-1.5 py-4 shadow dark:bg-DarkBG2">
+        <SearchBar />
       </div>
 
       {/* Job Details */}
