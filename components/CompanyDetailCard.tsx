@@ -64,7 +64,7 @@ const CompanyDetailCard = ({
 
   const [query, setQuery] = useState("");
 
-  const [jobResults, setJobResults] = useState<Job[]>([]);
+  const [jobResults, setJobResults] = useState<JobResult[]>([]);
 
   useEffect(() => {
     async function getJobs() {
@@ -252,13 +252,13 @@ const CompanyDetailCard = ({
         {/* Recently Posted Job Card */}
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-[1.88rem]">
           {/* NOTE Change demoData  */}
-          {jobResults.length &&
+          {jobResults.length > 0 ? (
             jobResults
               .slice(0, 4)
               .map((demoData, i) => (
                 <CompanyDetailJobCard
                   key={i}
-                  logo={demoData?.job_logo}
+                  logo={demoData?.employer_logo}
                   jobTitle={demoData?.job_title}
                   description={demoData?.job_description}
                   minSalary={demoData?.job_min_salary}
@@ -269,7 +269,10 @@ const CompanyDetailCard = ({
                   ).slice(0, 3)}
                   applyLink={demoData?.job_apply_link}
                 />
-              ))}
+              ))
+          ) : (
+            <div className="text-center">No Results</div>
+          )}
         </div>
 
         {/* See all jobs button */}
@@ -277,19 +280,24 @@ const CompanyDetailCard = ({
           <CollapsibleContent>
             <div className="mt-2 grid grid-cols-1 gap-2 lg:mt-[1.88rem] lg:grid-cols-2 lg:gap-[1.88rem]">
               {/* NOTE Change demoData */}
-              {demoData.slice(0, 4).map((demoData, i) => (
-                <CompanyDetailJobCard
-                  key={i}
-                  logo={demoData?.logo}
-                  jobTitle={demoData?.jobTitle}
-                  description={demoData?.description}
-                  minSalary={demoData?.minSalary}
-                  maxSalary={demoData?.maxSalary}
-                  salaryPeriod={demoData?.salaryPeriod}
-                  skills={demoData?.skills}
-                  applyLink={demoData?.applyLink}
-                />
-              ))}
+              {jobResults.length > 0 &&
+                jobResults
+                  .slice(5, 10)
+                  .map((demoData, i) => (
+                    <CompanyDetailJobCard
+                      key={i}
+                      logo={demoData?.employer_logo}
+                      jobTitle={demoData?.job_title}
+                      description={demoData?.job_description}
+                      minSalary={demoData?.job_min_salary}
+                      maxSalary={demoData?.job_max_salary}
+                      salaryPeriod={demoData?.job_salary_period}
+                      skills={extractRequiredSkills(
+                        demoData?.job_description,
+                      ).slice(0, 3)}
+                      applyLink={demoData?.job_apply_link}
+                    />
+                  ))}
             </div>
           </CollapsibleContent>
           <div className="mb-[1.875rem] flex items-center justify-center lg:mb-[3.25rem] lg:mt-[3.75rem]">
