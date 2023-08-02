@@ -56,21 +56,3 @@ export async function getJobDetails(id: string) {
     console.log(error);
   }
 }
-
-export async function searchJob(keywords: string, jobType: string) {
-  jobType ? (jobType = "&employment_types=" + jobType) : (jobType = "");
-  const url = `https://jsearch.p.rapidapi.com/search-filters?query=${keywords}&page=1&num_pages=1${jobType}`;
-
-  try {
-    const res = await fetch(url, { headers: requestHeaders });
-    const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error("Failed to Fetch Job Details");
-    }
-
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-}
