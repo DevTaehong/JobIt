@@ -32,7 +32,7 @@ const SearchBar = (props: Props) => {
 
   console.log(formData);
 
-  const handleFormSubmit = (formData) => {
+  const handleFormSubmit = (formData: typeof initialFormData) => {
     const queryString = formData.keywords + " in " + formData.location;
 
     formData.jobType
