@@ -51,7 +51,13 @@ const CompanyDetailJobCard = ({
             className="h-12 w-12 shrink-0 rounded-[0.47rem] border-[0.14rem] border-Natural3 
                     bg-Natural3 p-[0.35rem] dark:border-Natural8 dark:bg-[#1717250f] lg:rounded-[0.625rem] lg:border-[3px]"
           >
-            <img width={36} height={36} src={logo} alt="Company logo" />
+            <img
+              width={36}
+              height={36}
+              src={logo}
+              alt="Company logo"
+              className="object-contain"
+            />
           </div>
           <div className="flex flex-col gap-1 lg:gap-[0.62rem]">
             <CardTitle className="text-base font-semibold not-italic text-Black dark:text-White lg:text-[1.125rem]">
