@@ -22,7 +22,7 @@ const SearchBar = (props: Props) => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
