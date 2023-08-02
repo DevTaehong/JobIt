@@ -33,7 +33,7 @@ const SearchBar = (props: Props) => {
   console.log(formData);
 
   const handleFormSubmit = (formData) => {
-    const queryString = formData.keywords + "in" + formData.location;
+    const queryString = formData.keywords + " in " + formData.location;
 
     formData.jobType
       ? router.push(
