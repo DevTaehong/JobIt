@@ -1,5 +1,5 @@
 const JobSearch = () => {
-  return <div></div>;
+  return <div>JobSearch</div>;
 };
 
 export default JobSearch;

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-import { searchJob } from "@/lib/jsearch";
 import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
 import briefcase from "@/public/iconography/outline-briefcase.svg";
@@ -13,11 +13,12 @@ import pin from "@/public/iconography/outline-pin.svg";
 type Props = {};
 
 const SearchBar = (props: Props) => {
+  const router = useRouter();
+
   const initialFormData = {
     keywords: "",
     location: "",
     jobType: "",
-    // Add more fields as needed
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -31,13 +32,14 @@ const SearchBar = (props: Props) => {
 
   console.log(formData);
 
-  const handleFormSubmit = async (formData) => {
-    const queryString = formData.keywords + " " + formData.location;
-    console.log("check", queryString);
+  const handleFormSubmit = (formData) => {
+    const queryString = formData.keywords + "in" + formData.location;
 
-    const results = await searchJob(queryString, formData.jobType);
-
-    console.log("mumu", results);
+    formData.jobType
+      ? router.push(
+          `/jobsearch?query=${queryString}&employment_type=${formData.jobType}`,
+        )
+      : router.push(`/jobsearch?query=${queryString}`);
   };
 
   return (
