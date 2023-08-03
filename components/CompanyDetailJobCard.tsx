@@ -55,7 +55,7 @@ const CompanyDetailJobCard = ({
             <ImageErrorFallback src={logo} card="companyDetailJobCard" />
           </div>
           <div className="flex flex-col gap-1 lg:gap-[0.62rem]">
-            <CardTitle className="text-base font-semibold not-italic text-Black dark:text-White lg:text-[1.125rem]">
+            <CardTitle className="line-clamp-1 text-base font-semibold not-italic text-Black dark:text-White lg:text-[1.125rem]">
               {jobTitle}
             </CardTitle>
             {/* Skills */}
