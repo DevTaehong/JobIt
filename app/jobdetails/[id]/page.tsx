@@ -1,9 +1,10 @@
 import { Suspense } from "react";
-import { getJobDetails, getSimilarJobs } from "@/lib/jsearch";
+import { getJobDetails } from "@/lib/jsearch";
 
+import SimilarJobCardsRender from "@/components/SimilarJobCardsRender";
 import { Skeleton } from "@/components/ui/skeleton";
 import JobDetailCard from "@/components/JobDetailCard";
-import SmallCard from "@/components/SmallCard";
+
 import chevron from "@/public/iconography/ChevronLeft.svg";
 import moment from "moment";
 import Image from "next/image";
@@ -15,8 +16,6 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
   const jobDetailsData = getJobDetails(params.id);
 
   const [jobDetails] = await Promise.all([jobDetailsData]);
-
-  const similarJobDetails = await getSimilarJobs(jobDetails.data[0].job_title);
 
   // Round down salary to nearest 100
   function roundDown(number: number) {
@@ -68,7 +67,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               jobRequiredSkills={
                 jobDetails.data[0]?.job_highlights?.Responsibilities
               }
-              postDate={jobDetails.data[0].job_posted_at_timestamp}
+              postDate={jobDetails.data[0]?.job_posted_at_timestamp}
               workLevel="tuesday"
               employerLogo={jobDetails.data[0]?.employer_logo}
               employerName={jobDetails.data[0]?.employer_name}
@@ -102,28 +101,34 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
           </span>
 
           {/* Similar Job Cards */}
-          {similarJobDetails &&
-            similarJobDetails.data.map((similarJob, idx: number) => (
-              <Suspense
-                key={idx}
-                fallback={
-                  <Skeleton className="h-[200px] w-[100px] rounded-full" />
-                }
-              >
-                <div className="mt-[2.06rem] flex-row gap-3">
-                  <SmallCard
-                    daysLeft={similarJob.job_offer_expiration_timestamp}
-                    icon={similarJob.employer_logo}
-                    jobCity={similarJob.job_city}
-                    jobLocation="downtown"
-                    jobState={similarJob.job_state}
-                    jobTitle={similarJob.job_title}
-                    salary={70}
-                    salaryPeriod="year"
-                  />
+
+          {/*
+          <Suspense>
+           {similarJobDetails &&
+            similarJobDetails.data.map(
+              (similarJob: Job["data"][0], idx: number) => (
+                <div
+                className="mt-[2.06rem] flex-row gap-3"
+                key={similarJob.job_id}
+                >
+                <SmallCard
+                daysLeft={similarJob.job_offer_expiration_timestamp}
+                icon={similarJob.employer_logo}
+                jobCity={similarJob.job_city}
+                jobLocation="downtown"
+                jobState={similarJob.job_state}
+                jobTitle={similarJob.job_title}
+                salary={70}
+                salaryPeriod="year"
+                />
                 </div>
+                ),
+              )} 
               </Suspense>
-            ))}
+              */}
+          <Suspense fallback={<div>Cool...</div>}>
+            <SimilarJobCardsRender id={params.id} />
+          </Suspense>
         </section>
       </div>
     </main>
