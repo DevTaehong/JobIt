@@ -1,6 +1,12 @@
 import CompanyDetailCard from "@/components/CompanyDetailCard";
+import SmallCard from "@/components/SmallCard";
 import SimilarCompanies from "@/components/SimilarCompanies";
-import { getCompanies, getCompanyDetails, getQuery } from "@/lib/jsearch";
+import {
+  getCompanies,
+  getCompanyDetails,
+  getQuery,
+  getCompanyId,
+} from "@/lib/jsearch";
 
 const CompanyDetails = async ({
   params,
@@ -17,8 +23,13 @@ const CompanyDetails = async ({
   );
   const [Companies] = await Promise.all([moreCompany]);
 
+  const companyIdRequest = await getCompanyId(
+    CompanyDetails.data[0].employer_name,
+  );
+  const companyId = companyIdRequest.data.employers[0].value;
+
   const { query } = searchParams;
-  const queryData: Promise<Job> = getQuery(query ?? "developer");
+  const queryData: Promise<Job> = getQuery(query ?? "developer", companyId);
 
   const companyData = {
     logo: CompanyDetails.data[0].employer_logo,
@@ -46,6 +57,7 @@ const CompanyDetails = async ({
           Similar Companies
         </h2>
         <div className="flex flex-col gap-6">
+          {/* // TODO: Replace with Similar Company Component */}
           {Companies.data.map((Companies, i) => (
             <div key={i}>
               <SimilarCompanies
