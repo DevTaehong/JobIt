@@ -102,30 +102,6 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
 
           {/* Similar Job Cards */}
 
-          {/*
-          <Suspense>
-           {similarJobDetails &&
-            similarJobDetails.data.map(
-              (similarJob: Job["data"][0], idx: number) => (
-                <div
-                className="mt-[2.06rem] flex-row gap-3"
-                key={similarJob.job_id}
-                >
-                <SmallCard
-                daysLeft={similarJob.job_offer_expiration_timestamp}
-                icon={similarJob.employer_logo}
-                jobCity={similarJob.job_city}
-                jobLocation="downtown"
-                jobState={similarJob.job_state}
-                jobTitle={similarJob.job_title}
-                salary={70}
-                salaryPeriod="year"
-                />
-                </div>
-                ),
-              )} 
-              </Suspense>
-              */}
           <Suspense fallback={<div>Cool...</div>}>
             <SimilarJobCardsRender id={params.id} />
           </Suspense>
