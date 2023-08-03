@@ -9,7 +9,34 @@ export default function ImageErrorFallback({
   card: string;
 }) {
   const [error, setError] = useState(false);
-  if (card === "similarCompany") {
+
+  if (card === "companyDetailJobCard") {
+    if (!src || error)
+      return (
+        <img
+          width={36}
+          height={36}
+          src={src || "/images/companyPlaceholderLogo.png"}
+          alt="Company Placeholder logo"
+          className="object-contain"
+        />
+      );
+
+    if (!error) {
+      return (
+        <img
+          src={src}
+          width={48}
+          height={48}
+          className="object-contain"
+          alt="Company Logo"
+          onError={(e) => {
+            setError(true);
+          }}
+        />
+      );
+    }
+  } else if (card === "similarCompany") {
     if (!src || error)
       return (
         <img
@@ -23,7 +50,7 @@ export default function ImageErrorFallback({
     if (!error) {
       return (
         <img
-          src={src || "images/companyPlaceholderLogo.png"}
+          src={src}
           width={48}
           height={48}
           className="object-contain"
@@ -44,6 +71,7 @@ export default function ImageErrorFallback({
         src="/images/companyPlaceholderLogo.png"
       />
     );
+
   if (!error) {
     return (
       <img
