@@ -91,7 +91,7 @@ const CompanyDetailJobCard = ({
                 }}
               >
                 <Image
-                  src="iconography/uiHut-icon-ic_Saved.svg"
+                  src="/iconography/uiHut-icon-ic_Saved.svg"
                   width={17}
                   height={17}
                   alt="Save job"
