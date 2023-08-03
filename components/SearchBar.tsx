@@ -47,7 +47,7 @@ const SearchBar = (props: Props) => {
       {/* Content */}
       <div className="flex flex-row items-center  border-b border-Natural2  py-3 sm:border-none sm:py-0">
         {/* Search */}
-        <div className="h-[28px] w-[28px] p-1">
+        <div className="h-[28px] w-[28px] flex">
           <Image src={search} alt="search" />
         </div>
         <Input
