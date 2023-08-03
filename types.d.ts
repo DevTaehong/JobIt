@@ -62,3 +62,5 @@ type Job = {
     },
   ];
 };
+
+type JobResult = Job["data"][0];
