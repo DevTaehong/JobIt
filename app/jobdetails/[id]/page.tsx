@@ -67,7 +67,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               Back
             </Link>
           </span>
-          <div className="max-w-[860px] rounded-[10px] bg-white dark:bg-DarkBG2">
+          <div className=" rounded-[10px] bg-white dark:bg-DarkBG2">
             <JobDetailCard
               aboutTheCompany={"anything"}
               followers={100000}
@@ -100,7 +100,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
         </section>
 
         {/* Similar Jobs */}
-        <section className="order-last mt-[2.19rem] max-w-[379px] lg:w-[calc(33%-20px)] xl:order-none ">
+        <section className="order-last mt-[2.19rem] lg:w-[calc(33%-20px)] xl:order-none ">
           <span className="flex justify-between">
             <h3 className="text-[18px] font-bold leading-8 dark:text-White">
               Similar Jobs
