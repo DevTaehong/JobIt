@@ -27,13 +27,8 @@ export async function getRecommendedJobs() {
     "https://jsearch.p.rapidapi.com/search?query=Developer&page=1&num_pages=1&date_posted=today&remote_jobs_only=true",
     { headers: requestHeaders },
   );
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
 
-  // Recommendation: handle errors
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-
     throw new Error("Failed to fetch data");
   }
 
@@ -55,4 +50,64 @@ export async function getJobDetails(id: string) {
   } catch (error) {
     console.log(error);
   }
+}
+
+export async function getCompanyDetails(id: string) {
+  const res = await fetch(
+    `https://jsearch.p.rapidapi.com/job-details?job_id=${id}`,
+    {
+      headers: requestHeaders,
+    },
+  );
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export async function getQuery(query: string) {
+  console.log(query);
+  const res = await fetch(
+    `https://jsearch.p.rapidapi.com/search?query=${query}`,
+    {
+      headers: requestHeaders,
+    },
+  );
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export async function getCompanies(jobStates: string) {
+  jobStates = jobStates ?? "New York";
+
+  const res = await fetch(
+    `https://jsearch.p.rapidapi.com/search?query=${jobStates}`,
+    {
+      headers: requestHeaders,
+    },
+  );
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
 }

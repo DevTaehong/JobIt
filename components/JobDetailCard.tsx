@@ -18,6 +18,7 @@ type Props = {
   workLevel: string;
   aboutTheCompany: string;
   followers: number;
+  jobId: string;
 };
 
 const JobDetailCard = ({
@@ -37,10 +38,12 @@ const JobDetailCard = ({
   workLevel,
   aboutTheCompany,
   followers,
+  jobId,
 }: Props) => {
   jobRequiredExperience = jobRequiredExperience
     ? `Minimum ${jobRequiredExperience} Year(s)`
     : `N/A`;
+  console.log(jobId);
   return (
     <>
       {/* Box */}
@@ -139,9 +142,12 @@ const JobDetailCard = ({
                   >
                     Apply Now
                   </a>
-                  <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 lg:text-Natural7">
+                  <a
+                    className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 lg:text-Natural7"
+                    href={`/companydetails/${jobId}`}
+                  >
                     Message
-                  </button>
+                  </a>
                   <div className="px-[.62rem] py-[.69rem]">
                     <Image
                       src="/iconography/more-vertical.svg"

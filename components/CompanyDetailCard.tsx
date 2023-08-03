@@ -15,6 +15,8 @@ import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useToast } from "@/components/ui/use-toast";
 import { extractRequiredSkills } from "@/lib/jobRequiredSkills";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 type TypeProps = {
   logo: string;
@@ -22,25 +24,24 @@ type TypeProps = {
   companyType: string;
   city: string;
   state: string;
+  companyLink: string;
+  jobId: string;
+  queryData: Promise<Job[] | null>;
 };
 
 const randomAvatars = [
+  { url: "https://xsgames.co/randomusers/avatar.php?g=male", id: "maleAvatar" },
   {
-    url: "https://xsgames.co/randomusers/avatar.php?g=male",
-    id: "maleAvatar",
+    url: "https://xsgames.co/randomusers/avatar.php?g=female",
+    id: "femaleAvatar",
   },
   {
-    url: "https://randomuser.me/api/portraits/thumb/men/55.jpg",
-    id: "menAvatar55",
+    url: `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
+      Math.random() * 100,
+    )}.jpg`,
+    id: "maleAvatar2",
   },
-  {
-    url: "https://randomuser.me/api/portraits/thumb/men/77.jpg",
-    id: "menAvatar77",
-  },
-  {
-    url: "",
-    id: "empty",
-  },
+  { url: "", id: "emptyAvatar" },
 ];
 
 const CompanyDetailCard = ({
@@ -49,10 +50,38 @@ const CompanyDetailCard = ({
   companyType,
   city,
   state,
+  companyLink,
+  jobId,
+  queryData,
 }: TypeProps) => {
   // NOTE https://nextjs.org/docs/app/api-reference/functions/use-router
   const router = useRouter();
   const { toast } = useToast();
+
+  const [query, setQuery] = useState("");
+
+  const [jobResults, setJobResults] = useState<Job[]>([]);
+
+  useEffect(() => {
+    async function getJobs() {
+      const jobs = await queryData;
+      if (!jobs) return;
+      setJobResults(jobs.data);
+    }
+    getJobs();
+    console.log(jobResults);
+  }, [queryData]);
+
+  city = city ?? "New York";
+  state = state ?? "New York";
+  logo =
+    logo ??
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0";
+  employer = employer ?? "Employer";
+  companyType = companyType ?? "Contractor";
+  companyLink = companyLink ?? "www.linkedin.com";
+  jobId = jobId ?? "-";
+  queryData = queryData ?? "-";
 
   const demoData = [
     {
@@ -67,6 +96,13 @@ const CompanyDetailCard = ({
       applyLink: "https://www.google.com",
     },
   ];
+
+  const handleSearch = () => {
+    return {
+      pathname: `/companydetails/${jobId}`,
+      query: { query },
+    };
+  };
 
   return (
     <main className="flex flex-col">
@@ -94,8 +130,8 @@ const CompanyDetailCard = ({
         >
           {/* // TODO fallback for company logo */}
           <img
-            className="absolute left-3 top-[6.47rem] h-14 w-14 rounded-[10px] border-[3px]
-              border-Natural3 dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8.12125rem]"
+            className="absolute left-3 top-[6.84rem] h-[2.875rem] w-[2.875rem] rounded-[0.625rem] border-[2.156px]
+              border-Natural3 dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8rem] lg:h-16 lg:w-16 lg:border-[3px]"
             src={logo}
           />
         </div>
@@ -136,15 +172,10 @@ const CompanyDetailCard = ({
           {/* Avatars and the follow button */}
           <div>
             <div className="flex flex-row -space-x-3 pb-4 pl-3 lg:mr-5">
-              {randomAvatars.map((avatar, i) => (
+              {randomAvatars.map((avatar) => (
                 <Avatar key={avatar.id}>
                   <AvatarImage
-                    src={
-                      avatar.url ??
-                      `https://randomuser.me/api/portraits/thumb/men/${Math.floor(
-                        Math.random() * 100,
-                      )}.jpg`
-                    }
+                    src={avatar.url}
                     className="rounded-[5rem] border-2 border-solid border-White dark:border-Natural8"
                   />
                   <AvatarFallback className="rounded-[5rem] border-2 border-solid border-White dark:border-Natural8 dark:bg-Natural2">
@@ -192,42 +223,46 @@ const CompanyDetailCard = ({
             />
           </span>
           <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             className="h-11 w-full rounded-2xl border-0 bg-Natural3 px-[0.625rem] py-2 pl-[2.185rem] text-[0.8125rem] font-medium not-italic leading-[1.125rem] text-Natural6 focus:outline-none focus:ring-1 focus:ring-Primary dark:bg-DarkBG3 lg:h-[3.625rem] lg:pl-[3.62rem] lg:text-[0.875rem]
               lg:font-semibold lg:leading-6"
             type="text"
             placeholder="Search Job title or Keyword"
           />
-          <Button
-            onClick={() => {
-              toast({
-                description: "Search Functionality Coming Soon :)",
-              });
-            }}
-            className="absolute inset-y-0 right-[0.62rem] top-2 h-[1.75rem] w-[4.5rem] rounded-[0.625rem] rounded-r-lg bg-Primary px-[0.88rem] py-1 font-semibold text-White dark:bg-Primary dark:text-White lg:right-[1.12rem] lg:h-[2.625rem] lg:w-[4.9375rem]"
+          <Link
+            href={handleSearch()}
+            scroll={false}
+            className="absolute inset-y-0 right-[0.62rem] top-2 flex h-[1.75rem] w-[4.5rem] items-center rounded-[0.625rem] rounded-r-lg bg-Primary px-[0.88rem] py-1 font-semibold text-White dark:bg-Primary dark:text-White lg:right-[1.12rem] lg:h-[2.625rem] lg:w-[4.9375rem]"
           >
             Search
-          </Button>
+          </Link>
         </div>
 
         <div className="py-5 text-base font-bold text-Black dark:text-White lg:pb-[1.25rem] lg:pt-[1.87rem] lg:text-[1.125rem] lg:font-bold lg:leading-7">
           Recently Posted Job
         </div>
         {/* Recently Posted Job Card */}
-        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-[1.88rem]">
+        <div className="grid grid-cols-1 gap-2 xl:grid-cols-2 xl:gap-[1.88rem]">
           {/* NOTE Change demoData  */}
-          {demoData.slice(0, 4).map((demoData, i) => (
-            <CompanyDetailJobCard
-              key={i}
-              logo={demoData?.logo}
-              jobTitle={demoData?.jobTitle}
-              description={demoData?.description}
-              minSalary={demoData?.minSalary}
-              maxSalary={demoData?.maxSalary}
-              salaryPeriod={demoData?.salaryPeriod}
-              skills={extractRequiredSkills(demoData?.description).slice(0, 3)}
-              applyLink={demoData?.applyLink}
-            />
-          ))}
+          {jobResults.length &&
+            jobResults
+              .slice(0, 4)
+              .map((demoData, i) => (
+                <CompanyDetailJobCard
+                  key={i}
+                  logo={demoData?.job_logo}
+                  jobTitle={demoData?.job_title}
+                  description={demoData?.job_description}
+                  minSalary={demoData?.job_min_salary}
+                  maxSalary={demoData?.job_max_salary}
+                  salaryPeriod={demoData?.job_salary_period}
+                  skills={extractRequiredSkills(
+                    demoData?.job_description,
+                  ).slice(0, 3)}
+                  applyLink={demoData?.job_apply_link}
+                />
+              ))}
         </div>
 
         {/* See all jobs button */}
