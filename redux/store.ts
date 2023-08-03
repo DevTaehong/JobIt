@@ -1,5 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import themeSlice from "./feature/theme/themeSlice";
+import salariesInputsReducer from "./feature/salariesInputs/salariesInputsSlice";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 import {
   persistReducer,
@@ -40,11 +41,12 @@ const persistConfig = {
   version: 1,
   // NOTE source 1: https://github.com/rt2zz/redux-persist#blacklist--whitelist
   // NOTE source 2: Yilmaz's answer https://stackoverflow.com/questions/63761763/how-to-configure-redux-persist-with-redux-toolkit
-  whitelist: ["theme"],
+  whitelist: ["theme", "salariesInputs"],
 };
 
 const reducers = combineReducers({
   theme: themeSlice,
+  salariesInputs: salariesInputsReducer,
   // NOTE Add more reducers here if needed
 });
 
