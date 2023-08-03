@@ -47,7 +47,7 @@ const SearchBar = (props: Props) => {
       {/* Content */}
       <div className="flex flex-row items-center  border-b border-Natural2  py-3 sm:border-none sm:py-0">
         {/* Search */}
-        <div className="h-[28px] w-[28px] flex">
+        <div className="flex h-[28px] w-[28px]">
           <Image src={search} alt="search" />
         </div>
         <Input
@@ -61,7 +61,7 @@ const SearchBar = (props: Props) => {
       </div>
       <div className="flex flex-row items-center border-b border-Natural2  py-3 sm:border-none sm:py-0">
         {/* Location */}
-        <div className="h-[28px] w-[28px] p-1">
+        <div className="flex h-[28px] w-[28px]">
           <Image src={pin} alt="location" />
         </div>
 
@@ -77,7 +77,7 @@ const SearchBar = (props: Props) => {
         {/* Job Type */}
         <div className="flex flex-row items-center">
           {/* Icon, Job Type */}
-          <div className="h-[28px] w-[28px] p-1">
+          <div className="flex h-[28px] w-[28px]">
             <Image src={briefcase} alt="briefcase" />
           </div>
           <select

@@ -8,7 +8,7 @@ import chevron from "@/public/iconography/ChevronLeft.svg";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
-import SmallCard from "@/components/SmallCard";
+import SearchBar from "@/components/SearchBar";
 
 const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
