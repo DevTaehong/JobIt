@@ -1,6 +1,8 @@
 import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
+
+import { calculatePostDate } from "@/lib/utils";
 import bookmark from "@/public/iconography/archive.svg";
 
 type Props = {
@@ -17,17 +19,6 @@ type Props = {
 };
 
 const JobSearchCard = (props: Props) => {
-  /* {Calculate Days left for job posting} */
-  function calculatePostDate(expTime: number): number {
-    const postDate = new Date(expTime * 1000); // Convert to milliseconds
-    const currentDate = new Date();
-
-    const timeDiff = currentDate.getTime() - postDate.getTime();
-    const daysPosted = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-
-    return daysPosted;
-  }
-
   const postDate = calculatePostDate(props.postDate);
 
   return (

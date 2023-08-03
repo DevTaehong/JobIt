@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-
+import { calculatePostDate } from "@/lib/utils";
 type Props = {
   employerName?: string;
   employerLogo?: String;
@@ -43,7 +43,10 @@ const JobDetailCard = ({
   jobRequiredExperience = jobRequiredExperience
     ? `Minimum ${jobRequiredExperience} Year(s)`
     : `N/A`;
-  console.log(jobId);
+
+  //  calc days left
+  const calcPostDate = calculatePostDate(postDate);
+
   return (
     <>
       {/* Box */}
@@ -131,7 +134,7 @@ const JobDetailCard = ({
                       />
                     </div>
                     <h3 className="text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
-                      {postDate}
+                      {`${calcPostDate} days ago`}
                     </h3>
                   </div>
                 </section>
@@ -220,31 +223,34 @@ const JobDetailCard = ({
             </section>
             {/* Responsibilities */}
             <section className="mb-[1.87rem] mt-[3.62rem]">
-              <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
-                Responsibilities
-              </h2>
-              {jobRequiredSkills &&
-                jobRequiredSkills.map((jobRequiredSkills, idx) => (
-                  <div className="flex flex-row pt-[.75rem]" key={idx}>
-                    <Image
-                      className="mt-2 h-[.5rem] stroke-2"
-                      src="/iconography/Oval (2).svg"
-                      alt="oval"
-                      width={8}
-                      height={8}
-                    />
-                    <p className="pl-[.63rem] text-base	font-medium	leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
-                      {jobRequiredSkills}
-                    </p>
-                  </div>
-                ))}
+              {jobRequiredSkills && (
+                <>
+                  <h2 className="text-base font-bold leading-6 dark:text-white lg:text-lg">
+                    Responsibilities
+                  </h2>
+                  {jobRequiredSkills.map((jobSkill, idx) => (
+                    <div className="flex flex-row pt-[.75rem]" key={idx}>
+                      <Image
+                        className="mt-2 h-[.5rem] stroke-2"
+                        src="/iconography/Oval (2).svg"
+                        alt="oval"
+                        width={8}
+                        height={8}
+                      />
+                      <p className="pl-[.63rem] text-base font-medium leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
+                        {jobSkill}
+                      </p>
+                    </div>
+                  ))}
+                </>
+              )}
             </section>
             {/* Qualifications and Skill Sets */}
             <section className="mt-[1.87rem]">
               <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
                 Qualifications and Skill Sets
               </h2>
-              {qualifications ? (
+              {qualifications?.length ? (
                 qualifications.map((qualificationDescription, idx) => (
                   <div className="flex flex-row pt-[.75rem]" key={idx}>
                     <Image
