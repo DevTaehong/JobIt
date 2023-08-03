@@ -52,6 +52,23 @@ export async function getJobDetails(id: string) {
   }
 }
 
+export async function getSimilarJobs(jobTitle: string) {
+  const url = `https://jsearch.p.rapidapi.com/search?query=${jobTitle}`;
+
+  try {
+    const res = await fetch(url, { headers: requestHeaders });
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error("Failed to Fetch Job Details");
+    }
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function getCompanyDetails(id: string) {
   const res = await fetch(
     `https://jsearch.p.rapidapi.com/job-details?job_id=${id}`,
