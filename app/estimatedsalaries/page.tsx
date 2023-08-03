@@ -2,8 +2,16 @@ import moment from "moment";
 import Charts from "@/components/Charts";
 import { data } from "autoprefixer";
 import SalariesInputs from "@/components/SalariesInputs";
+import { getEstimatedSalaries } from "@/lib/jsearch";
 
-const EstimatedSalaries = () => {
+const EstimatedSalaries = ({
+  searchParams,
+}: {
+  searchParams: { jobTitle: string; location: string; radius: number };
+}) => {
+  const { jobTitle, location, radius } = searchParams;
+  console.log("check here", jobTitle, location, radius);
+
   const currentDate = moment().format("dddd,  D MMM YYYY");
 
   type DataItem = {

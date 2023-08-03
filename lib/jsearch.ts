@@ -129,9 +129,12 @@ export async function getCompanies(jobStates: string) {
   return res.json();
 }
 
-export async function getEstimatedSalaries() {
-  const url =
-    "https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=New-York%2C%20NY%2C%20USA&radius=100";
+export async function getEstimatedSalaries(
+  jobTitle: string,
+  location: string,
+  radius: number,
+) {
+  const url = `https://jsearch.p.rapidapi.com/estimated-salary?job_title=${jobTitle}&location=${location}&radius=${radius}`;
   try {
     const res = await fetch(url, { headers: requestHeaders });
     // Recommendation: handle errors
