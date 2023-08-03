@@ -42,9 +42,8 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
       </section>
 
       {/* Search  */}
-      <div className="w-full rounded-[20px] bg-white px-1.5 py-4 shadow dark:bg-DarkBG2">
-        <SearchBar />
-      </div>
+
+      <SearchBar />
 
       {/* Job Details */}
       <div className="flex flex-row flex-wrap gap-10">
