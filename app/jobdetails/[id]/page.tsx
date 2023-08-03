@@ -94,6 +94,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               qualifications={
                 jobDetails.data[0]?.job_highlights?.Qualifications
               }
+              jobId={params.id}
             />
           </div>
         </section>
