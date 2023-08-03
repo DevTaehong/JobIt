@@ -1,18 +1,22 @@
-import { getJobDetails } from "@/lib/jsearch";
+import { Suspense } from "react";
+import { getJobDetails, getSimilarJobs } from "@/lib/jsearch";
 
-import SearchBar from "@/components/SearchBar";
+import { Skeleton } from "@/components/ui/skeleton";
 import JobDetailCard from "@/components/JobDetailCard";
 import SmallCard from "@/components/SmallCard";
 import chevron from "@/public/iconography/ChevronLeft.svg";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
+import SmallCard from "@/components/SmallCard";
 
 const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
   const jobDetailsData = getJobDetails(params.id);
 
   const [jobDetails] = await Promise.all([jobDetailsData]);
+
+  const similarJobDetails = await getSimilarJobs(jobDetails.data[0].job_title);
 
   // Round down salary to nearest 100
   function roundDown(number: number) {
@@ -25,7 +29,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <main className="mx-6 w-auto sm:mx-20">
+    <main className=" mx-6 max-w-[1440px] items-center sm:mx-20 lg:mx-auto">
       {/* Heading */}
       <section className="mb-[30px] ml-[-.25] mt-10 sm:mt-[3rem]">
         <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
@@ -57,14 +61,14 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               Back
             </Link>
           </span>
-          <div className="max-w-[860px] rounded-[10px] bg-white dark:bg-DarkBG2">
+          <div className=" rounded-[10px] bg-white dark:bg-DarkBG2">
             <JobDetailCard
               aboutTheCompany={"anything"}
-              followers={10}
+              followers={100000}
               jobRequiredSkills={
                 jobDetails.data[0]?.job_highlights?.Responsibilities
               }
-              postDate={3846732}
+              postDate={jobDetails.data[0].job_posted_at_timestamp}
               workLevel="tuesday"
               employerLogo={jobDetails.data[0]?.employer_logo}
               employerName={jobDetails.data[0]?.employer_name}
@@ -90,25 +94,36 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
         </section>
 
         {/* Similar Jobs */}
-        <section className="order-last mt-[2.19rem] max-w-[379px] lg:w-[calc(33%-20px)] xl:order-none ">
+        <section className="order-last mt-[2.19rem] lg:w-[calc(33%-20px)] xl:order-none ">
           <span className="flex justify-between">
             <h3 className="text-[18px] font-bold leading-8 dark:text-White">
               Similar Jobs
             </h3>
           </span>
+
           {/* Similar Job Cards */}
-          <div className="mt-[2.06rem] flex-row gap-3">
-            <SmallCard
-              daysLeft={277777}
-              icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0"
-              jobCity="Los Angeles"
-              jobLocation="downtown"
-              jobState="California"
-              jobTitle="Head Banger"
-              salary={70}
-              salaryPeriod="year"
-            />
-          </div>
+          {similarJobDetails &&
+            similarJobDetails.data.map((similarJob, idx: number) => (
+              <Suspense
+                key={idx}
+                fallback={
+                  <Skeleton className="h-[200px] w-[100px] rounded-full" />
+                }
+              >
+                <div className="mt-[2.06rem] flex-row gap-3">
+                  <SmallCard
+                    daysLeft={similarJob.job_offer_expiration_timestamp}
+                    icon={similarJob.employer_logo}
+                    jobCity={similarJob.job_city}
+                    jobLocation="downtown"
+                    jobState={similarJob.job_state}
+                    jobTitle={similarJob.job_title}
+                    salary={70}
+                    salaryPeriod="year"
+                  />
+                </div>
+              </Suspense>
+            ))}
         </section>
       </div>
     </main>
