@@ -105,7 +105,7 @@ const CompanyDetailCard = ({
   };
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-1 flex-col">
       {/* Back button */}
       <Button
         onClick={() => router.back()}
