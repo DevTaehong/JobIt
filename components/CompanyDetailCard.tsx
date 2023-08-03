@@ -270,7 +270,7 @@ const CompanyDetailCard = ({
         {/* See all jobs button */}
         <Collapsible>
           <CollapsibleContent>
-            <div className="mt-2 grid grid-cols-1 gap-2 lg:mt-[1.88rem] xl:grid-cols-2 xl:gap-[1.88rem]">
+            <div className="mt-2 grid grid-cols-1 gap-2 xl:mt-[1.88rem] xl:grid-cols-2 xl:gap-[1.88rem]">
               {/* NOTE Change demoData */}
               {demoData.slice(0, 4).map((demoData, i) => (
                 <CompanyDetailJobCard
