@@ -28,7 +28,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <main className="mx-6 w-auto sm:mx-20">
+    <main className=" mx-6 max-w-[1440px] items-center sm:mx-20 lg:mx-auto">
       {/* Heading */}
       <section className="mb-[30px] ml-[-.25] mt-10 sm:mt-[3rem]">
         <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
