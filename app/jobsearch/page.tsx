@@ -30,12 +30,20 @@ const JobSearch = () => {
           <div className="flex w-[80rem] flex-col gap-[2.25rem]">
             <div className="flex justify-between">
               <div className="flex gap-[.625rem]">
-                <p>Showing:</p>
-                <p>10 Jobs</p>
+                <p className="text-base font-medium	leading-6 text-Natural6 xl:text-[1.125rem] xl:font-semibold">
+                  Showing:
+                </p>
+                <p className="text-base	font-semibold	leading-6	dark:text-white xl:text-[1.125rem] xl:font-semibold">
+                  10 Jobs
+                </p>
               </div>
               <div className="flex items-center gap-[.625rem]">
-                <p>Sort by:</p>
-                <p>Relevence</p>
+                <p className="hidden text-[.875rem] font-semibold leading-6	text-Natural6 xl:flex">
+                  Sort by:
+                </p>
+                <p className="text-[.875rem] font-semibold leading-6	dark:text-Natural5	xl:font-bold">
+                  Relevence
+                </p>
                 <Image
                   className="gap-[.5rem]"
                   src="/iconography/chevron.svg"
