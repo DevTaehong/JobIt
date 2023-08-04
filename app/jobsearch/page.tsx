@@ -9,7 +9,7 @@ const JobSearch = () => {
 
   return (
     <>
-      <div className="mx-[1.5rem] mb-[4.06rem] mt-[2.5rem] flex max-w-[1800px] flex-col xl:mx-[5rem] xl:mb-[3.62rem] xl:mt-[3.12rem]">
+      <div className="mx-[1.5rem] mb-[4.06rem] mt-[2.5rem] flex-col xl:mb-[3.62rem] xl:mt-[3.12rem]  2xl:mx-auto 2xl:max-w-[90rem]">
         {/* Heading */}
         <section>
           <h1 className="ml-[.13rem] text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 xl:text-[2rem] xl:leading-10">
