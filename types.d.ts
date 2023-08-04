@@ -62,5 +62,5 @@ type Job = {
     },
   ];
 };
-
+// eslint-disable-next-line no-unused-vars
 type JobResult = Job["data"][0];

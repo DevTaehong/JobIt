@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
@@ -20,25 +17,7 @@ type Props = {
   postDate: number;
 };
 
-const JobSearchCard = ({ jobPromise }: { jobPromise: Promise<Job[]> }) => {
-  // const JobSearchCard = (props: Props) => {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  // console.log(jobPromise);
-
-  useEffect(() => {
-    console.log(jobs);
-  }, [jobs]);
-
-  useEffect(() => {
-    async function getJobs() {
-      const jobs = await jobPromise;
-      console.log("jobs", jobs);
-      setJobs(jobs); // access the data property of the resolved promise
-    }
-
-    getJobs();
-  });
-
+const JobSearchCard = (props: Props) => {
   const postDate = calculatePostDate(props.postDate);
 
   return (
