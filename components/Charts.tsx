@@ -118,9 +118,18 @@ const Charts = ({ data }: Props) => {
   };
 
   const series = [
-    { name: "Minimun Salary", data: minSalary },
-    { name: "Maximum Salary", data: maxSalary },
-    { name: "Median Salary", data: medianSalary },
+    {
+      name: "Minimum Salary",
+      data: minSalary.filter((item) => item !== undefined),
+    },
+    {
+      name: "Maximum Salary",
+      data: maxSalary.filter((item) => item !== undefined),
+    },
+    {
+      name: "Median Salary",
+      data: medianSalary.filter((item) => item !== undefined),
+    },
   ];
 
   return (
