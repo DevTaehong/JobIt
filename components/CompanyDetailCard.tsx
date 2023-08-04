@@ -69,7 +69,6 @@ const CompanyDetailCard = ({
       setJobResults(jobs.data);
     }
     getJobs();
-    console.log(jobResults);
   }, [queryData]);
 
   city = city ?? "New York";
@@ -80,20 +79,6 @@ const CompanyDetailCard = ({
   companyLink = companyLink ?? "www.linkedin.com";
   jobId = jobId ?? "-";
   queryData = queryData ?? "-";
-
-  const demoData = [
-    {
-      logo: "/iconography/companyLogo.svg",
-      jobTitle: "Web developer",
-      description:
-        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve.Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve. React, JavaScript, Node.js",
-      minSalary: 70000,
-      maxSalary: 100000,
-      salaryPeriod: "MONTH",
-      skills: ["React", "Node.js", "JavaScript"],
-      applyLink: "https://www.google.com",
-    },
-  ];
 
   const handleSearch = () => {
     return {
@@ -131,6 +116,7 @@ const CompanyDetailCard = ({
             className="absolute left-3 top-[6.84rem] h-[2.875rem] w-[2.875rem] rounded-[0.625rem] border-[2.156px]
               border-Natural3 dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8rem] lg:h-16 lg:w-16 lg:border-[3px]"
             src={logo}
+            alt="Company logo"
           />
         </div>
         {/* Card header */}
@@ -242,7 +228,6 @@ const CompanyDetailCard = ({
         </div>
         {/* Recently Posted Job Card */}
         <div className="grid grid-cols-1 gap-2 xl:grid-cols-2 xl:gap-[1.88rem]">
-          {/* NOTE Change demoData  */}
           {jobResults.length > 0 ? (
             jobResults
               .slice(0, 4)
@@ -270,7 +255,6 @@ const CompanyDetailCard = ({
         <Collapsible>
           <CollapsibleContent>
             <div className="mt-2 grid grid-cols-1 gap-2 lg:mt-[1.88rem] lg:grid-cols-2 lg:gap-[1.88rem]">
-              {/* NOTE Change demoData */}
               {jobResults.length > 0 &&
                 jobResults
                   .slice(5, 10)
