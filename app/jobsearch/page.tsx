@@ -1,4 +1,5 @@
 import JobSearchCard from "@/components/JobSearchCard";
+import PageSelection from "@/components/PageSelection";
 import SearchBar from "@/components/SearchBar";
 import moment from "moment";
 import Image from "next/image";
@@ -79,7 +80,9 @@ const JobSearch = () => {
                 postDate={0}
               />
             </section>
-            <section className="h-[2.25rem] bg-red-500"></section>
+            <section className="h-[2.25rem] w-full">
+              <PageSelection />
+            </section>
           </div>
         </section>
         {/* Page Selector */}
