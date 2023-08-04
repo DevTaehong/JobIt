@@ -7,7 +7,7 @@ const PageSelection = (props: Props) => {
     <>
       <div className="flex">
         {/* Mobile */}
-        <div className="flex w-full items-center justify-between pt-[1rem] xl:hidden">
+        <div className="flex w-full items-center justify-between border-t border-t-Natural2 pt-[1rem] dark:border-t-DarkBG3 xl:hidden">
           <div>
             <Image
               className="flex dark:hidden"
@@ -72,14 +72,15 @@ const PageSelection = (props: Props) => {
           </div>
           {/* Page Numbers */}
           <div className="flex items-center gap-[.13rem] text-[.875rem] font-semibold leading-6 dark:text-Natural7">
-            <p className="items-center rounded-[.5rem] bg-Primary p-[.75rem]">
+            <p className="h-[1rem] w-[1rem] rounded-[.5rem] bg-Primary p-[.75rem]">
               1
             </p>
             <p className="p-[.75rem]">2</p>
             <p className="p-[.75rem]">3</p>
           </div>
           {/* Next */}
-          <div className="flex">
+          <div className="flex items-center justify-center gap-[.5rem] rounded-[.5rem] border border-Natural4 bg-white px-[.875rem] py-[.5rem] dark:border-DarkBG3 dark:bg-DarkBG2">
+            {" "}
             <p className="text-[.875rem] font-bold leading-6 dark:text-Natural5">
               Next
             </p>
