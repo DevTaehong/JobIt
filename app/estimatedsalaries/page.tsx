@@ -1,6 +1,5 @@
 import moment from "moment";
 import Charts from "@/components/Charts";
-import { data } from "autoprefixer";
 import SalariesInputs from "@/components/SalariesInputs";
 import { getEstimatedSalaries } from "@/lib/jsearch";
 
