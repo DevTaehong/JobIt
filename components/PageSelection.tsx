@@ -10,10 +10,10 @@ const PageSelection = (props: Props) => {
         <div className="flex justify-between xl:hidden">
           <div>
             <Image
-              src="/iconography/chevron.svg"
+              src="/iconography/arrow-left.svg"
               alt="chevron"
-              width={16}
-              height={16}
+              width={20}
+              height={20}
             />
           </div>
           <div>
@@ -22,10 +22,10 @@ const PageSelection = (props: Props) => {
           </div>
           <div>
             <Image
-              src="/iconography/chevron.svg"
+              src="/iconography/arrow-right.svg"
               alt="chevron"
-              width={16}
-              height={16}
+              width={20}
+              height={20}
             />
           </div>
         </div>
@@ -34,10 +34,10 @@ const PageSelection = (props: Props) => {
           {/* Previous */}
           <div className="flex">
             <Image
-              src="/iconography/chevron.svg"
+              src="/iconography/arrow-left.svg"
               alt="chevron"
-              width={16}
-              height={16}
+              width={20}
+              height={20}
             />
             <p>Previous</p>
           </div>
@@ -47,10 +47,10 @@ const PageSelection = (props: Props) => {
           <div className="flex">
             <p>Next</p>
             <Image
-              src="/iconography/chevron.svg"
+              src="/iconography/arrow-right.svg"
               alt="chevron"
-              width={16}
-              height={16}
+              width={20}
+              height={20}
             />
           </div>
         </div>
