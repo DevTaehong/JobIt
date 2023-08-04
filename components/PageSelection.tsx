@@ -10,8 +10,16 @@ const PageSelection = (props: Props) => {
         <div className="flex w-full items-center justify-between pt-[1rem] xl:hidden">
           <div>
             <Image
+              className="flex dark:hidden"
               src="/iconography/arrow-left.svg"
-              alt="chevron"
+              alt="arrow left"
+              width={20}
+              height={20}
+            />
+            <Image
+              className="hidden dark:flex"
+              src="/iconography/arrow-left-white.svg"
+              alt="arrow left"
               width={20}
               height={20}
             />
@@ -25,8 +33,16 @@ const PageSelection = (props: Props) => {
           </div>
           <div>
             <Image
+              className="flex dark:hidden"
               src="/iconography/arrow-right.svg"
-              alt="chevron"
+              alt="arrow right"
+              width={20}
+              height={20}
+            />
+            <Image
+              className="hidden dark:flex"
+              src="/iconography/arrow-right-white.svg"
+              alt="arrow right"
               width={20}
               height={20}
             />
@@ -35,23 +51,45 @@ const PageSelection = (props: Props) => {
         {/* Desktop */}
         <div className="hidden w-full items-center justify-between xl:flex">
           {/* Previous */}
-          <div className="flex dark:text-white">
+          <div className="flex">
             <Image
+              className="flex dark:hidden"
               src="/iconography/arrow-left.svg"
-              alt="chevron"
+              alt="arrow left"
+              width={20}
+              height={20}
+            />
+            <Image
+              className="hidden dark:flex"
+              src="/iconography/arrow-left-white.svg"
+              alt="arrow left"
               width={20}
               height={20}
             />
             <p>Previous</p>
           </div>
           {/* Page Numbers */}
-          <div className="flex">Page 1 of 10</div>
+          <div className="flex items-center gap-[.13rem] text-[.875rem] font-semibold leading-6 dark:text-Natural7">
+            <p className="items-center rounded-[.5rem] bg-Primary p-[.75rem]">
+              1
+            </p>
+            <p className="p-[.75rem]">2</p>
+            <p className="p-[.75rem]">3</p>
+          </div>
           {/* Next */}
-          <div className="flex dark:text-white">
+          <div className="flex">
             <p>Next</p>
             <Image
+              className="flex dark:hidden"
               src="/iconography/arrow-right.svg"
-              alt="chevron"
+              alt="arrow right"
+              width={20}
+              height={20}
+            />
+            <Image
+              className="hidden dark:flex"
+              src="/iconography/arrow-right-white.svg"
+              alt="arrow right"
               width={20}
               height={20}
             />
