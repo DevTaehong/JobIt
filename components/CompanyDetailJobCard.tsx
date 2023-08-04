@@ -42,6 +42,8 @@ const CompanyDetailJobCard = ({
 }: TypeProps) => {
   const { toast } = useToast();
 
+  logo = logo ?? "/iconography/CompanyLogo.svg";
+
   return (
     <Card className="flex flex-col gap-5 rounded-[0.625rem] border-0 bg-white shadow-custom dark:bg-DarkBG3 dark:shadow-none lg:gap-[1.38rem]">
       {/* Company logo, job title, skills */}
