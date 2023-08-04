@@ -10,8 +10,8 @@ const handleClick = (pageNumber: number) => {
   if (pageNumber === 0) {
     pageNumber = 1;
   }
-  if (pageNumber === 0) {
-    pageNumber = 1;
+  if (pageNumber === 11) {
+    pageNumber = 10;
   }
   return {
     pathname: "/jobsearch",
@@ -27,45 +27,51 @@ const PageSelection = (props: Props) => {
       <div className="flex">
         {/* Mobile */}
         <div className="flex w-full items-center justify-between border-t border-t-Natural2 pt-[1rem] dark:border-t-DarkBG3 xl:hidden">
-          <div>
-            <Image
-              className="flex dark:hidden"
-              src="/iconography/arrow-left.svg"
-              alt="arrow left"
-              width={20}
-              height={20}
-            />
-            <Image
-              className="hidden dark:flex"
-              src="/iconography/arrow-left-white.svg"
-              alt="arrow left"
-              width={20}
-              height={20}
-            />
-          </div>
+          <Link href={handleClick(Number(pageNumber) - 1)} scroll={false}>
+            <div>
+              <Image
+                className="flex dark:hidden"
+                src="/iconography/arrow-left.svg"
+                alt="arrow left"
+                width={20}
+                height={20}
+              />
+              <Image
+                className="hidden dark:flex"
+                src="/iconography/arrow-left-white.svg"
+                alt="arrow left"
+                width={20}
+                height={20}
+              />
+            </div>
+          </Link>
           <div className="flex text-[.875rem] font-semibold leading-6 text-Natural7  dark:text-Natural6">
             <p className="flex gap-[.2rem]">
               Page
-              <span className="text-Natural8 dark:text-white">1</span>
+              <span className="text-Natural8 dark:text-white">
+                {pageNumber}
+              </span>
               of 10
             </p>
           </div>
-          <div>
-            <Image
-              className="flex dark:hidden"
-              src="/iconography/arrow-right.svg"
-              alt="arrow right"
-              width={20}
-              height={20}
-            />
-            <Image
-              className="hidden dark:flex"
-              src="/iconography/arrow-right-white.svg"
-              alt="arrow right"
-              width={20}
-              height={20}
-            />
-          </div>
+          <Link href={handleClick(Number(pageNumber) + 1)} scroll={false}>
+            <div>
+              <Image
+                className="flex dark:hidden"
+                src="/iconography/arrow-right.svg"
+                alt="arrow right"
+                width={20}
+                height={20}
+              />
+              <Image
+                className="hidden dark:flex"
+                src="/iconography/arrow-right-white.svg"
+                alt="arrow right"
+                width={20}
+                height={20}
+              />
+            </div>
+          </Link>
         </div>
         {/* Desktop */}
         <div className="hidden w-full items-center justify-between border-t-Natural2 pt-[1rem] dark:border-t-DarkBG3 xl:flex">
