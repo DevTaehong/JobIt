@@ -52,6 +52,7 @@ const Charts = ({ data }: Props) => {
       forceNiceScale: true,
       labels: {
         formatter: function (value: number) {
+          if (!data[0]) return;
           const formatValue = value + "k " + data[0].salary_currency;
           return formatValue;
         },
@@ -92,6 +93,7 @@ const Charts = ({ data }: Props) => {
           yaxis: {
             labels: {
               formatter: function (value: number) {
+                if (!data[0]) return;
                 const formatValue =
                   value / 1000 + "k " + data[0].salary_currency;
                 return formatValue;
