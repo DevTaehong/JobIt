@@ -2,11 +2,7 @@ import Image from "next/image";
 import moment from "moment";
 import JobCard from "@/components/JobCard";
 import InlineJobCard from "@/components/InlineJobCard";
-import {
-  getLatestJobs,
-  getRecommendedJobs,
-  getCompanyDetails,
-} from "@/lib/jsearch";
+import { getLatestJobs, getRecommendedJobs } from "@/lib/jsearch";
 import { extractRequiredSkills } from "@/lib/jobRequiredSkills";
 
 export default async function Home() {
