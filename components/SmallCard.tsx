@@ -18,14 +18,8 @@ const SmallCard = (props: Props) => {
   const daysLeft = calculateDaysLeft(props.daysLeft);
 
   return (
-    <div
-      className="flex flex-col items-start justify-center gap-5 rounded-lg bg-white p-[1.25rem]
-  dark:bg-DarkBG2"
-    >
-      <div
-        className="flex w-full items-start gap-[.95rem] bg-white
-    dark:bg-DarkBG2"
-      >
+    <div className="flex flex-col items-start justify-center gap-5 rounded-lg bg-white p-[1.25rem] dark:bg-DarkBG2">
+      <div className="flex w-full items-start gap-[.95rem] bg-white dark:bg-DarkBG2">
         <div className="w-[3rem] min-w-[3rem]">
           <img className="object-fill" src={props.icon} />
         </div>
@@ -33,7 +27,7 @@ const SmallCard = (props: Props) => {
         <div className="flex w-full flex-col items-start gap-[0.375rem] pr-0">
           <div
             className="font-manrope text-[1.125rem] font-bold not-italic leading-6 text-black
-    dark:text-White"
+            dark:text-White"
           >
             {props.jobTitle}
           </div>
@@ -46,7 +40,7 @@ const SmallCard = (props: Props) => {
         <div className="ml-auto flex items-start gap-[0.1875rem]">
           <div
             className="text-right font-manrope text-[0.875rem] font-semibold not-italic leading-6 text-black
-    dark:text-White"
+            dark:text-White"
           >
             ${props.salary}
           </div>
@@ -58,7 +52,7 @@ const SmallCard = (props: Props) => {
       </div>
       <div
         className="flex w-full items-center justify-between bg-White
-  dark:bg-DarkBG2"
+        dark:bg-DarkBG2"
       >
         <div className="w-[5.3125rem] font-manrope text-[0.875rem] font-medium not-italic leading-5 text-Natural6">
           {daysLeft} days left

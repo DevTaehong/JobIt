@@ -18,7 +18,7 @@ const CompanyDetails = async ({
   const [CompanyDetails] = await Promise.all([CompanyData]);
 
   const moreCompany: Promise<Job> = getCompanies(
-    CompanyDetails.data[0].job_state,
+    CompanyDetails.data[0]?.job_state,
   );
   const [Companies] = await Promise.all([moreCompany]);
 
@@ -31,16 +31,16 @@ const CompanyDetails = async ({
   const queryData: Promise<Job> = getQuery(query ?? "developer", companyId);
 
   const companyData = {
-    logo: CompanyDetails.data[0].employer_logo,
-    employer: CompanyDetails.data[0].employer_name,
-    state: CompanyDetails.data[0].job_state,
-    city: CompanyDetails.data[0].job_city,
-    companyType: CompanyDetails.data[0].employer_company_type,
-    companyLink: CompanyDetails.data[0].employer_website,
+    logo: CompanyDetails.data[0]?.employer_logo,
+    employer: CompanyDetails.data[0]?.employer_name,
+    state: CompanyDetails.data[0]?.job_state,
+    city: CompanyDetails.data[0]?.job_city,
+    companyType: CompanyDetails.data[0]?.employer_company_type,
+    companyLink: CompanyDetails.data[0]?.employer_website,
   };
 
   return (
-    <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:mx-20 lg:mb-11 lg:mt-[2.87rem] lg:flex-row lg:gap-10">
+    <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:mx-20 lg:mb-11 lg:mt-[2.87rem] lg:flex-row lg:gap-10 2xl:mx-auto 2xl:max-w-[90rem]">
       <CompanyDetailCard
         logo={companyData?.logo}
         employer={companyData?.employer}
@@ -51,7 +51,7 @@ const CompanyDetails = async ({
         jobId={params.id}
         queryData={queryData}
       />
-      <aside>
+      <aside className="lg:max-w-[25rem]">
         <h2 className="mb-[1.87rem] mt-[2.88rem] text-[1.375rem] font-bold not-italic leading-8 text-Black dark:text-White lg:mb-5 lg:mt-[4.25rem]">
           Similar Companies
         </h2>
