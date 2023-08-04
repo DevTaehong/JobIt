@@ -9,6 +9,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
+const inflect = require("i")();
 
 const FilterSidebar = () => {
   const filters = [
@@ -25,37 +26,34 @@ const FilterSidebar = () => {
   );
 
   // Filter 1: Employment Type
-  const employmentType = [
+  const employmentType = new Map<string, string>([
     // NOTE Find jobs of particular employment types, specified as a comma delimited list of the following values:
     // NOTE  FULLTIME, CONTRACTOR, PARTTIME, INTERN.
-    { id: "FULLTIME", label: "Full Time" },
-    { id: "PARTTIME", label: "Part Time" },
-    { id: "CONTRACTOR", label: "Contractor" },
-    { id: "INTERN", label: "Internship" },
-  ];
+    ["FULLTIME", "Full Time"],
+    ["PARTTIME", "Part Time"],
+    ["CONTRACTOR", "Contractor"],
+    ["INTERN", "Internship"],
+  ]);
 
   // Filter 2: Job Requirements
-  const jobRequirements = [
-    { id: "under_3_years_experience", label: "Under 3 years experience" },
-    {
-      id: "more_than_3_years_experience",
-      label: "More than 3 years experience",
-    },
-    { id: "no_experience", label: "No experience" },
-    { id: "no_degree", label: "No degree" },
-  ];
+  const jobRequirements = new Map<string, string>([
+    ["under_3_years_experience", inflect.titleize("under_3_years_experience")],
+    ["more_than_3_years_experience", "More than 3 years experience"],
+    ["no_experience", "No experience"],
+    ["no_degree", "No degree"],
+  ]);
 
   // Filter 3: Remote
-  const remote = [{ id: "remote", label: "Remote jobs only" }];
+  const remote = new Map<string, string>([["remote", "Remote Jobs Only"]]);
 
   // Filter 4: Date Posted
-  const datePosted = [
-    { id: "all", label: "All" },
-    { id: "today", label: "Today" },
-    { id: "3days", label: "Past 3 days" },
-    { id: "week", label: "Past week" },
-    { id: "month", label: "Past month" },
-  ];
+  const datePosted = new Map<string, string>([
+    ["all", "All"],
+    ["today", "Today"],
+    ["3days", "Past 3 days"],
+    ["week", "Past week"],
+    ["month", "Past month"],
+  ]);
 
   const getCheckboxesForFilter = (filter: string) => {
     switch (filter) {
@@ -70,15 +68,24 @@ const FilterSidebar = () => {
         // Add the checkboxes for the "Location" filter here if available
         return datePosted;
       default:
-        return [];
+        return new Map<string, string>();
     }
   };
 
   const handleOpenChange = (index: number, isOpen: boolean) => {
     // Create a copy of the filterStates array and update the isOpen value for the specific filter
-    const updatedFilterStates = [...filterStates];
-    updatedFilterStates[index].isOpen = isOpen;
-    setFilterStates(updatedFilterStates);
+    // NOTE One way to do this is to use the spread operator
+    // const updatedFilterStates = [...filterStates];
+    // updatedFilterStates[index].isOpen = isOpen;
+    // setFilterStates(updatedFilterStates);
+
+    // NOTE Another way to do this is to use the map function
+    setFilterStates({
+      ...filterStates,
+      [index]: {
+        isOpen,
+      },
+    });
   };
 
   return (
@@ -99,7 +106,7 @@ const FilterSidebar = () => {
 export default FilterSidebar;
 
 type FiltersProps = {
-  checkboxes: { id: string; label: string }[];
+  checkboxes: Map<string, string>;
   setOpen: (value: boolean) => void;
   isOpen: boolean;
   heading: string;
@@ -137,16 +144,16 @@ function Filters({ checkboxes, setOpen, isOpen, heading }: FiltersProps) {
         </CollapsibleTrigger>
       </div>
       <div className={`${isOpen && "mt-5"} flex flex-col gap-3`}>
-        {checkboxes.map((checkbox) => (
-          <CollapsibleContent key={checkbox.id}>
+        {Array.from(checkboxes.entries()).map((checkbox) => (
+          <CollapsibleContent key={checkbox[0]}>
             <div className="flex justify-between">
               <div className="flex gap-[0.88rem]">
-                <Checkbox id={checkbox.id} />
+                <Checkbox id={checkbox[0]} />
                 <label
-                  htmlFor={checkbox.id}
+                  htmlFor={checkbox[0]}
                   className="text-sm font-medium not-italic text-Natural8 hover:text-Primary peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-Natural5 dark:hover:text-Primary"
                 >
-                  {checkbox.label}
+                  {checkbox[1]}
                 </label>
               </div>
               <Button
