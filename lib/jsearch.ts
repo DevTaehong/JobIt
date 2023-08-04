@@ -88,10 +88,10 @@ export async function getCompanyDetails(id: string) {
   return res.json();
 }
 
-export async function getQuery(query: string) {
+export async function getQuery(query: string, companyId: string) {
   console.log(query);
   const res = await fetch(
-    `https://jsearch.p.rapidapi.com/search?query=${query}`,
+    `https://jsearch.p.rapidapi.com/search?query=${query}&employer=${companyId}`,
     {
       headers: requestHeaders,
     },
@@ -129,6 +129,7 @@ export async function getCompanies(jobStates: string) {
   return res.json();
 }
 
+<<<<<<< HEAD
 export async function getEstimatedSalaries(
   jobTitle: string,
   location: string,
@@ -146,4 +147,22 @@ export async function getEstimatedSalaries(
   } catch (error) {
     console.error(error);
   }
+=======
+export async function getCompanyId(query: string) {
+  const res = await fetch(
+    `https://jsearch.p.rapidapi.com/search-filters?query=${query}`,
+    {
+      headers: requestHeaders,
+    },
+  );
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+>>>>>>> main
 }

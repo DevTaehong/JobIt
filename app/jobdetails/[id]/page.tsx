@@ -1,21 +1,21 @@
 import { Suspense } from "react";
-import { getJobDetails, getSimilarJobs } from "@/lib/jsearch";
+import { getJobDetails } from "@/lib/jsearch";
 
-import { Skeleton } from "@/components/ui/skeleton";
+import SimilarJobCardsRender from "@/components/SimilarJobCardsRender";
+import Loader from "@/components/Loaders";
 import JobDetailCard from "@/components/JobDetailCard";
-import SmallCard from "@/components/SmallCard";
+
 import chevron from "@/public/iconography/ChevronLeft.svg";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
+import SearchBar from "@/components/SearchBar";
 
 const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
   const jobDetailsData = getJobDetails(params.id);
 
   const [jobDetails] = await Promise.all([jobDetailsData]);
-
-  const similarJobDetails = await getSimilarJobs(jobDetails.data[0].job_title);
 
   // Round down salary to nearest 100
   function roundDown(number: number) {
@@ -42,16 +42,8 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
       </section>
 
       {/* Search  */}
-      <div className="w-full rounded-[10px] bg-white px-2.5 py-4 shadow dark:bg-DarkBG2">
-        <div className="flex flex-col gap-2.5 sm:flex-row sm:justify-between">
-          <div className="border-b px-5 py-3 sm:border-none">Job title</div>
-          <div className="border-b px-5 py-3 sm:border-none">Location</div>
-          <div className="border-b px-5 py-3 sm:border-none">Job Type</div>
-          <button className="w-full justify-end rounded-[10px] bg-Primary px-[19px] py-3 text-center text-[15px] font-semibold leading-normal text-white sm:w-fit">
-            Find Jobs
-          </button>
-        </div>
-      </div>
+
+      <SearchBar />
 
       {/* Job Details */}
       <div className="flex flex-row flex-wrap gap-10">
@@ -74,7 +66,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
               jobRequiredSkills={
                 jobDetails.data[0]?.job_highlights?.Responsibilities
               }
-              postDate={jobDetails.data[0].job_posted_at_timestamp}
+              postDate={jobDetails.data[0]?.job_posted_at_timestamp}
               workLevel="tuesday"
               employerLogo={jobDetails.data[0]?.employer_logo}
               employerName={jobDetails.data[0]?.employer_name}
@@ -108,28 +100,10 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
           </span>
 
           {/* Similar Job Cards */}
-          {similarJobDetails &&
-            similarJobDetails.data.map((similarJob, idx: number) => (
-              <Suspense
-                key={idx}
-                fallback={
-                  <Skeleton className="h-[200px] w-[100px] rounded-full" />
-                }
-              >
-                <div className="mt-[2.06rem] flex-row gap-3">
-                  <SmallCard
-                    daysLeft={similarJob.job_offer_expiration_timestamp}
-                    icon={similarJob.employer_logo}
-                    jobCity={similarJob.job_city}
-                    jobLocation="downtown"
-                    jobState={similarJob.job_state}
-                    jobTitle={similarJob.job_title}
-                    salary={70}
-                    salaryPeriod="year"
-                  />
-                </div>
-              </Suspense>
-            ))}
+
+          <Suspense fallback={<Loader type="SmallCard" amount={10} />}>
+            <SimilarJobCardsRender id={params.id} />
+          </Suspense>
         </section>
       </div>
     </main>

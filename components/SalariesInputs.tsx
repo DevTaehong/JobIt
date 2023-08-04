@@ -14,9 +14,15 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import {
+  setJobTitle,
+  setLocation,
+  setRadius,
+} from "@/redux/feature/salariesInputs/salariesInputsSlice";
 
 const formSchema = z.object({
-  jobTittle: z
+  jobTitle: z
     .string()
     .trim()
     .regex(/^[A-Za-z0-9 ]+$/, { message: "Invalid job title." })
@@ -39,15 +45,19 @@ const formSchema = z.object({
 });
 
 const SalariesInputs = () => {
+  const location = useAppSelector((state) => state.salariesInputs.location);
+  const jobTitle = useAppSelector((state) => state.salariesInputs.jobTitle);
+  const radius = useAppSelector((state) => state.salariesInputs.radius);
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      jobTittle: "",
-      location: "",
-      radius: "",
+      jobTitle: jobTitle ?? "",
+      location: location ?? "",
+      radius: radius ?? "",
     },
   });
 
@@ -55,8 +65,11 @@ const SalariesInputs = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // ✅ This will be type-safe and validated.
     router.push(
-      `/estimatedsalaries?jobTitle=${values.jobTittle}&location=${values.location}&radius=${values.radius}`,
+      `/estimatedsalaries?jobTitle=${values.jobTitle}&location=${values.location}&radius=${values.radius}`,
     );
+    dispatch(setLocation(values.location));
+    dispatch(setJobTitle(values.jobTitle));
+    dispatch(setRadius(values.radius));
   }
 
   return (
@@ -64,7 +77,7 @@ const SalariesInputs = () => {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
-          name="jobTittle"
+          name="jobTitle"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-[0.875rem] font-semibold leading-6 text-Natural6 dark:text-Natural5 lg:text-[0.9375rem]">
