@@ -12,7 +12,7 @@ const JobSearch = () => {
         {/* Heading */}
         <section>
           <h1 className="ml-[.13rem] text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 xl:text-[2rem] xl:leading-10">
-            Estimated Salaries
+            Let’s find your dream job
           </h1>
           <h2 className="mt-[.25rem] text-base font-medium leading-6 text-Natural6 xl:mt-[.87rem] xl:text-xl xl:font-medium xl:leading-8">
             {currentDate}
