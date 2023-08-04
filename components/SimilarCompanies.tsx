@@ -13,12 +13,12 @@ type Props = {
   Follow: string;
 };
 
-// Should this be structured differently?
-// icon =
-//   icon ??
-//   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlgydP7sElaJC9qPrtNHwBhyTMHYgii1RPWsy&s=0";
-
 const SimilarCompanies = ({ icon, JobTitle, JobTitleSec, Follow }: Props) => {
+  icon = icon ?? "/iconography/CompanyLogo.svg";
+  JobTitle = JobTitle ?? "Tech Company";
+  JobTitle = JobTitle ?? "Tech Company";
+  Follow = Follow ?? "www.linkedin.com";
+
   return (
     <div className="rounded-[0.625rem] bg-white p-[1.25rem] shadow-[0_6px_14px_0_rgba(23,23,37,0.02)] dark:bg-DarkBG2">
       <div className="flex w-full flex-row items-center justify-between gap-[0.69rem]">
