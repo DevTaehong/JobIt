@@ -125,9 +125,15 @@ const Charts = ({ data }: Props) => {
     <div className="flex flex-col">
       <div className="pl-[21px] font-bold leading-[22px] sm:text-[22px] sm:leading-[32px]">
         <h3>
-          Estimated Salary <span className="font-normal">for</span>{" "}
-          {data[0].job_title} <span className="font-normal">in</span>{" "}
-          {data[0].location}
+          {data[0] ? (
+            <>
+              Estimated Salary <span className="font-normal">for</span>{" "}
+              {data[0].job_title} <span className="font-normal">in</span>{" "}
+              {data[0].location}
+            </>
+          ) : (
+            "No Data available."
+          )}
         </h3>
       </div>
       <div>
