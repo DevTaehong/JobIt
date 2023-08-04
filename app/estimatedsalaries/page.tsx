@@ -88,7 +88,7 @@ const EstimatedSalaries = async ({
             <SalariesInputs />
           </section>
           <section className="mt-[2.5rem] lg:ml-[5.63rem] lg:mt-[-6.5rem] lg:h-[26.5rem] lg:w-1/2">
-            <Charts data={estSalariesData.data} />
+            <Charts data={estSalariesData?.data ?? data} />
           </section>
         </div>
       </div>
