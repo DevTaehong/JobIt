@@ -89,7 +89,6 @@ export async function getCompanyDetails(id: string) {
 }
 
 export async function getQuery(query: string, companyId: string) {
-  console.log(query);
   const res = await fetch(
     `https://jsearch.p.rapidapi.com/search?query=${query}&employer=${companyId}`,
     {
@@ -144,5 +143,19 @@ export async function getCompanyId(query: string) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
+  return res.json();
+}
+
+export async function getInitialJobsOnJobSearchPage() {
+  const page = 1;
+  const numPages = 10;
+  const apiUrl = `https://jsearch.p.rapidapi.com/search?query=Developer%20in%20Canada&page=${page}&num_pages=${numPages}`;
+
+  const res = await fetch(apiUrl, { headers: requestHeaders });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
   return res.json();
 }

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
@@ -18,11 +20,29 @@ type Props = {
   postDate: number;
 };
 
-const JobSearchCard = (props: Props) => {
+const JobSearchCard = ({ jobPromise }: { jobPromise: Promise<Job[]> }) => {
+  // const JobSearchCard = (props: Props) => {
+  const [jobs, setJobs] = useState<Job[]>([]);
+  // console.log(jobPromise);
+
+  useEffect(() => {
+    console.log(jobs);
+  }, [jobs]);
+
+  useEffect(() => {
+    async function getJobs() {
+      const jobs = await jobPromise;
+      console.log("jobs", jobs);
+      setJobs(jobs); // access the data property of the resolved promise
+    }
+
+    getJobs();
+  });
+
   const postDate = calculatePostDate(props.postDate);
 
   return (
-    <div className="flex w-auto flex-col gap-5 bg-white p-5 dark:bg-DarkBG2">
+    <div className="flex w-auto flex-col gap-5 rounded-[0.625rem] bg-white p-5 dark:bg-DarkBG2">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="h-[45px] w-[45px] rounded-[10px] bg-Natural2 p-2 dark:bg-DarkBG3 sm:h-[64px] sm:w-[64px]">
