@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { getJobDetails } from "@/lib/jsearch";
 
 import SimilarJobCardsRender from "@/components/SimilarJobCardsRender";
-import { Skeleton } from "@/components/ui/skeleton";
+import Loader from "@/components/Loaders";
 import JobDetailCard from "@/components/JobDetailCard";
 
 import chevron from "@/public/iconography/ChevronLeft.svg";
@@ -101,7 +101,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
 
           {/* Similar Job Cards */}
 
-          <Suspense fallback={<div>Cool...</div>}>
+          <Suspense fallback={<Loader type="SmallCard" amount={10} />}>
             <SimilarJobCardsRender id={params.id} />
           </Suspense>
         </section>
