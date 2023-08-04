@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 type Props = {};
 
 const PageSelection = (props: Props) => {
@@ -72,11 +71,11 @@ const PageSelection = (props: Props) => {
           </div>
           {/* Page Numbers */}
           <div className="flex items-center gap-[.13rem] text-[.875rem] font-semibold leading-6 dark:text-Natural7">
-            <p className="h-[1rem] w-[1rem] rounded-[.5rem] bg-Primary p-[.75rem]">
+            <p className="h-[2.5rem] w-[2.5rem] rounded-[.5rem] bg-Primary p-[.75rem]">
               1
             </p>
-            <p className="p-[.75rem]">2</p>
-            <p className="p-[.75rem]">3</p>
+            <p className="w-[2.5rem h-[2.5rem] p-[.75rem]">2</p>
+            <p className=" h-[2.5rem] w-[2.5rem] p-[.75rem]">3</p>
           </div>
           {/* Next */}
           <div className="flex items-center justify-center gap-[.5rem] rounded-[.5rem] border border-Natural4 bg-white px-[.875rem] py-[.5rem] dark:border-DarkBG3 dark:bg-DarkBG2">

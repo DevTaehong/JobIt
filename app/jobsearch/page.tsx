@@ -28,7 +28,7 @@ const JobSearch = () => {
           {/*  Type of Employment */}
           <section className="hidden h-[64.9rem] w-1/4 bg-green-500 xl:flex"></section>
           {/* Job Cards */}
-          <div className="flex w-3/4 flex-col gap-[2.25rem]">
+          <div className="flex w-full flex-col gap-[2.25rem] xl:w-3/4">
             <div className="flex justify-between">
               <div className="flex gap-[.625rem]">
                 <p className="text-base font-medium	leading-6 text-Natural6 xl:text-[1.125rem] xl:font-semibold">
