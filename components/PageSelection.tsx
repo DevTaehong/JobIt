@@ -1,5 +1,13 @@
+"use client";
+
+import Link from "next/link";
+
 import Image from "next/image";
 type Props = {};
+
+const handleClick = (e) => {
+  console.log(e.target.value);
+};
 
 const PageSelection = (props: Props) => {
   return (
@@ -48,7 +56,7 @@ const PageSelection = (props: Props) => {
           </div>
         </div>
         {/* Desktop */}
-        <div className="hidden w-full items-center justify-between border-t border-t-Natural2 pt-[1rem] dark:border-t-DarkBG3 xl:flex">
+        <div className="hidden w-full items-center justify-between border-t-Natural2 pt-[1rem] dark:border-t-DarkBG3 xl:flex">
           {/* Previous */}
           <div className="flex items-center justify-center gap-[.5rem] rounded-[.5rem] border border-Natural4 bg-white px-[.875rem] py-[.5rem] dark:border-DarkBG3 dark:bg-DarkBG2">
             <Image
@@ -71,11 +79,15 @@ const PageSelection = (props: Props) => {
           </div>
           {/* Page Numbers */}
           <div className="flex items-center gap-[.13rem] text-[.875rem] font-semibold leading-6 dark:text-Natural7">
-            <p className="h-[2.5rem] w-[2.5rem] rounded-[.5rem] bg-Primary p-[.75rem]">
+            <p className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[.5rem] bg-Primary p-[.75rem]">
               1
             </p>
-            <p className="w-[2.5rem h-[2.5rem] p-[.75rem]">2</p>
-            <p className=" h-[2.5rem] w-[2.5rem] p-[.75rem]">3</p>
+            <p className="flex h-[2.5rem] w-[2.5rem] items-center justify-center p-[.75rem]">
+              2
+            </p>
+            <p className="flex h-[2.5rem] w-[2.5rem] items-center justify-center p-[.75rem]">
+              3
+            </p>
           </div>
           {/* Next */}
           <div className="flex items-center justify-center gap-[.5rem] rounded-[.5rem] border border-Natural4 bg-white px-[.875rem] py-[.5rem] dark:border-DarkBG3 dark:bg-DarkBG2">
