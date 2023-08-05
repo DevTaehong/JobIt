@@ -88,7 +88,7 @@ const CompanyDetailCard = ({
   };
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-1 flex-col">
       {/* Back button */}
       <Button
         onClick={() => router.back()}
@@ -113,8 +113,8 @@ const CompanyDetailCard = ({
         >
           {/* // TODO fallback for company logo */}
           <img
-            className="absolute left-3 top-[6.84rem] h-[2.875rem] w-[2.875rem] rounded-[0.625rem] border-[2.156px]
-              border-Natural3 dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8rem] lg:h-16 lg:w-16 lg:border-[3px]"
+            className="absolute left-3 top-[6.84rem] h-[2.875rem] w-[2.875rem] rounded-[0.625rem] border-[2.156px] border-Natural3
+              object-contain dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8rem] lg:h-16 lg:w-16 lg:border-[3px]"
             src={logo}
             alt="Company logo"
           />
@@ -217,7 +217,9 @@ const CompanyDetailCard = ({
           <Link
             href={handleSearch()}
             scroll={false}
-            className="absolute inset-y-0 right-[0.62rem] top-2 flex h-[1.75rem] w-[4.5rem] items-center rounded-[0.625rem] rounded-r-lg bg-Primary px-[0.88rem] py-1 font-semibold text-White dark:bg-Primary dark:text-White lg:right-[1.12rem] lg:h-[2.625rem] lg:w-[4.9375rem]"
+            className="absolute inset-y-0 right-[0.62rem] top-2 flex h-[1.75rem] w-[4.5rem] items-center justify-center rounded-[0.625rem] bg-Primary px-[0.88rem] py-1 
+              text-[0.8125rem] font-semibold leading-5 text-White dark:bg-Primary dark:text-White lg:right-[1.12rem] lg:h-[2.625rem] lg:w-[4.9375rem] 
+              lg:px-[0.88rem] lg:py-[0.56rem] lg:text-[0.9375rem] lg:leading-6"
           >
             Search
           </Link>
@@ -254,7 +256,8 @@ const CompanyDetailCard = ({
         {/* See all jobs button */}
         <Collapsible>
           <CollapsibleContent>
-            <div className="mt-2 grid grid-cols-1 gap-2 lg:mt-[1.88rem] lg:grid-cols-2 lg:gap-[1.88rem]">
+            <div className="mt-2 grid grid-cols-1 gap-2 xl:mt-[1.88rem] xl:grid-cols-2 xl:gap-[1.88rem]">
+              {/* NOTE Change demoData */}
               {jobResults.length > 0 &&
                 jobResults
                   .slice(5, 10)

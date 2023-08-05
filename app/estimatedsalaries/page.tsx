@@ -4,10 +4,6 @@ import SalariesInputs from "@/components/SalariesInputs";
 
 const EstimatedSalaries = () => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
-  // TODO - use redux to get the following values:
-  // const location = useAppSelector((state) => state.salariesInputs.location);
-  // const jobTitle = useAppSelector((state) => state.salariesInputs.jobTitle);
-  // const radius = useAppSelector((state) => state.salariesInputs.radius);
 
   type DataItem = {
     location: string;

@@ -18,6 +18,7 @@ import Image from "next/image";
 import { formatSalaryRange } from "@/lib/formatSalaryRage";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import ImageErrorFallback from "@/lib/ImageErrorFallback";
 
 type TypeProps = {
   logo: string;
@@ -50,13 +51,13 @@ const CompanyDetailJobCard = ({
       <CardHeader className="flex flex-row justify-between px-5 pb-0 pt-5">
         <div className="flex flex-row gap-3 lg:gap-5">
           <div
-            className="h-12 w-12 shrink-0 rounded-[0.47rem] border-[0.14rem] border-Natural3 
+            className="flex h-12 w-12 shrink-0 items-center rounded-[0.47rem] border-[0.14rem] border-Natural3 
                     bg-Natural3 p-[0.35rem] dark:border-Natural8 dark:bg-[#1717250f] lg:rounded-[0.625rem] lg:border-[3px]"
           >
-            <img width={36} height={36} src={logo} alt="Company logo" />
+            <ImageErrorFallback src={logo} card="companyDetailJobCard" />
           </div>
           <div className="flex flex-col gap-1 lg:gap-[0.62rem]">
-            <CardTitle className="text-base font-semibold not-italic text-Black dark:text-White lg:text-[1.125rem]">
+            <CardTitle className="line-clamp-1 text-base font-semibold not-italic text-Black dark:text-White lg:text-[1.125rem]">
               {jobTitle}
             </CardTitle>
             {/* Skills */}

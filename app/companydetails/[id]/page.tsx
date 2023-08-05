@@ -40,7 +40,7 @@ const CompanyDetails = async ({
   };
 
   return (
-    <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:mx-20 lg:mb-11 lg:mt-[2.87rem] lg:flex-row lg:gap-10">
+    <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:mx-20 lg:mb-11 lg:mt-[2.87rem] lg:flex-row lg:gap-10 2xl:mx-auto 2xl:max-w-[90rem]">
       <CompanyDetailCard
         logo={companyData?.logo}
         employer={companyData?.employer}
@@ -51,7 +51,7 @@ const CompanyDetails = async ({
         jobId={params.id}
         queryData={queryData}
       />
-      <aside>
+      <aside className="lg:max-w-[25rem]">
         <h2 className="mb-[1.87rem] mt-[2.88rem] text-[1.375rem] font-bold not-italic leading-8 text-Black dark:text-White lg:mb-5 lg:mt-[4.25rem]">
           Similar Companies
         </h2>
