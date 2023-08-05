@@ -1,3 +1,4 @@
+import FilterSidebar from "@/components/FilterSidebar";
 import JobSearchCard from "@/components/JobSearchCard";
 import PageSelection from "@/components/PageSelection";
 import SearchBar from "@/components/SearchBar";
@@ -21,12 +22,14 @@ const JobSearch = () => {
         </section>
         {/* Main */}
         {/* Search Bar */}
-        <section className="mt-[1.87rem] flex h-[20.43rem] w-auto flex-row xl:h-[5rem] ">
+        <section className="mt-[1.87rem] flex h-[20.43rem] w-auto flex-row md:h-[5rem] ">
           <SearchBar />
         </section>
         <section className="mt-[1.87rem] flex w-full gap-[5rem] xl:mt-[3.69rem]">
-          {/*  Type of Employment */}
-          <section className="hidden h-[64.9rem] w-1/4 bg-green-500 xl:flex"></section>
+          {/*  Sidebar */}
+          <section className="hidden h-[64.9rem] w-1/4 xl:flex">
+            <FilterSidebar />
+          </section>
           {/* Job Cards */}
           <div className="flex w-full flex-col gap-[2.25rem] xl:w-3/4">
             <div className="flex justify-between">
@@ -54,7 +57,7 @@ const JobSearch = () => {
                 />
               </div>
             </div>
-            <section className="flex flex-col gap-[1.88rem] xl:h-[50rem] xl:gap-[1.38rem]">
+            <section className="flex flex-col gap-[1.88rem] xl:gap-[1.38rem]">
               <JobSearchCard
                 employerName={""}
                 jobTitle={""}

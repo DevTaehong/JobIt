@@ -1,9 +1,10 @@
 import Image from "next/image";
-import moment from "moment";
+import moment, { months } from "moment";
 import JobCard from "@/components/JobCard";
 import InlineJobCard from "@/components/InlineJobCard";
 import { getLatestJobs, getRecommendedJobs } from "@/lib/jsearch";
 import { extractRequiredSkills } from "@/lib/jobRequiredSkills";
+import JobSearchCard from "@/components/JobSearchCard";
 
 export default async function Home() {
   const currentDate = moment().format("dddd,  D MMM YYYY");
@@ -15,7 +16,7 @@ export default async function Home() {
   const [RecommendedJobs] = await Promise.all([RecommendedJobData]);
 
   return (
-    <main className="mx-6	max-w-screen-2xl md:mx-20">
+    <main className="mx-6	2xl:mx-auto 2xl:max-w-[90rem]">
       {/* Heading */}
       <section className=" mt-[1.73rem] sm:mt-[3.12rem]">
         <h1 className="text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 sm:text-[2rem] sm:leading-10">
@@ -65,6 +66,7 @@ export default async function Home() {
                     ).slice(0, 4)}
                     employmentType={latestJob?.job_employment_type}
                     expirationDate={latestJob?.job_offer_expiration_timestamp}
+                    educationObj={latestJob?.job_required_education}
                   />
                 </div>
               ))}
@@ -148,6 +150,7 @@ export default async function Home() {
           See All Schedule
         </button>
       </section>
+
     </main>
   );
 }

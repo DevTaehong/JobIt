@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 
 export default function ImageErrorFallback({
@@ -6,82 +7,41 @@ export default function ImageErrorFallback({
   card,
 }: {
   src: string;
-  card: string;
+  card?: string;
 }) {
   const [error, setError] = useState(false);
 
+  let width = 48;
+  let height = 48;
+  const defaultSrc = "/images/companyPlaceholderLogo.png";
+  const alt = "Company Placeholder logo";
+  const className = "object-contain";
+
   if (card === "companyDetailJobCard") {
-    if (!src || error)
-      return (
-        <img
-          width={36}
-          height={36}
-          src={src || "/images/companyPlaceholderLogo.png"}
-          alt="Company Placeholder logo"
-          className="object-contain"
-        />
-      );
-
-    if (!error) {
-      return (
-        <img
-          src={src}
-          width={48}
-          height={48}
-          className="object-contain"
-          alt="Company Logo"
-          onError={(e) => {
-            setError(true);
-          }}
-        />
-      );
-    }
-  } else if (card === "similarCompany") {
-    if (!src || error)
-      return (
-        <img
-          src={src || "/images/companyPlaceholderLogo.png"}
-          width={48}
-          height={48}
-          alt="Company placeholder logo"
-          className="object-contain"
-        />
-      );
-    if (!error) {
-      return (
-        <img
-          src={src}
-          width={48}
-          height={48}
-          className="object-contain"
-          alt="Company Logo"
-          onError={(e) => {
-            setError(true);
-          }}
-        />
-      );
-    }
+    width = 36;
+    height = 36;
   }
 
-  if (!src || error)
+  if (!src || error) {
     return (
       <img
-        className="min-h-[30px] min-w-[30px] object-contain sm:max-h-[36px] sm:max-w-[36px]"
-        alt="Company placeholder logo"
-        src="/images/companyPlaceholderLogo.png"
-      />
-    );
-
-  if (!error) {
-    return (
-      <img
-        className="min-h-[30px] min-w-[30px] object-contain sm:max-h-[36px] sm:max-w-[36px]"
-        alt="Company Logo"
-        src={src}
-        onError={(e) => {
-          setError(true);
-        }}
+        src={defaultSrc}
+        width={width}
+        height={height}
+        alt={alt}
+        className={className}
       />
     );
   }
+
+  return (
+    <img
+      src={src}
+      width={width}
+      height={height}
+      alt="Company Logo"
+      className={className}
+      onError={() => setError(true)}
+    />
+  );
 }
