@@ -124,7 +124,7 @@ return (
           </div>
           <div className="flex items-center justify-center rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:text-sm">
           <Image
-              className="mr-2 h-[18px] w-[18px]"
+              className="mr-2 opacity-50 h-[18px] w-[18px]"
               src={edulcon}
               alt="edulcon"
               />
