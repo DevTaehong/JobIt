@@ -26,7 +26,7 @@ type TypeProps = {
   state: string;
   companyLink: string;
   jobId: string;
-  queryData: Promise<Job[] | null>;
+  queryData: Promise<Job | null>;
 };
 
 const randomAvatars = [
@@ -81,20 +81,6 @@ const CompanyDetailCard = ({
   jobId = jobId ?? "-";
   queryData = queryData ?? "-";
 
-  const demoData = [
-    {
-      logo: "/iconography/companyLogo.svg",
-      jobTitle: "Web developer",
-      description:
-        "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve.Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve. React, JavaScript, Node.js",
-      minSalary: 70000,
-      maxSalary: 100000,
-      salaryPeriod: "MONTH",
-      skills: ["React", "Node.js", "JavaScript"],
-      applyLink: "https://www.google.com",
-    },
-  ];
-
   const handleSearch = () => {
     return {
       pathname: `/companydetails/${jobId}`,
@@ -107,8 +93,8 @@ const CompanyDetailCard = ({
       {/* Back button */}
       <Button
         onClick={() => router.back()}
-        className="mb-[1.73rem] w-[4.625rem] gap-[0.375rem] rounded-[0.625rem] bg-Natural2 px-[0.63rem] py-[0.44rem] 
-          text-[0.8125rem] font-medium not-italic leading-[1.125rem] text-Natural6 hover:text-white dark:border-DarkBG3 
+        className="mb-[1.73rem] w-[4.625rem] gap-[0.375rem] rounded-[0.625rem] bg-Natural2 px-[0.63rem] py-[0.44rem]
+          text-[0.8125rem] font-medium not-italic leading-[1.125rem] text-Natural6 hover:text-white dark:border-DarkBG3
           dark:bg-DarkBG3 dark:text-Natural6 lg:mb-9 lg:w-[4.625rem]"
       >
         <Image
@@ -123,7 +109,7 @@ const CompanyDetailCard = ({
       <Card className="border-0 bg-transparent shadow-none">
         {/* Company cover and logo */}
         <div
-          className="relative h-[8.21875rem] w-full rounded-t-[1.25rem] bg-[url('/iconography/job-detail.svg')] bg-cover 
+          className="relative h-[8.21875rem] w-full rounded-t-[1.25rem] bg-[url('/iconography/job-detail.svg')] bg-cover
             bg-left lg:h-[9.87rem]"
         >
           {/* // TODO fallback for company logo */}
@@ -141,7 +127,7 @@ const CompanyDetailCard = ({
               {employer}
             </CardTitle>
             <CardDescription
-              className="mt-2 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic 
+              className="mt-2 flex flex-row items-center gap-[0.38rem] text-sm font-medium not-italic
               text-Natural7 dark:text-Natural6 lg:mt-0 lg:text-[1.125rem] lg:leading-6 lg:text-Natural8"
             >
               {employer}
@@ -190,7 +176,7 @@ const CompanyDetailCard = ({
                   });
                 }}
                 variant="outline"
-                className="flex w-full flex-row gap-[0.38rem] rounded-[0.625rem] border border-solid border-Primary text-Primary 
+                className="flex w-full flex-row gap-[0.38rem] rounded-[0.625rem] border border-solid border-Primary text-Primary
                   hover:text-Primary dark:border-Primary dark:bg-DarkBG1 dark:hover:text-Primary"
               >
                 <Image
@@ -231,8 +217,8 @@ const CompanyDetailCard = ({
           <Link
             href={handleSearch()}
             scroll={false}
-            className="absolute inset-y-0 right-[0.62rem] top-2 flex h-[1.75rem] w-[4.5rem] items-center justify-center rounded-[0.625rem] bg-Primary px-[0.88rem] py-1 
-              text-[0.8125rem] font-semibold leading-5 text-White dark:bg-Primary dark:text-White lg:right-[1.12rem] lg:h-[2.625rem] lg:w-[4.9375rem] 
+            className="absolute inset-y-0 right-[0.62rem] top-2 flex h-[1.75rem] w-[4.5rem] items-center justify-center rounded-[0.625rem] bg-Primary px-[0.88rem] py-1
+              text-[0.8125rem] font-semibold leading-5 text-White dark:bg-Primary dark:text-White lg:right-[1.12rem] lg:h-[2.625rem] lg:w-[4.9375rem]
               lg:px-[0.88rem] lg:py-[0.56rem] lg:text-[0.9375rem] lg:leading-6"
           >
             Search

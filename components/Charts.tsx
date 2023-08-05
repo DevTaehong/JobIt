@@ -3,7 +3,7 @@
 import React from "react";
 
 import Chart from "react-apexcharts";
-
+import { ApexOptions } from "apexcharts";
 type DataItem = {
   location: string;
   job_title: string;
@@ -26,7 +26,7 @@ const Charts = ({ data }: Props) => {
   const maxSalary = data.map((item) => item.max_salary);
   const medianSalary = data.map((item) => item.median_salary);
 
-  const options = {
+  const options: ApexOptions = {
     chart: {
       id: "basic-bar",
 
@@ -37,7 +37,7 @@ const Charts = ({ data }: Props) => {
     xaxis: {
       type: "category",
       categories: publisherName,
-      label: {
+      labels: {
         show: true,
         style: {
           fontFamily: "Manrope, sans-serif",
