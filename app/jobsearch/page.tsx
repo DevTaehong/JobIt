@@ -21,7 +21,7 @@ const JobSearch = () => {
         </section>
         {/* Main */}
         {/* Search Bar */}
-        <section className="mt-[1.87rem] flex h-[20.43rem] w-auto flex-row xl:h-[5rem] ">
+        <section className="mt-[1.87rem] flex h-[20.43rem] w-auto flex-row md:h-[5rem] ">
           <SearchBar />
         </section>
         <section className="mt-[1.87rem] flex w-full gap-[5rem] xl:mt-[3.69rem]">
@@ -54,7 +54,7 @@ const JobSearch = () => {
                 />
               </div>
             </div>
-            <section className="flex flex-col gap-[1.88rem] xl:h-[50rem] xl:gap-[1.38rem]">
+            <section className="flex flex-col gap-[1.88rem] xl:gap-[1.38rem]">
               <JobSearchCard
                 employerName={""}
                 jobTitle={""}
