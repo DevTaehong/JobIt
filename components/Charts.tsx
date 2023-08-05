@@ -52,7 +52,6 @@ const Charts = ({ data }: Props) => {
       forceNiceScale: true,
       labels: {
         formatter: function (value: number) {
-          if (!data[0]) return;
           const formatValue = value + "k " + data[0].salary_currency;
           return formatValue;
         },
@@ -93,7 +92,6 @@ const Charts = ({ data }: Props) => {
           yaxis: {
             labels: {
               formatter: function (value: number) {
-                if (!data[0]) return;
                 const formatValue =
                   value / 1000 + "k " + data[0].salary_currency;
                 return formatValue;
@@ -118,29 +116,20 @@ const Charts = ({ data }: Props) => {
   };
 
   const series = [
-    {
-      name: "Minimum Salary",
-      data: minSalary.filter((item) => item !== undefined),
-    },
-    {
-      name: "Maximum Salary",
-      data: maxSalary.filter((item) => item !== undefined),
-    },
-    {
-      name: "Median Salary",
-      data: medianSalary.filter((item) => item !== undefined),
-    },
+    { name: "Minimun Salary", data: minSalary },
+    { name: "Maximum Salary", data: maxSalary },
+    { name: "Median Salary", data: medianSalary },
   ];
 
   return (
     <div className="flex flex-col">
       <div className="pl-[21px] font-bold leading-[22px] sm:text-[22px] sm:leading-[32px]">
         <h3>
-         {data[0] ? (
+          {data[0] ? (
             <>
               Estimated Salary <span className="font-normal">for</span>{" "}
-              {data[0]?.job_title} <span className="font-normal">in</span>{" "}
-              {data[0]?.location}
+              {data[0].job_title} <span className="font-normal">in</span>{" "}
+              {data[0].location}
             </>
           ) : (
             "No Data available."
