@@ -129,7 +129,6 @@ export async function getCompanies(jobStates: string) {
   return res.json();
 }
 
-<<<<<<< HEAD
 export async function getEstimatedSalaries(
   jobTitle: string,
   location: string,
@@ -147,7 +146,7 @@ export async function getEstimatedSalaries(
   } catch (error) {
     console.error(error);
   }
-=======
+}
 export async function getCompanyId(query: string) {
   const res = await fetch(
     `https://jsearch.p.rapidapi.com/search-filters?query=${query}`,
@@ -164,5 +163,4 @@ export async function getCompanyId(query: string) {
     throw new Error("Failed to fetch data");
   }
   return res.json();
->>>>>>> main
 }
