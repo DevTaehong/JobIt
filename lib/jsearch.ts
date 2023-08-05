@@ -129,6 +129,25 @@ export async function getCompanies(jobStates: string) {
   return res.json();
 }
 
+<<<<<<< HEAD
+export async function getEstimatedSalaries(
+  jobTitle: string,
+  location: string,
+  radius: number,
+) {
+  const url = `https://jsearch.p.rapidapi.com/estimated-salary?job_title=${jobTitle}&location=${location}&radius=${radius}`;
+  try {
+    const res = await fetch(url, { headers: requestHeaders });
+    // Recommendation: handle errors
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
+  } catch (error) {
+    console.error(error);
+  }
+=======
 export async function getCompanyId(query: string) {
   const res = await fetch(
     `https://jsearch.p.rapidapi.com/search-filters?query=${query}`,
@@ -145,4 +164,5 @@ export async function getCompanyId(query: string) {
     throw new Error("Failed to fetch data");
   }
   return res.json();
+>>>>>>> main
 }
