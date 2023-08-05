@@ -1,3 +1,4 @@
+import FilterSidebar from "@/components/FilterSidebar";
 import JobSearchCard from "@/components/JobSearchCard";
 import PageSelection from "@/components/PageSelection";
 import SearchBar from "@/components/SearchBar";
@@ -25,8 +26,10 @@ const JobSearch = () => {
           <SearchBar />
         </section>
         <section className="mt-[1.87rem] flex w-full gap-[5rem] xl:mt-[3.69rem]">
-          {/*  Type of Employment */}
-          <section className="hidden h-[64.9rem] w-1/4 bg-green-500 xl:flex"></section>
+          {/*  Sidebar */}
+          <section className="hidden h-[64.9rem] w-1/4 xl:flex">
+            <FilterSidebar />
+          </section>
           {/* Job Cards */}
           <div className="flex w-full flex-col gap-[2.25rem] xl:w-3/4">
             <div className="flex justify-between">
