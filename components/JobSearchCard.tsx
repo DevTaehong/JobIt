@@ -31,7 +31,7 @@ const JobSearchCard = (props: Props) => {
   const postDate = calculatePostDate(props.postDate);
 
   return (
-    <div className="flex w-auto flex-col gap-5 bg-white p-5 dark:bg-DarkBG2">
+    <div className="flex w-auto flex-col gap-5 rounded-lg bg-white p-5 dark:bg-DarkBG2">
       <div className="flex justify-between">
         <div className="flex rounded">
           <div className="h-[45px] w-[45px] rounded-[10px] bg-Natural2 p-2 dark:bg-DarkBG3 sm:h-[64px] sm:w-[64px]">

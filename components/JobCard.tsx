@@ -6,6 +6,20 @@ import people from "@/public/iconography/outline-people.svg";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import edulcon from "@/public/iconography/eduIcon.svg"
+
+type EducationType = {
+postgraduate_degree: boolean,
+professional_certification: boolean,
+high_school:boolean,
+associates_degree:boolean,
+bachelors_degree:boolean,
+degree_mentioned:boolean,
+degree_preferred:boolean,
+professional_certification_mentioned:boolean,
+}
+
+
 
 type Props = {
   jobId: string;
@@ -17,6 +31,7 @@ type Props = {
   jobSkills: string[] | null;
   employmentType: string;
   expirationDate: number;
+  educationObj: EducationType;
 };
 
 const JobCard = (props: Props) => {
@@ -31,9 +46,25 @@ const JobCard = (props: Props) => {
     return daysLeft;
   }
 
-  const daysLeft = calculateDaysLeft(props?.expirationDate);
 
-  return (
+
+  
+
+const educationRequired = (educationObj:EducationType) => {
+  for(let value of Object.values(educationObj)){
+    if(value) return true;
+  }
+  return false;
+}
+
+
+
+
+  const daysLeft = calculateDaysLeft(props?.expirationDate);
+const educationNeeded = educationRequired(props.educationObj)
+ 
+
+return (
     <div className="">
       <div className="flex flex-col gap-7 rounded-[10px] bg-white p-5 dark:bg-DarkBG2">
         <div className="flex justify-between">
@@ -92,12 +123,13 @@ const JobCard = (props: Props) => {
             <p>{props?.employmentType?.toLowerCase()}</p>
           </div>
           <div className="flex items-center justify-center rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:text-sm">
-            <Image
+          <Image
               className="mr-2 h-[18px] w-[18px]"
-              src={people}
-              alt="peopleIcon"
-            />
-            <p className="line-clamp-1">45 Applied</p>
+              src={edulcon}
+              alt="edulcon"
+              />
+            <p className="line-clamp-1">
+              {educationNeeded?'Required':'Not Required'}</p>
           </div>
           <div className="flex items-center justify-center  rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:text-sm">
             <Image
