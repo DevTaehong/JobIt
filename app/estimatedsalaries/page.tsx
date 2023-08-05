@@ -70,7 +70,7 @@ const EstimatedSalaries = async ({
 
   return (
     <>
-      <div className="mx:mb-[5.75rem] mx-[1.5rem] mb-[4rem] mt-[2.5rem] lg:mx-[5rem] lg:mt-[3.5rem]">
+      <div className="mx:mb-[5.75rem] mx-[1.5rem] mb-[4rem] mt-[2.5rem] lg:mt-[3.5rem] 2xl:mx-auto 2xl:max-w-[90rem]">
         <section>
           <h1 className="ml-[.13rem] text-[1.375rem] font-bold not-italic leading-8 dark:text-Natural4 lg:text-[2rem] lg:leading-10">
             Estimated Salaries
