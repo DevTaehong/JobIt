@@ -1,4 +1,4 @@
-export const formatSalaryRange = (
+export const FormatSalaryRange = (
   minSalary: number,
   maxSalary: number,
   salaryPeriod: string,
