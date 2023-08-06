@@ -23,9 +23,9 @@ const CompanyDetails = async ({
   const [Companies] = await Promise.all([moreCompany]);
 
   const companyIdRequest = await getCompanyId(
-    CompanyDetails.data[0].employer_name,
+    CompanyDetails.data[0]?.employer_name,
   );
-  const companyId = companyIdRequest.data.employers[0].value;
+  const companyId = companyIdRequest.data?.employers[0]?.value;
 
   const { query } = searchParams;
   const queryData: Promise<Job> = getQuery(query ?? "developer", companyId);

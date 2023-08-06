@@ -69,7 +69,6 @@ const CompanyDetailCard = ({
       setJobResults(jobs.data);
     }
     getJobs();
-    console.log(jobResults);
   }, [queryData]);
 
   city = city ?? "New York";
@@ -114,9 +113,10 @@ const CompanyDetailCard = ({
         >
           {/* // TODO fallback for company logo */}
           <img
-            className="absolute left-3 top-[6.84rem] h-[2.875rem] w-[2.875rem] rounded-[0.625rem] border-[2.156px] border-Natural3
+            className="absolute left-3 top-[6.84rem] h-[2.875rem] w-[2.875rem] rounded-[0.625rem] border-[2.156px] border-Natural3 bg-White
               object-contain dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8rem] lg:h-16 lg:w-16 lg:border-[3px]"
             src={logo}
+            alt="Company logo"
           />
         </div>
         {/* Card header */}
@@ -230,7 +230,6 @@ const CompanyDetailCard = ({
         </div>
         {/* Recently Posted Job Card */}
         <div className="grid grid-cols-1 gap-2 xl:grid-cols-2 xl:gap-[1.88rem]">
-          {/* NOTE Change demoData  */}
           {jobResults.length > 0 ? (
             jobResults
               .slice(0, 4)

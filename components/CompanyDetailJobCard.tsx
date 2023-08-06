@@ -15,10 +15,10 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import Image from "next/image";
-import { formatSalaryRange } from "@/lib/formatSalaryRage";
+import { FormatSalaryRange } from "@/components/FormatSalaryRage";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import ImageErrorFallback from "@/lib/ImageErrorFallback";
+import ImageErrorFallback from "@/components/ImageErrorFallback";
 
 type TypeProps = {
   logo: string;
@@ -112,7 +112,7 @@ const CompanyDetailJobCard = ({
       <CardFooter className="flex flex-row justify-between px-5 pb-5">
         <p>
           {minSalary && maxSalary && salaryPeriod ? (
-            formatSalaryRange(minSalary, maxSalary, salaryPeriod)
+            FormatSalaryRange(minSalary, maxSalary, salaryPeriod)
           ) : (
             <span className="ml-2 text-sm font-medium not-italic text-Natural7 dark:text-White">
               -

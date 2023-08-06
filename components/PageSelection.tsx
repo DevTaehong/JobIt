@@ -105,7 +105,9 @@ const PageSelection = (props: Props) => {
                   <Link href={handleClick(i)} key={i} scroll={false}>
                     <p
                       className={`flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[.5rem] p-[.75rem] ${
-                        Number(pageNumber ?? 1) === i ? "bg-Primary" : ""
+                        Number(pageNumber ?? 1) === i
+                          ? "bg-Primary text-White"
+                          : ""
                       }`}
                     >
                       {i}

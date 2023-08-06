@@ -89,7 +89,6 @@ export async function getCompanyDetails(id: string) {
 }
 
 export async function getQuery(query: string, companyId: string) {
-  console.log(query);
   const res = await fetch(
     `https://jsearch.p.rapidapi.com/search?query=${query}&employer=${companyId}`,
     {
@@ -162,5 +161,145 @@ export async function getCompanyId(query: string) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
+  return res.json();
+}
+
+export async function getInitialJobsOnJobSearchPage(query: string = "") {
+  const page = 1;
+  const numPages = 10;
+
+  let apiUrl = `https://jsearch.p.rapidapi.com/search?query=Developer%20in%20Canada&page=${page}&num_pages=${numPages}`;
+
+  const filters = query.split(",");
+
+  // Check for employment types
+  const employmentTypes = ["FULLTIME", "PARTTIME", "CONTRACTOR", "INTERN"];
+  if (filters.some((type) => employmentTypes.includes(type))) {
+    const filteredTypes = filters.filter((type) =>
+      employmentTypes.includes(type),
+    );
+    apiUrl += `&employment_types=${filteredTypes.join("%2C")}`;
+  }
+
+  // Check for "remote" keyword
+  if (filters.includes("remote")) {
+    apiUrl += "&remote_jobs_only=true";
+  }
+
+  // Check for job requirements
+  const jobRequirements = [
+    "under_3_years_experience",
+    "more_than_3_years_experience",
+    "no_experience",
+    "no_degree",
+  ];
+  if (filters.some((requirements) => jobRequirements.includes(requirements))) {
+    const filteredRequirements = filters.filter((requirements) =>
+      jobRequirements.includes(requirements),
+    );
+    apiUrl += `&job_requirements=${filteredRequirements.join("%2C")}`;
+  }
+
+  // Check for date posted
+  const datePostedOptions = ["all", "today", "3days", "week", "month"];
+  if (filters.some((dateOptions) => datePostedOptions.includes(dateOptions))) {
+    if (filters.includes("all")) {
+      apiUrl += `&date_posted=all`;
+    } else if (filters.includes("month")) {
+      apiUrl += `&date_posted=month`;
+    } else if (filters.includes("week")) {
+      apiUrl += `&date_posted=week`;
+    } else if (filters.includes("3days")) {
+      apiUrl += `&date_posted=3days`;
+    } else if (filters.includes("today")) {
+      apiUrl += `&date_posted=today`;
+    }
+  }
+
+  console.log(
+    "What url are we getting for getInitialJobsOnJobSearchPage",
+    apiUrl,
+  );
+
+  const res = await fetch(apiUrl, { headers: requestHeaders });
+
+  if (!res.ok) {
+    throw new Error("Failed to search for filtered jobs or initial jobs");
+  }
+
+  return res.json();
+}
+
+export async function findJobsOnJobSearchPage(
+  query: string = "",
+  searchQuery: string,
+  employmentType: string = "",
+) {
+  const page = 1;
+  const numPages = 10;
+  const encodedString = encodeURIComponent(searchQuery);
+
+  console.log(
+    "Are we getting employment type from search bar?",
+    employmentType,
+  );
+
+  let apiUrl = query
+    ? `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${page}&num_pages=${numPages}`
+    : `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${page}&num_pages=${numPages}&employment_types=${employmentType}`;
+
+  const filters = query.split(",");
+
+  // Check for employment types
+  const employmentTypes = ["FULLTIME", "PARTTIME", "CONTRACTOR", "INTERN"];
+  if (filters.some((type) => employmentTypes.includes(type))) {
+    const filteredTypes = filters.filter((type) =>
+      employmentTypes.includes(type),
+    );
+    apiUrl += `&employment_types=${filteredTypes.join("%2C")}`;
+  }
+
+  // Check for "remote" keyword
+  if (filters.includes("remote")) {
+    apiUrl += "&remote_jobs_only=true";
+  }
+
+  // Check for job requirements
+  const jobRequirements = [
+    "under_3_years_experience",
+    "more_than_3_years_experience",
+    "no_experience",
+    "no_degree",
+  ];
+  if (filters.some((requirements) => jobRequirements.includes(requirements))) {
+    const filteredRequirements = filters.filter((requirements) =>
+      jobRequirements.includes(requirements),
+    );
+    apiUrl += `&job_requirements=${filteredRequirements.join("%2C")}`;
+  }
+
+  // Check for date posted
+  const datePostedOptions = ["all", "today", "3days", "week", "month"];
+  if (filters.some((dateOptions) => datePostedOptions.includes(dateOptions))) {
+    if (filters.includes("all")) {
+      apiUrl += `&date_posted=all`;
+    } else if (filters.includes("month")) {
+      apiUrl += `&date_posted=month`;
+    } else if (filters.includes("week")) {
+      apiUrl += `&date_posted=week`;
+    } else if (filters.includes("3days")) {
+      apiUrl += `&date_posted=3days`;
+    } else if (filters.includes("today")) {
+      apiUrl += `&date_posted=today`;
+    }
+  }
+
+  console.log("What url are we getting for findJobsOnJobSearchPage", apiUrl);
+  const res = await fetch(apiUrl, { headers: requestHeaders });
+
+  if (!res.ok) {
+    throw new Error("Failed to find jobs");
+  }
+
   return res.json();
 }

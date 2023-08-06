@@ -9,9 +9,13 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
+import { useAppSelector } from "@/redux/hooks";
+import { useRouter } from "next/navigation";
 const inflect = require("i")();
 
 const FilterSidebar = () => {
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
   const filters = [
     "Employment Type",
     "Job Requirements",
@@ -97,6 +101,9 @@ const FilterSidebar = () => {
           checkboxes={getCheckboxesForFilter(filter)}
           setOpen={(prev) => handleOpenChange(i, prev)}
           isOpen={filterStates[i].isOpen}
+          // Pass the selectedFilters and the setter function to the Filters component
+          selectedFilters={selectedFilters}
+          setSelectedFilters={setSelectedFilters}
         />
       ))}
     </div>
@@ -110,9 +117,54 @@ type FiltersProps = {
   setOpen: (value: boolean) => void;
   isOpen: boolean;
   heading: string;
+  setSelectedFilters: (value: string[]) => void;
+  selectedFilters: string[];
 };
 
-function Filters({ checkboxes, setOpen, isOpen, heading }: FiltersProps) {
+function Filters({
+  checkboxes,
+  setOpen,
+  isOpen,
+  heading,
+  selectedFilters,
+  setSelectedFilters,
+}: FiltersProps) {
+  const router = useRouter();
+  const searchQuery = useAppSelector((state) => state.searchJobs.searchQuery);
+  // const employmentType = useAppSelector(
+  //   (state) => state.searchJobs.employmentType,
+  // );
+
+  // Function to handle checkbox click event
+  const handleCheckboxClick = (checkboxes: string) => {
+    if (selectedFilters.includes(checkboxes)) {
+      // If the employmentType is already selected, remove it from the selected list
+      setSelectedFilters(selectedFilters.filter((type) => type !== checkboxes));
+    } else {
+      // If the employmentType is not selected, add it to the selected list
+      setSelectedFilters([...selectedFilters, checkboxes]);
+    }
+  };
+
+  // Build the updated URL string with the correct query parameters
+  let queryString = "";
+
+  if (selectedFilters.length > 0) {
+    queryString = selectedFilters
+      .map((selectedFilter) => `${encodeURIComponent(selectedFilter)}`)
+      .join("%2C");
+  }
+
+  // Use `asPath` to preserve the current URL path while updating the query parameters
+  const updatedPath = `/jobsearch?query=${queryString}`;
+
+  // NOTE When users click the find jobs button
+  const userFindJobs = searchQuery
+    ? updatedPath + `&searchQuery=${searchQuery}`
+    : updatedPath;
+
+  router.push(userFindJobs);
+
   return (
     <Collapsible
       open={isOpen}
@@ -148,7 +200,12 @@ function Filters({ checkboxes, setOpen, isOpen, heading }: FiltersProps) {
           <CollapsibleContent key={checkbox[0]}>
             <div className="flex justify-between">
               <div className="flex gap-[0.88rem]">
-                <Checkbox id={checkbox[0]} />
+                <Checkbox
+                  id={checkbox[0]}
+                  onClick={() => handleCheckboxClick(checkbox[0])} // Call the handleCheckboxClick function when checkbox is clicked
+                  // Set the checkbox checked status based on selected filters
+                  checked={selectedFilters.includes(checkbox[0])}
+                />
                 <label
                   htmlFor={checkbox[0]}
                   className="text-sm font-medium not-italic text-Natural8 hover:text-Primary peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-Natural5 dark:hover:text-Primary"
@@ -156,7 +213,7 @@ function Filters({ checkboxes, setOpen, isOpen, heading }: FiltersProps) {
                   {checkbox[1]}
                 </label>
               </div>
-              <Button
+              {/* <Button
                 variant="outline"
                 size="icon"
                 className="pointer-events-none flex h-[1.5rem] w-[2.19rem] content-center items-center rounded-[0.3125rem] border-0 bg-Natural2 px-[0.375rem] py-[0.125rem] hover:bg-transparent dark:bg-DarkBG3"
@@ -164,7 +221,7 @@ function Filters({ checkboxes, setOpen, isOpen, heading }: FiltersProps) {
                 <span className="text-sm font-medium text-Natural8 dark:text-Natural2">
                   100
                 </span>
-              </Button>
+              </Button> */}
             </div>
           </CollapsibleContent>
         ))}

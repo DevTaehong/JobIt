@@ -1,4 +1,4 @@
-import ImageErrorFallback from "@/lib/ImageErrorFallback";
+import ImageErrorFallback from "@/components/ImageErrorFallback";
 
 type Props = {
   employerName: string;
