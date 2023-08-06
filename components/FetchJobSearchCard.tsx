@@ -38,7 +38,7 @@ const FetchJobSearchCard = ({ jobPromise }: { jobPromise: Promise<Job> }) => {
       <div className="mt-6 flex flex-col gap-8">
         {[...Array(10 ?? 1)].map((_, i) => (
           <>
-            <Skeleton key={i} className="h-[17.75rem] w-[59.375rem]" />
+            <Skeleton key={i} className="h-[17.75rem] w-full" />
           </>
         ))}
       </div>
