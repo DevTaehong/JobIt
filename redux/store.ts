@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import themeSlice from "./feature/theme/themeSlice";
 import salariesInputsReducer from "./feature/salariesInputs/salariesInputsSlice";
+import searchJobsReducer from "@/redux/feature/searchJobs/searchJobs";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 import {
   persistReducer,
@@ -47,6 +48,7 @@ const persistConfig = {
 const reducers = combineReducers({
   theme: themeSlice,
   salariesInputs: salariesInputsReducer,
+  searchJobs: searchJobsReducer,
   // NOTE Add more reducers here if needed
 });
 

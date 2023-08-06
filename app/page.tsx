@@ -1,10 +1,9 @@
 import Image from "next/image";
-import moment, { months } from "moment";
+import moment from "moment";
 import JobCard from "@/components/JobCard";
 import InlineJobCard from "@/components/InlineJobCard";
 import { getLatestJobs, getRecommendedJobs } from "@/lib/jsearch";
 import { extractRequiredSkills } from "@/lib/jobRequiredSkills";
-import JobSearchCard from "@/components/JobSearchCard";
 
 export default async function Home() {
   const currentDate = moment().format("dddd,  D MMM YYYY");
@@ -150,7 +149,6 @@ export default async function Home() {
           See All Schedule
         </button>
       </section>
-
     </main>
   );
 }

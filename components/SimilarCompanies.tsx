@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import plus from "@/public/iconography/Fbuttonplus.svg";
 import Link from "next/link";
-import ImageErrorFallback from "@/lib/ImageErrorFallback";
+import ImageErrorFallback from "@/components/ImageErrorFallback";
 // All notations/comments below are intended for informative purposes for testing
 
 // Job title sec means secondary title

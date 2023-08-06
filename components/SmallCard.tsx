@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import bookmark from "@/public/iconography/archive.svg";
@@ -61,7 +62,10 @@ const SmallCard = (props: Props) => {
           <button className="flex items-center justify-center gap-[0.4375rem] rounded-md border-[0.06rem] border-[#92929D20] p-2">
             <Image src={bookmark} width={18} height={18} alt="bookmark" />
           </button>
-          <button className="flex items-center justify-center gap-[0.625rem] rounded bg-[#0BAB7C10] px-[0.875rem] py-[0.5rem]">
+          <button
+            onClick={() => alert("Testing")}
+            className="flex items-center justify-center gap-[0.625rem] rounded bg-[#0BAB7C10] px-[0.875rem] py-[0.5rem]"
+          >
             <div className="text-center font-manrope text-[0.875rem] font-medium not-italic leading-5 text-Primary">
               View
             </div>
