@@ -13,26 +13,30 @@ interface SearchParams {
   query?: string;
   searchQuery?: string;
   employmentType?: string;
+  pageNumber?: number;
 }
 
 const JobSearch = ({ searchParams }: { searchParams: SearchParams }) => {
   const currentDate = moment().format("dddd,  D MMM YYYY");
-  const { query, searchQuery, employmentType } = searchParams;
+  const { query, searchQuery, employmentType, pageNumber } = searchParams;
 
   console.log("Am I getting searchQuery?", searchQuery);
   console.log("Am I getting query?", query);
   console.log("Am I getting employmentType?", employmentType);
+  console.log("Am I getting page number?", pageNumber);
 
   let jobData: Promise<Job> | null = null;
 
   if (searchQuery === undefined) {
     jobData = getInitialJobsOnJobSearchPage(query);
   } else {
-    jobData = findJobsOnJobSearchPage(query, searchQuery, employmentType);
+    jobData = findJobsOnJobSearchPage(
+      query,
+      searchQuery,
+      employmentType,
+      pageNumber,
+    );
   }
-
-  // const initialJobData: Promise<Job> = getInitialJobsOnJobSearchPage(query)
-  // const findJobData: Promise<Job> = findJobsOnJobSearchPage(query);
 
   return (
     <div className="mx-[1.5rem] mb-[4.06rem] mt-[2.5rem] flex-col xl:mb-[3.62rem] xl:mt-[3.12rem]  2xl:mx-auto 2xl:max-w-[90rem]">

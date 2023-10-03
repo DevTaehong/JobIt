@@ -234,8 +234,8 @@ export async function findJobsOnJobSearchPage(
   query: string = "",
   searchQuery: string,
   employmentType: string = "",
+  pageNumber: number = 1,
 ) {
-  const page = 1;
   const numPages = 10;
   const encodedString = encodeURIComponent(searchQuery);
 
@@ -245,8 +245,8 @@ export async function findJobsOnJobSearchPage(
   );
 
   let apiUrl = query
-    ? `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${page}&num_pages=${numPages}`
-    : `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${page}&num_pages=${numPages}&employment_types=${employmentType}`;
+    ? `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${pageNumber}&num_pages=${numPages}`
+    : `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${pageNumber}&num_pages=${numPages}&employment_types=${employmentType}`;
 
   const filters = query.split(",");
 

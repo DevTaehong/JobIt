@@ -17,7 +17,11 @@ export default function ImageErrorFallback({
   const alt = "Company Placeholder logo";
   const className = "object-contain";
 
-  if (card === "companyDetailJobCard" || card === "jobSearchCard") {
+  if (
+    card === "companyDetailJobCard" ||
+    card === "jobSearchCard" ||
+    card === "inlineJobCard"
+  ) {
     width = 36;
     height = 36;
   }

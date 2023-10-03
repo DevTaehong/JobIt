@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { calculatePostDate } from "@/lib/utils";
@@ -9,7 +10,7 @@ type Props = {
   jobEmploymentType?: string;
   jobTitle?: string;
   jobApplyLink?: string;
-  jobDescription?: string;
+  jobDescription?: string | null | undefined;
   jobCity?: string;
   jobState?: string;
   estimatedSalaries?: number;
@@ -59,8 +60,10 @@ const JobDetailCard = ({
             {/* Company Logo */}
             <div className="absolute bottom-[-14px] left-[10px] h-[2.88rem] w-[2.88rem] shrink-0 lg:bottom-[-41px] lg:left-[20px] lg:h-[4rem] lg:w-[4rem]">
               <img
+                width={64}
+                height={64}
                 className="rounded-lg object-contain outline outline-2 outline-white"
-                src={"/iconography/CompanyLogo.svg"}
+                src={employerLogo as string}
                 alt="company logo"
               />
             </div>
@@ -218,7 +221,7 @@ const JobDetailCard = ({
                 About The Job
               </h2>
               <p className="pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
-                {jobDescription}
+                {formatLongString(jobDescription)}
               </p>
             </section>
             {/* Responsibilities */}
@@ -328,3 +331,27 @@ const JobDetailCard = ({
 };
 
 export default JobDetailCard;
+
+const formatLongString = (longString: string | null | undefined) => {
+  if (longString === null) return null;
+  if (longString === undefined) return null;
+
+  const paragraphs = longString.split("\n\n");
+  const bulletPointsPattern = /•\s+/g;
+
+  return paragraphs.map((paragraph, index) => {
+    // Check if the paragraph contains bullet points (starts with "* ")
+    if (paragraph.trim().match(bulletPointsPattern)) {
+      const bulletPoints = paragraph.split("\n");
+      return (
+        <ul key={index}>
+          {bulletPoints.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
+        </ul>
+      );
+    }
+
+    return <p key={index}>{paragraph}</p>;
+  });
+};

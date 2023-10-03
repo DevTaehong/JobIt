@@ -71,15 +71,6 @@ const CompanyDetailCard = ({
     getJobs();
   }, [queryData]);
 
-  city = city ?? "New York";
-  state = state ?? "New York";
-  logo = logo ?? "/iconography/CompanyLogo.svg";
-  employer = employer ?? "Employer";
-  companyType = companyType ?? "Contractor";
-  companyLink = companyLink ?? "www.linkedin.com";
-  jobId = jobId ?? "-";
-  queryData = queryData ?? "-";
-
   const handleSearch = () => {
     return {
       pathname: `/companydetails/${jobId}`,
