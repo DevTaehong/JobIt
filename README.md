@@ -1,20 +1,18 @@
 # JobIt
 
-[![Latest release](https://img.shields.io/github/v/release/aregtech/areg-sdk?label=Latest%20release&style=social)](https://jsmastery.pro)
-[![GitHub commits](https://img.shields.io/github/commits-since/aregtech/areg-sdk/v1.5.0.svg?style=social)](https://jsmastery.pro)
-[![Stars](https://img.shields.io/github/stars/aregtech/areg-sdk?style=social)](https://jsmastery.pro)
-[![Fork](https://img.shields.io/github/forks/aregtech/areg-sdk?style=social)](https://jsmastery.pro)
+[![Latest release](https://img.shields.io/github/v/release/aregtech/areg-sdk?label=Latest%20release&style=social)](https://github.com/DevTaehong/JobIt)
+[![GitHub commits](https://img.shields.io/github/commits-since/aregtech/areg-sdk/v1.5.0.svg?style=social)](https://github.com/DevTaehong/JobIt)
+[![Stars](https://img.shields.io/github/stars/aregtech/areg-sdk?style=social)](https://github.com/DevTaehong/JobIt)
+[![Fork](https://img.shields.io/github/forks/aregtech/areg-sdk?style=social)](https://github.com/DevTaehong/JobIt)
 
 ![demo](https://i.ibb.co/92kyj7N/Thumb.png)
 
-![contributions](https://img.shields.io/badge/all_contributors-619-orange.svg)
-![release](https://img.shields.io/github/release/charmbracelet/vhs.svg)
 ![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
-[![website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](website)
+[![website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://jobit-one.vercel.app/)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## 🌐 Demo
-Here is a working live demo:  https://cohort3-coding-crew-job-it.vercel.app/
+Here is a working live demo: https://jobit-one.vercel.app/
 
 ## 📝 Description
 Welcome to my project! Here, I'll provide you with a brief overview of what inspired me to create it, why it solves a problem, and what I've learned throughout its development.
