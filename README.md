@@ -1,15 +1,9 @@
 # JobIt
-
-[![Latest release](https://img.shields.io/github/v/release/aregtech/areg-sdk?label=Latest%20release&style=social)](https://github.com/DevTaehong/JobIt)
-[![GitHub commits](https://img.shields.io/github/commits-since/aregtech/areg-sdk/v1.5.0.svg?style=social)](https://github.com/DevTaehong/JobIt)
-[![Stars](https://img.shields.io/github/stars/aregtech/areg-sdk?style=social)](https://github.com/DevTaehong/JobIt)
-[![Fork](https://img.shields.io/github/forks/aregtech/areg-sdk?style=social)](https://github.com/DevTaehong/JobIt)
-
-![demo](https://i.ibb.co/92kyj7N/Thumb.png)
-
 ![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
 [![website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://jobit-one.vercel.app/)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+![demo](https://i.ibb.co/92kyj7N/Thumb.png)
 
 ## 🌐 Demo
 Here is a working live demo: https://jobit-one.vercel.app/
