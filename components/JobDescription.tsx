@@ -9,9 +9,6 @@ interface JobHighlightsType {
 const JobDescription = ({ job }: { job: JobResult }) => {
   const { Responsibilities: responsibilities, Qualifications: qualifications } =
     job?.job_highlights as JobHighlightsType;
-  console.log(job.job_description);
-  console.log(responsibilities);
-  console.log(qualifications);
 
   return (
     <section className="mt-5 flex w-full flex-col gap-4 dark:text-white">

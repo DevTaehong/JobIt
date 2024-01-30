@@ -17,7 +17,7 @@ export const FormatSalaryRange = (
     }
     const formattedMin = Math.round(minSalary / 1000) + "k";
     const formattedMax = Math.round(maxSalary / 1000) + "k";
-    console.log(formattedMax, formattedMin);
+
     return (
       <div className="flex flex-row items-end justify-end">
         <span className="line-clamp-1 flex-none truncate text-[0.8125rem] font-semibold leading-5 text-Black dark:text-White xl:text-sm xl:font-medium">

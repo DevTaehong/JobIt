@@ -105,7 +105,7 @@ export async function getJobDetails(id: string) {
 
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -127,7 +127,7 @@ export async function getSimilarJobs(
 
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -268,11 +268,6 @@ export async function getInitialJobsOnJobSearchPage(
     }
   }
 
-  console.log(
-    "What url are we getting for getInitialJobsOnJobSearchPage",
-    apiUrl,
-  );
-
   const res = await fetch(apiUrl, { headers: requestHeaders });
 
   if (!res.ok) {
@@ -290,11 +285,6 @@ export async function findJobsOnJobSearchPage(
 ) {
   const numPages = 1;
   const encodedString = encodeURIComponent(searchQuery);
-
-  console.log(
-    "Are we getting employment type from search bar?",
-    employmentType,
-  );
 
   let apiUrl = query
     ? `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${pageNumber}&num_pages=${numPages}`
@@ -345,8 +335,6 @@ export async function findJobsOnJobSearchPage(
       apiUrl += `&date_posted=today`;
     }
   }
-
-  console.log("What url are we getting for findJobsOnJobSearchPage", apiUrl);
   const res = await fetch(apiUrl, { headers: requestHeaders });
 
   if (!res.ok) {
@@ -387,6 +375,6 @@ export async function getAboutTheCompany(companyName: string | null) {
     const { companies } = await response.json();
     return companies[0];
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }

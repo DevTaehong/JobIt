@@ -40,7 +40,7 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
     };
 
     const errorCallback = (error: any) => {
-      console.log(error);
+      console.error(error);
     };
 
     const geolocationOptions = {
@@ -58,7 +58,7 @@ export function LocationProvider({ children }: { children: React.ReactNode }) {
       );
     } else {
       // Use a third-party geolocation service
-      console.log("Browser does not support the Geolocation API");
+      console.error("Browser does not support the Geolocation API");
     }
   };
 

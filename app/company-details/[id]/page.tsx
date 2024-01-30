@@ -21,8 +21,6 @@ const CompanyDetails = async ({
   const CompanyData: Promise<Job> = getCompanyDetails(params.id);
   const [CompanyDetails] = await Promise.all([CompanyData]);
 
-  console.log(CompanyDetails);
-
   const moreCompany: Promise<Job> = getCompanies(
     CompanyDetails.data[0]?.job_state,
     locationCookie,
