@@ -13,23 +13,22 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex flex-col justify-center h-screen">
-      <div className="outline content-center rounded bg-Natural5 my-32 mx-auto w-[500px] p-2">
-        <div className="text-center">
-          <h1 className="text-black content-center text-xl bg-Natural5 p-2">
-            {" "}
-            Something Went Wrong{" "}
-          </h1>
-          <p>Please click below to refresh the page.</p>
-          <button
-            className="text-white rounded bg-Primary p-2"
-            onClick={() => reset()}
-          >
-            {" "}
-            Reload Page
-          </button>
-        </div>
+    <main className="flex h-screen w-full flex-col items-center justify-center bg-White">
+      <h1 className="text-7xl font-extrabold tracking-widest text-Black">
+        Something went wrong
+      </h1>
+      <div className="absolute rotate-12 rounded bg-Primary px-2 text-xl">
+        {`Error: ${error.message}`}
       </div>
-    </div>
+      <button onClick={reset} className="mt-5">
+        <a className="group relative inline-block text-sm font-medium text-Primary focus:outline-none focus:ring active:text-orange-500">
+          <span className="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-Primary transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+
+          <span className="relative block border border-current bg-[#1A2238] px-8 py-3">
+            Go Home
+          </span>
+        </a>
+      </button>
+    </main>
   );
 }

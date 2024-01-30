@@ -25,7 +25,7 @@ function NavBarLink({
   return (
     <Link
       href={href}
-      className={`${selectedClass} flex px-0 text-base not-italic text-Natural6 hover:text-Primary md:py-[1.4375rem]`}
+      className={`${selectedClass} flex px-0 text-base not-italic text-Natural6 transition-colors hover:text-Primary md:py-[1.4375rem]`}
     >
       {children}
     </Link>

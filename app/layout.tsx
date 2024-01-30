@@ -1,10 +1,11 @@
-import React from "react";
-import "./globals.css";
 import type { Metadata } from "next";
+import { Manrope } from "next/font/google"; // eslint-disable-line
+
+import "./globals.css";
 import ReduxProvider from "../redux/ReduxProvider";
 import { Toaster } from "@/components/ui/toaster";
 import NavBar from "@/components/NavBar";
-import { Manrope } from "next/font/google"; // eslint-disable-line
+import { LocationProvider } from "@/context/LocationProvider";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -23,13 +24,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={manrope.variable}>
-      <body>
-        <ReduxProvider>
-          <NavBar />
-          {children}
-          <Toaster />
-        </ReduxProvider>
-      </body>
+      <LocationProvider>
+        <body>
+          <ReduxProvider>
+            <NavBar />
+            {children}
+            <Toaster />
+          </ReduxProvider>
+        </body>
+      </LocationProvider>
     </html>
   );
 }

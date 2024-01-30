@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 type Job = {
   data: [
     {
@@ -62,5 +62,36 @@ type Job = {
     },
   ];
 };
-// eslint-disable-next-line no-unused-vars
+
 type JobResult = Job["data"][0];
+
+type JobSalaryEntryType = {
+  location?: string;
+  job_title?: string;
+  publisher_name?: string;
+  publisher_link?: string;
+  min_salary?: number;
+  max_salary?: number;
+  median_salary?: number;
+  salary_period?: "YEAR";
+  salary_currency?: "CAD";
+};
+interface JobRequiredExperienceType {
+  no_experience_required?: boolean;
+  required_experience_in_months: number | null;
+  experience_mentioned?: boolean;
+  experience_preferred?: boolean;
+}
+
+interface SearchParams {
+  query?: string;
+  searchQuery?: string;
+  employmentType?: string;
+  pageNumber?: number;
+  recommended?: boolean;
+}
+
+interface CommonFilterDataShapeType {
+  name: string;
+  value: string;
+}

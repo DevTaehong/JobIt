@@ -1,106 +1,120 @@
-import { Button } from "./ui/button";
-import Image from "next/image";
-import { calculatePostDate } from "@/lib/utils";
-import bookmark from "@/public/iconography/archive.svg";
-import ImageErrorFallback from "@/components/ImageErrorFallback";
-import { useToast } from "./ui/use-toast";
+import Link from "next/link";
+import moment from "moment";
+import { FiExternalLink } from "react-icons/fi";
 
-type Props = {
-  employerName: string;
-  jobTitle: string;
-  jobDescription: string;
-  salary: number | null;
-  salaryPeriod: string | null;
-  companyLogo: string;
-  jobSkills: string[] | null;
-  jobState: string;
-  jobCity: string;
-  postDate: number;
-};
+import { truncateString, findKeywords, formatNumber } from "@/lib/utils";
+import CompanyLogo from "./CompanyLogo";
 
-const JobSearchCard = (props: Props) => {
-  const { toast } = useToast();
-  const postDate = calculatePostDate(props.postDate);
+const JobSearchCard = async ({ job }: { job: JobResult }) => {
+  const {
+    job_description: jobDescription,
+    job_min_salary: jobMinSalary,
+    job_max_salary: jobMaxSalary,
+    employer_website: employerWebsite,
+    job_id: jobId,
+  } = job;
 
   return (
-    <div className="flex w-auto flex-col gap-5 rounded-[0.625rem] bg-white p-5 dark:bg-DarkBG2">
+    <article className="flex flex-col gap-5 rounded-[10px] bg-White p-5 dark:bg-DarkBG2">
       <div className="flex justify-between">
-        <div className="flex rounded">
-          <div className="flex h-[45px] w-[45px] items-center justify-center rounded-[10px] bg-Natural2 p-2 dark:bg-DarkBG3 sm:h-[64px] sm:w-[64px]">
-            <ImageErrorFallback src={props.companyLogo} card="jobSearchCard" />
-          </div>
-          <div className="flex flex-col pl-5">
-            <h1 className="font-semibold text-gray-900 dark:text-white sm:text-lg">
-              {props.jobTitle}
-            </h1>
-            <div className="flex flex-col sm:flex-row">
-              <p className="text-[13px] font-medium leading-tight text-Natural7 sm:text-sm">
-                {`${props.employerName}  `}
-              </p>
-              <p className="text-[13px] font-medium leading-tight text-Natural7 sm:text-sm">
-                {`${props.jobCity ? "･" + props.jobCity + "," : ""} ${
-                  props.jobState ? props.jobState : ""
-                } ･ ${postDate} days ago`}
-              </p>
+        <Link href={`/job-details/${jobId}`}>
+          <div className="flex gap-5">
+            <div className="flex h-16 w-16 items-center justify-center rounded-[10px] bg-Natural3 dark:bg-DarkBG3">
+              <div className="relative h-12 w-12 overflow-hidden rounded-[10px]">
+                <CompanyLogo
+                  companyLogo={job.employer_logo}
+                  companyName={job.employer_name}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-[6px]">
+              <h3 className="semibold-16 text-Black hover:underline dark:text-White">
+                {job.job_title}
+              </h3>
+              <div className="medium-13 flex flex-wrap gap-[5px] text-Natural6">
+                <Link
+                  href={`/company-details/${job.employer_name}`}
+                  className="line-clamp-1 hover:underline"
+                >
+                  {job.employer_name}
+                </Link>
+                <div className="hidden sm:block">•</div>
+                <span>
+                  {`${
+                    job.job_city ? "･" + job.job_city + "," : job.job_country
+                  } ${job.job_state ?? ""}`}
+                </span>
+                •
+                <span className="capitalize">
+                  {moment(
+                    new Date(job.job_posted_at_timestamp * 1000),
+                  ).fromNow()}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        <Button
-          onClick={() => {
-            toast({
-              description: "Follow Functionality Coming Soon :)",
-            });
-          }}
-          className="flex max-h-[34px] w-fit items-center justify-center rounded-lg px-2 py-1 text-sm text-Natural6 hover:text-White dark:text-Natural6 dark:hover:bg-DarkBG3 dark:hover:text-White sm:bg-Natural3 sm:dark:bg-DarkBG3"
-        >
-          <p className="mr-[6px] line-clamp-1 hidden sm:block">Save job</p>
-          <Image src={bookmark} alt="bookmark" />
-        </Button>
+        </Link>
       </div>
 
-      <div>
-        <p className="line-clamp-6 text-[13px] leading-snug text-Natural7 dark:text-Natural5 sm:line-clamp-2 sm:text-sm">
-          {props.jobDescription}
-        </p>
-      </div>
-      {/* Conditionally render skills */}
-      <div className="flex gap-1">
-        {props.jobSkills &&
-          props.jobSkills.map((skill, index) => (
-            <div className="flex gap-[5px]" key={index}>
-              <p className="justify-start rounded bg-Natural3 px-2.5 py-[5px] text-[13px] text-Natural6 dark:bg-DarkBG3">
-                {skill}
-              </p>
-            </div>
-          ))}
+      <div className="regular-13 sm:regular-14 text-Natural7 dark:text-Natural5">
+        {jobDescription && truncateString(jobDescription, 350)}
       </div>
 
-      {/* Conditionally render salaries */}
-      <div className="flex flex-col justify-between gap-[30px] sm:flex-row sm:items-center">
-        {props.salary ? (
-          <div className="flex justify-start">
-            <h3 className="text-black">
-              <span className="text-base font-semibold dark:text-white sm:text-lg">{`$${props.salary}/`}</span>
-              <span className="text-base text-Natural7 sm:text-lg">
-                {props.salaryPeriod?.toLowerCase()}
+      <div className="flex flex-wrap gap-[10px] ">
+        {jobDescription &&
+          findKeywords(jobDescription).map(
+            (word: string) =>
+              word && (
+                <div
+                  key={word}
+                  className="rounded-[5px] bg-Natural4 px-[10px] py-[5px] text-[13px] font-medium leading-[18px] text-Natural6 dark:bg-DarkBG3"
+                >
+                  {word}
+                </div>
+              ),
+          )}
+      </div>
+
+      <div className="flex flex-col items-start gap-5 gap-y-[1.875rem] md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-wrap gap-2 text-lg font-medium leading-6 text-Natural7 md:gap-[35px]">
+          {jobMinSalary || jobMaxSalary ? (
+            <div>
+              <span className="text-Black dark:text-White">
+                {jobMinSalary && `$${formatNumber(jobMinSalary)}`}
+                {jobMinSalary && jobMaxSalary && "-"}
+                {jobMaxSalary && `$${formatNumber(jobMaxSalary)}`}
               </span>
-            </h3>
-          </div>
-        ) : (
-          <span className="ml-2 text-sm font-medium not-italic text-Natural7 dark:text-White">
-            -
-          </span>
-        )}
-        <div className="flex justify-between gap-5">
-          <Button className="h-[38px] w-[134px] items-center justify-center rounded-[10px] bg-Natural4 px-3.5 py-[9px] text-[13px] text-Natural7 hover:text-White dark:bg-DarkBG3  dark:text-Natural7 dark:hover:bg-DarkBG3 dark:hover:text-White sm:h-12 sm:w-[125px] sm:py-3 sm:text-[15px]">
-            Message
-          </Button>
-          <Button className="h-[38px] w-[141px] items-center justify-center rounded-[10px] bg-Primary px-3 py-[9px] dark:bg-Primary dark:text-white sm:h-12 sm:w-[180px] sm:px-3.5 sm:py-3">
-            Apply Now
-          </Button>
+              /month
+            </div>
+          ) : (
+            <span className="regular-14 text-Natural7 dark:text-Natural5">
+              No salary range provided
+            </span>
+          )}
+        </div>
+        <div className="flex w-full flex-wrap gap-2 md:w-auto">
+          {employerWebsite && (
+            <Link
+              href={employerWebsite}
+              target="_blank"
+              className="hover-effect flex w-full min-w-[125px] items-center justify-center gap-1.5 rounded-[10px] bg-Natural4 px-[14px] py-3 text-sm font-semibold text-Natural7 dark:bg-DarkBG3 md:w-auto"
+            >
+              Company Website
+              <FiExternalLink />
+            </Link>
+          )}
+
+          {jobId && (
+            <Link
+              href={`/job-details/${jobId}`}
+              className="hover-effect flex w-full min-w-[180px] justify-center rounded-[10px] bg-Primary px-[14px] py-3 text-sm font-semibold text-White md:w-auto"
+            >
+              View details
+            </Link>
+          )}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 export default function ImageErrorFallback({
@@ -13,9 +14,9 @@ export default function ImageErrorFallback({
 
   let width = 48;
   let height = 48;
-  const defaultSrc = "/images/companyPlaceholderLogo.png";
+  const defaultSrc = "/iconography/jobit-icon.svg";
   const alt = "Company Placeholder logo";
-  const className = "object-contain";
+  const className = "object-contain shrink-0";
 
   if (
     card === "companyDetailJobCard" ||
@@ -28,18 +29,18 @@ export default function ImageErrorFallback({
 
   if (!src || error) {
     return (
-      <img
+      <Image
         src={defaultSrc}
         width={width}
         height={height}
         alt={alt}
-        className={className}
+        className={className + " grayscale"}
       />
     );
   }
 
   return (
-    <img
+    <Image
       src={src}
       width={width}
       height={height}

@@ -3,6 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -13,7 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import {
   setJobTitle,
@@ -65,7 +66,7 @@ const SalariesInputs = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // ✅ This will be type-safe and validated.
     router.push(
-      `/estimatedsalaries?jobTitle=${values.jobTitle}&location=${values.location}&radius=${values.radius}`,
+      `/estimated-salaries?jobTitle=${values.jobTitle}&location=${values.location}&radius=${values.radius}`,
     );
     dispatch(setLocation(values.location));
     dispatch(setJobTitle(values.jobTitle));
@@ -87,7 +88,7 @@ const SalariesInputs = () => {
                 <Input
                   className="mt-2 rounded-[0.625rem] border-b border-solid border-[#e2e2ea99] bg-Natural2 py-3 pl-5 pr-0 text-[0.8125rem] 
                     font-bold not-italic leading-6 text-Natural8 dark:border-Natural8 dark:bg-DarkBG2 dark:text-Natural7"
-                  placeholder="Developer"
+                  placeholder="Front-end Developer"
                   {...field}
                 />
               </FormControl>
@@ -108,7 +109,7 @@ const SalariesInputs = () => {
                   <Input
                     className="mt-2 w-full rounded-[0.625rem] border-b border-solid border-[#e2e2ea99] bg-Natural2 py-3 pl-5 pr-0 text-[0.8125rem] 
                       font-bold not-italic leading-6 text-Natural8 dark:border-Natural8 dark:bg-DarkBG2 dark:text-Natural7"
-                    placeholder="Austin, TX"
+                    placeholder="Canada"
                     {...field}
                   />
                 </FormControl>

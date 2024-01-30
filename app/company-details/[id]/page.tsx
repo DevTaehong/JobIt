@@ -1,3 +1,5 @@
+import { cookies } from "next/headers";
+
 import CompanyDetailCard from "@/components/CompanyDetailCard";
 import SimilarCompanies from "@/components/SimilarCompanies";
 import {
@@ -14,11 +16,16 @@ const CompanyDetails = async ({
   params: { id: string };
   searchParams: { query: string };
 }) => {
+  const cookieStore = cookies();
+  const locationCookie = cookieStore.get("location")?.value;
   const CompanyData: Promise<Job> = getCompanyDetails(params.id);
   const [CompanyDetails] = await Promise.all([CompanyData]);
 
+  console.log(CompanyDetails);
+
   const moreCompany: Promise<Job> = getCompanies(
     CompanyDetails.data[0]?.job_state,
+    locationCookie,
   );
   const [Companies] = await Promise.all([moreCompany]);
 

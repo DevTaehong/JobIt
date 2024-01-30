@@ -27,7 +27,7 @@ const Navbar = () => {
       <header className="2xl:mx-auto 2xl:max-w-[90rem]">
         <nav
           className="flex h-[3.875rem] w-full shrink-0 items-center justify-between gap-[0.625rem] border-b border-solid
-            border-Natural5 px-6 py-[1.125rem] dark:border-DarkBG3 md:h-[4.375rem] lg:px-20 lg:py-0 2xl:mx-auto 2xl:border-b-0 2xl:border-transparent 2xl:px-0"
+            border-Natural5 px-6 py-[1.125rem] dark:border-DarkBG3 md:h-[4.375rem] lg:py-0 2xl:mx-auto 2xl:border-b-0 2xl:border-transparent 2xl:px-20"
         >
           {/* Mobile navigation */}
           <Sheet
@@ -75,19 +75,19 @@ const Navbar = () => {
                 </li>
                 <li
                   className={`py-[0.75rem] pl-4 pr-[8.375rem] ${
-                    pathName === "/jobsearch" && mobileSelectedClass
+                    pathName === "/job-search" && mobileSelectedClass
                   }`}
                 >
-                  <NavBarLink href="/jobsearch" open={open}>
+                  <NavBarLink href="/job-search" open={open}>
                     Job Search
                   </NavBarLink>
                 </li>
                 <li
                   className={`py-[0.75rem] pl-4 pr-[4.69rem] ${
-                    pathName === "/estimatedsalaries" && mobileSelectedClass
+                    pathName === "/estimated-salaries" && mobileSelectedClass
                   }`}
                 >
-                  <NavBarLink href="/estimatedsalaries" open={open}>
+                  <NavBarLink href="/estimated-salaries" open={open}>
                     Estimated Salaries
                   </NavBarLink>
                 </li>
@@ -121,12 +121,12 @@ const Navbar = () => {
                 </NavBarLink>
               </li>
               <li>
-                <NavBarLink href="/jobsearch" open={open}>
+                <NavBarLink href="/job-search" open={open}>
                   Job Search
                 </NavBarLink>
               </li>
               <li>
-                <NavBarLink href="/estimatedsalaries" open={open}>
+                <NavBarLink href="/estimated-salaries" open={open}>
                   Estimated Salaries
                 </NavBarLink>
               </li>

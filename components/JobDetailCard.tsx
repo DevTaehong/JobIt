@@ -1,357 +1,209 @@
-"use client";
 import Image from "next/image";
-import React from "react";
-import { calculatePostDate } from "@/lib/utils";
-type Props = {
-  employerName?: string;
-  employerLogo?: String;
-  qualifications?: string[];
-  jobRequiredSkills: string[];
-  jobEmploymentType?: string;
-  jobTitle?: string;
-  jobApplyLink?: string;
-  jobDescription?: string | null | undefined;
-  jobCity?: string;
-  jobState?: string;
-  estimatedSalaries?: number;
-  jobRequiredExperience?: number | string;
-  postDate: number;
-  workLevel: string;
-  aboutTheCompany: string;
-  followers: number;
-  jobId: string;
-};
+import Link from "next/link";
+import moment from "moment";
 
-const JobDetailCard = ({
-  employerName,
-  employerLogo,
-  qualifications,
-  jobRequiredSkills,
-  jobEmploymentType,
-  jobTitle,
-  jobApplyLink,
-  jobDescription,
-  jobCity,
-  jobState,
-  estimatedSalaries,
-  jobRequiredExperience,
-  postDate,
-  workLevel,
-  aboutTheCompany,
-  followers,
-  jobId,
-}: Props) => {
-  jobRequiredExperience = jobRequiredExperience
-    ? `Minimum ${jobRequiredExperience} Year(s)`
-    : `N/A`;
+import { formatLocation } from "@/lib/utils";
+import { getAboutTheCompany } from "@/lib/jsearch";
+import CompanyLogo from "./CompanyLogo";
+import JobDescription from "./JobDescription";
+import BackButton from "./BackButton";
 
-  //  calc days left
-  const calcPostDate = calculatePostDate(postDate);
+const JobDetailCard = async ({ job }: { job: JobResult }) => {
+  const currencyType = job.job_salary_currency;
+  const salaryPeriod = job.job_salary_period;
+  const maxSalary = job.job_max_salary;
+  const minSalary = job.job_min_salary;
+  const employerName = job.employer_name;
+
+  const companyInfo = employerName
+    ? await getAboutTheCompany(employerName)
+    : { description: null };
+
+  const formatSalary = (salary: number | null) => {
+    return salary && salary >= 1000
+      ? `${salary / 1000}k`
+      : salary?.toString() || "";
+  };
+
+  const salaryInformation =
+    currencyType && salaryPeriod
+      ? minSalary && maxSalary
+        ? `${currencyType}${formatSalary(minSalary)} - ${formatSalary(
+            maxSalary,
+          )} / ${salaryPeriod}`
+        : `${currencyType}${formatSalary(
+            minSalary || maxSalary,
+          )} / ${salaryPeriod}`
+      : null;
+
+  const { required_experience_in_months: requiredExperienceInMonths } =
+    job?.job_required_experience as JobRequiredExperienceType;
+
+  let requiredExperience: string | null | 0 =
+    requiredExperienceInMonths &&
+    `Minimum ${requiredExperienceInMonths} months`;
+  if (requiredExperienceInMonths && requiredExperienceInMonths >= 12) {
+    requiredExperience = `Minimum ${Math.floor(
+      requiredExperienceInMonths / 12,
+    )} years`;
+  }
 
   return (
-    <>
-      {/* Box */}
-      {/* Change width to full after when done */}
-      <main className="max-w-[53.8rem] font-manrope">
-        {/* Contents */}
-        <div className="pt-5">
-          {/* Top Images */}
-          <section className="relative mx-[1.25rem]">
-            {/* Company Logo */}
-            <div className="absolute bottom-[-14px] left-[10px] h-[2.88rem] w-[2.88rem] shrink-0 lg:bottom-[-41px] lg:left-[20px] lg:h-[4rem] lg:w-[4rem]">
-              <img
-                width={64}
-                height={64}
-                className="rounded-lg object-contain outline outline-2 outline-white"
-                src={employerLogo as string}
-                alt="company logo"
-              />
-            </div>
-            {/* Cover Photo */}
-            <div className="h-[150px] max-w-[820px] lg:h-[192px]">
+    <div className="mt-8 w-full">
+      <BackButton />
+      <div className="mt-4 flex flex-col gap-6 rounded-[0.625rem] bg-white p-6 dark:bg-DarkBG2">
+        <div className="w-full">
+          <section>
+            <div className="relative h-48 w-full">
               <Image
-                className="h-[150px] rounded-t-xl object-none object-left lg:h-[192px]"
+                quality={100}
+                priority
                 src="/iconography/job-detail.svg"
-                alt="cover"
-                width={820}
-                height={192}
+                alt="background"
+                className="rounded-t-xl object-cover object-left"
+                fill
               />
             </div>
-          </section>
-          {/* Heading */}
-          <section className="ml-[1.87rem] mr-[1.38rem] mt-[1.75rem] lg:mt-[4.5rem]">
-            <section className="lg:mt-[1.94rem]">
-              {/* Job Title */}
-              <div className="flex  items-center">
-                <h1 className="flex flex-auto items-center gap-[1.25rem] text-base font-semibold leading-6 dark:text-white	lg:text-2xl	lg:font-bold lg:leading-8">
-                  {jobTitle}
-                  <Image
-                    className="hidden lg:block"
-                    src="/iconography/uiHut-icon-ic_Saved.svg"
-                    alt="uiHunt"
-                    width={20}
-                    height={20}
-                  />
-                </h1>
 
-                <Image
-                  className="mr-[2.6rem] lg:hidden"
-                  src="/iconography/uiHut-icon-ic_Saved.svg"
-                  alt="uiHunt"
-                  width={20}
-                  height={20}
-                />
-                <Image
-                  className="lg:hidden"
-                  src="/iconography/more-vertical.svg"
-                  alt="more-vertical"
-                  width={24}
-                  height={24}
+            <div className="z-10 mx-4 mt-[-18px] flex h-[64px] w-[64px] items-center justify-center rounded-lg border-2 border-white bg-white/70 p-4 backdrop-blur-md dark:border-DarkBG2">
+              <div className="absolute h-12 w-12 overflow-hidden rounded-lg">
+                <CompanyLogo
+                  companyName={job.employer_name}
+                  companyLogo={job.employer_logo}
                 />
               </div>
-              {/* Sub Title */}
-              <section className="flex lg:justify-between">
-                <section className="lg:flex">
-                  <h2 className="text-[.812rem]	font-medium leading-[1.125rem] text-Natural7 lg:flex lg:text-xs	lg:font-semibold	lg:leading-6">
-                    {employerName}
-                  </h2>
-                  <div className="mx-[.31rem] hidden align-middle lg:flex">
-                    <Image
-                      src="/iconography/oval.svg"
-                      alt="oval"
-                      width={3}
-                      height={3}
-                    />
+            </div>
+          </section>
+          <section className="mt-[0.875rem] flex w-full items-center justify-between sm:mt-[1.875rem] lg:mt-[1.935rem]">
+            <div className="flex-1">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 max-sm:justify-between sm:flex-1">
+                  <div className="semibold-16 sm:bold-24 dark:text-white max-sm:flex-1">
+                    {job.job_title}
                   </div>
-                  <div className="mt-[.037rem] flex gap-[.31rem] text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
-                    <h3>
-                      {jobCity}
-                      {jobState}
-                    </h3>
-                    <div className="flex align-middle">
-                      <Image
-                        src="/iconography/oval.svg"
-                        alt="oval"
-                        width={3}
-                        height={3}
-                      />
-                    </div>
-                    <h3 className="text-center	text-[.812rem] font-medium leading-[1.125rem] text-Natural7 lg:text-xs	lg:font-semibold	lg:leading-6">
-                      {`${calcPostDate} days ago`}
-                    </h3>
-                  </div>
-                </section>
-                <section className="mt-[-2rem] hidden items-center lg:flex">
-                  <a
-                    className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white lg:mr-[.96rem]"
-                    href={jobApplyLink}
-                  >
-                    Apply Now
-                  </a>
-                  <a
-                    className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 lg:text-Natural7"
-                    href={`/companydetails/${jobId}`}
-                  >
-                    Message
-                  </a>
-                  <div className="px-[.62rem] py-[.69rem]">
-                    <Image
-                      src="/iconography/more-vertical.svg"
-                      alt="more-vertical"
-                      width={24}
-                      height={24}
-                    />
-                  </div>
-                </section>
-              </section>
-              {/* Four specs */}
-              <section className="mt-[1.75rem]">
-                <span className="grid grid-cols-2 rounded-[.325rem] bg-Natural3 dark:bg-[#21212B] lg:grid-cols-4 lg:gap-[2.5rem] lg:rounded-[1.25rem] lg:text-base">
-                  <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
-                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
-                      Experience
-                    </h3>
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                      {jobRequiredExperience}
-                    </p>
-                  </div>
-                  <div className="min-w-[6.5rem] p-[.62rem] sm:w-auto">
-                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6  lg:text-[.875rem] lg:font-semibold lg:leading-6">
-                      Work Level
-                    </h3>
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                      {workLevel}
-                    </p>
-                  </div>
-                  <div className="min-w-[6.5rem] border-t  border-Natural5 p-[.62rem] dark:border-DarkBG2 sm:w-auto lg:border-none">
-                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
-                      Employee Type
-                    </h3>
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                      {jobEmploymentType}
-                    </p>
-                  </div>
-                  <div className="min-w-[6.5rem] border-t   border-Natural5 p-[.62rem] dark:border-DarkBG2 sm:w-auto lg:border-none">
-                    <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 lg:text-[.875rem] lg:font-semibold lg:leading-6">
-                      Offer Salary
-                    </h3>
-
-                    <p className="text-[.875rem] font-semibold leading-6 text-Natural8 dark:text-white lg:text-base">
-                      {estimatedSalaries ? `$${estimatedSalaries}` : `N/A`}
-                    </p>
-                  </div>
-                </span>
-              </section>
-              {/* Mobile Buttons */}
-              <section className="mt-[.88rem] flex gap-[.625rem] lg:hidden">
-                <a
-                  className="w-[8.5rem] rounded-[.625rem] bg-Primary px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold	leading-6 text-white"
-                  href={jobApplyLink}
-                >
-                  Apply Now
-                </a>
-                <button className="w-[8.5rem] rounded-[.625rem] border border-solid px-[.875rem] py-[.625rem] text-center text-[.9375rem] font-semibold leading-6 text-Natural7">
-                  Message
-                </button>
-              </section>
-            </section>
-            {/* About the job */}
-            <section className="mt-[1.88rem]">
-              <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
-                About The Job
-              </h2>
-              <p className="pt-[.62rem] text-[.875rem] font-normal leading-[1.375rem] text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
-                {formatLongString(jobDescription)}
-              </p>
-            </section>
-            {/* Responsibilities */}
-            <section className="mb-[1.87rem] mt-[3.62rem]">
-              {jobRequiredSkills && (
-                <>
-                  <h2 className="text-base font-bold leading-6 dark:text-white lg:text-lg">
-                    Responsibilities
-                  </h2>
-                  {jobRequiredSkills.map((jobSkill, idx) => (
-                    <div className="flex flex-row pt-[.75rem]" key={idx}>
-                      <Image
-                        className="mt-2 h-[.5rem] stroke-2"
-                        src="/iconography/Oval (2).svg"
-                        alt="oval"
-                        width={8}
-                        height={8}
-                      />
-                      <p className="pl-[.63rem] text-base font-medium leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
-                        {jobSkill}
-                      </p>
-                    </div>
-                  ))}
-                </>
-              )}
-            </section>
-            {/* Qualifications and Skill Sets */}
-            <section className="mt-[1.87rem]">
-              <h2 className="text-base font-bold	leading-6 dark:text-white lg:text-lg">
-                Qualifications and Skill Sets
-              </h2>
-              {qualifications?.length ? (
-                qualifications.map((qualificationDescription, idx) => (
-                  <div className="flex flex-row pt-[.75rem]" key={idx}>
-                    <Image
-                      className="mt-2 h-[.5rem] stroke-2"
-                      src="/iconography/Oval (2).svg"
-                      alt="oval"
-                      width={8}
-                      height={8}
-                    />
-                    <p className="pl-[.63rem] text-base font-medium leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
-                      {qualificationDescription}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <div className="flex flex-row pt-[.75rem]">
-                  <Image
-                    className="mt-2 h-[.5rem] stroke-2"
-                    src="/iconography/Oval (2).svg"
-                    alt="oval"
-                    width={8}
-                    height={8}
-                  />
-                  <p className="pl-[.63rem] text-base font-medium leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
-                    N/A
-                  </p>
                 </div>
-              )}
-            </section>
-            {/* About The Company */}
-            <section className="mt-[1.87rem]">
-              <h2 className="mb-[1.25rem] text-base font-bold leading-6 dark:text-white lg:text-lg">
-                About The Company
-              </h2>
-              <span className="w-full lg:flex lg:items-center lg:justify-between">
-                <span className="flex">
-                  <div className="mt-[.5rem] h-[2.13rem] w-[2.13rem] lg:mt-[.25rem] lg:h-[3.13rem] lg:w-[3.13rem]">
-                    <img
-                      className="rounded-[.33rem] object-contain	outline outline-2 outline-white lg:outline-none"
-                      src={"/iconography/CompanyLogo.svg"}
-                      alt="oval"
-                    />
+                <div className="flex gap-[0.9375rem] max-sm:hidden">
+                  {job.job_apply_link && (
+                    <Link
+                      className="hover-effect semibold-15 inline-flex h-11 w-[7.4375rem] justify-center rounded-[0.625rem] bg-Primary px-[0.875rem] py-[0.625rem] text-white"
+                      href={job.job_apply_link}
+                      target="_blank"
+                    >
+                      Apply Now
+                    </Link>
+                  )}
+                </div>
+              </div>
+
+              <div className="medium-13 sm:semibold-16 gap-1 text-Natural7 sm:flex">
+                <p>
+                  <Link
+                    className="hover-effect hover:underline"
+                    href={`/company-details/${job.employer_name}`}
+                  >
+                    {job.employer_name}
+                  </Link>
+                  <span className="max-sm:hidden">{" \u2022"} </span>
+                </p>
+                <div className="flex gap-1">
+                  <div>
+                    {formatLocation(
+                      job.job_city,
+                      job.job_state,
+                      job.job_country,
+                    )}
                   </div>
-                  <div className="ml-[1.25rem] flex flex-col items-start gap-[.125rem]">
-                    <h3 className="text-base font-semibold leading-6 dark:text-Natural2 lg:text-lg	lg:font-bold">
-                      {employerName}
-                    </h3>
-                    <p className="text-[.9375rem] font-medium	leading-6 text-Natural7 lg:text-base">
-                      {followers}
-                    </p>
+                  {"\u2022"}
+                  <div className="capitalize">
+                    {moment(
+                      new Date(job.job_posted_at_timestamp * 1000),
+                    ).fromNow()}
                   </div>
-                </span>
-                <button className="mr-[2.88rem] mt-[.88rem] flex h-[2rem] w-[11.1875rem] items-center justify-center gap-[.375rem] rounded-[.625rem]	border  border-Primary px-[.4375rem] py-[.625rem] lg:w-[5.13rem]">
-                  <Image
-                    className="shrink-0"
-                    src="/iconography/plus.svg"
-                    alt="oval"
-                    width={18}
-                    height={18}
-                  />
-                  <p className="text-[.8125rem] font-medium	leading-[1.125rem] text-Primary">
-                    Follow
-                  </p>
-                </button>
-              </span>
-              <p className="mb-[1.87rem] mt-[1.25rem] text-base	font-normal	leading-6 text-Natural7 dark:text-Natural5 lg:text-base lg:leading-6">
-                {aboutTheCompany}
-              </p>
-            </section>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
-      </main>
-    </>
+
+        <div className="lg:bold-16 grid grid-cols-2 rounded-[0.625rem] bg-Natural3 dark:bg-[#21212B] md:h-[5.4375rem] md:grid-cols-4 md:items-center md:justify-items-center md:gap-[2.5rem] md:rounded-[1.25rem]">
+          <div className="flex min-w-[6.5rem] flex-col gap-y-[0.375rem] p-[.62rem] sm:w-auto">
+            <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 md:text-[.875rem] md:font-semibold md:leading-6">
+              Experience
+            </h3>
+            <p className="md:semibold-16 text-[.875rem] text-Natural8 dark:text-white">
+              {requiredExperience ?? "N/A"}
+            </p>
+          </div>
+          <div className="flex min-w-[6.5rem] flex-col gap-y-[0.375rem] p-[.62rem] sm:w-auto">
+            <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 md:text-[.875rem] lg:font-semibold lg:leading-6">
+              Remote
+            </h3>
+            <p className="md:semibold-16 text-[.875rem] text-Natural8 dark:text-white">
+              {job.job_is_remote ? "Yes" : "No"}
+            </p>
+          </div>
+          <div className="flex min-w-[6.5rem] flex-col gap-y-[0.375rem] border-t border-Natural5 p-[.62rem] dark:border-DarkBG2 sm:w-auto lg:border-none">
+            <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 md:text-[.875rem] md:font-semibold md:leading-6">
+              Employee Type
+            </h3>
+            <p className="md:semibold-16 text-[.875rem] capitalize text-Natural8 dark:text-white">
+              {job.job_employment_type.toLowerCase() ?? "N/A"}
+            </p>
+          </div>
+          <div className="flex min-w-[6.5rem] flex-col gap-y-[0.375rem] border-t border-Natural5 p-[.62rem] dark:border-DarkBG2 sm:w-auto lg:border-none">
+            <h3 className="text-[.812rem] font-medium leading-5	text-Natural6 md:text-[.875rem] md:font-semibold md:leading-6">
+              Offer Salary
+            </h3>
+
+            <p className="md:semibold-16 text-[.875rem] text-Natural8 dark:text-white">
+              {salaryInformation ?? "N/A"}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex w-full items-center gap-[0.9375rem] max-sm:justify-start sm:hidden">
+          {job.job_apply_link && (
+            <Link
+              className="hover-effect semibold-15 inline-flex h-11 w-full justify-center rounded-[0.625rem] bg-Primary px-[0.875rem] py-[0.625rem] text-white"
+              href={job.job_apply_link}
+              target="_blank"
+            >
+              Apply Now
+            </Link>
+          )}
+        </div>
+
+        <JobDescription job={job} />
+
+        <section className="dark:text-white">
+          <div className="border-t border-Natural2 pb-5 pt-[1.875rem] text-lg font-bold dark:border-t-DarkBG3 dark:text-white lg:flex-1">
+            About the company
+          </div>
+          <div className="flex flex-col gap-4 pb-3 sm:flex-row sm:justify-between">
+            <div className="flex flex-1 flex-col gap-6">
+              <div className="flex h-14 items-center gap-4">
+                <div className="relative h-[50px] w-[50px]">
+                  <CompanyLogo
+                    companyName={job.employer_name}
+                    companyLogo={job.employer_logo}
+                  />
+                </div>
+                <Link
+                  href={`/company-details/${job.employer_name}`}
+                  className="bold-18 hover:underline dark:text-white"
+                >
+                  {job.employer_name}
+                </Link>
+              </div>
+              <p className="regular-16 text-Natural7 dark:text-Natural5">
+                {companyInfo?.description}
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 };
 
 export default JobDetailCard;
-
-const formatLongString = (longString: string | null | undefined) => {
-  if (longString === null) return null;
-  if (longString === undefined) return null;
-
-  const paragraphs = longString.split("\n\n");
-  const bulletPointsPattern = /•\s+/g;
-
-  return paragraphs.map((paragraph, index) => {
-    // Check if the paragraph contains bullet points (starts with "* ")
-    if (paragraph.trim().match(bulletPointsPattern)) {
-      const bulletPoints = paragraph.split("\n");
-      return (
-        <ul key={index}>
-          {bulletPoints.map((point, i) => (
-            <li key={i}>{point}</li>
-          ))}
-        </ul>
-      );
-    }
-
-    return <p key={index}>{paragraph}</p>;
-  });
-};
