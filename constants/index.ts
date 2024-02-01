@@ -1,5 +1,6 @@
 export const DEFAULT_LOCATION = "Canada";
 export const datePostedOptions = ["all", "today", "3days", "week", "month"];
+export const DEFAULT_TYPE = "L2J1c2luZXNzL25haWNzMjAwNy81MTpJbmZvcm1hdGlvbg==";
 export const filters = {
   data: {
     employment_types: [

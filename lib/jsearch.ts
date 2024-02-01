@@ -1,4 +1,4 @@
-import { DEFAULT_LOCATION, datePostedOptions } from "@/constants";
+import { DEFAULT_LOCATION, DEFAULT_TYPE, datePostedOptions } from "@/constants";
 
 const jSearchApiKey = process.env.X_RAPID_API_KEY;
 const requestHeaders = new Headers();
@@ -182,7 +182,7 @@ export async function getSimilarCompanies(
   companyType: string | null | undefined,
   locationCookie: string | null | undefined,
 ): Promise<Job> {
-  const type = companyType ? `&company_types=${companyType}` : "";
+  const type = companyType ? `&company_types=${companyType}` : DEFAULT_TYPE;
 
   const res = await fetch(
     `https://jsearch.p.rapidapi.com/search?query=software%20developer%20in%20${locationCookie ?? DEFAULT_LOCATION}${type}`,
@@ -191,6 +191,7 @@ export async function getSimilarCompanies(
     },
   );
 
+  console.log(res);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
