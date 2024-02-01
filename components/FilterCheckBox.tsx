@@ -47,7 +47,7 @@ const FilterCheckbox = ({
     }
 
     router.push(`/job-search?${queryParams.toString()}`, { scroll: false });
-  }, [isChecked, router, filterKey, filterValue]);
+  }, [isChecked, filterKey, filterValue]);
 
   const handleChange = (checked: boolean) => {
     setIsChecked(checked);

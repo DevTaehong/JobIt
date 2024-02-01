@@ -3,10 +3,10 @@ import { cookies } from "next/headers";
 import CompanyDetailCard from "@/components/CompanyDetailCard";
 import SimilarCompanies from "@/components/SimilarCompanies";
 import {
-  getCompanies,
+  getSimilarCompanies,
   getCompanyDetails,
-  getQuery,
-  getCompanyId,
+  getTheCompanyJobs,
+  getCompanyTypes,
 } from "@/lib/jsearch";
 
 const CompanyDetails = async ({
@@ -17,62 +17,67 @@ const CompanyDetails = async ({
   searchParams: { query: string };
 }) => {
   const cookieStore = cookies();
-  const locationCookie = cookieStore.get("location")?.value;
-  const CompanyData: Promise<Job> = getCompanyDetails(params.id);
-  const [CompanyDetails] = await Promise.all([CompanyData]);
-
-  const moreCompany: Promise<Job> = getCompanies(
-    CompanyDetails.data[0]?.job_state,
-    locationCookie,
+  const location = cookieStore?.get("location")?.value;
+  const searchQuery = searchParams.query;
+  const jobId = params.id;
+  const companyDetails = await getCompanyDetails(jobId);
+  const companyWebsite = companyDetails.data[0]?.employer_website;
+  const companyName = companyDetails.data[0]?.employer_name;
+  const companyTypes = await getCompanyTypes(companyName);
+  const companyType = companyTypes?.data.company_types[0];
+  const similarCompanies = await getSimilarCompanies(
+    companyType?.value,
+    location,
   );
-  const [Companies] = await Promise.all([moreCompany]);
-
-  const companyIdRequest = await getCompanyId(
-    CompanyDetails.data[0]?.employer_name,
+  const companyJobs = await getTheCompanyJobs(
+    searchQuery ?? "developer jobs",
+    companyName,
   );
-  const companyId = companyIdRequest.data?.employers[0]?.value;
 
-  const { query } = searchParams;
-  const queryData: Promise<Job> = getQuery(query ?? "developer", companyId);
+  const filteredSimilarCompanies = similarCompanies?.data.filter(
+    (company) =>
+      company.employer_name !== companyDetails.data[0]?.employer_name,
+  );
 
-  const companyData = {
-    logo: CompanyDetails.data[0]?.employer_logo,
-    employer: CompanyDetails.data[0]?.employer_name,
-    state: CompanyDetails.data[0]?.job_state,
-    city: CompanyDetails.data[0]?.job_city,
-    companyType: CompanyDetails.data[0]?.employer_company_type,
-    companyLink: CompanyDetails.data[0]?.employer_website,
-  };
+  const filteredCompanyJobs = companyJobs?.data.filter(
+    (job) =>
+      job.employer_name === companyName &&
+      job.employer_website === companyWebsite,
+  );
 
   return (
-    <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:mx-20 lg:mb-11 lg:mt-[2.87rem] lg:flex-row lg:gap-10 2xl:mx-auto 2xl:max-w-[90rem]">
+    <div className="mx-6 mb-[4.5rem] mt-[1.37rem] flex flex-col lg:mb-11 lg:mt-[2.87rem] lg:flex-row lg:gap-10 2xl:mx-20 2xl:max-w-[80rem] min-[1441px]:mx-auto">
       <CompanyDetailCard
-        logo={companyData?.logo}
-        employer={companyData?.employer}
-        companyType={companyData?.companyType}
-        city={companyData?.city}
-        state={companyData?.state}
-        companyLink={companyData?.companyLink}
-        jobId={params.id}
-        queryData={queryData}
+        logo={companyDetails.data[0]?.employer_logo}
+        employerName={companyDetails.data[0]?.employer_name}
+        companyType={companyDetails.data[0]?.employer_company_type}
+        city={companyDetails.data[0]?.job_city}
+        state={companyDetails.data[0]?.job_state}
+        companyLink={companyDetails.data[0]?.employer_website}
+        jobId={jobId}
+        companyJobs={filteredCompanyJobs}
+        country={companyDetails.data[0]?.job_country}
       />
-      <aside className="lg:max-w-[25rem]">
-        <h2 className="mb-[1.87rem] mt-[2.88rem] text-[1.375rem] font-bold not-italic leading-8 text-Black dark:text-White lg:mb-5 lg:mt-[4.25rem]">
-          Similar Companies
-        </h2>
-        <div className="flex flex-col gap-6">
-          {Companies.data.map((Companies, i) => (
-            <div key={i}>
+      {filteredSimilarCompanies.length ? (
+        <aside className="lg:max-w-[25rem]">
+          <h2 className="mb-[1.87rem] mt-[2.875rem] text-[1.375rem] font-bold not-italic leading-8 text-Black dark:text-White md:mt-14 lg:mb-5 lg:mt-[4.25rem]">
+            Similar Companies
+          </h2>
+          <div className="flex flex-col gap-6">
+            {filteredSimilarCompanies.slice(0, 8).map((company) => (
               <SimilarCompanies
-                JobTitle={Companies?.employer_name}
-                JobTitleSec={Companies?.employer_name}
-                icon={Companies?.employer_logo}
-                Follow={Companies?.job_apply_link}
+                key={company?.job_id}
+                companyName={company?.employer_name}
+                companyType={company?.employer_company_type}
+                logo={company?.employer_logo}
+                jobId={company?.job_id}
               />
-            </div>
-          ))}
-        </div>
-      </aside>
+            ))}
+          </div>
+        </aside>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

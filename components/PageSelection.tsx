@@ -16,7 +16,7 @@ const PageSelection = ({
   numPages?: number | null | undefined;
 }) => {
   const router = useRouter();
-  const totalPages = numPages || 10; // Could be modified later if we want to implement dynamic pagination
+  const totalPages = numPages || 10;
   const searchParams: ReadonlyURLSearchParams = useSearchParams();
 
   const [currentPage, setCurrentPage] = useState(
@@ -31,7 +31,7 @@ const PageSelection = ({
     if (currentPage > totalPages) return;
     addOrReplaceJobSearchParams([{ page: currentPage.toString() }], router);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, [currentPage, totalPages, router]);
+  }, [currentPage, totalPages]);
 
   const handlePaginationClick = (page: number) => {
     page > totalPages ? setCurrentPage(totalPages) : setCurrentPage(page);
@@ -63,9 +63,9 @@ const PageSelection = ({
         {Array.from({ length: totalPages }).map((_, i) => {
           i++;
           if (
-            i <= 3 || // the first three pages
-            i >= totalPages - 2 || // the last three pages
-            (i >= currentPage - 1 && i <= currentPage + 1) // the currentPage, the page before and after
+            i <= 3 ||
+            i >= totalPages - 2 ||
+            (i >= currentPage - 1 && i <= currentPage + 1)
           ) {
             return (
               <button
@@ -73,8 +73,8 @@ const PageSelection = ({
                 disabled={currentPage === i}
                 className={
                   currentPage === i
-                    ? "flex h-[40px] w-[40px] items-center justify-center rounded-lg border-Natural4 bg-Primary font-medium text-White"
-                    : "hover-effect flex h-[40px] w-[40px] items-center justify-center rounded-lg border-Natural4 font-medium dark:border-Natural8 dark:text-Natural6"
+                    ? "flex size-[40px] items-center justify-center rounded-lg border-Natural4 bg-Primary font-medium text-White"
+                    : "hover-effect flex size-[40px] items-center justify-center rounded-lg border-Natural4 font-medium dark:border-Natural8 dark:text-Natural6"
                 }
                 onClick={() => {
                   handlePaginationClick(i);
@@ -89,15 +89,12 @@ const PageSelection = ({
             (i === 4 && currentPage === 1) ||
             (i === totalPages - 3 && currentPage === totalPages)
           ) {
-            // any other page should be represented by ...
-
             return (
               <div key={uuidv4()} className="font-medium dark:text-Natural6">
                 ...
               </div>
             );
           }
-
           return null;
         })}
       </div>

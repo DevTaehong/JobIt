@@ -7,14 +7,16 @@ import { useState } from "react";
 const CompanyLogo = ({
   companyLogo,
   companyName,
+  jobId,
 }: {
   companyLogo: string | null | undefined;
   companyName: string;
+  jobId: string;
 }) => {
   const [imageError, setImageError] = useState(false);
 
   return companyLogo ? (
-    <Link className="hover-effect" href={`/company-details/${companyName}`}>
+    <Link className="hover-effect" href={`/company-details/${jobId}`}>
       <Image
         alt="Company Logo"
         src={imageError ? "/iconography/jobit-icon.svg" : companyLogo}
@@ -24,7 +26,7 @@ const CompanyLogo = ({
       />
     </Link>
   ) : (
-    <Link className="hover-effect" href={`/company-details/${companyName}`}>
+    <Link className="hover-effect" href={`/company-details/${jobId}`}>
       <Image
         alt="Company Logo"
         src={"/iconography/jobit-icon.svg"}

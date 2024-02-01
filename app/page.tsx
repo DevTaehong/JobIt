@@ -51,7 +51,7 @@ export default async function Home() {
               Latest Job Posts
             </h3>
             <Link
-              href="/job-search"
+              href="/job-search?page=1"
               className="hover-effect flex items-center justify-center gap-2 rounded-[0.625rem] 
                 border px-[.62rem] py-[0.44rem] text-[1rem] font-medium leading-6 text-Natural7 
                 dark:border-Natural8 xl:items-center"
@@ -100,6 +100,7 @@ export default async function Home() {
                 .map((company) => (
                   <FeaturedCompany
                     key={company?.job_id}
+                    jobId={company?.job_id}
                     companyName={company?.employer_name}
                     image={company?.employer_logo}
                     city={company?.job_city}
@@ -116,7 +117,7 @@ export default async function Home() {
               Recommended For You
             </h3>
             <Link
-              href="/job-search?recommended=true"
+              href="/job-search?page=1"
               className="hover-effect flex items-center justify-center gap-2 rounded-[0.625rem] 
                 border px-[0.625rem] py-[0.4375rem] text-base font-medium text-Natural7 
                 dark:border-Natural8 xl:items-center"

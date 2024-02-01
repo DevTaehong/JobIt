@@ -16,7 +16,7 @@ export default function ImageErrorFallback({
   let height = 48;
   const defaultSrc = "/iconography/jobit-icon.svg";
   const alt = "Company Placeholder logo";
-  const className = "object-contain shrink-0";
+  let className = "object-contain shrink-0";
 
   if (
     card === "companyDetailJobCard" ||
@@ -25,6 +25,13 @@ export default function ImageErrorFallback({
   ) {
     width = 36;
     height = 36;
+  }
+
+  if (card === "companyDetailCard") {
+    width = 64;
+    height = 64;
+    className =
+      "absolute dark:bg-White left-3 top-[6.84rem] size-[2.875rem] rounded-[0.625rem] border-[2.156px] border-Natural3 bg-White object-contain dark:border-Natural8 dark:bg-[#1717250f] lg:left-6 lg:top-[8rem] lg:size-16 lg:border-[3px]";
   }
 
   if (!src || error) {

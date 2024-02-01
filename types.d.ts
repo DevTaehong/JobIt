@@ -95,3 +95,15 @@ interface CommonFilterDataShapeType {
   name: string;
   value: string;
 }
+
+type CompanyDetailCardProps = {
+  logo: string;
+  employerName: string;
+  companyType: string;
+  city: string;
+  state: string;
+  companyLink: string | null;
+  jobId: string;
+  companyJobs: JobResult[];
+  country: string;
+};

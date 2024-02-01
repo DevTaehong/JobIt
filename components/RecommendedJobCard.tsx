@@ -38,7 +38,7 @@ const RecommendedJobCard = ({
     >
       <div className="flex items-center justify-between">
         <div className="flex gap-[0.56rem] rounded">
-          <div className="flex h-12 w-12 shrink-0 items-center rounded-[0.46rem]">
+          <div className="flex size-12 shrink-0 items-center rounded-[0.46rem]">
             <ImageErrorFallback src={companyLogo} />
           </div>
           <div className="flex flex-col gap-1 pl-0 text-start">

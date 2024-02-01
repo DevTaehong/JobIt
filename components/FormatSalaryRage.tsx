@@ -11,7 +11,7 @@ export const FormatSalaryRange = (
           <span className="flex-none text-[0.8125rem] font-semibold leading-5 text-Black dark:text-White xl:text-sm xl:font-medium">
             {`$${minSalary}-${maxSalary}`}
           </span>
-          <span className="flex-none text-[0.8125rem] font-normal not-italic leading-[1.375rem] text-Natural7 xl:text-[0.875rem]">{` / Hr`}</span>
+          <span className="flex-none text-[0.8125rem] font-normal not-italic leading-[1.375rem] text-Natural7 xl:text-[0.875rem]">{`/Hr`}</span>
         </div>
       );
     }
@@ -25,7 +25,7 @@ export const FormatSalaryRange = (
             ? `$${formattedMax}`
             : `$${formattedMin}-${formattedMax}`}
         </span>
-        <span className="flex-none text-[0.8125rem] font-normal not-italic leading-[1.375rem] text-Natural7 xl:text-[0.875rem]">{` / ${salaryPeriod.toLowerCase()}`}</span>
+        <span className="flex-none text-[0.8125rem] font-normal not-italic leading-[1.375rem] text-Natural7 xl:text-[0.875rem]">{`/${salaryPeriod.toLowerCase()}`}</span>
       </div>
     );
   }
@@ -34,7 +34,7 @@ export const FormatSalaryRange = (
     return (
       <>
         <span className="text-base font-semibold text-Natural8 dark:text-White lg:text-[1.125rem] lg:leading-[1.5rem]">{`$${minSalary}-${maxSalary}`}</span>
-        <span className="text-sm font-medium not-italic text-Natural7 lg:text-[1.125rem] lg:font-normal lg:leading-[1.5rem]">{` / ${salaryPeriod.toLowerCase()}`}</span>
+        <span className="text-sm font-medium not-italic text-Natural7 lg:text-[1.125rem] lg:font-normal lg:leading-[1.5rem]">{`/${salaryPeriod.toLowerCase()}`}</span>
       </>
     );
   }
@@ -44,7 +44,7 @@ export const FormatSalaryRange = (
   return (
     <>
       <span className="text-base font-semibold text-Natural8 dark:text-White lg:text-[1.125rem] lg:leading-[1.5rem]">{`$${formattedMin}-${formattedMax}`}</span>
-      <span className="text-sm font-medium not-italic text-Natural7 lg:text-[1.125rem] lg:font-normal lg:leading-[1.5rem]">{` /${salaryPeriod.toLowerCase()}`}</span>
+      <span className="text-sm font-medium not-italic text-Natural7 lg:text-[1.125rem] lg:font-normal lg:leading-[1.5rem]">{`/${salaryPeriod.toLowerCase()}`}</span>
     </>
   );
 };

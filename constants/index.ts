@@ -17,7 +17,7 @@ export const filters = {
       },
       {
         name: "Internship",
-        value: "INTERNSHIP",
+        value: "INTERN",
       },
     ],
     date_posted: [

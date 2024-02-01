@@ -65,11 +65,12 @@ const JobDetailCard = async ({ job }: { job: JobResult }) => {
               />
             </div>
 
-            <div className="z-10 mx-4 mt-[-18px] flex h-[64px] w-[64px] items-center justify-center rounded-lg border-2 border-white bg-white/70 p-4 backdrop-blur-md dark:border-DarkBG2">
-              <div className="absolute h-12 w-12 overflow-hidden rounded-lg">
+            <div className="z-10 mx-4 mt-[-18px] flex size-[64px] items-center justify-center rounded-lg border-2 border-white bg-white/70 p-4 backdrop-blur-md dark:border-DarkBG2">
+              <div className="absolute size-12 overflow-hidden rounded-lg">
                 <CompanyLogo
                   companyName={job.employer_name}
                   companyLogo={job.employer_logo}
+                  jobId={job.job_id}
                 />
               </div>
             </div>
@@ -99,7 +100,7 @@ const JobDetailCard = async ({ job }: { job: JobResult }) => {
                 <p>
                   <Link
                     className="hover-effect hover:underline"
-                    href={`/company-details/${job.employer_name}`}
+                    href={`/company-details/${job.job_id}`}
                   >
                     {job.employer_name}
                   </Link>
@@ -182,14 +183,15 @@ const JobDetailCard = async ({ job }: { job: JobResult }) => {
           <div className="flex flex-col gap-4 pb-3 sm:flex-row sm:justify-between">
             <div className="flex flex-1 flex-col gap-6">
               <div className="flex h-14 items-center gap-4">
-                <div className="relative h-[50px] w-[50px]">
+                <div className="relative size-[50px]">
                   <CompanyLogo
                     companyName={job.employer_name}
                     companyLogo={job.employer_logo}
+                    jobId={job.job_id}
                   />
                 </div>
                 <Link
-                  href={`/company-details/${job.employer_name}`}
+                  href={`/company-details/${job.job_id}`}
                   className="bold-18 hover:underline dark:text-white"
                 >
                   {job.employer_name}

@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { Loader2 } from "lucide-react";
 
 import { useAppDispatch } from "@/redux/hooks";
 import {
@@ -11,17 +12,18 @@ import {
 } from "@/redux/feature/searchJobs/searchJobs";
 
 const SearchBar = () => {
+  const [isPending, setTransition] = useTransition();
   const searchParams = useSearchParams();
   const location = searchParams.get("location");
   const keywords = searchParams.get("keywords");
-  const jobType = searchParams.get("jobType");
+  const jobType = searchParams.get("employment_types");
 
   const router = useRouter();
   const dispatch = useAppDispatch();
 
   const initialFormData = {
-    keywords: location ?? "",
-    location: keywords ?? "",
+    keywords: keywords ?? "",
+    location: location ?? "",
     jobType: jobType ?? "",
   };
   const [formData, setFormData] = useState(initialFormData);
@@ -37,16 +39,18 @@ const SearchBar = () => {
   };
 
   const handleFormSubmit = (formData: typeof initialFormData) => {
-    const queryString = formData.keywords + " in " + formData.location;
+    setTransition(() => {
+      const queryString = formData.keywords + " in " + formData.location;
 
-    dispatch(setSearchQuery(queryString));
-    dispatch(setEmploymentType(formData.jobType));
+      dispatch(setSearchQuery(queryString));
+      dispatch(setEmploymentType(formData.jobType));
 
-    formData.jobType
-      ? router.push(
-          `/job-search?query=${queryString}&employment_types=${formData.jobType}`,
-        )
-      : router.push(`/job-search?query=${queryString}`);
+      formData.jobType
+        ? router.push(
+            `/job-search?query=${queryString}&employment_types=${formData.jobType}&location=${formData.location}&keywords=${formData.keywords}&page=1`,
+          )
+        : router.push(`/job-search?query=${queryString}&page=1`);
+    });
   };
 
   return (
@@ -63,9 +67,10 @@ const SearchBar = () => {
             Job Title, Company, or Keywords
           </div>
           <input
+            autoComplete="off"
             name="keywords"
             type="text"
-            className="bold-14 searchBar-placeholder h-full w-full bg-transparent text-Natural6 outline-none"
+            className="bold-14 searchBar-placeholder size-full bg-transparent text-Natural6 outline-none"
             placeholder="Job Title, Company, or Keywords"
             value={formData.keywords}
             onChange={handleInputChange}
@@ -134,9 +139,13 @@ const SearchBar = () => {
         <button
           type="submit"
           onClick={() => handleFormSubmit(formData)}
-          className="hover-effect w-full whitespace-nowrap rounded-[10px] bg-Primary px-[20px] py-3 text-White"
+          className="hover-effect inline-flex w-full justify-center whitespace-nowrap rounded-[10px] bg-Primary px-[20px] py-3 text-White"
         >
-          Find Jobs
+          {isPending ? (
+            <Loader2 className="size-6 animate-spin" />
+          ) : (
+            "Find Jobs"
+          )}
         </button>
       </div>
     </div>

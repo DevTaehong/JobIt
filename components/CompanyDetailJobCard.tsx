@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 import {
@@ -10,16 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import Image from "next/image";
 import { FormatSalaryRange } from "@/components/FormatSalaryRage";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
 import ImageErrorFallback from "@/components/ImageErrorFallback";
 
 type TypeProps = {
@@ -30,8 +19,7 @@ type TypeProps = {
   maxSalary: number | null;
   salaryPeriod: string | null;
   skills: string[];
-  applyLink: string;
-  companyName: string;
+  jobId: string;
 };
 
 const CompanyDetailJobCard = ({
@@ -42,22 +30,17 @@ const CompanyDetailJobCard = ({
   maxSalary,
   salaryPeriod,
   skills,
-  applyLink,
-  companyName,
+  jobId,
 }: TypeProps) => {
-  const { toast } = useToast();
-
-  logo = logo ?? "/iconography/CompanyLogo.svg";
-
   return (
     <Card className="flex flex-col gap-5 rounded-[0.625rem] border-0 bg-white shadow-custom dark:bg-DarkBG3 dark:shadow-none lg:gap-[1.38rem]">
       {/* Company logo, job title, skills */}
       <CardHeader className="flex flex-row justify-between px-5 pb-0 pt-5">
         <div className="flex flex-row gap-3 lg:gap-5">
           <Link
-            href={`/company-details/${companyName}`}
-            className="flex h-12 w-12 shrink-0 items-center rounded-[0.47rem] border-[0.14rem] border-Natural3 
-                    bg-Natural3 p-[0.35rem] dark:border-Natural8 dark:bg-[#1717250f] lg:rounded-[0.625rem] lg:border-[3px]"
+            href={`/company-details/${jobId}`}
+            className="flex size-12 shrink-0 items-center rounded-[0.47rem] border-[0.14rem] border-Natural3 bg-Natural3 
+                    p-[0.35rem] dark:border-Natural8 dark:bg-White lg:rounded-[0.625rem] lg:border-[3px]"
           >
             <ImageErrorFallback src={logo} card="companyDetailJobCard" />
           </Link>
@@ -78,36 +61,6 @@ const CompanyDetailJobCard = ({
             </div>
           </div>
         </div>
-        {/* ic-More button */}
-        <div>
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Image
-                src="/iconography/ic_More.svg"
-                alt="More button"
-                width={16}
-                height={16}
-              />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="dark:bg-DarkBG2">
-              <DropdownMenuItem
-                onClick={() => {
-                  toast({
-                    description: "Save job Functionality Coming Soon :)",
-                  });
-                }}
-              >
-                <Image
-                  src="/iconography/uiHut-icon-ic_Saved.svg"
-                  width={17}
-                  height={17}
-                  alt="Save job"
-                />
-                <span className="ml-1 dark:text-white">Save Job</span>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
       </CardHeader>
       <CardContent className="px-5 pb-0">
         <p className="line-clamp-4 h-[5.3125rem] text-[0.875rem] font-normal not-italic leading-[1.375rem] text-Natural7 dark:text-Natural6 lg:line-clamp-3 lg:h-[4.4375rem] lg:text-base">
@@ -124,11 +77,12 @@ const CompanyDetailJobCard = ({
             </span>
           )}
         </p>
-        <Button className="rounded-[0.625rem] bg-[#0bab7c1a] px-[0.875rem] py-2 text-[0.8125rem] font-semibold not-italic leading-5 text-Primary dark:bg-[#0bab7c1a] dark:text-Primary lg:text-[0.9375rem] lg:leading-6">
-          <a target="_blank" href={applyLink}>
-            Apply now
-          </a>
-        </Button>
+        <Link
+          href={`/job-details/${jobId}`}
+          className="hover-effect rounded-[0.625rem] bg-[#0bab7c1a] px-[0.875rem] py-2 text-[0.8125rem] font-semibold not-italic leading-5 text-Primary dark:bg-[#0bab7c1a] dark:text-Primary lg:text-[0.9375rem] lg:leading-6"
+        >
+          Visit
+        </Link>
       </CardFooter>
     </Card>
   );

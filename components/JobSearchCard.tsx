@@ -2,8 +2,9 @@ import Link from "next/link";
 import moment from "moment";
 import { FiExternalLink } from "react-icons/fi";
 
-import { truncateString, findKeywords, formatNumber } from "@/lib/utils";
+import { truncateString, findKeywords } from "@/lib/utils";
 import CompanyLogo from "./CompanyLogo";
+import { FormatSalaryRange } from "./FormatSalaryRage";
 
 const JobSearchCard = async ({ job }: { job: JobResult }) => {
   const {
@@ -19,11 +20,12 @@ const JobSearchCard = async ({ job }: { job: JobResult }) => {
       <div className="flex justify-between">
         <Link href={`/job-details/${jobId}`}>
           <div className="flex gap-5">
-            <div className="flex h-16 w-16 items-center justify-center rounded-[10px] bg-Natural3 dark:bg-DarkBG3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-[10px]">
+            <div className="flex size-16 items-center justify-center rounded-[10px] bg-Natural3 dark:bg-DarkBG3">
+              <div className="relative size-12 overflow-hidden rounded-[10px]">
                 <CompanyLogo
                   companyLogo={job.employer_logo}
                   companyName={job.employer_name}
+                  jobId={job.job_id}
                 />
               </div>
             </div>
@@ -33,18 +35,15 @@ const JobSearchCard = async ({ job }: { job: JobResult }) => {
               </h3>
               <div className="medium-13 flex flex-wrap gap-[5px] text-Natural6">
                 <Link
-                  href={`/company-details/${job.employer_name}`}
+                  href={`/company-details/${jobId}`}
                   className="line-clamp-1 hover:underline"
                 >
                   {job.employer_name}
                 </Link>
-                <div className="hidden sm:block">•</div>
-                <span>
-                  {`${
-                    job.job_city ? "･" + job.job_city + "," : job.job_country
-                  } ${job.job_state ?? ""}`}
-                </span>
-                •
+                <div className="hidden sm:block">
+                  • {job.job_city} {job.job_state && job.job_state + ", "}
+                </div>
+                {job.job_country && job.job_country + " • "}
                 <span className="capitalize">
                   {moment(
                     new Date(job.job_posted_at_timestamp * 1000),
@@ -76,18 +75,11 @@ const JobSearchCard = async ({ job }: { job: JobResult }) => {
       </div>
 
       <div className="flex flex-col items-start gap-5 gap-y-[1.875rem] md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-wrap gap-2 text-lg font-medium leading-6 text-Natural7 md:gap-[35px]">
-          {jobMinSalary || jobMaxSalary ? (
-            <div>
-              <span className="text-Black dark:text-White">
-                {jobMinSalary && `$${formatNumber(jobMinSalary)}`}
-                {jobMinSalary && jobMaxSalary && "-"}
-                {jobMaxSalary && `$${formatNumber(jobMaxSalary)}`}
-              </span>
-              /month
-            </div>
+        <div>
+          {jobMinSalary && jobMaxSalary && job.job_salary_period ? (
+            FormatSalaryRange(jobMinSalary, jobMaxSalary, job.job_salary_period)
           ) : (
-            <span className="regular-14 text-Natural7 dark:text-Natural5">
+            <span className="ml-2 text-sm font-medium not-italic text-Natural7 dark:text-White">
               No salary range provided
             </span>
           )}
@@ -97,7 +89,7 @@ const JobSearchCard = async ({ job }: { job: JobResult }) => {
             <Link
               href={employerWebsite}
               target="_blank"
-              className="hover-effect flex w-full min-w-[125px] items-center justify-center gap-1.5 rounded-[10px] bg-Natural4 px-[14px] py-3 text-sm font-semibold text-Natural7 dark:bg-DarkBG3 md:w-auto"
+              className="hover-effect flex w-full min-w-[125px] items-center justify-center gap-1.5 rounded-[10px] bg-Natural4 px-[14px] py-3 text-sm font-semibold text-Natural7 dark:bg-DarkBG3 dark:text-White md:w-auto"
             >
               Company Website
               <FiExternalLink />

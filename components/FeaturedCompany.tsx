@@ -8,11 +8,13 @@ const FeaturedCompany = ({
   image,
   city,
   country,
+  jobId,
 }: {
   companyName: string;
   image: string;
   city: string;
   country: string;
+  jobId: string;
 }) => {
   return (
     <div className="featured-card justify-between gap-6 p-5 shadow-2">
@@ -36,7 +38,7 @@ const FeaturedCompany = ({
         </div>
       </div>
       <Link
-        href={`/company-details/${companyName}`}
+        href={`/company-details/${jobId}`}
         className="semibold-13 hover-effect flex h-12 w-full items-center justify-center rounded-[10px] bg-Natural2 text-Natural6 dark:bg-DarkBG3"
       >
         See All

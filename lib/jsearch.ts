@@ -92,18 +92,17 @@ export async function getRecommendedJobs(
   return res.json();
 }
 
-export async function getJobDetails(id: string) {
+export async function getJobDetails(id: string): Promise<Job | undefined> {
   const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${id}`;
 
   try {
     const res = await fetch(url, { headers: requestHeaders });
-    const data = await res.json();
 
     if (!res.ok) {
       throw new Error("Failed to Fetch Job Details");
     }
 
-    return data;
+    return res.json();
   } catch (error) {
     console.error(error);
   }
@@ -131,7 +130,7 @@ export async function getSimilarJobs(
   }
 }
 
-export async function getCompanyDetails(id: string) {
+export async function getCompanyDetails(id: string): Promise<Job> {
   const res = await fetch(
     `https://jsearch.p.rapidapi.com/job-details?job_id=${id}`,
     {
@@ -146,29 +145,47 @@ export async function getCompanyDetails(id: string) {
   return res.json();
 }
 
-export async function getQuery(query: string, companyId: string) {
-  const res = await fetch(
-    `https://jsearch.p.rapidapi.com/search?query=${query}&employer=${companyId}`,
-    {
-      headers: requestHeaders,
-    },
-  );
+type CompanyTypes = {
+  data: {
+    categories: string[];
+    job_titles: string[];
+    company_types: {
+      name: string;
+      value: string;
+      est_count: number;
+    }[];
+  };
+};
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+export async function getCompanyTypes(
+  companyName: string,
+): Promise<CompanyTypes | undefined> {
+  try {
+    const res = await fetch(
+      `https://jsearch.p.rapidapi.com/search-filters?query=${companyName}`,
+      {
+        headers: requestHeaders,
+      },
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error(error);
   }
-
-  return res.json();
 }
 
-export async function getCompanies(
-  jobStates: string,
+export async function getSimilarCompanies(
+  companyType: string | null | undefined,
   locationCookie: string | null | undefined,
-) {
+): Promise<Job> {
+  const type = companyType ? `&company_types=${companyType}` : "";
+
   const res = await fetch(
-    `https://jsearch.p.rapidapi.com/search?query=${
-      locationCookie ?? DEFAULT_LOCATION
-    }`,
+    `https://jsearch.p.rapidapi.com/search?query=software%20developer%20in%20${locationCookie ?? DEFAULT_LOCATION}${type}`,
     {
       headers: requestHeaders,
     },
@@ -197,9 +214,13 @@ export async function getEstimatedSalaries(
     console.error(error);
   }
 }
-export async function getCompanyId(query: string) {
+
+export async function getTheCompanyJobs(
+  query: string,
+  companyName: string,
+): Promise<Job> {
   const res = await fetch(
-    `https://jsearch.p.rapidapi.com/search-filters?query=${query}`,
+    `https://jsearch.p.rapidapi.com/search?query=${query}%20${companyName}`,
     {
       headers: requestHeaders,
     },
@@ -207,138 +228,6 @@ export async function getCompanyId(query: string) {
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
-  }
-  return res.json();
-}
-
-export async function getInitialJobsOnJobSearchPage(
-  query: string = "",
-  locationCookie: string | null | undefined,
-) {
-  const page = 1;
-  const numPages = 10;
-
-  let apiUrl = `https://jsearch.p.rapidapi.com/search?query=Developer%20in%20${
-    locationCookie ?? DEFAULT_LOCATION
-  }&page=${page}&num_pages=${numPages}`;
-
-  const filters = query.split(",");
-
-  // Check for employment types
-  const employmentTypes = ["FULLTIME", "PARTTIME", "CONTRACTOR", "INTERN"];
-  if (filters.some((type) => employmentTypes.includes(type))) {
-    const filteredTypes = filters.filter((type) =>
-      employmentTypes.includes(type),
-    );
-    apiUrl += `&employment_types=${filteredTypes.join("%2C")}`;
-  }
-
-  // Check for "remote" keyword
-  if (filters.includes("remote")) {
-    apiUrl += "&remote_jobs_only=true";
-  }
-
-  // Check for job requirements
-  const jobRequirements = [
-    "under_3_years_experience",
-    "more_than_3_years_experience",
-    "no_experience",
-    "no_degree",
-  ];
-  if (filters.some((requirements) => jobRequirements.includes(requirements))) {
-    const filteredRequirements = filters.filter((requirements) =>
-      jobRequirements.includes(requirements),
-    );
-    apiUrl += `&job_requirements=${filteredRequirements.join("%2C")}`;
-  }
-
-  // Check for date posted
-  const datePostedOptions = ["all", "today", "3days", "week", "month"];
-  if (filters.some((dateOptions) => datePostedOptions.includes(dateOptions))) {
-    if (filters.includes("all")) {
-      apiUrl += `&date_posted=all`;
-    } else if (filters.includes("month")) {
-      apiUrl += `&date_posted=month`;
-    } else if (filters.includes("week")) {
-      apiUrl += `&date_posted=week`;
-    } else if (filters.includes("3days")) {
-      apiUrl += `&date_posted=3days`;
-    } else if (filters.includes("today")) {
-      apiUrl += `&date_posted=today`;
-    }
-  }
-
-  const res = await fetch(apiUrl, { headers: requestHeaders });
-
-  if (!res.ok) {
-    throw new Error("Failed to search for filtered jobs or initial jobs");
-  }
-
-  return res.json();
-}
-
-export async function findJobsOnJobSearchPage(
-  query: string = "",
-  searchQuery: string,
-  employmentType: string = "",
-  pageNumber: number = 1,
-) {
-  const numPages = 1;
-  const encodedString = encodeURIComponent(searchQuery);
-
-  let apiUrl = query
-    ? `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${pageNumber}&num_pages=${numPages}`
-    : `https://jsearch.p.rapidapi.com/search?query=${encodedString}&page=${pageNumber}&num_pages=${numPages}&employment_types=${employmentType}`;
-
-  const filters = query.split(",");
-
-  // Check for employment types
-  const employmentTypes = ["FULLTIME", "PARTTIME", "CONTRACTOR", "INTERN"];
-  if (filters.some((type) => employmentTypes.includes(type))) {
-    const filteredTypes = filters.filter((type) =>
-      employmentTypes.includes(type),
-    );
-    apiUrl += `&employment_types=${filteredTypes.join("%2C")}`;
-  }
-
-  // Check for "remote" keyword
-  if (filters.includes("remote")) {
-    apiUrl += "&remote_jobs_only=true";
-  }
-
-  // Check for job requirements
-  const jobRequirements = [
-    "under_3_years_experience",
-    "more_than_3_years_experience",
-    "no_experience",
-    "no_degree",
-  ];
-  if (filters.some((requirements) => jobRequirements.includes(requirements))) {
-    const filteredRequirements = filters.filter((requirements) =>
-      jobRequirements.includes(requirements),
-    );
-    apiUrl += `&job_requirements=${filteredRequirements.join("%2C")}`;
-  }
-
-  // Check for date posted
-  const datePostedOptions = ["all", "today", "3days", "week", "month"];
-  if (filters.some((dateOptions) => datePostedOptions.includes(dateOptions))) {
-    if (filters.includes("all")) {
-      apiUrl += `&date_posted=all`;
-    } else if (filters.includes("month")) {
-      apiUrl += `&date_posted=month`;
-    } else if (filters.includes("week")) {
-      apiUrl += `&date_posted=week`;
-    } else if (filters.includes("3days")) {
-      apiUrl += `&date_posted=3days`;
-    } else if (filters.includes("today")) {
-      apiUrl += `&date_posted=today`;
-    }
-  }
-  const res = await fetch(apiUrl, { headers: requestHeaders });
-
-  if (!res.ok) {
-    throw new Error("Failed to find jobs");
   }
 
   return res.json();

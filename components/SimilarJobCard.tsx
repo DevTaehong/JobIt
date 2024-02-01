@@ -13,29 +13,30 @@ const SimilarJobs = async ({ job }: { job: JobResult }) => {
   const { job_title: title, job_job_title: jTitle } = job;
   const jobTitle = title || jTitle;
 
-  const data = await getSimilarJobs(jobTitle, locationCookie);
+  const similarJobs = await getSimilarJobs(jobTitle, locationCookie);
 
-  const filteredData: JobResult[] =
-    data?.data &&
-    data?.data.filter((d: JobResult) => d?.job_id !== job?.job_id);
+  const filteredJobs: JobResult[] =
+    similarJobs?.data &&
+    similarJobs?.data.filter((d: JobResult) => d?.job_id !== job?.job_id);
 
   return (
     <>
-      {filteredData && filteredData.length > 0 ? (
+      {filteredJobs && filteredJobs.length > 0 ? (
         <div className="flex w-full flex-col sm:mt-8 xl:max-w-sm">
           <p className="body-l-bold dark:text-white">Similar Jobs</p>
           <div className="mt-6 flex w-full flex-col gap-4">
-            {filteredData?.map((listedJob: JobResult) => (
+            {filteredJobs?.map((listedJob) => (
               <article
                 key={listedJob?.job_id}
                 className="flex flex-col gap-6 rounded-[0.625rem] bg-white p-4 dark:bg-DarkBG2"
               >
                 <div className="flex">
                   <div className="flex gap-2">
-                    <div className="relative inline-flex h-[48px] w-[48px] shrink-0">
+                    <div className="relative inline-flex size-[48px] shrink-0">
                       <CompanyLogo
                         companyName={listedJob?.employer_name}
                         companyLogo={listedJob?.employer_logo}
+                        jobId={listedJob?.job_id}
                       />
                     </div>
                     <div>
@@ -88,9 +89,7 @@ const SimilarJobs = async ({ job }: { job: JobResult }) => {
           </div>
         </div>
       ) : (
-        <div className="body-l-bold w-fit dark:text-white sm:mt-8">
-          No Related jobs
-        </div>
+        ""
       )}
     </>
   );

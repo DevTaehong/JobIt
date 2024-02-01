@@ -22,12 +22,18 @@ import {
   setRadius,
 } from "@/redux/feature/salariesInputs/salariesInputsSlice";
 
+interface SalariesInputsState {
+  salariesInputs: {
+    location: string;
+    jobTitle: string;
+    radius: string;
+  };
+}
+
 const formSchema = z.object({
   jobTitle: z
     .string()
     .trim()
-    .regex(/^[A-Za-z0-9 ]+$/, { message: "Invalid job title." })
-    .nonempty({ message: "Job title is required." })
     .max(50, { message: "Job title must be fewer characters long than 50." })
     .min(1, { message: "Job title must be at least 1 character." }),
   location: z
@@ -46,9 +52,15 @@ const formSchema = z.object({
 });
 
 const SalariesInputs = () => {
-  const location = useAppSelector((state) => state.salariesInputs.location);
-  const jobTitle = useAppSelector((state) => state.salariesInputs.jobTitle);
-  const radius = useAppSelector((state) => state.salariesInputs.radius);
+  const location = useAppSelector(
+    (state: SalariesInputsState) => state.salariesInputs.location,
+  );
+  const jobTitle = useAppSelector(
+    (state: SalariesInputsState) => state.salariesInputs.jobTitle,
+  );
+  const radius = useAppSelector(
+    (state: SalariesInputsState) => state.salariesInputs.radius,
+  );
   const dispatch = useAppDispatch();
   const router = useRouter();
 

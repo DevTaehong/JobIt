@@ -7,13 +7,12 @@ import SimilarJobs from "@/components/SimilarJobCard";
 
 const JobDetails = async ({ params }: { params: { id: string } }) => {
   const currentDate = moment().format("dddd, D MMM YYYY");
-  const jobDetailsData = getJobDetails(params.id);
-  const [jobDetails] = await Promise.all([jobDetailsData]);
+  const jobDetails = await getJobDetails(params.id);
 
   return (
     <div className="mx-auto max-w-[1440px] px-6 pb-8 pt-[50px] xl:px-20">
       <h1 className="md:bold-32 bold-22 mb-1 text-Black dark:text-white sm:mb-3">
-        Let’s find your dream job
+        {`Let's find your dream job`}
       </h1>
       <h2 className="mb-[30px] text-base font-medium leading-6 text-Natural6 sm:text-[20px] sm:leading-8">
         {currentDate}
@@ -22,7 +21,7 @@ const JobDetails = async ({ params }: { params: { id: string } }) => {
       <main className="w-full">
         <section>
           {jobDetails?.data &&
-            jobDetails?.data?.map((job: JobResult) => (
+            jobDetails?.data?.map((job) => (
               <div
                 key={job?.job_id}
                 className="flex w-full gap-6 max-xl:flex-col"

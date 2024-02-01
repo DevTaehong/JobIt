@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PiGraduationCap } from "react-icons/pi";
 
 import briefcase from "@/public/iconography/outline-briefcase.svg";
 import clock from "@/public/iconography/outline-clock.svg";
-import eduIcon from "@/public/iconography/eduIcon.svg";
 import { FormatSalaryRange } from "./FormatSalaryRage";
 import ImageErrorFallback from "./ImageErrorFallback";
 
@@ -62,10 +62,10 @@ const JobCard = (props: Props) => {
     <div className="flex flex-col gap-7 rounded-[10px] bg-white p-5 shadow-1 dark:bg-DarkBG2">
       <div className="flex rounded">
         <Link
-          href={`/company-details/${props?.companyName}`}
-          className="relative flex h-16 w-full max-w-[64px] items-center justify-center 
-              overflow-hidden rounded-xl border-[3px] border-[#FAFAFB] bg-[#F1F1F2] 
-              dark:border-DarkBG4 dark:bg-transparent max-sm:h-14 max-sm:w-14"
+          href={`/company-details/${props?.jobId}`}
+          className="relative flex h-16 w-full max-w-[64px] shrink-0 items-center 
+              justify-center overflow-hidden rounded-xl border-[3px] border-[#FAFAFB] 
+              bg-[#F1F1F2] dark:border-DarkBG4 dark:bg-White max-sm:size-14"
         >
           <ImageErrorFallback src={props?.companyLogo} />
         </Link>
@@ -99,13 +99,7 @@ const JobCard = (props: Props) => {
           <p className="capitalize">{props?.employmentType.toLowerCase()}</p>
         </div>
         <div className="flex items-center justify-center gap-x-2 rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:text-sm sm:leading-[1.375rem]">
-          <Image
-            className="opacity-50"
-            width={18}
-            height={18}
-            src={eduIcon}
-            alt="eduIcon"
-          />
+          <PiGraduationCap className="size-[1.125rem]" />
           {educationNeeded ? "Required" : "Not Required"}
         </div>
         <div className="flex items-center justify-center gap-x-2 rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:text-sm sm:leading-[1.375rem]">
