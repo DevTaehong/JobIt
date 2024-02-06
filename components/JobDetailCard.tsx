@@ -104,7 +104,9 @@ const JobDetailCard = async ({ job }: { job: JobResult }) => {
                   >
                     {job.employer_name}
                   </Link>
-                  <span className="max-sm:hidden">{" \u2022"} </span>
+                  {(job.job_city || job.job_country) && (
+                    <span className="max-sm:hidden">{" \u2022"}</span>
+                  )}
                 </p>
                 <div className="flex gap-1">
                   <div>
