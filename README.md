@@ -1,28 +1,20 @@
-# JobIt
-![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
-[![website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://jobit-one.vercel.app/)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+# Jobit
 
-![demo](https://i.ibb.co/92kyj7N/Thumb.png)
+<img width="1322" alt="Screenshot 2024-02-09 at 6 37 05 PM" src="https://github.com/DevTaehong/JobIt/assets/71358207/ff6505d0-ecd2-46f2-955b-d9dae6dc4580">
+
+![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
+[![website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://github.com/DevTaehong/Hipnode)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## 🌐 Demo
 Here is a working live demo: https://jobit-one.vercel.app/
 
+
 ## 📝 Description
-Welcome to my project! Here, I'll provide you with a brief overview of what inspired me to create it, why it solves a problem, and what I've learned throughout its development.
-- Motivation: I was motivated to build this project to address a specific issue and to enhance my coding skills.
-- Why I Built This Project: My main goal was to create a practical and user-friendly solution to a real-world problem.
-- Problem Solved: This project aims to simplify a particular task, making it more efficient and accessible.
-- What I Learned: Throughout the development process, I gained valuable insights into various technologies and programming concepts.
+JobIt provides detailed information about job listings, including company details, job requirements, and responsibilities. Moreover, users can explore job openings from specific companies and other similar companies based on their search criteria.
+The application also has a salary estimate feature, enabling users to view an estimated salary range for job postings. User convenience has also been considered, with the option to switch between light and dark themes.
 
 
-## 📖 Table of Contents (Optional)
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
 
 ## 🛠️ Setup Project
 To get this project up and running in your development environment, follow these step-by-step instructions.
@@ -32,51 +24,17 @@ To get this project up and running in your development environment, follow these
 We need to install or make sure that these tools are pre-installed on your machine:
 
 - [NodeJS](https://nodejs.org/en/download/): It is a JavaScript runtime build. 
-- [Git](https://git-scm.com/downloads): It is an open source version control system. 
-- [Medusa CLI](https://docs.medusajs.com/quickstart/quick-start): It will be used while running the medusa server on the local machine.
-- [Discord Webhook](https://www.youtube.com/watch?v=fKksxz2Gdnc): Setup a webhook integration on your discord server.
-- [Redis](https://docs.medusajs.com/tutorial/set-up-your-development-environment): Redis is an in-memory data structure store and message broker.
+- [Git](https://git-scm.com/downloads): It is an open-source version control system. 
 
 ## ✨ Features
 
-If your project has a lot of features, list them here.
-
-### 🚀 Install Project
-
-1. Clone the Repository
-
-```bash
-git clone https://github.com/surajondev/medusa-discord-integration.git
-```
-
-2. Install packages in the `/backend/` and `/storefront/` directory
-
-```
-npm install
-```
-
-3. In the `/backend` create a `.env` file add the discord webhook URL
-
-```bash
-DISCORD_WEBHOOK_URL="WEBHOOK URL"
-```
-
-4. Run the server, storefront and the redis server.
-
-For server from `/backend/`:
-```bash
-npm run start
-```
-
-For storefront from `/storefront/`
-```bash
-npm run dev
-```
-
-For Redis:
-```bash
-sudo service redis-server start
-```
+1. Home - Display the latest job posts, including jobs from top/featured companies.
+2. Explore - Users can search for jobs based on location, employment type, level, and salary range
+3. Job Details - Users can see detailed information about a job, such as company info, requirements, and responsibilities. Add a similar jobs stack based on the job search.
+4. Company- Show job openings of a particular company, including similar companies listed based on the searched company.
+5. Geolocation - Geolocation API to show job results and salary estimations based on the user's location
+6. Salary Estimates - A form that will take input from users and show the estimated salary for that role
+7. Theme - Dark and light mode
 
 ## 🔍 Usage
 
@@ -86,10 +44,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/username/projectname
+$ git clone https://github.com/DevTaehong/Jobit.git
 
 # Go into the repository
-$ cd projectname
+$ cd Jobit
 
 # Install dependencies
 $ npm install
@@ -116,64 +74,37 @@ To fix a bug or enhance an existing module, follow these steps:
 
 ### 📩 Bug / Feature Request
 
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/username/projectname/issues/new) by including your search query and the expected result.
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/devtaehong/hipnode/issues/new) by including your search query and the expected result.
 
-If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/username/projectname/issues/new). Please include sample queries and their corresponding results.
-
-## ✅ To-do
-- [ ] Enable users to save jobs to their favorites list.
-- [x] Allow users to apply to a job directly from the app.
-- [ ] Provide a simple and intuitive user interface for easy navigation.
-- [ ] Allow users to filter jobs based on job title, location, or company.
+If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/devtaehong/hipnode/issues/new). Please include sample queries and their corresponding results.
 
 ## 🔒 ENV file
-Environment variables[^2] can be used for configuration. They must be set before
-`job init` is called.
-- `JOB_API`
-  - Specifies the directory in which the database is stored.
-- This is provided as a list of [globs][glob], separated by OS-specific
-    characters:
-    | OS                  | Separator | Example                 |
-    | ------------------- | --------- | ----------------------- |
-    | Linux / macOS / BSD | `:`       | `$HOME:$HOME/private/*` |
-    | Windows             | `;`       | `$HOME;$HOME/private/*` |
-- By default, this is set to `"$HOME"`.
+ ```
+   # Clerk Authentication
+   X_RAPID_API_KEY=<x_rapid_api_key>
+   
+   # Clerk URLs
+   COMPANIES_API_KEY=<companies_api_key>
+   
+   # Direct URL and Database URL
+   NEXT_PUBLIC_GEOCODE_API_KEY=<next_public_geocode_api_key>
+   ```
 
 ## 📜 Credits
-List your collaborators, if any, with links to their GitHub profiles.
 
-I'd like to acknowledge my collaborators, who contributed to the success of this project. Below are links to their GitHub profiles.
+👦 Austin Margarone <br>
+Email: austin@fcvt.dev <br>
+GitHub: @austinmargarone
 
-Furthermore, I utilized certain third-party assets that require attribution. Find the creators' links in this section.
+👦 Kamsiyonna <br>
+Email: obikamsi@gmail.com <br>
+GitHub: @KamsiyonnaObi
 
-If I followed tutorials during development, I'd include the links to those as well.
-
-👩 Jane Doe <br>
-Email: jane.doe@example.com <br>
-GitHub: @janedoe
-
-👦 John Smith <br>
-Email: john.smith@example.com <br>
-GitHub: @johnsmith
-
-👩 Emily Johnson <br>
-Email: emily.johnson@example.com <br>
-GitHub: @emilyjohnson
-
-👦 Michael Brown  <br>
-Email: michael.brown@example.com <br>
-GitHub: @michaelbrown
+👦 Markus <br>
+Email: williams.markus18@yahoo.com <br>
+GitHub: @Marko9543
 
 
-## 📚 References
-Jonathan Lee, 'Notes on Naive Bayes Classifiers for Spam Filtering'. [Online].
+## 📞 Contact Me
 
-## 📞 Contact Us
-
-[![Follow us on twitter](https://img.shields.io/twitter/follow/jsmasterypro.svg?style=social)](https://twitter.com/intent/follow?screen_name=jsmasterypro) 
-[![Follow us on LinkedIn](https://img.shields.io/badge/LinkedIn-javascriptmastery-blue?style=flat&logo=linkedin&logoColor=b0c0c0&labelColor=363D44)](https://www.linkedin.com/company/javascriptmastery)
-[![Follow us on Instagram](https://img.shields.io/badge/Instagram-javascriptmastery-grey?style=flat&logo=instagram&logoColor=b0c0c0&labelColor=8134af)](https://www.instagram.com/javascriptmastery)
-
-## 📋 License
-
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to https://choosealicense.com/.
+[![Follow us on LinkedIn](https://img.shields.io/badge/LinkedIn-taehong-blue?style=flat&logo=linkedin&logoColor=b0c0c0&labelColor=363D44)](https://www.linkedin.com/in/taehong/)
