@@ -33,7 +33,7 @@ const FeaturedCompany = ({
             alt={`icon displaying the location of ${companyName}, in ${city},${country}`}
           />
           <span className="regular-14 text-Natural6">
-            {city}, {country}
+            {city && country ? `${city}, ${country}` : city || country}
           </span>
         </div>
       </div>
