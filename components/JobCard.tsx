@@ -34,16 +34,16 @@ type Props = {
 };
 
 const JobCard = (props: Props) => {
-  function calculateDaysLeft(expirationTimestamp: number): string {
+  function calculateDaysLeft(expirationTimestamp: number | null) {
     const currentTimestamp = Math.floor(Date.now() / 1000); // Current timestamp in seconds
     const secondsInADay = 86400; // 24 * 60 * 60 seconds
 
+    if (!expirationTimestamp) {
+      return null;
+    }
+
     const timeDifference = expirationTimestamp - currentTimestamp;
     const daysLeft = Math.ceil(timeDifference / secondsInADay);
-
-    if (daysLeft < 0) {
-      return "Expired"; // Job offer has already expired
-    }
 
     return `${daysLeft} day${daysLeft !== 1 ? "s" : ""} left`;
   }
@@ -57,7 +57,6 @@ const JobCard = (props: Props) => {
 
   const daysLeft = calculateDaysLeft(props?.expirationDate);
   const educationNeeded = educationRequired(props?.educationObj);
-
   return (
     <div className="flex flex-col gap-7 rounded-[10px] bg-white p-5 shadow-1 dark:bg-DarkBG2">
       <div className="flex rounded">
@@ -102,10 +101,12 @@ const JobCard = (props: Props) => {
           <PiGraduationCap className="size-[1.125rem]" />
           {educationNeeded ? "Required" : "Not Required"}
         </div>
-        <div className="flex items-center justify-center gap-x-2 rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:text-sm sm:leading-[1.375rem]">
-          <Image width={18} height={18} src={clock} alt="clock_icon" />
-          <p className="line-clamp-1">{daysLeft}</p>
-        </div>
+        {daysLeft && (
+          <div className="flex items-center justify-center gap-x-2 rounded bg-Natural3 px-1 py-[6px] text-[13px] text-Natural6 dark:bg-DarkBG3 sm:px-[10px] sm:text-sm sm:leading-[1.375rem]">
+            <Image width={18} height={18} src={clock} alt="clock_icon" />
+            <p className="line-clamp-1">{daysLeft}</p>
+          </div>
+        )}
       </div>
 
       {/* Conditionally render salaries */}
