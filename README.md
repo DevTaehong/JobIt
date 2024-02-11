@@ -9,6 +9,7 @@
 ## 🌐 Demo
 Here is a working live demo: https://jobit-one.vercel.app/
 
+https://www.loom.com/share/503567170229406f9ea3a7bf72aa902b?sid=2cb84fa3-2d24-4490-bedd-8931ed1d2b6a
 
 ## 📝 Description
 JobIt provides detailed information about job listings, including company details, job requirements, and responsibilities. Moreover, users can explore job openings from specific companies and other similar companies based on their search criteria.
