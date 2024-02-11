@@ -15,11 +15,10 @@ const SimilarCompanies = ({
   logo,
   jobId,
 }: SimilarCompaniesProps) => (
-  <div className="h-[5.625rem] rounded-[0.625rem] bg-white p-[1.25rem] shadow-[0_6px_14px_0_rgba(23,23,37,0.02)] dark:bg-DarkBG2">
+  <div className="rounded-[0.625rem] bg-white p-[1.25rem] shadow-[0_6px_14px_0_rgba(23,23,37,0.02)] dark:bg-DarkBG2">
     <div className="flex w-full flex-row items-center justify-between gap-[0.69rem]">
       <div className="flex items-center gap-[0.62rem] lg:gap-[0.9375rem]">
         <ImageErrorFallback src={logo} card={"similarCompany"} />
-
         <div className="flex flex-col items-start justify-between">
           <p className="line-clamp-1 flex-initial text-[1rem] font-medium not-italic leading-6 text-black dark:text-White lg:text-[1.125rem] lg:font-semibold">
             {companyName}
