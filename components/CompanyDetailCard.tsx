@@ -57,7 +57,7 @@ const CompanyDetailCard = ({
               <Link
                 href={companyLink}
                 target="_blank"
-                className="text-[0.875rem] font-semibold not-italic leading-6"
+                className="hover-effect text-[0.875rem] font-semibold not-italic leading-6"
               >
                 Company Website
               </Link>
