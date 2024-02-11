@@ -40,7 +40,9 @@ const SimilarJobs = async ({ job }: { job: JobResult }) => {
                       />
                     </div>
                     <div>
-                      <h3 className="bold-16 dark:text-white">{jobTitle}</h3>
+                      <h3 className="bold-16 line-clamp-1 dark:text-white">
+                        {jobTitle}
+                      </h3>
                       <p className="regular-14 text-Natural6">
                         {formatLocation(
                           listedJob?.job_city,
